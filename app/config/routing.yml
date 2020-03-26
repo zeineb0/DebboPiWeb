@@ -1,6 +1,18 @@
-entrepot_categories:
-    resource: "@EntrepotBundle/Controller/CategoriesController.php"
+stock_mouvement_du_stock:
+    resource: "@StockBundle/Controller/MouvementDuStockController.php"
     type:     annotation
+
+stock_produit:
+    resource: "@StockBundle/Controller/ProduitController.php"
+    type:     annotation
+
+stock_categories:
+    resource: "@StockBundle/Controller/CategoriesController.php"
+    type:     annotation
+
+stock:
+    resource: "@StockBundle/Resources/config/routing.yml"
+    prefix:   /Stock
 
 entrepot:
     resource: "@EntrepotBundle/Resources/config/routing.yml"

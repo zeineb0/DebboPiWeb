@@ -1,12 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+{% block content %}
     <h1>Categories list</h1>
 
     <table>
         <thead>
             <tr>
-                <th>Idcategorie</th>
                 <th>Nom</th>
                 <th>Actions</th>
             </tr>
@@ -14,7 +13,7 @@
         <tbody>
         {% for category in categories %}
             <tr>
-                <td><a href="{{ path('categories_show', { 'idCategorie': category.idCategorie }) }}">{{ category.idCategorie }}</a></td>
+                <td><a href="{{ path('categories_show', { 'idCategorie': category.idCategorie }) }}"></a></td>
                 <td>{{ category.nom }}</td>
                 <td>
                     <ul>

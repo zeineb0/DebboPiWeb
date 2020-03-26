@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Mouvementdustock</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idmouv</th>
+                <td>{{ mouvementDuStock.idMouv }}</td>
+            </tr>
+            <tr>
+                <th>Naturemouvement</th>
+                <td>{{ mouvementDuStock.natureMouvement }}</td>
+            </tr>
+            <tr>
+                <th>Datemouv</th>
+                <td>{{ mouvementDuStock.dateMouv }}</td>
+            </tr>
+            <tr>
+                <th>Annee</th>
+                <td>{{ mouvementDuStock.annee }}</td>
+            </tr>
+            <tr>
+                <th>Nombreprod</th>
+                <td>{{ mouvementDuStock.nombreprod }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('mouvementdustock_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('mouvementdustock_edit', { 'idMouv': mouvementDuStock.idMouv }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

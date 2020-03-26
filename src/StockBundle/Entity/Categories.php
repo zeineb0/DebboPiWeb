@@ -1,6 +1,6 @@
 <?php
 
-namespace EntrepotBundle\Entity;
+namespace StockBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Categories
  *
  * @ORM\Table(name="categories")
- * @ORM\Entity(repositoryClass="EntrepotBundle\Repository\CategoriesRepository")
+ * @ORM\Entity(repositoryClass="StockBundle\Repository\CategoriesRepository")
  */
 class Categories
 {
@@ -29,14 +29,8 @@ class Categories
      */
     private $nom;
 
-    /**
-     * Categories constructor.
-     * @param string $nom
-     */
-    public function __construct($nom)
-    {
-        $this->nom = $nom;
-    }
+
+
 
     /**
      * @return int

@@ -1,6 +1,6 @@
 <?php
 
-namespace EntrepotBundle\Entity;
+namespace StockBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * MouvementDuStock
  *
  * @ORM\Table(name="mouvement_du_stock", indexes={@ORM\Index(name="Mouvement_du_stock_Entrepot", columns={"FK_id_entrepot"}), @ORM\Index(name="Mouvement_du_stock_Produit", columns={"FK_id_produit"})})
- * @ORM\Entity(repositoryClass="EntrepotBundle\Repository\MouvementDuStockRepository")
+ * @ORM\Entity(repositoryClass="StockBundle\Repository\MouvementDuStockRepository")
  */
 class MouvementDuStock
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace EntrepotBundle\Tests\Controller;
+namespace StockBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class CategoriesControllerTest extends WebTestCase
+class MouvementDuStockControllerTest extends WebTestCase
 {
     /*
     public function testCompleteScenario()
@@ -13,13 +13,13 @@ class CategoriesControllerTest extends WebTestCase
         $client = static::createClient();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/categories/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /categories/");
+        $crawler = $client->request('GET', '/mouvementdustock/');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /mouvementdustock/");
         $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'entrepotbundle_categories[field_name]'  => 'Test',
+            'stockbundle_mouvementdustock[field_name]'  => 'Test',
             // ... other fields to fill
         ));
 
@@ -33,7 +33,7 @@ class CategoriesControllerTest extends WebTestCase
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
-            'entrepotbundle_categories[field_name]'  => 'Foo',
+            'stockbundle_mouvementdustock[field_name]'  => 'Foo',
             // ... other fields to fill
         ));
 

@@ -1,11 +1,12 @@
 <?php
 
-namespace EntrepotBundle\Controller;
+namespace StockBundle\Controller;
 
-use EntrepotBundle\Entity\Categories;
+use StockBundle\Entity\Categories;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Category controller.
@@ -20,13 +21,20 @@ class CategoriesController extends Controller
      * @Route("/", name="categories_index")
      * @Method("GET")
      */
+
+    public function readAction()
+    {
+        return new Response( "bonjouur");
+    }
+
+
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $categories = $em->getRepository('EntrepotBundle:Categories')->findAll();
+        $categories = $em->getRepository('StockBundle:Categories')->findAll();
 
-        return $this->render('categories/index.html.twig', array(
+        return $this->render('@Stock/categories/index.html.twig', array(
             'categories' => $categories,
         ));
     }
@@ -39,20 +47,20 @@ class CategoriesController extends Controller
      */
     public function newAction(Request $request)
     {
-        $category = new Category();
-        $form = $this->createForm('EntrepotBundle\Form\CategoriesType', $category);
+        $categories = new Categories();
+        $form = $this->createForm('StockBundle\Form\CategoriesType', $categories);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($category);
+            $em->persist($categories);
             $em->flush();
 
-            return $this->redirectToRoute('categories_show', array('idCategorie' => $category->getIdcategorie()));
+            return $this->redirectToRoute('categories_show', array('idCategorie' => $categories->getIdcategorie()));
         }
 
-        return $this->render('categories/new.html.twig', array(
-            'category' => $category,
+        return $this->render('@Stock/categories/new.html.twig', array(
+            'categories' => $categories,
             'form' => $form->createView(),
         ));
     }
@@ -63,12 +71,12 @@ class CategoriesController extends Controller
      * @Route("/{idCategorie}", name="categories_show")
      * @Method("GET")
      */
-    public function showAction(Categories $category)
+    public function showAction(Categories $categories)
     {
-        $deleteForm = $this->createDeleteForm($category);
+        $deleteForm = $this->createDeleteForm($categories);
 
-        return $this->render('categories/show.html.twig', array(
-            'category' => $category,
+        return $this->render('@Stock/categories/show.html.twig', array(
+            'category' => $categories,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -82,7 +90,7 @@ class CategoriesController extends Controller
     public function editAction(Request $request, Categories $category)
     {
         $deleteForm = $this->createDeleteForm($category);
-        $editForm = $this->createForm('EntrepotBundle\Form\CategoriesType', $category);
+        $editForm = $this->createForm('StockBundle\Form\CategoriesType', $category);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
