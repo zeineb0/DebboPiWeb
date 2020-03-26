@@ -60,20 +60,6 @@ class Commande
      */
     private $idClient;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Produit", inversedBy="idCommande")
-     * @ORM\JoinTable(name="produit_commande",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="id_commande", referencedColumnName="id_commande")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="id_produit", referencedColumnName="id_produit")
-     *   }
-     * )
-     */
-    private $idProduit;
 
 
 

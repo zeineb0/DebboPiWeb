@@ -116,28 +116,5 @@ class Utilisateur
      */
     private $fkProduit;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Entrepot", inversedBy="fkUser")
-     * @ORM\JoinTable(name="contrat",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="FK_id_user", referencedColumnName="id_user")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="FK_id_entrepot", referencedColumnName="id_entrepot")
-     *   }
-     * )
-     */
-    private $fkEntrepot;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->fkEntrepot = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
 }
 
