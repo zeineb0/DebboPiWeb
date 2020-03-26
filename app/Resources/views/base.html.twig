@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DeBBo a Ecommerce Online Shopping</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta property="og:title" content="Vide" />
+    <meta name="keywords" content="Big store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link href= "{{ asset ('css/bootstrap.css') }}" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <link href= " {{ asset ('css/style.css') }}" rel='stylesheet' type='text/css' />
+    <!-- js -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <!-- //js -->
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event){
+                event.preventDefault();
+                $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+    <link href="{{ asset ('css/font-awesome.css') }}" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+    <!--- start-rate---->
+    <script src="js/jstarbox.js"></script>
+    <link rel="stylesheet" href="{{ asset ('css/jstarbox.css') }}" type="text/css" media="screen" charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <script type="text/javascript">
+        jQuery(function() {
+            jQuery('.starbox').each(function() {
+                var starbox = jQuery(this);
+                starbox.starbox({
+                    average: starbox.attr('data-start-value'),
+                    changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass('clickonce') ? 'once' : true,
+                    ghosting: starbox.hasClass('ghosting'),
+                    autoUpdateAverage: starbox.hasClass('autoupdate'),
+                    buttons: starbox.hasClass('smooth') ? false : starbox.attr('data-button-count') || 5,
+                    stars: starbox.attr('data-star-count') || 5
+                }).bind('starbox-value-changed', function(event, value) {
+                    if(starbox.hasClass('random')) {
+                        var val = Math.random();
+                        starbox.next().text(' '+val);
+                        return val;
+                    }
+                })
+            });
+        });
+    </script>
+    <!---//End-rate---->
+
+</head>
+{% block header %}
+    <div class="header">
+
+        <div class="container">
+
+            <div class="logo">
+                <h1> <a href=""><img src="images/debo.jpg" alt="" title="" />DeBBo.<span>Le meilleur entrepôt</span></a></h1>
+            </div>
+            <div class="head-t">
+                <ul class="card">
+                    <li><a href="{{ asset('wishlist.html') }}" ><i class="fa fa-heart" aria-hidden="true"></i>Favoris</a></li>
+                    <li><a href="{{ asset('login.html') }}" ><i class="fa fa-user" aria-hidden="true"></i>Se connecter</a></li>
+                    <li><a href="{{ asset('register.html') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>S'enregistrer</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-top">
+                <nav class="navbar navbar-default">
+
+                    <div class="navbar-header nav_2">
+                        <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                        <ul class="nav navbar-nav ">
+                            <li class=" active"><a href="{{ asset('index.html') }}" class="hyper "><span>Accueil</span></a></li>
+
+                            <li class="dropdown ">
+                                <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Entrepot<b class="caret"></b></span></a>
+                                <ul class="dropdown-menu multi">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <ul class="multi-column-dropdown">
+
+                                                <li><a href="{{ asset('kitchen.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Gestion Entrepot</a></li>
+                                                <li><a href="{{ asset('kitchen.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Gestion Location</a></li>
+
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-sm-3 w3l">
+                                            <a href="{{ asset('kitchen.html') }}"><img src="images/me.png" class="img-responsive" alt=""></a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+
+                                <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span> Stock <b class="caret"></b></span></a>
+                                <ul class="dropdown-menu multi multi1">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="{{ asset ('care.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i> Gestion du stock </a></li>
+                                                <li><a href="{{ asset ('care.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Mouvement du stock</a></li>
+
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-sm-3 w3l">
+                                            <a href="{{ asset ('care.html') }} "><img src="images/me1.png" class="img-responsive" alt=""></a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span>Transport<b class="caret"></b></span></a>
+                                <ul class="dropdown-menu multi multi2">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Cleaning Accessories</a></li>
+                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>CookWear</a></li>
+                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Detergents</a></li>
+                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Gardening Needs</a></li>
+
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-sm-3">
+
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Kitchen & Dining</a></li>
+                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>KitchenWear</a></li>
+                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Pet Care</a></li>
+                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Plastic Wear</a></li>
+
+                                            </ul>
+
+                                        </div>
+                                        <div class="col-sm-3">
+
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Pooja Needs</a></li>
+                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Serveware</a></li>
+                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Safety Accessories</a></li>
+                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Festive Decoratives </a></li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3 w3l">
+                                            <a href="{{ asset ('hold.html') }}"><img src="images/me2.png" class="img-responsive" alt=""></a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </ul>
+                            </li>
+
+                            <li><a href="{{ asset ('codes.html') }}" class="hyper"> <span>Livraison</span></a></li>
+                            <li><a href="{{ asset ('codes.html') }}" class="hyper"> <span>Commande</span></a></li>
+                            <li><a href="{{ asset ('codes.html') }}" class="hyper"> <span>Forum</span></a></li>
+
+                            <li><a href="{{ asset ('contact.html') }}" class="hyper"><span>Contact Us</span></a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="cart" >
+
+                    <span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+    </div>
+    <div data-vide-bg="video/video">
+        <div class="container">
+            <div class="banner-info">
+                <div class="search-form">
+                    <form action="#" method="post">
+                        <input type="text" placeholder="Recherche..." name="Search...">
+                        <input type="submit" value=" " >
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+    <script src="js/jquery.vide.min.js"></script>
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
+
+{% block footer %}
+    <div class="footer">
+
+        <div class="clearfix"></div>
+        <div class="footer-bottom">
+            <h2 ><a href="index.html">DeBBo.<span>Le meilleur entrepôt</span></a></h2>
+            <div class=" address">
+                <div class="col-md-4 fo-grid1">
+                    <p><i class="fa fa-home" aria-hidden="true"></i>ESPRIT EL GHAZELA</p>
+                </div>
+                <div class="col-md-4 fo-grid1">
+                    <p><i class="fa fa-phone" aria-hidden="true"></i>+216 22222222</p>
+                </div>
+                <div class="col-md-4 fo-grid1">
+                    <p><a href="{{ asset ('mailto:info@example.com') }}"><i class="fa fa-envelope-o" aria-hidden="true"></i>debbo@esprit.tn</a></p>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+        </div>
+        <div class="copy-right">
+            <p> &copy; 2016 Big store. All Rights Reserved | Design by  <a href="{{ asset ('http://w3layouts.com/') }}"> W3layouts</a></p>
+        </div>
+    </div>
+    </div>
+    <!-- //footer-->
+{% endblock %}
+{% block javascripts %}{% endblock %}

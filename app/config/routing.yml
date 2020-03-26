@@ -1,0 +1,11 @@
+entrepot_categories:
+    resource: "@EntrepotBundle/Controller/CategoriesController.php"
+    type:     annotation
+
+entrepot:
+    resource: "@EntrepotBundle/Resources/config/routing.yml"
+    prefix:   /Entrepot
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
