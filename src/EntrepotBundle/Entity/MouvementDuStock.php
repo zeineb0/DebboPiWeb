@@ -39,9 +39,9 @@ class MouvementDuStock
     /**
      * @var string
      *
-     * @ORM\Column(name="année", type="string", length=30, nullable=false)
+     * @ORM\Column(name="annee", type="string", length=30, nullable=false)
      */
-    private $ann�e;
+    private $annee;
 
     /**
      * @var integer
@@ -70,24 +70,7 @@ class MouvementDuStock
      */
     private $fkProduit;
 
-    /**
-     * MouvementDuStock constructor.
-     * @param string $natureMouvement
-     * @param string $dateMouv
-     * @param string $ann�e
-     * @param int $nombreprod
-     * @param \Entrepot $fkEntrepot
-     * @param \Produit $fkProduit
-     */
-    public function __construct($natureMouvement, $dateMouv, $ann�e, $nombreprod, \Entrepot $fkEntrepot, \Produit $fkProduit)
-    {
-        $this->natureMouvement = $natureMouvement;
-        $this->dateMouv = $dateMouv;
-        $this->ann�e = $ann�e;
-        $this->nombreprod = $nombreprod;
-        $this->fkEntrepot = $fkEntrepot;
-        $this->fkProduit = $fkProduit;
-    }
+
 
 
 }
