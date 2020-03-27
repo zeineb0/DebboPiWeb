@@ -1,6 +1,6 @@
 <?php
 
-namespace EntrepotBundle\Entity;
+namespace CommandeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

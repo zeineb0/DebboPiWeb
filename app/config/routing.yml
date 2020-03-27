@@ -1,3 +1,11 @@
+commande_commande:
+    resource: "@CommandeBundle/Controller/CommandeController.php"
+    type:     annotation
+
+commande:
+    resource: "@CommandeBundle/Resources/config/routing.yml"
+    prefix:   /Commande
+
 entrepot:
     resource: "@EntrepotBundle/Resources/config/routing.yml"
     prefix:   /Entrepot
