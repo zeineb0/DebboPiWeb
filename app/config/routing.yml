@@ -13,7 +13,6 @@ stock_categories:
 stock:
     resource: "@StockBundle/Resources/config/routing.yml"
     prefix:   /Stock
-
 entrepot:
     resource: "@EntrepotBundle/Resources/config/routing.yml"
     prefix:   /Entrepot
