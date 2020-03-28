@@ -5,7 +5,7 @@ stock_category:
     path:     /categories_index
     defaults: { _controller: StockBundle:Categories:index }
 category_show:
-    path:     /categories_show/{categories}
+    path:     /categories_show
     defaults: { _controller: StockBundle:Categories:show }
 category_show1:
     path:     /categories_new
@@ -13,3 +13,6 @@ category_show1:
 category_show2:
     path:     /categories_edit
     defaults: { _controller: StockBundle:Categories:edit }
+category_show21:
+    path:     /categories_delete
+    defaults: { _controller: StockBundle:Categories:delete }

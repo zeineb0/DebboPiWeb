@@ -120,7 +120,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <ul class="multi-column-dropdown">
-                                                <li><a href="{{ asset ('care.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i> Gestion du stock </a></li>
+                                                <li><a href="{{ path ('categories_index') }}"><i class="fa fa-angle-right" aria-hidden="true"></i> Gestion du stock </a></li>
                                                 <li><a href="{{ asset ('care.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Mouvement du stock</a></li>
 
                                             </ul>
@@ -177,7 +177,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </li>
 
                             <li><a href="{{ asset ('codes.html') }}" class="hyper"> <span>Livraison</span></a></li>
-                            <li><a href="{{ asset ('codes.html') }}" class="hyper"> <span>Commande</span></a></li>
+                            <li><a href="{{ path ('categories_index') }}" class="hyper"> <span>Commande</span></a></li>
                             <li><a href="{{ asset ('codes.html') }}" class="hyper"> <span>Forum</span></a></li>
 
                             <li><a href="{{ asset ('contact.html') }}" class="hyper"><span>Contact Us</span></a></li>
@@ -193,10 +193,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         </div>
     </div>
-
-{% endblock %}
-
-{% block content %}
     <div data-vide-bg="video/video">
         <div class="container">
             <div class="banner-info">
@@ -212,6 +208,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
     <script src="js/jquery.vide.min.js"></script>
 
+
+{% endblock %}
+
+{% block content %}
 
 {% endblock %}
 

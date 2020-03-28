@@ -21,13 +21,6 @@ class CategoriesController extends Controller
      * @Route("/", name="categories_index")
      * @Method("GET")
      */
-
-    public function readAction()
-    {
-        return new Response( "bonjouur");
-    }
-
-
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -87,20 +80,20 @@ class CategoriesController extends Controller
      * @Route("/{idCategorie}/edit", name="categories_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Categories $category)
+    public function editAction(Request $request, Categories $categories)
     {
-        $deleteForm = $this->createDeleteForm($category);
-        $editForm = $this->createForm('StockBundle\Form\CategoriesType', $category);
+        $deleteForm = $this->createDeleteForm($categories);
+        $editForm = $this->createForm('StockBundle\Form\CategoriesType', $categories);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('categories_edit', array('idCategorie' => $category->getIdcategorie()));
+            return $this->redirectToRoute('categories_edit', array('idCategorie' => $categories->getIdcategorie()));
         }
 
-        return $this->render('categories/edit.html.twig', array(
-            'category' => $category,
+        return $this->render('@Stock/categories/edit.html.twig', array(
+            'category' => $categories,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
@@ -112,14 +105,14 @@ class CategoriesController extends Controller
      * @Route("/{idCategorie}", name="categories_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, Categories $category)
+    public function deleteAction(Request $request, Categories $categories)
     {
-        $form = $this->createDeleteForm($category);
+        $form = $this->createDeleteForm($categories);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($category);
+            $em->remove($categories);
             $em->flush();
         }
 
@@ -129,14 +122,14 @@ class CategoriesController extends Controller
     /**
      * Creates a form to delete a category entity.
      *
-     * @param Categories $category The category entity
+     * @param Categories $categories The category entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Categories $category)
+    private function createDeleteForm(Categories $categories)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('categories_delete', array('idCategorie' => $category->getIdcategorie())))
+            ->setAction($this->generateUrl('categories_delete', array('idCategorie' => $categories->getIdcategorie())))
             ->setMethod('DELETE')
             ->getForm()
         ;
