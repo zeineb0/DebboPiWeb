@@ -50,8 +50,7 @@ class Contrat
      */
     private $FKiduser;
 
-
-    private $nom;
+    
 
 
 }
