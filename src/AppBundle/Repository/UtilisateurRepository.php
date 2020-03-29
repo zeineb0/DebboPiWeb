@@ -1,6 +1,6 @@
 <?php
 
-namespace EntrepotBundle\Repository;
+namespace AppBundle\Repository;
 
 /**
  * UtilisateurRepository
