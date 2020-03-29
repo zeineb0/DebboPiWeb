@@ -1,12 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+{% block content %}
     <h1>Produits list</h1>
 
     <table>
         <thead>
             <tr>
-                <th>Idproduit</th>
                 <th>Libelle</th>
                 <th>Reference</th>
                 <th>Marque</th>
@@ -28,9 +27,7 @@
                 <td>{{ produit.image }}</td>
                 <td>
                     <ul>
-                        <li>
-                            <a href="{{ path('produit_show', { 'idProduit': produit.idProduit }) }}">show</a>
-                        </li>
+
                         <li>
                             <a href="{{ path('produit_edit', { 'idProduit': produit.idProduit }) }}">edit</a>
                         </li>

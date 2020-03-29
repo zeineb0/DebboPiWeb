@@ -21,18 +21,13 @@ class ProduitController extends Controller
      * @Route("/", name="produit_index")
      * @Method("GET")
      */
-    public function readAction()
-    {
-        return new Response( "bonjouur");
-    }
-
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
         $produits = $em->getRepository('StockBundle:Produit')->findAll();
 
-        return $this->render('produit/index.html.twig', array(
+        return $this->render('@Stock/produit/index.html.twig', array(
             'produits' => $produits,
         ));
     }
@@ -57,7 +52,7 @@ class ProduitController extends Controller
             return $this->redirectToRoute('produit_show', array('idProduit' => $produit->getIdproduit()));
         }
 
-        return $this->render('produit/new.html.twig', array(
+        return $this->render('@Stock/produit/new.html.twig', array(
             'produit' => $produit,
             'form' => $form->createView(),
         ));
@@ -73,7 +68,7 @@ class ProduitController extends Controller
     {
         $deleteForm = $this->createDeleteForm($produit);
 
-        return $this->render('produit/show.html.twig', array(
+        return $this->render('@Stock/produit/show.html.twig', array(
             'produit' => $produit,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -97,7 +92,7 @@ class ProduitController extends Controller
             return $this->redirectToRoute('produit_edit', array('idProduit' => $produit->getIdproduit()));
         }
 
-        return $this->render('produit/edit.html.twig', array(
+        return $this->render('@Stock/produit/edit.html.twig', array(
             'produit' => $produit,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

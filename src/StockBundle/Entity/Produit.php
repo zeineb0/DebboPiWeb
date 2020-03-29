@@ -77,35 +77,12 @@ class Produit
     /**
      * @var \Entrepot
      *
-     * @ORM\ManyToOne(targetEntity="Entrepot")
+     * @ORM\ManyToOne(targetEntity="EntrepotBundle\Entity\Entrepot")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="FK_id_entrepot", referencedColumnName="id_entrepot")
      * })
      */
     private $fkEntrepot;
-
-    /**
-     * Produit constructor.
-     * @param string $libelle
-     * @param int $reference
-     * @param string $marque
-     * @param float $prix
-     * @param int $quantite
-     * @param string $image
-     * @param \Categories $fkCategorie
-     * @param \Entrepot $fkEntrepot
-     */
-    public function __construct($libelle, $reference, $marque, $prix, $quantite, $image, \Categories $fkCategorie, \Entrepot $fkEntrepot)
-    {
-        $this->libelle = $libelle;
-        $this->reference = $reference;
-        $this->marque = $marque;
-        $this->prix = $prix;
-        $this->quantite = $quantite;
-        $this->image = $image;
-        $this->fkCategorie = $fkCategorie;
-        $this->fkEntrepot = $fkEntrepot;
-    }
 
     /**
      * @return int

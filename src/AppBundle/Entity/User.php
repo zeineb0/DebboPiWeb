@@ -1,9 +1,9 @@
 <?php
 
-namespace EntrepotBundle\Entity;
+namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * Utilisateur
@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="utilisateur", indexes={@ORM\Index(name="fk_pd", columns={"FK_id_produit"})})
  * @ORM\Entity(repositoryClass="EntrepotBundle\Repository\UtilisateurRepository")
  */
-class Utilisateur
+class User extends BaseUser
 {
     /**
      * @var integer
@@ -81,20 +81,6 @@ class Utilisateur
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=100, nullable=false)
-     */
-    private $email;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=240, nullable=false)
-     */
-    private $password;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="disponniblite", type="string", length=20, nullable=false)
      */
     private $disponniblite;
@@ -109,12 +95,11 @@ class Utilisateur
     /**
      * @var \Produit
      *
-     * @ORM\ManyToOne(targetEntity="Produit")
+     * @ORM\ManyToOne(targetEntity="StockBundle\Entity\Produit")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="FK_id_produit", referencedColumnName="id_produit")
      * })
      */
     private $fkProduit;
-
 }
 

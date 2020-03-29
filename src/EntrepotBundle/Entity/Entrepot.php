@@ -60,19 +60,12 @@ class Entrepot
     /**
      * @var \Utilisateur
      *
-     * @ORM\ManyToOne(targetEntity="Utilisateur")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_user", referencedColumnName="id_user")
      * })
      */
     private $idUser;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Utilisateur", mappedBy="fkEntrepot")
-     */
-    private $fkUser;
 
 
 }

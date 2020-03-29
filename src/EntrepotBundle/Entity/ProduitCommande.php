@@ -31,7 +31,7 @@ class ProduitCommande
      * @var \Produit
      *
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Produit")
+     * @ORM\ManyToOne(targetEntity="StockBundle\Entity\Produit")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_produit", referencedColumnName="id_produit")
      * })

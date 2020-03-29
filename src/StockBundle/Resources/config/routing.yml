@@ -4,15 +4,30 @@ stock_homepage:
 stock_category:
     path:     /categories_index
     defaults: { _controller: StockBundle:Categories:index }
-category_show:
+category_sho:
     path:     /categories_show
     defaults: { _controller: StockBundle:Categories:show }
-category_show1:
+category_sho1:
     path:     /categories_new
     defaults: { _controller: StockBundle:Categories:new }
-category_show2:
+categor_show2:
     path:     /categories_edit
     defaults: { _controller: StockBundle:Categories:edit }
-category_show21:
+categoy_show21:
     path:     /categories_delete
     defaults: { _controller: StockBundle:Categories:delete }
+stock_homepag:
+    path:     /produit_index
+    defaults: { _controller: StockBundle:Produit:index }
+category_show:
+    path:     /produit_show
+    defaults: { _controller: StockBundle:Produit:show }
+category_show1:
+    path:     /produit_new
+    defaults: { _controller: StockBundle:Produit:new }
+category_show2:
+    path:     /produit_edit
+    defaults: { _controller: StockBundle:Produit:edit }
+category_show21:
+    path:     /produit_delete
+    defaults: { _controller: StockBundle:Produit:delete }

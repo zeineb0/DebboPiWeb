@@ -63,6 +63,11 @@ class Categories
     {
         $this->nom = $nom;
     }
-
-
+    /**
+     *
+     * @return string
+     */
+    public function __toString(){
+        return $this->nom;
+    }
 }
