@@ -26,7 +26,7 @@ class CommandeController extends Controller
 
         $commandes = $em->getRepository('CommandeBundle:Commande')->findAll();
 
-        return $this->render('commande/index.html.twig', array(
+        return $this->render('@Commande/commande/index.html.twig', array(
             'commandes' => $commandes,
         ));
     }
@@ -51,7 +51,7 @@ class CommandeController extends Controller
             return $this->redirectToRoute('commande_show', array('idCommande' => $commande->getIdcommande()));
         }
 
-        return $this->render('commande/new.html.twig', array(
+        return $this->render('@Commande/commande/new.html.twig', array(
             'commande' => $commande,
             'form' => $form->createView(),
         ));
@@ -67,7 +67,7 @@ class CommandeController extends Controller
     {
         $deleteForm = $this->createDeleteForm($commande);
 
-        return $this->render('commande/show.html.twig', array(
+        return $this->render('@Commande/commande/show.html.twig', array(
             'commande' => $commande,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -91,7 +91,7 @@ class CommandeController extends Controller
             return $this->redirectToRoute('commande_edit', array('idCommande' => $commande->getIdcommande()));
         }
 
-        return $this->render('commande/edit.html.twig', array(
+        return $this->render('@Commande/commande/edit.html.twig', array(
             'commande' => $commande,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

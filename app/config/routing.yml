@@ -1,3 +1,12 @@
+commande_produit_commande:
+    resource: "@CommandeBundle/Controller/ProduitCommandeController.php"
+    type:     annotation
+
+
+commande_panier:
+    resource: "@CommandeBundle/Controller/PanierController.php"
+    type:     annotation
+
 commande_commande:
     resource: "@CommandeBundle/Controller/CommandeController.php"
     type:     annotation
@@ -6,6 +15,14 @@ commande:
     resource: "@CommandeBundle/Resources/config/routing.yml"
     prefix:   /Commande
 
+produit_commande:
+    resource: "@CommandeBundle/Resources/config/routing.yml"
+    prefix:   /ProduitCommande
+
+panier:
+    resource: "@CommandeBundle/Resources/config/routing.yml"
+    prefix:   /Panier
+
 entrepot:
     resource: "@EntrepotBundle/Resources/config/routing.yml"
     prefix:   /Entrepot
@@ -13,3 +30,5 @@ entrepot:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+

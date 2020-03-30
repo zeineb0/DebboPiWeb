@@ -1,9 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Commandes list</h1>
 
-    <table>
+    <div class="banner-top">
+        <div class="container">
+            <h3 >Commande</h3>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <div  style="margin: 100px">
+        <div class="spec ">
+        <h3>list des commandes</h3>
+        <div class="ser-t">
+            <b></b>
+            <span><i></i></span>
+            <b class="line"></b>
+        </div>
+        </div>
+
+<div class="bs-docs-example">
+    <table class="table">
         <thead>
             <tr>
                 <th>Idcommande</th>
@@ -24,12 +40,8 @@
                 <td>{% if commande.dateExp %}{{ commande.dateExp|date('Y-m-d') }}{% endif %}</td>
                 <td>
                     <ul>
-                        <li>
-                            <a href="{{ path('commande_show', { 'idCommande': commande.idCommande }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('commande_edit', { 'idCommande': commande.idCommande }) }}">edit</a>
-                        </li>
+                        <li class="label label-info" > <a style="color:white"  href="{{ path('commande_show', { 'idCommande': commande.idCommande }) }}">show</a></li>
+                        <li class="label label-default"><a style="color: white" href="{{ path('commande_edit', { 'idCommande': commande.idCommande }) }}">edit</a></li>
                     </ul>
                 </td>
             </tr>
@@ -37,9 +49,10 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('commande_new') }}">Create a new commande</a>
-        </li>
-    </ul>
+
+        <a class=" add-1"   href="{{ path('commande_new') }}">Créer une commande</a>
+
+        </div>
+    </div>
+
 {% endblock %}

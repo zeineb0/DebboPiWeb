@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="banner-top">
+        <div class="container">
+            <h3 >Commande</h3>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+<div style="float:left">
+    <table class="table table-bordered" style="width: 500px; margin: 100px 0 20px 100px;">
+        <tbody>
+            <tr>
+                <th>Idcommande</th>
+                <td>{{ commande.idCommande }}</td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <td>{{ commande.total }}</td>
+            </tr>
+            <tr>
+                <th>Typepaiement</th>
+                <td>{{ commande.typePaiement }}</td>
+            </tr>
+            <tr>
+                <th>Datecommande</th>
+                <td>{% if commande.dateCommande %}{{ commande.dateCommande|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dateexp</th>
+                <td>{% if commande.dateExp %}{{ commande.dateExp|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+    <div style="float:left;margin: 100px 0 100px 100px;">
+
+
+
+            <div class=" add-1" style="width: 150px; height: 30px; margin-bottom: 10px;">
+            <center>
+            <a style=" color: white" href="{{ path('commande_edit', { 'idCommande': commande.idCommande }) }}">Modifier</a>
+            </center>
+            </div>
+
+            {{ form_start(delete_form) }}
+                <input  style="width: 150px; margin-bottom: 10px;height: 30px; border:none" class=" add-1" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+
+    </div>
+
+    <div class=" add-1 " style="clear: left; margin-left:  100px;width: 150px; margin-bottom: 10px;height: 30px; border:none">
+        <center><a style=" color: white" href="{{ path('commande_index') }}">retour</a></center>
+    </div>
+
+{% endblock %}

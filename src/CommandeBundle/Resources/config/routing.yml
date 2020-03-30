@@ -1,3 +1,14 @@
 commande_homepage:
     path:     /
     defaults: { _controller: CommandeBundle:Default:index }
+showCommandes:
+    path:     /commande_show
+    defaults: { _controller: CommandeBundle:Commande:show }
+
+showPanier:
+    path:     /panier_show
+    defaults: { _controller: CommandeBundle:Panier:show }
+
+showProduitCommande:
+    path:     /produitcommande_show
+    defaults: { _controller: CommandeBundle:ProduitCommande:show }
