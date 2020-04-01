@@ -1,7 +1,21 @@
+gerer_entrepot_location:
+    resource: "@GererEntrepotBundle/Controller/LocationController.php"
+    type:     annotation
+
+gerer_entrepot_entrepot:
+    resource: "@GererEntrepotBundle/Controller/EntrepotController.php"
+    type:     annotation
+
 entrepot:
-    resource: "@EntrepotBundle/Resources/config/routing.yml"
-    prefix:   /Entrepot
+    resource: "@GererEntrepotBundle/Resources/config/routing.yml"
+    prefix:   /entrepot
+location:
+    resource: "@GererEntrepotBundle/Resources/config/routing.yml"
+    prefix:   /location
 
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

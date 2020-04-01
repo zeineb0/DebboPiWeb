@@ -1,0 +1,4 @@
+services:
+#    gerer_entrepot.example:
+#        class: GererEntrepotBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -1,0 +1,7 @@
+gerer_entrepot_homepage:
+    path:     /
+    defaults: { _controller: GererEntrepotBundle:Default:index }
+
+entrepot_index:
+    path:     /entrepot
+    defaults: { _controller: GererEntrepotBundle:Entrepot:index }
