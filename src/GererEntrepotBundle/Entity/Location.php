@@ -61,14 +61,8 @@ class Location
      */
     private $fkUser;
 
-    /**
-     * Location constructor.
-     * @param \DateTime $dateDebLocation
-     */
-    public function __construct(\DateTime $dateDebLocation)
-    {
-        $this->dateDebLocation = $dateDebLocation;
-    }
+
+
 
     /**
      * @return int

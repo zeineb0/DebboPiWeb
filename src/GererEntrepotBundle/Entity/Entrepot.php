@@ -187,7 +187,7 @@ class Entrepot
     }
 
     /**
-     * @return \EntrepotBundle\Entity\Utilisateur
+     * @return Utilisateur
      */
     public function getId()
     {
@@ -195,16 +195,16 @@ class Entrepot
     }
 
     /**
-     * @param \EntrepotBundle\Entity\Utilisateur $id
+     * @param Utilisateur $id
      */
-    public function setIdUser($id)
+    public function setId($id)
     {
         $this->id = $id;
     }
 
-    public function __construct()
-    {
-    }
+
+
+
 
 
 }

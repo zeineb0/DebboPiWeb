@@ -23,9 +23,9 @@ class EntrepotController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entrepots = $em->getRepository('@GererEntrepot/Entrepot')->findAll();
+        $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->findAll();
 
-        return $this->render('@GererEntrepot/entrepot/ndex.html.twig', array(
+        return $this->render('@GererEntrepot/entrepot/index.html.twig', array(
             'entrepots' => $entrepots,
         ));
     }

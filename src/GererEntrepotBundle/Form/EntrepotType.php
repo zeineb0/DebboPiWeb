@@ -13,7 +13,8 @@ class EntrepotType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('adresse')->add('numFiscale')->add('quantiteMax')->add('etat')->add('prixLocation')->add('entreprise')->add('idUser');
+        $builder->add('adresse')->add('numFiscale')->add('quantiteMax')->add('etat')
+            ->add('prixLocation')->add('entreprise')->add('id');
     }/**
      * {@inheritdoc}
      */
