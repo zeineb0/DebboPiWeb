@@ -1,0 +1,3 @@
+transporteur_homepage:
+    path:     /
+    defaults: { _controller: TransporteurBundle:Default:index }
