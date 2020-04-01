@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Entrepot</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Identrepot</th>
+                <td>{{ entrepot.idEntrepot }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ entrepot.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Numfiscale</th>
+                <td>{{ entrepot.numFiscale }}</td>
+            </tr>
+            <tr>
+                <th>Quantitemax</th>
+                <td>{{ entrepot.quantiteMax }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ entrepot.etat }}</td>
+            </tr>
+            <tr>
+                <th>Prixlocation</th>
+                <td>{{ entrepot.prixLocation }}</td>
+            </tr>
+            <tr>
+                <th>Entreprise</th>
+                <td>{{ entrepot.entreprise }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('entrepot_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('entrepot_edit', { 'idEntrepot': entrepot.idEntrepot }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
