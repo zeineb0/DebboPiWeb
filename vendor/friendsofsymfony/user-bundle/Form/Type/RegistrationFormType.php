@@ -42,6 +42,7 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
+            ->add('date')
             ->add('email', EmailType::class, array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
             ->add('roles', ChoiceType::class, array('label' => 'Type ', 'choices' => array(' Client' => 'ROLE_CLIENT',
                 'Proprietaire' => 'ROLE_PROPRIETAIRE'),
