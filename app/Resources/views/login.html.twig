@@ -193,28 +193,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         </div>
     </div>
-    <div data-vide-bg="video/video">
-        <div class="container">
-            <div class="banner-info">
-                <div class="search-form">
-                    <form action="#" method="post">
-                        <input type="text" placeholder="Recherche..." name="Search...">
-                        <input type="submit" value=" " >
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
     <script src="js/jquery.vide.min.js"></script>
 {% endblock %}
 
 {% block content %}
     <body>
-    {% block body %}{% endblock %}
-    </body>
-{% endblock %}
+    <div class="banner-top">
+        <div class="container">
+            <h3 >Login</h3>
+            <h4><a href="index.html">Home</a><label>/</label>Login</h4>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!--login-->
 
+    <div class="login">
+
+        <div class="main-agileits">
+            <div class="form-w3agile">
+                <h3>Login</h3>
+                {% block fos_user_content %}{% endblock %}
+{% endblock %}
+            </div>
+            <div class="forg">
+                <a href="#" class="forg-left">Forgot Password</a>
+                <a href="register.html" class="forg-right">Register</a>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    </body>
 {% block footer %}
     <div class="footer">
 
