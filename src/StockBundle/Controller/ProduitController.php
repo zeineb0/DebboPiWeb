@@ -26,8 +26,7 @@ class ProduitController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $produits = $em->getRepository('StockBundle:Produit')->findAll();
-
-        return $this->render('@Stock/produit/index.html.twig', array(
+            return $this->render('@Stock/produit/index.html.twig', array(
             'produits' => $produits,
         ));
     }

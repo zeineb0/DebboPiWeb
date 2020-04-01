@@ -49,6 +49,7 @@ class Departement
      */
     private $budgetannuel;
 
+
     /**
      * @var \Entrepot
      *

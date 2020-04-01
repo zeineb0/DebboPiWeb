@@ -71,7 +71,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="head-t">
                 <ul class="card">
                     <li><a href="{{ asset('wishlist.html') }}" ><i class="fa fa-heart" aria-hidden="true"></i>Favoris</a></li>
-                    <li><a href="{{ asset('/debboWeb/web/app_dev.php/login') }}" ><i class="fa fa-user" aria-hidden="true"></i>Se connecter</a></li>
+                    <li><i class="fa fa-user" aria-hidden="true"></i>{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                <a href="{{ path('fos_user_security_logout') }}">
+                                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                </a>
+                            {% else %}
+                                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                            {% endif %}
+
+                    </li>
                     <li><a href="{{ asset ('/debboWeb/web/app_dev.php/register') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>S'enregistrer</a></li>
                 </ul>
             </div>
@@ -126,9 +134,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             </ul>
 
                                         </div>
-                                        <div class="col-sm-3 w3l">
-                                            <a href="{{ asset ('care.html') }} "><img src="images/me1.png" class="img-responsive" alt=""></a>
-                                        </div>
+                                 
                                         <div class="clearfix"></div>
                                     </div>
                                 </ul>
@@ -137,37 +143,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span>Transport<b class="caret"></b></span></a>
                                 <ul class="dropdown-menu multi multi2">
                                     <div class="row">
-                                        <div class="col-sm-3">
-                                            <ul class="multi-column-dropdown">
-                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Cleaning Accessories</a></li>
-                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>CookWear</a></li>
-                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Detergents</a></li>
-                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Gardening Needs</a></li>
 
-                                            </ul>
-
-                                        </div>
-                                        <div class="col-sm-3">
-
-                                            <ul class="multi-column-dropdown">
-                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Kitchen & Dining</a></li>
-                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>KitchenWear</a></li>
-                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Pet Care</a></li>
-                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Plastic Wear</a></li>
-
-                                            </ul>
-
-                                        </div>
-                                        <div class="col-sm-3">
-
-                                            <ul class="multi-column-dropdown">
-                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Pooja Needs</a></li>
-                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Serveware</a></li>
-                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Safety Accessories</a></li>
-                                                <li><a href="{{ asset ('hold.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Festive Decoratives </a></li>
-
-                                            </ul>
-                                        </div>
                                         <div class="col-sm-3 w3l">
                                             <a href="{{ asset ('hold.html') }}"><img src="images/me2.png" class="img-responsive" alt=""></a>
                                         </div>
@@ -193,6 +169,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         </div>
     </div>
+
+
+
+{% endblock %}
+
+{% block content %}
     <div data-vide-bg="video/video">
         <div class="container">
             <div class="banner-info">
@@ -207,12 +189,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
     <script src="js/jquery.vide.min.js"></script>
-
-
-{% endblock %}
-
-{% block content %}
-
 {% endblock %}
 
 {% block footer %}
