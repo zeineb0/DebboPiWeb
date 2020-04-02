@@ -1,8 +1,118 @@
 {% trans_default_domain 'FOSUserBundle' %}
-
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+<div class="banner-top">
+    <div class="container" >
+        <h3 > <center>Enregistrement </h3></center>
+        <div class="clearfix"> </div>
     </div>
+</div>
+<div class="login">
+    <div class="main-agileits">
+        <div class="form-w3agile form1">
+            <h3>Enregistrement</h3>
+            <form action="{{ path('fos_user_registration_register') }}"  method="POST">
+
+                <div class="key">
+                    <label >Nom :</label>
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    {{ form_widget(form.nom) }}
+                    {{ form_errors(form.nom) }}
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="key">
+                    <label >Prenom :</label>
+
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    {{ form_widget(form.prenom) }}
+                    {{ form_errors(form.prenom) }}
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="key">
+                    <label >Nom d'utilisateur :</label>
+
+                    <i class="fa fa-user" aria-hidden="true"></i>
+
+                    {{ form_widget(form.username) }}
+                    {{ form_errors(form.username) }}
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="key">
+                    <label >Date de naissance :</label>
+
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+
+                    {{ form_widget(form.date) }}
+                    {{ form_errors(form.date) }}
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="key">
+                    <label >Numero de telephone :</label>
+
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    {{ form_widget(form.tel) }}
+                    {{ form_errors(form.tel) }}
+                    <div class="clearfix"></div>
+                </div>
+                <div class="key">
+                    <label >N° CIN :</label>
+
+                    <i class="fa fa-credit-card" aria-hidden="true"></i>
+
+                    {{ form_widget(form.cin) }}
+                    {{ form_errors(form.cin) }}
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="key">
+                    <label >Adresse e-mail :</label>
+
+                    <i class="fa fa-mail-forward" aria-hidden="true"></i>
+
+                    {{ form_widget(form.email) }}
+                    {{ form_errors(form.email) }}
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="key">
+                    <label >Mot de passe :</label>
+
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+
+                    {{ form_widget(form.plainPassword.first) }}
+                    {{ form_errors(form.plainPassword.first) }}
+                    <div class="clearfix"></div>
+                </div>
+                <div class="key">
+                    <label >Confirmer votre mot de passe :</label>
+
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+
+                    {{ form_widget(form.plainPassword.second) }}
+                    {{ form_errors(form.plainPassword.second) }}
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="key">
+                    <label >Choisissez un role :</label>
+                    <i class="fa fa-user" aria-hidden="true"></i>
+
+                    <div class="clearfix"></div>
+                </div>
+                <center>{{ form_widget(form.role) }}
+                {{ form_errors(form.role) }}</center>
+
+                    {{ form_rest(form) }}
+
+
+                <div>
+                    <br><center><input type="submit" value="{{ 'registration.submit'|trans }}" /></center>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 {{ form_end(form) }}

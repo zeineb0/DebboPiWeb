@@ -12,6 +12,7 @@
 namespace FOS\UserBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -45,7 +46,8 @@ class RegistrationFormType extends AbstractType
             ->add('cin')
             ->add('date')
             ->add('tel')
-
+            ->add('role', ChoiceType::class, array('label' => 'Role' , 'choices' => array(' Propriétaire' => 'ROLE_PROP',
+                    'CLIENT' => 'ROLE_CLIENT'), 'required' => true, 'multiple' => true))
             ->add('email', EmailType::class, array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
             ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
             ->add('plainPassword', RepeatedType::class, array(

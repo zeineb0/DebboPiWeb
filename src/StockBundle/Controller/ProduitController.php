@@ -24,10 +24,11 @@ class ProduitController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
+        $idconnected = $this->getUser()->getId();
+        $users = $em->getRepository('AppBundle:User')->findAll();
         $produits = $em->getRepository('StockBundle:Produit')->findAll();
             return $this->render('@Stock/produit/index.html.twig', array(
-            'produits' => $produits,
+            'produits' => $produits, 'idconnected'=>$idconnected, 'users'=>$users
         ));
     }
 
@@ -39,6 +40,7 @@ class ProduitController extends Controller
      */
     public function newAction(Request $request)
     {
+
         $produit = new Produit();
         $form = $this->createForm('StockBundle\Form\ProduitType', $produit);
         $form->handleRequest($request);

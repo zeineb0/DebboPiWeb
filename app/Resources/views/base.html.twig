@@ -71,7 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="head-t">
                 <ul class="card">
                     <li><a href="{{ asset('wishlist.html') }}" ><i class="fa fa-heart" aria-hidden="true"></i>Favoris</a></li>
-                    <li><i class="fa fa-user" aria-hidden="true"></i>{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <li><i class="fa fa-users" aria-hidden="true"></i>{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                 <a href="{{ path('fos_user_security_logout') }}">
                                     {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                                 </a>
@@ -81,6 +81,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     </li>
                     <li><a href="{{ asset ('/debboWeb/web/app_dev.php/register') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>S'enregistrer</a></li>
+                    <li><a href="{{ asset ('/debboWeb/web/app_dev.php/profile') }}" ><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
                 </ul>
             </div>
 
@@ -94,12 +95,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-
-
                     </div>
+
                     <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                         <ul class="nav navbar-nav ">
-                            <li class=" active"><a href="{{ asset('index.html') }}" class="hyper "><span>Accueil</span></a></li>
+                            <li class=" active"><a href="" class="hyper "><span>Accueil</span></a></li>
 
                             <li class="dropdown ">
                                 <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Entrepot<b class="caret"></b></span></a>
@@ -134,7 +134,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             </ul>
 
                                         </div>
-                                 
+
                                         <div class="clearfix"></div>
                                     </div>
                                 </ul>

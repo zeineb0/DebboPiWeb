@@ -1,6 +1,63 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 <div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+    <div class="banner-top">
+        <div class="container" >
+            <h3 > Profile </h3>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+    <div class="login">
+
+        <div class="main-agileits">
+            <div class="form-w3agile">
+                <h3>Profile</h3>
+                <form action="#" method="post">
+                        <div class="key">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <p> Nom  : <br>{{ user.nom }}</p>
+                            <div class="clearfix"></div>
+                        </div><div class="key">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        <p>{{ 'profile.show.username'|trans }}:<br> {{ user.username }}</p>
+                            <div class="clearfix"></div>
+                        </div>
+
+                    <div class="key">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        <p> Prenom  : <br>{{ user.prenom }}</p>
+                            <div class="clearfix"></div>
+                        </div>
+                    <div class="key">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <p> Date  : <br>{{ user.date | date   }}</p>
+                            <div class="clearfix"></div>
+                        </div>
+                    <div class="key">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                        <p> Telephone  :<br> {{ user.tel }}</p>
+                            <div class="clearfix"></div>
+                        </div>
+                    <div class="key">
+                            <i class="fa fa-credit-card" aria-hidden="true"></i>
+                        <p>CIN  : <br>{{ user.cin }}</p>
+                            <div class="clearfix"></div>
+                        </div>
+                    <div class="key">
+                            <i class="fa fa-mail-forward" aria-hidden="true"></i>
+                        <p>{{ 'profile.show.email'|trans }}: <br>{{ user.email }}</p>
+                            <div class="clearfix"></div>
+                        </div>
+
+                </form>
+            </div>
+
+            <div class="forg">
+                <a href="" class="forg-left"><center> <input type="submit" value="Modifier mon profile"></center> </a>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
 </div>

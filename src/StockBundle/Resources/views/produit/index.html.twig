@@ -30,27 +30,34 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for produit in produits %}
-                    <tr>
-                        <td>{{ produit.libelle }}</td>
-                        <td>{{ produit.reference }}</td>
-                        <td>{{ produit.marque }}</td>
-                        <td>{{ produit.prix }}</td>
-                        <td>{{ produit.quantite }}</td>
-                        <td>{{ produit.image }}</td>
-                        <td>
-                            <ul>
-                                <li class="label label-info" > <a style="color:white"  href="{{ path('produit_show', { 'idProduit': produit.idProduit }) }}">show</a></li>
-                                <li class="label label-default"><a style="color: white" href="{{ path('produit_edit', { 'idProduit': produit.idProduit }) }}">edit</a></li>
-                            </ul>
-                        </td>
-                    </tr>
+                <tbody>
+                {% for user in users %}
+                    {% if user.id == idconnected  %}
+                        {% for produit in produits %}
+                            {% if user == produit.idUser  %}
+                                <tr>
+                                    <td>{{ produit.libelle }}</td>
+                                    <td>{{ produit.reference }}</td>
+                                    <td>{{ produit.marque }}</td>
+                                    <td>{{ produit.prix }}</td>
+                                    <td>{{ produit.quantite }}</td>
+                                    <td>{{ produit.image }}</td>
+                                    <td>
+                                        <ul>
+                                            <li class="label label-info" > <a style="color:white"  href="{{ path('produit_show', { 'idProduit': produit.idProduit }) }}">show</a></li>
+                                            <li class="label label-default"><a style="color: white" href="{{ path('produit_edit', { 'idProduit': produit.idProduit }) }}">edit</a></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
                 {% endfor %}
                 </tbody>
             </table>
         </div>
         <div>
-            <li class="label label-default"><a style="color: white"  href="{{ path('produit_new') }}"> <center> Créer un nouveau produit</center></a></li>
+            <li class="label label-default"><a style="color: white"  href="{{ path('produit_new') }}"> Créer un nouveau produit</a></li>
         </div>
 
 

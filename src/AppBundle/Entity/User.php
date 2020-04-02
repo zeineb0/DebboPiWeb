@@ -81,7 +81,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="disponniblite", type="string", length=20, nullable=false)
+     * @ORM\Column(name="disponniblite", type="string", length=20, nullable=true)
      */
     private $disponniblite;
 
