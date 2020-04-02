@@ -1,3 +1,9 @@
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+rh:
+    resource: "@RHBundle/Resources/config/routing.yml"
+    prefix:   /
+
 entrepot:
     resource: "@EntrepotBundle/Resources/config/routing.yml"
     prefix:   /Entrepot
