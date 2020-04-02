@@ -22,10 +22,15 @@ class SecurityController extends Controller
         {
             return $this->render('@App/Security/Entrepot_home.html.twig');
 
-        }else if ($authCheker ->isGranted('ROLE_TRANSPORTEUR'))
+        } else if ($authCheker ->isGranted('ROLE_TRANSPORTEUR'))
         {
             return $this->render('@App/Security/Transporteur_home.html.twig');
+
+        } else if ($authCheker ->isGranted('ROLE_CLIENT'))
+        {
+            return $this->render('@App/Security/Client_home.html.twig');
         }
+
         else
         {
             return $this->render('@FOSUserBundle/Security/login.html.twig');

@@ -50,6 +50,88 @@ class Contrat
      */
     private $FKiduser;
 
+    /**
+     * Contrat constructor.
+     * @param \DateTime $datedeb
+     * @param \DateTime $datefin
+     * @param \Entrepot $FKidentrepotr
+     * @param \User $FKiduser
+     */
+    public function __construct(\DateTime $datedeb, \DateTime $datefin, \Entrepot $FKidentrepotr, \User $FKiduser)
+    {
+        $this->datedeb = $datedeb;
+        $this->datefin = $datefin;
+        $this->FKidentrepotr = $FKidentrepotr;
+        $this->FKiduser = $FKiduser;
+    }
+
+
+    /**
+     * @return \DateTime
+     */
+    public function getDatedeb()
+    {
+        return $this->datedeb;
+    }
+
+    /**
+     * @param \DateTime $datedeb
+     */
+    public function setDatedeb($datedeb)
+    {
+        $this->datedeb = $datedeb;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDatefin()
+    {
+        return $this->datefin;
+    }
+
+    /**
+     * @param \DateTime $datefin
+     */
+    public function setDatefin($datefin)
+    {
+        $this->datefin = $datefin;
+    }
+
+    /**
+     * @return \Entrepot
+     */
+    public function getFKidentrepotr()
+    {
+        return $this->FKidentrepotr;
+    }
+
+    /**
+     * @param \Entrepot $FKidentrepotr
+     */
+    public function setFKidentrepotr($FKidentrepotr)
+    {
+        $this->FKidentrepotr = $FKidentrepotr;
+    }
+
+    /**
+     * @return \User
+     */
+    public function getFKiduser()
+    {
+        return $this->FKiduser;
+    }
+
+    /**
+     * @param \User $FKiduser
+     */
+    public function setFKiduser($FKiduser)
+    {
+        $this->FKiduser = $FKiduser;
+    }
+
+
+
 
 
 

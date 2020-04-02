@@ -58,9 +58,9 @@ class Entrepot
     private $entreprise;
 
     /**
-     * @var \Utilisateur
+     * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="Utilisateur")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_user", referencedColumnName="id_user")
      * })
@@ -70,7 +70,7 @@ class Entrepot
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Utilisateur", mappedBy="fkEntrepot")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", mappedBy="fkEntrepot")
      */
     private $fkUser;
 

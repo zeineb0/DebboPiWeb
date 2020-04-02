@@ -52,9 +52,9 @@ class Location
     private $fkEntrepot;
 
     /**
-     * @var \Utilisateur
+     * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="Utilisateur")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="FK_id_user", referencedColumnName="id_user")
      * })

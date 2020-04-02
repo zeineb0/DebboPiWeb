@@ -1,3 +1,8 @@
 transporteur_homepage:
     path:     /
     defaults: { _controller: TransporteurBundle:Default:index }
+
+ajouter_livraison:
+    path: /ajouterLivraison
+    defaults: {_controller: TransporteurBundle:Livraison:ajouterLivraison}
+
