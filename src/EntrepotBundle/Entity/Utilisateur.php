@@ -2,8 +2,10 @@
 
 namespace EntrepotBundle\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-
+use FOS\UserBundle\Model\GroupInterface;
+use FOS\UserBundle\Model\User as FOSUser;
 
 /**
  * Utilisateur
@@ -11,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="utilisateur", indexes={@ORM\Index(name="fk_pd", columns={"FK_id_produit"})})
  * @ORM\Entity(repositoryClass="EntrepotBundle\Repository\UtilisateurRepository")
  */
-class Utilisateur
+class Utilisateur extends FOSUser
 {
     /**
      * @var integer
@@ -20,21 +22,21 @@ class Utilisateur
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idUser;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=10, nullable=false)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=10, nullable=false)
      */
-    private $prenom;
+    protected $prenom;
 
     /**
      * @var integer
@@ -50,12 +52,6 @@ class Utilisateur
      */
     private $date;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="role", type="string", length=30, nullable=false)
-     */
-    private $role;
 
     /**
      * @var integer
@@ -78,19 +74,6 @@ class Utilisateur
      */
     private $altitudeUser;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=100, nullable=false)
-     */
-    private $email;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=240, nullable=false)
-     */
-    private $password;
 
     /**
      * @var string
@@ -115,6 +98,192 @@ class Utilisateur
      * })
      */
     private $fkProduit;
+
+    /**
+     * Utilisateur constructor.
+     * @param int $id
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @param string $nom
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * @param string $prenom
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCin()
+    {
+        return $this->cin;
+    }
+
+    /**
+     * @param int $cin
+     */
+    public function setCin($cin)
+    {
+        $this->cin = $cin;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param \DateTime $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTel()
+    {
+        return $this->tel;
+    }
+
+    /**
+     * @param int $tel
+     */
+    public function setTel($tel)
+    {
+        $this->tel = $tel;
+    }
+
+    /**
+     * @return float
+     */
+    public function getLongitudeUser()
+    {
+        return $this->longitudeUser;
+    }
+
+    /**
+     * @param float $longitudeUser
+     */
+    public function setLongitudeUser($longitudeUser)
+    {
+        $this->longitudeUser = $longitudeUser;
+    }
+
+    /**
+     * @return float
+     */
+    public function getAltitudeUser()
+    {
+        return $this->altitudeUser;
+    }
+
+    /**
+     * @param float $altitudeUser
+     */
+    public function setAltitudeUser($altitudeUser)
+    {
+        $this->altitudeUser = $altitudeUser;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDisponniblite()
+    {
+        return $this->disponniblite;
+    }
+
+    /**
+     * @param string $disponniblite
+     */
+    public function setDisponniblite($disponniblite)
+    {
+        $this->disponniblite = $disponniblite;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbrMaxcomm()
+    {
+        return $this->nbrMaxcomm;
+    }
+
+    /**
+     * @param int $nbrMaxcomm
+     */
+    public function setNbrMaxcomm($nbrMaxcomm)
+    {
+        $this->nbrMaxcomm = $nbrMaxcomm;
+    }
+
+    /**
+     * @return \Produit
+     */
+    public function getFkProduit()
+    {
+        return $this->fkProduit;
+    }
+
+    /**
+     * @param \Produit $fkProduit
+     */
+    public function setFkProduit($fkProduit)
+    {
+        $this->fkProduit = $fkProduit;
+    }
+
 
 }
 

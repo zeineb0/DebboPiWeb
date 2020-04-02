@@ -39,6 +39,30 @@ abstract class User implements UserInterface, GroupableInterface
 
     /**
      * @var string
+     *
+     */
+    protected $nom;
+
+    /**
+     * @var string
+     *
+     */
+    protected $prenom;
+
+    /**
+     * @var integer
+     *
+     */
+    private $cin;
+
+    /**
+     * @var \DateTime
+     *
+     */
+    private $date;
+
+    /**
+     * @var string
      */
     protected $email;
 
@@ -554,4 +578,69 @@ abstract class User implements UserInterface, GroupableInterface
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @param string $nom
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * @param string $prenom
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCin()
+    {
+        return $this->cin;
+    }
+
+    /**
+     * @param int $cin
+     */
+    public function setCin($cin)
+    {
+        $this->cin = $cin;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param \DateTime $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+
 }
