@@ -1,42 +1,44 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 <form action="{{ path('fos_user_registration_register') }}"  method="POST">
-    <label>Nom</label>
+
+    <div style="margin-bottom: 10px">
     {{ form_widget(form.nom, { 'attr': {'class': 'form-control', 'placeholder': 'Nom'|trans } }) }}
     {{ form_errors(form.nom) }}
-
-    <label>Prenom</label>
+    </div>
+    <div style="margin-bottom: 10px">
     {{ form_widget(form.prenom, { 'attr': {'class': 'form-control', 'placeholder': 'Prenom'|trans } }) }}
     {{ form_errors(form.prenom) }}
-
-    <label>Date De Naissance</label>
+    </div>
+    <div style="margin-bottom: 10px">
     {{ form_widget(form.date, { 'attr': {'class': 'form-control', 'placeholder': 'Date '|trans } }) }}
     {{ form_errors(form.date) }}
-
-    <label>CIN</label>
+    </div>
+    <div style="margin-bottom: 10px">
     {{ form_widget(form.cin, { 'attr': {'class': 'form-control', 'placeholder': 'Cin'|trans } })  }}
     {{ form_errors(form.cin) }}
-
-    <label>Email</label>
+    </div>
+    <div style="margin-bottom: 10px">
     {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'Email'|trans } }) }}
     {{ form_errors(form.email) }}
-
-    <label>Nom d'utilisateur</label>
+    </div>
+    <div style="margin-bottom: 10px">
     {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'Username'|trans } }) }}
     {{ form_errors(form.username) }}
-
-    <label>Mot de passe</label>
+    </div>
+    <div style="margin-bottom: 10px">
     {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'placeholder': 'Password'|trans } }) }}
     {{ form_errors(form.plainPassword.first) }}
-
-    <label>Confirmé le mot de passe</label>
+    </div>
+    <div style="margin-bottom: 10px">
     {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder': 'Password Confirmation'|trans } }) }}
     {{ form_errors(form.plainPassword.second) }}
-
-    <label>Roles</label>
+    </div>
+    <div style="margin-bottom: 10px">
     {{ form_widget(form.roles, { 'attr': {'class': 'form-control', 'placeholder': 'Roles'|trans } })  }}
     {{ form_errors(form.roles) }}
     {{ form_rest(form) }}
+    </div>
     <div>
         <br> <input type="submit" value="{{ 'registration.submit'|trans }}"/><br>
     </div>

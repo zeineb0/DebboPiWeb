@@ -8,14 +8,12 @@
     {% if csrf_token %}
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
     {% endif %}
-    <label for="username">{{ 'security.login.username'|trans }}</label>
 
     <div class="key">
-        <i class="fa fa-envelope" aria-hidden="true"></i>
+        <i class="fa fa-envelope" style="width: 35px" aria-hidden="true"></i>
         <input  type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'username';}" required="">
         <div class="clearfix"></div>
     </div>
-    <label for="password">{{ 'security.login.password'|trans }}</label>
     <div class="key">
         <i class="fa fa-lock" aria-hidden="true"></i>
         <input   type="password" id="password" name="_password" required="required" autocomplete="current-password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">

@@ -1,14 +1,21 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 <div class="fos_user_user_show">
-    <form action="{{ path('fos_user_profile_edit') }}"  method="POST">
+
         <p>{{ 'Nom'|trans }}: {{ user.nom }}</p>
         <p>{{ 'Prenom'|trans }}: {{ user.prenom }}</p>
         <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
         <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
-        <div>
-            <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
-        </div>
-    </form>
 
+    <div>
+    <form style="width: 400px"  action="{{ path('fos_user_profile_edit') }}"  method="POST">
+
+            <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+
+    </form>
+    <form style="width: 600px" action="{{ path('fos_user_change_password') }}"  method="POST">
+
+            <input type="submit" value="{{ 'change_password.submit'|trans }}" />
+    </form>
+    </div>
 </div>
