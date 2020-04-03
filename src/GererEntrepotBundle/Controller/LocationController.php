@@ -21,14 +21,24 @@ class LocationController extends Controller
      * @Method("GET")
      */
     public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
+    {   $securityContext = $this->container->get('security.authorization_checker');
+        if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') )
+        {
+            $user = $this->container->get('security.token_storage')->getToken()->getUser();
 
-        $locations = $em->getRepository('GererEntrepotBundle:Location')->findAll();
+            $em = $this->getDoctrine()->getManager();
+
+        $locations = $em->getRepository('GererEntrepotBundle:Location')->findBy(array('fkUser'=>$user));
 
         return $this->render('@GererEntrepot/location/index.html.twig', array(
             'locations' => $locations,
         ));
+        }
+        # if user not logged in yet
+        else
+        {
+            return $this->redirectToRoute('fos_user_security_login');
+        }
     }
 
     /**
@@ -38,7 +48,9 @@ class LocationController extends Controller
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
-    {
+    { $securityContext = $this->container->get('security.authorization_checker');
+        if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') )
+        {
         $location = new Location();
         $form = $this->createForm('GererEntrepotBundle\Form\LocationType', $location);
         $form->handleRequest($request);
@@ -55,6 +67,12 @@ class LocationController extends Controller
             'location' => $location,
             'form' => $form->createView(),
         ));
+        }
+        # if user not logged in yet
+        else
+        {
+            return $this->redirectToRoute('fos_user_security_login');
+        }
     }
 
     /**

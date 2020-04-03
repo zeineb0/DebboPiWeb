@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
 
 class EntrepotType extends AbstractType
 {
@@ -24,7 +26,9 @@ class EntrepotType extends AbstractType
         ])
 
             -> add('prixLocation')
-            ->add('entreprise');
+            ->add('entreprise')
+            ->add('id',EntityType::class,array('class'=>'EntrepotBundle:Utilisateur','choice_label'=>'id'))
+        ;
     }/**
      * {@inheritdoc}
      */

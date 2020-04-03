@@ -4,11 +4,12 @@
     <div class="banner-top">
         <div class="container">
             <h3 >Entrepot</h3>
-            <h4><a href="/DebboPiWeb/web/app_dev.php/">Home</a><label>/</label><a href="/DebboPiWeb/web/app_dev.php/entrepot/">Entrepot</a><label>/</label>Ajouter</h4>
+            <h4><a href="/DebboPiWeb/web/app_dev.php/">Accueil</a><label>/</label><a href="/DebboPiWeb/web/app_dev.php/entrepot/">Entrepot</a><label>/</label>Ajouter</h4>
 
             <div class="clearfix"> </div>
         </div>
     </div>
+    <div style="margin: 100px 200px 100px 200px">
     <div class="spec ">
         <h3>Creation d'un entrepot</h3>
         <div class="ser-t">
@@ -17,10 +18,7 @@
             <b class="line"></b>
         </div>
     </div>
-    <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">adresse</span>
-        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
-    </div>
+<div class="spec ">
     {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
     {{ form_start(form) }}
     {{ form_widget(form) }}
@@ -28,9 +26,8 @@
     {{ form_end(form) }}
 
     <ul>
-        <li>
-
             <a class=" add-1" href="{{ path('entrepot_index') }}">Retour à la liste </a>
-        </li>
     </ul>
+</div>
+    </div>
 {% endblock %}
