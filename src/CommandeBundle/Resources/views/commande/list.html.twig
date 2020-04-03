@@ -23,6 +23,7 @@
                 <thead>
                 <tr>
                     <th>Idcommande</th>
+                    <th>IdClient</th>
                     <th>Total</th>
                     <th>Typepaiement</th>
                     <th>Datecommande</th>
@@ -34,6 +35,7 @@
                 {% for commande in commandes %}
                     <tr>
                         <td><a href="{{ path('commande_show', { 'idCommande': commande.idCommande }) }}">{{ commande.idCommande }}</a></td>
+                        <td>{{ commande.idClient }}</td>
                         <td>{{ commande.total }}</td>
                         <td>{{ commande.typePaiement }}</td>
                         <td>{% if commande.dateCommande %}{{ commande.dateCommande|date('Y-m-d') }}{% endif %}</td>

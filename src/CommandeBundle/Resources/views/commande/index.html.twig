@@ -23,10 +23,12 @@
         <thead>
             <tr>
                 <th>Idcommande</th>
+                <th>IdClient</th>
                 <th>Total</th>
                 <th>Typepaiement</th>
                 <th>Datecommande</th>
                 <th>Dateexp</th>
+
                 <th>Actions</th>
             </tr>
         </thead>
@@ -34,6 +36,7 @@
         {% for commande in commandes %}
             <tr>
                 <td><a href="{{ path('commande_show', { 'idCommande': commande.idCommande }) }}">{{ commande.idCommande }}</a></td>
+                <td>{{ commande.idClient }}</td>
                 <td>{{ commande.total }}</td>
                 <td>{{ commande.typePaiement }}</td>
                 <td>{% if commande.dateCommande %}{{ commande.dateCommande|date('Y-m-d') }}{% endif %}</td>
@@ -44,6 +47,7 @@
                         <li class="label label-default"><a style="color: white" href="{{ path('commande_edit', { 'idCommande': commande.idCommande }) }}">edit</a></li>
                     </ul>
                 </td>
+
             </tr>
         {% endfor %}
         </tbody>

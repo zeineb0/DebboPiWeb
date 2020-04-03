@@ -42,8 +42,8 @@ class ProduitCommande
     /**
      * @var \Commande
      *
-     * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="Commande")
+     * @ORM\Id)
+     * @ORM\ManyToOne(targetEntity="CommandeBundle\Entity\Commande")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_commande", referencedColumnName="id_commande")
      * })

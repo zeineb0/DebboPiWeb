@@ -1,3 +1,7 @@
+commande_produit_commande:
+    resource: "@CommandeBundle/Controller/ProduitCommandeController.php"
+    type:     annotation
+
 commande_panier:
     resource: "@CommandeBundle/Controller/PanierController.php"
     type:     annotation
