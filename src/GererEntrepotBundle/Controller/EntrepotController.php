@@ -20,14 +20,24 @@ class EntrepotController extends Controller
      * @Route("/", name="entrepot_index")
      */
     public function indexAction()
-    {
+    {   $securityContext = $this->container->get('security.authorization_checker');
+        if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') )
+        {
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+
         $em = $this->getDoctrine()->getManager();
 
-        $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->findAll();
+        $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->findBy(array('id'=>$user));
 
         return $this->render('@GererEntrepot/entrepot/index.html.twig', array(
             'entrepots' => $entrepots,
         ));
+        }
+        # if user not logged in yet
+        else
+        {
+            return $this->redirectToRoute('fos_user_security_login');
+        }
     }
 
     /**
@@ -37,7 +47,9 @@ class EntrepotController extends Controller
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
-    {
+    {   $securityContext = $this->container->get('security.authorization_checker');
+        if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') )
+        {
         $entrepot = new Entrepot();
         $form = $this->createForm('GererEntrepotBundle\Form\EntrepotType', $entrepot);
         $form->handleRequest($request);
@@ -54,6 +66,12 @@ class EntrepotController extends Controller
             'entrepot' => $entrepot,
             'form' => $form->createView(),
         ));
+        }
+        # if user not logged in yet
+        else
+        {
+            return $this->redirectToRoute('fos_user_security_login');
+        }
     }
 
     /**

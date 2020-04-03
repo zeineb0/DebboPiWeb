@@ -67,11 +67,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="logo">
                 <h1> <a href=""><img src="images/debo.jpg" alt="" title="" />DeBBo.<span>Le meilleur entrepôt en tunisie</span></a></h1>
             </div>
+
             <div class="head-t">
                 <ul class="card">
                     <li><a href="{{ asset('wishlist.html') }}" ><i class="fa fa-heart" aria-hidden="true"></i>Favoris</a></li>
-                    <li><a href="{{ asset('app_dev.php/login') }}" ><i class="fa fa-user" aria-hidden="true"></i>Se connecter</a></li>
-                    <li><a href="{{ asset('app_dev.php/register') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>S'enregistrer</a></li>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li><a href="{{ path('fos_user_profile_show') }}" ><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
+                        <li><a href="{{ path('fos_user_security_logout') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>Se deconnecter</a></li>
+
+                    {% else %}
+                    <li><a href="{{ path('fos_user_security_login') }}" ><i class="fa fa-user" aria-hidden="true"></i>Se connecter</a></li>
+                    <li><a href="{{ path('fos_user_registration_register') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>S'enregistrer</a></li>
+                    {% endif %}
                 </ul>
             </div>
 

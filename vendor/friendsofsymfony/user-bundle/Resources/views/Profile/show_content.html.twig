@@ -5,4 +5,16 @@
     <p>{{ 'Prenom'|trans }}: {{ user.prenom }}</p>
     <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
     <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+
+    <div>
+        <form style="width: 400px"  action="{{ path('fos_user_profile_edit') }}"  method="POST">
+
+            <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+
+        </form>
+        <form style="width: 600px" action="{{ path('fos_user_change_password') }}"  method="POST">
+
+            <input type="submit" value="{{ 'change_password.submit'|trans }}" />
+        </form>
+    </div>
 </div>
