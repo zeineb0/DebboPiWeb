@@ -30,7 +30,22 @@ class CommandeController extends Controller
             'commandes' => $commandes,
         ));
     }
+    /**
+     * Lists all commande entities.
+     *
+     * @Route("/list/{idClient}", name="commande_showOne")
+     * @Method("GET")
+     */
+    public function showOneAction($idClient)
+    {
+        $em = $this->getDoctrine()->getManager();
 
+        $commandes = $em->getRepository('CommandeBundle:Commande')->findBy(array('idClient'=>$idClient));
+
+        return $this->render('@Commande/commande/list.html.twig', array(
+            'commandes' => $commandes,
+        ));
+    }
     /**
      * Creates a new commande entity.
      *

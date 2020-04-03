@@ -12,3 +12,7 @@ showPanier:
 showProduitCommande:
     path:     /produitcommande_show
     defaults: { _controller: CommandeBundle:ProduitCommande:show }
+
+listCommande:
+    path: /list/{idClient}
+    defaults: {_controller: CommandeBundle:Commande:ShowOne}
