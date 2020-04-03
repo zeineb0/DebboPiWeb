@@ -1,33 +1,45 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Locations list</h1>
+<div class="banner-top">
+    <div class="container">
+        <h3 >Location</h3>
+        <h4><a href="/DebboPiWeb/web/app_dev.php/">Home</a><label>/</label>Location</h4>
 
-    <table>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+<div class="bs-docs-example" style="margin:100px">
+    <div class="spec ">
+        <h3>Liste des Locations</h3>
+        <div class="ser-t">
+            <b></b>
+            <span><i></i></span>
+            <b class="line"></b>
+        </div>
+    </div>
+
+    <table class="table">
         <thead>
             <tr>
-                <th>Idlocation</th>
-                <th>Datedeblocation</th>
-                <th>Datefinlocation</th>
-                <th>Prixlocation</th>
+                <th>Date debut de location</th>
+                <th>Date fin de location</th>
+                <th>Prix de location</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for location in locations %}
             <tr>
-                <td><a href="{{ path('location_show', { 'idLocation': location.idLocation }) }}">{{ location.idLocation }}</a></td>
+
                 <td>{% if location.dateDebLocation %}{{ location.dateDebLocation|date('Y-m-d') }}{% endif %}</td>
                 <td>{% if location.dateFinLocation %}{{ location.dateFinLocation|date('Y-m-d') }}{% endif %}</td>
                 <td>{{ location.prixLocation }}</td>
                 <td>
                     <ul>
-                        <li>
-                            <a href="{{ path('location_show', { 'idLocation': location.idLocation }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('location_edit', { 'idLocation': location.idLocation }) }}">edit</a>
-                        </li>
+                            <li class="label label-info" > <a style="color:white"  href="{{ path('location_show', { 'idLocation': location.idLocation }) }}">Afficher</a></li>
+                            <li class="label label-default" > <a style="color:white"  href="{{ path('location_edit', { 'idLocation': location.idLocation }) }}">Modifier</a></li>
                     </ul>
                 </td>
             </tr>
@@ -36,8 +48,9 @@
     </table>
 
     <ul>
-        <li>
-            <a href="{{ path('location_new') }}">Creer une location</a>
-        </li>
+
+            <a class=" add-1" href="{{ path('location_new') }}"> Creer une location</a>
+
     </ul>
+</div>
 {% endblock %}

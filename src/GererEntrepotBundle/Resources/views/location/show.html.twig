@@ -1,24 +1,36 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Location</h1>
+    <div class="banner-top">
+        <div class="container">
+            <h3 >Location</h3>
+            <h4><a href="/DebboPiWeb/web/app_dev.php/">Home</a><label>/</label><a href="/DebboPiWeb/web/app_dev.php/location/">Location</a><label>/</label>Affichage</h4>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+<div class="bs-docs-example", style="margin:100px">
+    <div class="spec ">
+        <h3>Location selectionnée</h3>
+        <div class="ser-t">
+            <b></b>
+            <span><i></i></span>
+            <b class="line"></b>
+        </div>
+    </div>
 
-    <table>
+    <table class="table table-striped">
         <tbody>
+
             <tr>
-                <th>Idlocation</th>
-                <td>{{ location.idLocation }}</td>
-            </tr>
-            <tr>
-                <th>Datedeblocation</th>
+                <th>Date de debut location</th>
                 <td>{% if location.dateDebLocation %}{{ location.dateDebLocation|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Datefinlocation</th>
+                <th>Date de fin location</th>
                 <td>{% if location.dateFinLocation %}{{ location.dateFinLocation|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Prixlocation</th>
+                <th>Prix location</th>
                 <td>{{ location.prixLocation }}</td>
             </tr>
         </tbody>
@@ -26,10 +38,10 @@
 
     <ul>
         <li>
-            <a href="{{ path('location_index') }}">Retour à la liste </a>
+            <a class=" add-1" href="{{ path('location_index') }}">Retour à la liste </a>
         </li>
         <li>
-            <a href="{{ path('location_edit', { 'idLocation': location.idLocation }) }}">Edit</a>
+            <a class=" add-1" href="{{ path('location_edit', { 'idLocation': location.idLocation }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
