@@ -24,11 +24,12 @@ class CategoriesController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
+        $idconnected = $this->getUser()->getId();
+        $users = $em->getRepository('AppBundle:User')->findAll();
         $categories = $em->getRepository('StockBundle:Categories')->findAll();
 
         return $this->render('@Stock/categories/index.html.twig', array(
-            'categories' => $categories,
+            'categories' => $categories,'idconnected'=>$idconnected, 'users'=>$users
         ));
     }
 
@@ -46,6 +47,8 @@ class CategoriesController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $id = $this->getUser();
+            $categories->setIdUser($id);
             $em->persist($categories);
             $em->flush();
 

@@ -3,6 +3,23 @@
 {% block content %}
     <h1>Category</h1>
 
+<div class="banner-top">
+    <div class="container" >
+        <h3 > Categories </h3>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<div class="spec ">
+    <h3>Voir categorie</h3>
+    <div class="ser-t">
+        <b></b>
+        <span><i></i></span>
+        <b class="line"></b>
+    </div>
+
+    <div class="login">
+        <div class="main-agileits">
+            <div class="form-w3agile form1">
     <table>
         <tbody>
             <tr>
@@ -13,16 +30,21 @@
     </table>
 
     <ul>
-        <li>
-            <a href="{{ path('categories_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('categories_edit', { 'idCategorie': category.idCategorie }) }}">Edit</a>
-        </li>
-        <li>
+
+        <a href="{{ path('categories_index') }}">  <input type="submit" value="Retour à la liste"></a>
+
+
+            <a href="{{ path('categories_edit', { 'idCategorie': category.idCategorie }) }}"><input type="submit" value="Modifier"></a>
+
+
             {{ form_start(delete_form) }}
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
-        </li>
+
     </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

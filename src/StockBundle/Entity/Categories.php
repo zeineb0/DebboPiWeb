@@ -29,9 +29,6 @@ class Categories
      */
     private $nom;
 
-
-
-
     /**
      * @return int
      */
@@ -70,4 +67,32 @@ class Categories
     public function __toString(){
         return $this->nom;
     }
+    private $fkEntrepot;
+    /**
+     * @var \Utilisateur
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id_user")
+     * })
+     */
+    private $idUser;
+
+    /**
+     * @return \Utilisateur
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
+
+    /**
+     * @param \Utilisateur $idUser
+     */
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
+    }
+
+
 }

@@ -47,6 +47,8 @@ class ProduitController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $id = $this->getUser();
+            $produit->setIdUser($id);
             $em->persist($produit);
             $em->flush();
 
@@ -111,13 +113,14 @@ class ProduitController extends Controller
         $form = $this->createDeleteForm($produit);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid())
+        {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($produit);
+            $em->delete($produit);
             $em->flush();
         }
 
-        return $this->redirectToRoute('produit_index');
+        return new Response( "bonjouur");
     }
 
     /**
@@ -134,5 +137,15 @@ class ProduitController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+
+    public function deleteProdAction($id )
+    {
+        $club=$this->getDoctrine()->getRepository(Produit::class)->find($id);
+        $em=$this->getDoctrine()->getManager();
+        $em->remove($club);
+        $em->flush();
+        return $this->redirectToRoute('produit_index');
     }
 }

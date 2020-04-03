@@ -1,9 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>Categories list</h1>
-
-    <table>
+    <div class="banner-top">
+        <div class="container" >
+            <h3 > <center>Categories </h3></center>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <div class="spec ">
+        <h3>La liste des categories</h3>
+        <div class="ser-t">
+            <b></b>
+            <span><i></i></span>
+            <b class="line"></b>
+        </div>
+    </div>
+<div class="bs-docs-example">
+    <table class="table">
         <thead>
             <tr>
                 <th>Nom</th>
@@ -11,28 +24,32 @@
             </tr>
         </thead>
         <tbody>
-        {% for category in categories %}
-            <tr>
-                <td><a href="{{ path('categories_show', { 'idCategorie': category.idCategorie }) }}"></a></td>
-                <td>{{ category.nom }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('categories_show', { 'idCategorie': category.idCategorie }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('categories_edit', { 'idCategorie': category.idCategorie }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
+        {% for user in users %}
+            {% if user.id == idconnected  %}
+                {% for category in categories %}
+                    {% if user == category.idUser  %}
+                        <tr>
+                            <td>{{ category.nom }}</td>
+                            <td>
+                                <ul>
+                                    <ul>
+                                        <li class="label label-info" > <a style="color:white"  href="{{ path('categories_show', { 'idCategorie': category.idCategorie }) }}">show</a></li>
+                                        <li class="label label-default"><a style="color: white" href="{{ path('categories_edit', { 'idCategorie': category.idCategorie }) }}">edit</a></li>
+                                    </ul>
+
+                                </ul>
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
         {% endfor %}
         </tbody>
     </table>
-
+</div>
     <ul>
         <li>
-            <a href="{{ path('categories_new') }}">Create a new category</a>
+        <li class="label label-default"><a style="color: white"  href="{{ path('categories_new') }}"> Créer un nouveau produit</a></li>
         </li>
     </ul>
 {% endblock %}

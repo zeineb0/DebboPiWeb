@@ -1,16 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>Category creation</h1>
+<div class="banner-top">
+    <div class="container" >
+        <h3 > <center>Categories </h3></center>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<div class="spec ">
+    <h3>Ajouter une nouvelle categorie</h3>
+    <div class="ser-t">
+        <b></b>
+        <span><i></i></span>
+        <b class="line"></b>
+    </div>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+    <div class="login">
+        <div class="main-agileits">
+            <div class="form-w3agile form1">
+    {{ form_start(form) }}<br>
+        {{ form_widget(form) }}<br>
+        <input type="submit" value="Créer" /><br><br>
 
-    <ul>
-        <li>
-            <a href="{{ path('categories_index') }}">Back to the list</a>
-        </li>
-    </ul>
+                <a href="{{ path('categories_index') }}">         <input type="submit" value="Retour à la liste" />
+                </a>
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
