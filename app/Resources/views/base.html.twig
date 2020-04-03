@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html>
 <head>
     <title>DeBBo a Ecommerce Online Shopping</title>
     <!-- for-mobile-apps -->
@@ -66,13 +65,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="container">
 
             <div class="logo">
-                <h1> <a href=""><img src="images/debo.jpg" alt="" title="" />DeBBo.<span>Le meilleur entrepôt</span></a></h1>
+                <h1> <a href=""><img src="images/debo.jpg" alt="" title="" />DeBBo.<span>Le meilleur entrepôt en tunisie</span></a></h1>
             </div>
             <div class="head-t">
                 <ul class="card">
                     <li><a href="{{ asset('wishlist.html') }}" ><i class="fa fa-heart" aria-hidden="true"></i>Favoris</a></li>
-                    <li><a href="{{ asset('login.html') }}" ><i class="fa fa-user" aria-hidden="true"></i>Se connecter</a></li>
-                    <li><a href="{{ asset('register.html') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>S'enregistrer</a></li>
+                    <li><a href="{{ asset('app_dev.php/login') }}" ><i class="fa fa-user" aria-hidden="true"></i>Se connecter</a></li>
+                    <li><a href="{{ asset('app_dev.php/register') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>S'enregistrer</a></li>
                 </ul>
             </div>
 
@@ -91,23 +90,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                         <ul class="nav navbar-nav ">
-                            <li class=" active"><a href="{{ asset('index.html') }}" class="hyper "><span>Accueil</span></a></li>
+                            <li class=" active"><a href="{{ asset('app_dev.php/') }}" class="hyper "><span>Accueil</span></a></li>
 
-                            <li class="dropdown ">
-                                <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Entrepot<b class="caret"></b></span></a>
+                            <li class="dropdown  ">
+                                <a href="entrepot" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Entrepot<b class="caret"></b></span></a>
                                 <ul class="dropdown-menu multi">
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <ul class="multi-column-dropdown">
 
-                                                <li><a href="{{ asset('kitchen.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Gestion Entrepot</a></li>
-                                                <li><a href="{{ asset('kitchen.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Gestion Location</a></li>
+                                                <li><a href="{{ asset('app_dev.php/entrepot') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Gestion Entrepot</a></li>
+                                                <li><a href="{{ asset('app_dev.php/location') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Gestion Location</a></li>
 
                                             </ul>
 
-                                        </div>
-                                        <div class="col-sm-3 w3l">
-                                            <a href="{{ asset('kitchen.html') }}"><img src="images/me.png" class="img-responsive" alt=""></a>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>

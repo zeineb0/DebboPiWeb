@@ -5,6 +5,7 @@ namespace GererEntrepotBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class EntrepotType extends AbstractType
 {
@@ -13,8 +14,17 @@ class EntrepotType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('adresse')->add('numFiscale')->add('quantiteMax')->add('etat')
-            ->add('prixLocation')->add('entreprise')->add('id');
+        $builder->add('adresse')->add('numFiscale')->add('quantiteMax')->add('etat', ChoiceType::class, [
+            'choices'  => [
+                'Libre' => 'Libre',
+                'Loué' => 'Loué',
+                'A Louer' => 'A Louer',
+            ],
+
+        ])
+
+            -> add('prixLocation')
+            ->add('entreprise');
     }/**
      * {@inheritdoc}
      */

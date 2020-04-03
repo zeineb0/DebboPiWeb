@@ -1,24 +1,36 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Entrepot</h1>
+    <div class="banner-top">
+        <div class="container">
+            <h3 >Entrepot</h3>
+            <h4><a href="/DebboPiWeb/web/app_dev.php/">Home</a><label>/</label><a href="/DebboPiWeb/web/app_dev.php/entrepot/">Entrepot</a><label>/</label>Affichage</h4>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Identrepot</th>
-                <td>{{ entrepot.idEntrepot }}</td>
-            </tr>
+    <div class="bs-docs-example", style="margin:100px">
+        <div class="spec ">
+            <h3>L'entrepot selectionné</h3>
+            <div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>
+        </div>
+        <table class="table table-striped">
+
+            <tbody>
             <tr>
                 <th>Adresse</th>
                 <td>{{ entrepot.adresse }}</td>
             </tr>
             <tr>
-                <th>Numfiscale</th>
+                <th>Numero fiscale</th>
                 <td>{{ entrepot.numFiscale }}</td>
             </tr>
             <tr>
-                <th>Quantitemax</th>
+                <th>Quantite max</th>
                 <td>{{ entrepot.quantiteMax }}</td>
             </tr>
             <tr>
@@ -26,27 +38,23 @@
                 <td>{{ entrepot.etat }}</td>
             </tr>
             <tr>
-                <th>Prixlocation</th>
+                <th>Prix location</th>
                 <td>{{ entrepot.prixLocation }}</td>
             </tr>
             <tr>
                 <th>Entreprise</th>
                 <td>{{ entrepot.entreprise }}</td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
     <ul>
-        <li>
-            <a href="{{ path('entrepot_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('entrepot_edit', { 'idEntrepot': entrepot.idEntrepot }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
+
+        <a class=" add-1" href="{{ path('entrepot_index') }}">Retour à la liste </a>
+
+        <a class=" add-1" href="{{ path('entrepot_edit', { 'idEntrepot': entrepot.idEntrepot }) }}">Modifier</a>
+        <a class=" add-1" href="{{ path('entrepot_index', { 'idEntrepot': entrepot.idEntrepot }) }}">Supprimer</a>
+
+
     </ul>
 {% endblock %}

@@ -1,16 +1,36 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Entrepot creation</h1>
+    <div class="banner-top">
+        <div class="container">
+            <h3 >Entrepot</h3>
+            <h4><a href="/DebboPiWeb/web/app_dev.php/">Home</a><label>/</label><a href="/DebboPiWeb/web/app_dev.php/entrepot/">Entrepot</a><label>/</label>Ajouter</h4>
 
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <div class="spec ">
+        <h3>Creation d'un entrepot</h3>
+        <div class="ser-t">
+            <b></b>
+            <span><i></i></span>
+            <b class="line"></b>
+        </div>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">adresse</span>
+        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+    </div>
+    {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+    {{ form_widget(form) }}
+    <input style="width: 150px; margin-bottom: 10px;height: 30px; border:none" class=" add-1"  type="submit" value="Crée" />
     {{ form_end(form) }}
 
     <ul>
         <li>
-            <a href="{{ path('entrepot_index') }}">Back to the list</a>
+
+            <a class=" add-1" href="{{ path('entrepot_index') }}">Retour à la liste </a>
         </li>
     </ul>
 {% endblock %}

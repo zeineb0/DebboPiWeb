@@ -1,49 +1,59 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Entrepots list</h1>
+    <div class="banner-top">
+        <div class="container">
+            <h3 >Entrepot</h3>
+            <h4><a href="/DebboPiWeb/web/app_dev.php/">Home</a><label>/</label>Entrepot</h4>
 
-    <table>
-        <thead>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+    <div class="bs-docs-example" style="margin:100px">
+        <div class="spec ">
+            <h3>Liste des entrepots</h3>
+            <div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
             <tr>
-                <th>Identrepot</th>
                 <th>Adresse</th>
                 <th>Numfiscale</th>
                 <th>Quantitemax</th>
                 <th>Etat</th>
                 <th>Prixlocation</th>
                 <th>Entreprise</th>
-                <th>Actions</th>
+                <th></th>
             </tr>
-        </thead>
-        <tbody>
-        {% for entrepot in entrepots %}
-            <tr>
-                <td><a href="{{ path('entrepot_show', { 'idEntrepot': entrepot.idEntrepot }) }}">{{ entrepot.idEntrepot }}</a></td>
-                <td>{{ entrepot.adresse }}</td>
-                <td>{{ entrepot.numFiscale }}</td>
-                <td>{{ entrepot.quantiteMax }}</td>
-                <td>{{ entrepot.etat }}</td>
-                <td>{{ entrepot.prixLocation }}</td>
-                <td>{{ entrepot.entreprise }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('entrepot_show', { 'idEntrepot': entrepot.idEntrepot }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('entrepot_edit', { 'idEntrepot': entrepot.idEntrepot }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
 
-    <ul>
-        <li>
-            <a href="{{ path('entrepot_new') }}">Create a new entrepot</a>
-        </li>
-    </ul>
+            <tbody>
+            {% for entrepot in entrepots %}
+                <tr>
+
+                    <td>{{ entrepot.adresse }}</td>
+                    <td>{{ entrepot.numFiscale }}</td>
+                    <td>{{ entrepot.quantiteMax }}</td>
+                    <td>{{ entrepot.etat }}</td>
+                    <td>{{ entrepot.prixLocation }}</td>
+                    <td>{{ entrepot.entreprise }}</td>
+                    <td>
+                        <ul>
+                            <li class="label label-info" > <a style="color:white"  href="{{ path('entrepot_show', { 'idEntrepot': entrepot.idEntrepot }) }}">Afficher</a></li>
+                            <li class="label label-default"><a style="color: white" href="{{ path('entrepot_edit', { 'idEntrepot': entrepot.idEntrepot }) }}">Modifier</a></li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a class=" add-1"  href="{{ path('entrepot_new') }}">Ajouter entrepot</a>
+
+    </div>
+
 {% endblock %}
