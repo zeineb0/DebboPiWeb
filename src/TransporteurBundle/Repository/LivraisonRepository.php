@@ -10,4 +10,36 @@ namespace TransporteurBundle\Repository;
  */
 class LivraisonRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function getLivraisonByUserNotD($id)
+    {
+        $qb=$this->getEntityManager()
+            ->createQuery("select l from TransporteurBundle:livraison l where l.etatLivraison=?1 and l.fkUser=?2 ")
+            ->setParameters(array(1=>'non livrée',2=>$id));
+        return $query = $qb->getResult();
+    }
+
+
+    public function getLivraisonByUserD($id)
+    {
+        $qb=$this->getEntityManager()
+            ->createQuery("select l from TransporteurBundle:livraison l where l.etatLivraison=?1 and l.fkUser=?2 ")
+            ->setParameters(array(1=>'livrée',2=>$id));
+        return $query = $qb->getResult();
+    }
+
+    public function updateLivStat($id)
+    {
+        $qb=$this->getEntityManager()
+            ->createQuery("Update TransporteurBundle:livraison l SET l.etatLivraison=:etat where l.id=id")
+            ->setParameters(array('etat'=>'livrée','id'=>$id));
+        return $query=$qb->getResult();
+    }
+
+
+
+
+
+
+
 }

@@ -6,3 +6,24 @@ ajouter_livraison:
     path: /ajouterLivraison
     defaults: {_controller: TransporteurBundle:Livraison:ajouterLivraison}
 
+afficher_livraison_all:
+    path: /afficherLivraison
+    defaults: {_controller: TransporteurBundle:Livraison:getAllLivraison}
+
+supprimer_livraison:
+    path: /supprimerLivraison/{id}
+    defaults: {_controller: TransporteurBundle:Livraison:supprimerLivraison}
+
+
+aff_liv_Trans_NL:
+    path: /AffLivTransNL
+    defaults: {_controller: TransporteurBundle:Livraison:afficherLivraisonParTransporteurNonLivre}
+
+aff_liv_Trans_L:
+    path: /AffLivTransL
+    defaults: {_controller: TransporteurBundle:Livraison:afficherLivraisonParTransporteurLivre}
+
+
+
+
+
