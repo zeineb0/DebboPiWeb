@@ -48,6 +48,8 @@ class RegistrationFormType extends AbstractType
             ->add('tel')
             ->add('role', ChoiceType::class, array('label' => 'Role' , 'choices' => array(' Propriétaire' => 'ROLE_PROP',
                     'CLIENT' => 'ROLE_CLIENT'), 'required' => true, 'multiple' => true))
+            
+            
             ->add('email', EmailType::class, array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
             ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
             ->add('plainPassword', RepeatedType::class, array(

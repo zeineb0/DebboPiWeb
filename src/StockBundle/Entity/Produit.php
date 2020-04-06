@@ -93,6 +93,12 @@ class Produit
      */
     private $idUser;
 
+    public function __toString()
+    {
+return $this->libelle;
+    }
+
+
     /**
      * @return \Utilisateur
      */

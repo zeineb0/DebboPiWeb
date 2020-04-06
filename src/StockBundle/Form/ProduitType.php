@@ -18,7 +18,6 @@ class ProduitType extends AbstractType
             ->add('marque')
             ->add('prix')
             ->add('quantite')
-            ->add('image')
             ->add('fkCategorie')
             ->add('fkEntrepot');
     }/**

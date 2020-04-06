@@ -92,6 +92,7 @@ class ProduitController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+
             return $this->redirectToRoute('produit_edit', array('idProduit' => $produit->getIdproduit()));
         }
 
@@ -139,10 +140,15 @@ class ProduitController extends Controller
         ;
     }
 
-
-    public function deleteProdAction($id )
+    /**
+     * Deletes a produit entity.
+     *
+     * @Route("/{idProduit}", name="produit_deletee")
+     * @Method("DELETE")
+     */
+    public function deleteProdAction(Request $request, Produit $produit)
     {
-        $club=$this->getDoctrine()->getRepository(Produit::class)->find($id);
+        $club=$this->getDoctrine()->getRepository(Produit::class)->find($produit);
         $em=$this->getDoctrine()->getManager();
         $em->remove($club);
         $em->flush();

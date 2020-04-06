@@ -26,7 +26,7 @@ class MouvementDuStockController extends Controller
 
         $mouvementDuStocks = $em->getRepository('StockBundle:MouvementDuStock')->findAll();
 
-        return $this->render('mouvementdustock/index.html.twig', array(
+        return $this->render('@Stock/mouvementdustock/index.html.twig', array(
             'mouvementDuStocks' => $mouvementDuStocks,
         ));
     }
@@ -40,18 +40,25 @@ class MouvementDuStockController extends Controller
     public function newAction(Request $request)
     {
         $mouvementDuStock = new Mouvementdustock();
+        $mouvementDuStock->setDateMouv(new \DateTime('now'));
+
+
         $form = $this->createForm('StockBundle\Form\MouvementDuStockType', $mouvementDuStock);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid())
+        {
             $em = $this->getDoctrine()->getManager();
+            $id=$this->getUser();
+            $mouvementDuStock->setIdUser($id);
+
             $em->persist($mouvementDuStock);
             $em->flush();
 
             return $this->redirectToRoute('mouvementdustock_show', array('idMouv' => $mouvementDuStock->getIdmouv()));
         }
 
-        return $this->render('mouvementdustock/new.html.twig', array(
+        return $this->render('@Stock/mouvementdustock/new.html.twig', array(
             'mouvementDuStock' => $mouvementDuStock,
             'form' => $form->createView(),
         ));
@@ -67,7 +74,7 @@ class MouvementDuStockController extends Controller
     {
         $deleteForm = $this->createDeleteForm($mouvementDuStock);
 
-        return $this->render('mouvementdustock/show.html.twig', array(
+        return $this->render('@Stock/mouvementdustock/show.html.twig', array(
             'mouvementDuStock' => $mouvementDuStock,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -91,7 +98,7 @@ class MouvementDuStockController extends Controller
             return $this->redirectToRoute('mouvementdustock_edit', array('idMouv' => $mouvementDuStock->getIdmouv()));
         }
 
-        return $this->render('mouvementdustock/edit.html.twig', array(
+        return $this->render('@Stock/mouvementdustock/edit.html.twig', array(
             'mouvementDuStock' => $mouvementDuStock,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

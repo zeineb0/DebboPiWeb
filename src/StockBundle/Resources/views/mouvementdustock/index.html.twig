@@ -1,45 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Mouvementdustocks list</h1>
+{% block content %}
+<div class="banner-top">
+    <div class="container" >
+        <h3 > <center>Mouvement du stock </h3></center>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<div class="spec ">
+    <h3>La liste des mouvements</h3>
+    <div class="ser-t">
+        <b></b>
+        <span><i></i></span>
+        <b class="line"></b>
+    </div>
+</div>
 
-    <table>
+<div class="bs-docs-example">
+    <table class="table">
         <thead>
             <tr>
-                <th>Idmouv</th>
                 <th>Naturemouvement</th>
                 <th>Datemouv</th>
-                <th>Annee</th>
-                <th>Nombreprod</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for mouvementDuStock in mouvementDuStocks %}
             <tr>
-                <td><a href="{{ path('mouvementdustock_show', { 'idMouv': mouvementDuStock.idMouv }) }}">{{ mouvementDuStock.idMouv }}</a></td>
                 <td>{{ mouvementDuStock.natureMouvement }}</td>
-                <td>{{ mouvementDuStock.dateMouv }}</td>
-                <td>{{ mouvementDuStock.annee }}</td>
-                <td>{{ mouvementDuStock.nombreprod }}</td>
+                <td>{{ mouvementDuStock.dateMouv | date}}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('mouvementdustock_show', { 'idMouv': mouvementDuStock.idMouv }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('mouvementdustock_edit', { 'idMouv': mouvementDuStock.idMouv }) }}">edit</a>
-                        </li>
-                    </ul>
+
+                        <li class="label label-info"><a style="color: white" href="{{ path('mouvementdustock_show', { 'idMouv': mouvementDuStock.idMouv }) }}">Afficher</a></li>
+                        <li class="label label-default"><a style="color: white" href="{{ path('mouvementdustock_edit', { 'idMouv': mouvementDuStock.idMouv }) }}">Modifier</a></li>
+
+
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('mouvementdustock_new') }}">Create a new mouvementDuStock</a>
-        </li>
+
+    <center>         <a href="{{ path('mouvementdustock_new') }}"><input type="submit" value="Ajouter un nouveau mouvement" /></a>
+    </center>
+
     </ul>
+</div>
 {% endblock %}

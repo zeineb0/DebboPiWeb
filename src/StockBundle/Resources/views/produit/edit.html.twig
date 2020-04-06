@@ -27,7 +27,9 @@
     <ul>
             <a href="{{ path('produit_index') }}">        <input type="submit" value="Retour à la liste" /></a>
 
-            {{ form_start(delete_form) }}
+        <li class="label label-default"><a style="color: white" href="{{ path('produit_deletee', { 'idProduit': produit.idProduit }) }}">supp</a></li>
+
+        {{ form_start(delete_form) }}
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
     </ul>

@@ -1,5 +1,5 @@
 stock_homepage:
-    path:     /
+    path:     /stk
     defaults: { _controller: StockBundle:Default:index }
 stock_category:
     path:     /categories_index
@@ -28,9 +28,12 @@ category_show1:
 category_show2:
     path:     /produit_edit
     defaults: { _controller: StockBundle:Produit:edit }
-category_show21:
-    path:     /produit_delete/{id}
-    defaults: { _controller: StockBundle:Produit:delete }
 ategory_show21:
-    path:     /produit_deletee
+    path:     /produit_deletee/{id}
     defaults: { _controller: StockBundle:Produit:deleteProd }
+ategory_sh1:
+    path:     /mouvementdustock_new
+    defaults: { _controller: StockBundle:MouvementDuStock:new }
+lategory_sh1:
+    path:     /mouvementdustock_index
+    defaults: { _controller: StockBundle:MouvementDuStock:index }
