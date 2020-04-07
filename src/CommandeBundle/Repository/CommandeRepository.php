@@ -10,4 +10,11 @@ namespace CommandeBundle\Repository;
  */
 class CommandeRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findListProduit($idCommande)
+    {
+        $qb = $this->getEntityManager()->createQuery("select a,b from CommandeBundle:Commande a 
+        LEFT JOIN CommandeBundle:ProduitCommande b where a.idCommande=b.idCommande AND a.idCommande=:dom ")
+            ->setParameter('dom', $idCommande);
+        return $query = $qb->getResult();
+    }
 }

@@ -22,21 +22,20 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Idcommande</th>
-                <th>IdClient</th>
+                <th>Reference</th>
                 <th>Total</th>
-                <th>Typepaiement</th>
-                <th>Datecommande</th>
-                <th>Dateexp</th>
+                <th>Type paiement</th>
+                <th>Date commande</th>
+                <th>Date exp</th>
 
-                <th>Actions</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
         {% for commande in commandes %}
             <tr>
-                <td><a href="{{ path('commande_show', { 'idCommande': commande.idCommande }) }}">{{ commande.idCommande }}</a></td>
-                <td>{{ commande.idClient }}</td>
+                <td><a href="{{ path('commande_show', { 'idCommande': commande.idCommande  }) }}">{{ (commande.idCommande+123456789) }}</a></td>
+
                 <td>{{ commande.total }}</td>
                 <td>{{ commande.typePaiement }}</td>
                 <td>{% if commande.dateCommande %}{{ commande.dateCommande|date('Y-m-d') }}{% endif %}</td>
@@ -54,7 +53,7 @@
     </table>
 
 
-        <a class=" add-1"   href="{{ path('commande_new') }}">Créer une commande</a>
+        {#<a class=" add-1"   href="{{ path('commande_new') }}">Créer une commande</a>#}
 
         </div>
     </div>

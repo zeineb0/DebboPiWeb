@@ -7,29 +7,62 @@
             <div class="clearfix"> </div>
         </div>
     </div>
-<div style="float:left">
-    <table class="table table-bordered" style="width: 500px; margin: 100px 0 20px 100px;">
+<div >
+    <div style="margin: 100px 0 0 100px">
+    <div class="logo">
+        <h1> <a href=""><img src="images/debo.jpg" alt="" title="" />DeBBo.<span>Le meilleur entrepôt</span></a></h1>
+    </div>
+    <h3>COMMANDE</h3>
+    <table class="table-bordered" style="width: 500px;height: 100px; margin-top: 20px">
+        <tbody class="text-center" style="text-align: center">
+        <tr  >
+            <th class="text-center">Reference</th>
+            <th class="text-center">Typepaiement</th>
+            <th class="text-center">Datecommande</th>
+            <th class="text-center">Dateexp</th>
+        </tr>
+        <tr>
+            <td>{{ commande.idCommande +123456789}}</td>
+            <td>{{ commande.typePaiement }}</td>
+            <td>{% if commande.dateCommande %}{{ commande.dateCommande|date('Y-m-d') }}{% endif %}</td>
+            <td>{% if commande.dateExp %}{{ commande.dateExp|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table class="table" style="border-bottom:none; border-left:none;  width: 500px;height: 100px; margin: 100px 0 20px 100px;">
         <tbody>
-            <tr>
-                <th>Idcommande</th>
-                <td>{{ commande.idCommande }}</td>
+
+            <tr >
+                <th class="table-bordered">Reference</th>
+                <th class="table-bordered">Marque</th>
+                <th class="table-bordered">prix Produit</th>
+                <th class="table-bordered">Quantité</th>
             </tr>
-            <tr>
-                <th>Total</th>
-                <td>{{ commande.total }}</td>
-            </tr>
-            <tr>
-                <th>Typepaiement</th>
-                <td>{{ commande.typePaiement }}</td>
-            </tr>
-            <tr>
-                <th>Datecommande</th>
-                <td>{% if commande.dateCommande %}{{ commande.dateCommande|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Dateexp</th>
-                <td>{% if commande.dateExp %}{{ commande.dateExp|date('Y-m-d') }}{% endif %}</td>
-            </tr>
+            {% for i in 0..listproduit|length-1 %}
+                <tr>
+
+                    <td class="table-bordered">{{ produits[i].reference }}</td>
+                    <td class="table-bordered">{{ produits[i].marque }}</td>
+                    <td class="table-bordered">{{ listproduit[i].prixProduit }}</td>
+                    <td class="table-bordered">{{ listproduit[i].quantiteProduit }}</td>
+                </tr>
+                <tr >
+
+                    <th ></th>
+                    <th></th>
+                    <th></th>
+                    <th class="table-bordered">TOTAL</th>
+                </tr>
+                <tr >
+
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="table-bordered">{{commande.total }}</td>
+                </tr>
+
+            {% endfor %}
         </tbody>
     </table>
 </div>
@@ -43,14 +76,15 @@
             </center>
             </div>
 
-            {{ form_start(delete_form) }}
-                <input  style="width: 150px; margin-bottom: 10px;height: 30px; border:none" class=" add-1" type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-
+        <div class=" add-1" style="width: 150px; height: 30px; margin-bottom: 10px;">
+            <center>
+                <a style=" color: white" href="{{ path('commande_delete', { 'idCommande': commande.idCommande }) }}">Supprimer</a>
+            </center>
+        </div>
     </div>
 
     <div class=" add-1 " style="clear: left; margin-left:  100px;width: 150px; margin-bottom: 10px;height: 30px; border:none">
         <center><a style=" color: white" href="{{ path('commande_index') }}">retour</a></center>
     </div>
-
+</div>
 {% endblock %}

@@ -9,5 +9,9 @@ namespace CommandeBundle\Repository;
  * repository methods below.
  */
 class ProduitCommandeRepository extends \Doctrine\ORM\EntityRepository
-{
+{  public function findProduitCommande($idCommande){
+    $qb=$this->getEntityManager()->createQuery("select c from CommandeBundle:ProduitCommande c where c.idCommande=:dom ")
+        ->setParameter('dom',$idCommande);
+    return $query = $qb->getResult();
+}
 }

@@ -2,7 +2,10 @@
 
 namespace CommandeBundle\Controller;
 
+use CommandeBundle\CommandeBundle;
 use CommandeBundle\Entity\Commande;
+use CommandeBundle\Entity\ProduitCommande;
+use EntrepotBundle\Entity\Produit;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -21,26 +24,31 @@ class CommandeController extends Controller
      * @Method("GET")
      */
     public function indexAction()
-    {
+    { $securityContext = $this->container->get('security.authorization_checker');
+        if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') )
+        {
         $em = $this->getDoctrine()->getManager();
-
-        $commandes = $em->getRepository('CommandeBundle:Commande')->findAll();
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $commandes = $em->getRepository('CommandeBundle:Commande')->findBy(array('idClient'=>$user));
 
         return $this->render('@Commande/commande/index.html.twig', array(
             'commandes' => $commandes,
-        ));
+        ));}
+    else
+        {
+            return $this->redirectToRoute('fos_user_security_login');
+        }
     }
     /**
      * Lists all commande entities.
      *
-     * @Route("/list/{idClient}", name="commande_showOne")
+     * @Route("/list", name="commande_showOne")
      * @Method("GET")
      */
-    public function showOneAction($idClient)
+    public function showAllAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $commandes = $em->getRepository('CommandeBundle:Commande')->findBy(array('idClient'=>$idClient));
+        $commandes = $em->getRepository('CommandeBundle:Commande')->findAll();
 
         return $this->render('@Commande/commande/list.html.twig', array(
             'commandes' => $commandes,
@@ -72,7 +80,7 @@ class CommandeController extends Controller
         ));
     }
 
-    /**
+       /**
      * Finds and displays a commande entity.
      *
      * @Route("/{idCommande}", name="commande_show")
@@ -80,12 +88,22 @@ class CommandeController extends Controller
      */
     public function showAction(Commande $commande)
     {
-        $deleteForm = $this->createDeleteForm($commande);
+        $this->createDeleteForm($commande);
+        $listproduit=$this->createProduitCommandeForm($commande);
+
+        $i=0;
+        foreach($listproduit as $produitCommande){
+            $produits[$i]=$this->createProduitForm($produitCommande);
+            $i++;
+        }
 
         return $this->render('@Commande/commande/show.html.twig', array(
             'commande' => $commande,
-            'delete_form' => $deleteForm->createView(),
+            'listproduit' => $listproduit,
+            'produits' =>$produits,
         ));
+
+
     }
 
     /**
@@ -95,8 +113,7 @@ class CommandeController extends Controller
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Commande $commande)
-    {
-        $deleteForm = $this->createDeleteForm($commande);
+    {   $deleteForm = $this->createDeleteForm($commande);
         $editForm = $this->createForm('CommandeBundle\Form\CommandeType', $commande);
         $editForm->handleRequest($request);
 
@@ -116,19 +133,18 @@ class CommandeController extends Controller
     /**
      * Deletes a commande entity.
      *
-     * @Route("/{idCommande}", name="commande_delete")
+     * @Route("/{idCommande}/delete", name="commande_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, Commande $commande)
+    public function deleteAction( $idCommande)
     {
-        $form = $this->createDeleteForm($commande);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($commande);
-            $em->flush();
+        $form = $this->getDoctrine()->getRepository(Commande::class)->findBy(array("idCommande"=>$idCommande));
+        $em=$this->getDoctrine()->getManager();
+        foreach($form as $product) {
+            $em->remove($product);
         }
+
+        $em->flush();
 
         return $this->redirectToRoute('commande_index');
     }
@@ -143,9 +159,27 @@ class CommandeController extends Controller
     private function createDeleteForm(Commande $commande)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('commande_delete', array('idCommande' => $commande->getIdcommande())))
+            ->setAction($this->generateUrl('commande_delete', array('idCommande' =>  $commande->getIdcommande())))
             ->setMethod('DELETE')
             ->getForm()
         ;
     }
+
+
+    private function createProduitCommandeForm(Commande $commande)
+    {
+        return $this->getDoctrine()->getManager()->getRepository('CommandeBundle:ProduitCommande')
+        ->findBy(array('idCommande' => $commande->getIdcommande()));
+    }
+
+
+    private function createProduitForm(ProduitCommande $produit)
+    {
+        return $this->getDoctrine()->getManager()->getRepository('EntrepotBundle:Produit')
+            ->findOneBy(array('idProduit' => $produit->getIdProduit()));
+    }
+
+
+
 }
+

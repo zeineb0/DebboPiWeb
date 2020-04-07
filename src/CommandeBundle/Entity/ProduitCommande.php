@@ -31,7 +31,7 @@ class ProduitCommande
      * @var \Produit
      *
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="EntrepotBundle\Entity\Produit")
+     * @ORM\ManyToOne(targetEntity="EntrepotBundle\Entity\Produit",cascade={"remove"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_produit", referencedColumnName="id_produit")
      * })
@@ -42,8 +42,8 @@ class ProduitCommande
     /**
      * @var \Commande
      *
-     * @ORM\Id)
-     * @ORM\ManyToOne(targetEntity="CommandeBundle\Entity\Commande")
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="Commande",cascade={"remove"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_commande", referencedColumnName="id_commande")
      * })
