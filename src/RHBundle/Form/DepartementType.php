@@ -7,6 +7,8 @@ use RHBundle\Entity\Departement;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
 
 class DepartementType extends AbstractType
 {
@@ -19,17 +21,7 @@ class DepartementType extends AbstractType
             ->add('etage')
             ->add('nbsalles')
             ->add('budgetannuel')
-            ->add('fkEnt', Entrepot::class, [
-                // looks for choices from this entity
-                'class' => Entrepot::class,
-
-                // uses the User.username property as the visible option string
-                'choice_label' => 'Entrepot.entreprise',
-
-                // used to render a select box, check boxes or radios
-                // 'multiple' => true,
-                // 'expanded' => true,
-            ]);
+            ->add('fkEnt',EntityType::class,array( 'class'=>'EntrepotBundle:Entrepot','choice_label'=>'entreprise'));
     }/**
      * {@inheritdoc}
      */

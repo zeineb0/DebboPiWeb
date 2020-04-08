@@ -68,6 +68,134 @@ class Entrepot
     private $idUser;
 
     /**
+     * @return int
+     */
+    public function getIdEntrepot()
+    {
+        return $this->idEntrepot;
+    }
+
+    /**
+     * @param int $idEntrepot
+     */
+    public function setIdEntrepot($idEntrepot)
+    {
+        $this->idEntrepot = $idEntrepot;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * @param string $adresse
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumFiscale()
+    {
+        return $this->numFiscale;
+    }
+
+    /**
+     * @param int $numFiscale
+     */
+    public function setNumFiscale($numFiscale)
+    {
+        $this->numFiscale = $numFiscale;
+    }
+
+    /**
+     * @return int
+     */
+    public function getQuantiteMax()
+    {
+        return $this->quantiteMax;
+    }
+
+    /**
+     * @param int $quantiteMax
+     */
+    public function setQuantiteMax($quantiteMax)
+    {
+        $this->quantiteMax = $quantiteMax;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @param string $etat
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEntreprise()
+    {
+        return $this->entreprise;
+    }
+
+    /**
+     * @param string $entreprise
+     */
+    public function setEntreprise($entreprise)
+    {
+        $this->entreprise = $entreprise;
+    }
+
+    /**
+     * @return \Utilisateur
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
+
+    /**
+     * @param \Utilisateur $idUser
+     */
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFkUser()
+    {
+        return $this->fkUser;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\Collection $fkUser
+     */
+    public function setFkUser($fkUser)
+    {
+        $this->fkUser = $fkUser;
+    }
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Utilisateur", mappedBy="fkEntrepot")

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="banner-top">
+    <div class="container">
+        <h3 >Departement</h3>
+        <h4><a href="/DebboPiWeb/web/app_dev.php/">Accueil</a><label>/</label><a href="/DebboPiWeb/web/app_dev.php/dep/">Departement</a><label>/</label>Ajouter</h4>
+
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<div style="margin: 100px 200px 100px 200px">
+    <div class="spec ">
+        <h3>Affichage d'un departement</h3>
+        <div class="ser-t">
+            <b></b>
+            <span><i></i></span>
+            <b class="line"></b>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <tbody>
+
+            <tr>
+                <th>Nom</th>
+                <td>{{ departement.nom }}</td>
+            </tr>
+            <tr>
+                <th>Etage</th>
+                <td>{{ departement.etage }}</td>
+            </tr>
+            <tr>
+                <th>Nombre des salles</th>
+                <td>{{ departement.nbsalles }}</td>
+            </tr>
+            <tr>
+                <th>Budget annuel</th>
+                <td>{{ departement.budgetannuel }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+
+            <a class=" add-1" href="{{ path('dep_index') }}">Back to the list</a>
+
+            <a class=" add-1" href="{{ path('dep_edit', { 'idDep': departement.idDep }) }}">Edit</a>
+        <a class=" add-1" href="{{ path('dep_delete', { 'idDep': departement.idDep }) }}">Supprimer</a>
+
+
+    </ul>
+{% endblock %}

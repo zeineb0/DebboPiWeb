@@ -15,11 +15,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- Custom Theme files -->
     <link href= " {{ asset ('css/style.css') }}" rel='stylesheet' type='text/css' />
     <!-- js -->
-    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
     <!-- //js -->
     <!-- start-smoth-scrolling -->
-    <script type="text/javascript" src="js/move-top.js"></script>
-    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript" src="{{ asset('js/move-top.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/easing.js') }}"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event){
@@ -33,7 +33,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
     <!--- start-rate---->
-    <script src="js/jstarbox.js"></script>
+    <script src="{{ asset('js/jstarbox.js') }}"></script>
     <link rel="stylesheet" href="{{ asset ('css/jstarbox.css') }}" type="text/css" media="screen" charset="utf-8" />
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     <script type="text/javascript">
@@ -66,15 +66,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="container">
 
             <div class="logo">
-                <h1> <a href=""><img src="images/debo.jpg" alt="" title="" />DeBBo.<span>Le meilleur entrepôt</span></a></h1>
+                <h1> <a href=""><img src="{{asset('images/debo.jpg')}}" alt="" title="" />DeBBo.<span>Le meilleur entrepôt</span></a></h1>
             </div>
             <div class="head-t">
                 <ul class="card">
                     <li><a href="{{ asset('wishlist.html') }}" ><i class="fa fa-heart" aria-hidden="true"></i>Favoris</a></li>
-                    <li><a href="{{ asset('login.html') }}" ><i class="fa fa-user" aria-hidden="true"></i>Se connecter</a></li>
-                    <li><a href="{{ asset('register.html') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>S'enregistrer</a></li>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li><a href="{{ path('fos_user_profile_show') }}" ><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
+                        <li><a href="{{ path('fos_user_security_logout') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>Se deconnecter</a></li>
+
+                    {% else %}
+                        <li><a href="{{ path('fos_user_security_login') }}" ><i class="fa fa-user" aria-hidden="true"></i>Se connecter</a></li>
+                        <li><a href="{{ path('fos_user_registration_register') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>S'enregistrer</a></li>
+                    {% endif %}
                 </ul>
             </div>
+
 
             <div class="nav-top">
                 <nav class="navbar navbar-default">
@@ -107,7 +114,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                         </div>
                                         <div class="col-sm-3 w3l">
-                                            <a href="{{ asset('kitchen.html') }}"><img src="images/me.png" class="img-responsive" alt=""></a>
+                                            <a href="{{ asset('kitchen.html') }}"><img src="{{asset('images/me.png') }}" class="img-responsive" alt=""></a>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
@@ -127,7 +134,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                         </div>
                                         <div class="col-sm-3 w3l">
-                                            <a href="{{ asset ('care.html') }} "><img src="images/me1.png" class="img-responsive" alt=""></a>
+                                            <a href="{{ asset ('care.html') }} "><img src="{{asset('images/me1.png') }}" class="img-responsive" alt=""></a>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
@@ -169,7 +176,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             </ul>
                                         </div>
                                         <div class="col-sm-3 w3l">
-                                            <a href="{{ asset ('hold.html') }}"><img src="images/me2.png" class="img-responsive" alt=""></a>
+                                            <a href="{{ asset ('hold.html') }}"><img src="{{asset('images/me2.png') }}"class="img-responsive" alt=""></a>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
@@ -193,7 +200,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         </div>
     </div>
-    <div data-vide-bg="video/video">
+    <div data-vide-bg="{{ asset('video/video')}}">
         <div class="container">
             <div class="banner-info">
                 <div class="search-form">
@@ -205,19 +212,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
     </div>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
-    <script src="js/jquery.vide.min.js"></script>
+
+    <script>window.jQuery || document.write('<script src="{{ asset('js/vendor/jquery-1.11.1.min.js') }}"  ><\/script>')</script>
+    <script src="{{ asset('js/jquery.vide.min.js') }}"></script>
 {% endblock %}
 
 {% block content %}
     <body>
-    {% block body %}{% endblock %}
+    {% block body %}
+
+    {% endblock %}
     </body>
 {% endblock %}
 
 {% block footer %}
     <div class="footer">
-
         <div class="clearfix"></div>
         <div class="footer-bottom">
             <h2 ><a href="index.html">DeBBo.<span>Le meilleur entrepôt</span></a></h2>

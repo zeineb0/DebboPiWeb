@@ -23,7 +23,7 @@ class DepartementController extends Controller
 
         $departements = $em->getRepository('RHBundle:Departement')->findAll();
 
-        return $this->render('departement/index.html.twig', array(
+        return $this->render('@RH/departement/index.html.twig', array(
             'departements' => $departements,
         ));
     }
@@ -46,7 +46,7 @@ class DepartementController extends Controller
             return $this->redirectToRoute('dep_show', array('idDep' => $departement->getIddep()));
         }
 
-        return $this->render('departement/new.html.twig', array(
+        return $this->render('@RH/departement/new.html.twig', array(
             'departement' => $departement,
             'form' => $form->createView(),
         ));
@@ -60,7 +60,7 @@ class DepartementController extends Controller
     {
         $deleteForm = $this->createDeleteForm($departement);
 
-        return $this->render('departement/show.html.twig', array(
+        return $this->render('@RH/departement/show.html.twig', array(
             'departement' => $departement,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -82,7 +82,7 @@ class DepartementController extends Controller
             return $this->redirectToRoute('dep_edit', array('idDep' => $departement->getIddep()));
         }
 
-        return $this->render('departement/edit.html.twig', array(
+        return $this->render('@RH/departement/edit.html.twig', array(
             'departement' => $departement,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
