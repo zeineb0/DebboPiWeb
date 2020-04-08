@@ -1,0 +1,7 @@
+rh_dep:
+    resource: "@RHBundle/Resources/config/routing/departement.yml"
+    prefix:   /dep
+
+rh_homepage:
+    path:     /
+    defaults: { _controller: RHBundle:Default:index }

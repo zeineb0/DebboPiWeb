@@ -1,0 +1,24 @@
+dep_index:
+    path:     /
+    defaults: { _controller: "RHBundle:Departement:index" }
+    methods:  GET
+
+dep_show:
+    path:     /{idDep}/show
+    defaults: { _controller: "RHBundle:Departement:show" }
+    methods:  GET
+
+dep_new:
+    path:     /new
+    defaults: { _controller: "RHBundle:Departement:new" }
+    methods:  [GET, POST]
+
+dep_edit:
+    path:     /{idDep}/edit
+    defaults: { _controller: "RHBundle:Departement:edit" }
+    methods:  [GET, POST]
+
+dep_delete:
+    path:     /{idDep}/delete
+    defaults: { _controller: "RHBundle:Departement:delete" }
+    methods:  DELETE

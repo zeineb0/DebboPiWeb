@@ -180,7 +180,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <li><a href="{{ asset ('codes.html') }}" class="hyper"> <span>Commande</span></a></li>
                             <li><a href="{{ asset ('codes.html') }}" class="hyper"> <span>Forum</span></a></li>
 
-                            <li><a href="{{ asset ('contact.html') }}" class="hyper"><span>Contact Us</span></a></li>
+                            <li><a href="{{ asset ('contact.html') }}" class="hyper"><span>Ressources Humaines</span></a></li>
                         </ul>
                     </div>
                 </nav>
@@ -210,7 +210,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 {% endblock %}
 
 {% block content %}
-
+    <body>
+    {% block body %}{% endblock %}
+    </body>
 {% endblock %}
 
 {% block footer %}
