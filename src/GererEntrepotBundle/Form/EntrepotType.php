@@ -27,7 +27,6 @@ class EntrepotType extends AbstractType
 
             -> add('prixLocation')
             ->add('entreprise')
-            ->add('id',EntityType::class,array('class'=>'EntrepotBundle:Utilisateur','choice_label'=>'id'))
         ;
     }/**
      * {@inheritdoc}

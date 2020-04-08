@@ -3,6 +3,7 @@
 namespace GererEntrepotBundle\Controller;
 
 use GererEntrepotBundle\Entity\Entrepot;
+use GererEntrepotBundle\Repository\EntrepotRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -51,6 +52,8 @@ class EntrepotController extends Controller
         if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') )
         {
         $entrepot = new Entrepot();
+        $id= $this->getUser();
+        $entrepot->setId($id);
         $form = $this->createForm('GererEntrepotBundle\Form\EntrepotType', $entrepot);
         $form->handleRequest($request);
 
@@ -115,22 +118,33 @@ class EntrepotController extends Controller
         ));
     }
 
+
+    public function showeAction()
+    {
+        $repository= $this->getDoctrine()->getManager()->getRepository(Entrepot::class);
+
+        $entrepots =$repository->afficherEtatALouer();
+
+        return $this->render('@GererEntrepot/entrepot/alouer.html.twig', array(
+            'entrepots' => $entrepots,
+        ));
+    }
+
     /**
      * Deletes a entrepot entity.
      *
-     * @Route("/{idEntrepot}", name="entrepot_delete")
+     * @Route("/{idEntrepot}/delete", name="entrepot_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, Entrepot $entrepot)
+    public function deleteAction( $idEntrepot)
     {
-        $form = $this->createDeleteForm($entrepot);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($entrepot);
-            $em->flush();
+        $form = $this->getDoctrine()->getRepository(Entrepot::class)->findBy(array("idEntrepot"=>$idEntrepot));
+        $em=$this->getDoctrine()->getManager();
+        foreach($form as $product) {
+            $em->remove($product);
         }
+
+        $em->flush();
 
         return $this->redirectToRoute('entrepot_index');
     }
@@ -150,4 +164,13 @@ class EntrepotController extends Controller
             ->getForm()
         ;
     }
+
+    public function listAction()
+    {
+
+
+        return $this->render('admin.html.twig');
+
+    }
+
 }

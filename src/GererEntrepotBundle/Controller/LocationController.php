@@ -52,6 +52,7 @@ class LocationController extends Controller
         if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') )
         {
         $location = new Location();
+
         $form = $this->createForm('GererEntrepotBundle\Form\LocationType', $location);
         $form->handleRequest($request);
 
@@ -115,23 +116,21 @@ class LocationController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
-
     /**
      * Deletes a location entity.
      *
-     * @Route("/{idLocation}", name="location_delete")
+     * @Route("/{idLocation}/delete", name="location_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, Location $location)
+    public function deleteAction( $idLocation)
     {
-        $form = $this->createDeleteForm($location);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($location);
-            $em->flush();
+        $form = $this->getDoctrine()->getRepository(Location::class)->findBy(array("idLocation"=>$idLocation));
+        $em=$this->getDoctrine()->getManager();
+        foreach($form as $product) {
+            $em->remove($product);
         }
+
+        $em->flush();
 
         return $this->redirectToRoute('location_index');
     }

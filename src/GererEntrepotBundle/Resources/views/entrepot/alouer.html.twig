@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="banner-top">
+        <div class="container">
+            <h3 >Entrepot</h3>
+            <h4><a href="/DebboPiWeb/web/app_dev.php/">Accueil</a><label>/</label>Entrepot</h4>
+
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+    <div class="bs-docs-example" style="margin:100px">
+        <div class="spec ">
+            <h3>Liste des entrepots</h3>
+            <div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Adresse</th>
+                <th>Numfiscale</th>
+                <th>Quantitemax</th>
+                <th>Etat</th>
+                <th>Prixlocation</th>
+                <th>Entreprise</th>
+                <th></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for entrepot in entrepots %}
+                <tr>
+
+                    <td>{{ entrepot.adresse }}</td>
+                    <td>{{ entrepot.numFiscale }}</td>
+                    <td>{{ entrepot.quantiteMax }}</td>
+                    <td>{{ entrepot.etat }}</td>
+                    <td>{{ entrepot.prixLocation }}</td>
+                    <td>{{ entrepot.entreprise }}</td>
+                    <td>
+                        <ul>
+                            <li class="label label-info" > <a style="color:white"  href="{{ path('entrepot_show', { 'idEntrepot': entrepot.idEntrepot }) }}">Afficher</a></li>
+                            <li class="label label-default"><a style="color: white" href="{{ path('entrepot_edit', { 'idEntrepot': entrepot.idEntrepot }) }}">Modifier</a></li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <ul>
+            <a class=" add-1"  href="{{ path('entrepot_new') }}">Ajouter entrepot</a>
+        </ul>
+    </div>
+
+{% endblock %}

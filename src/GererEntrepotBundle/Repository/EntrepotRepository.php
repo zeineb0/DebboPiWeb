@@ -10,4 +10,11 @@ namespace GererEntrepotBundle\Repository;
  */
 class EntrepotRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function afficherEtatALouer()
+    {$qb=$this->getEntityManager()
+              ->createQuery("select c from GererEntrepotBundle:Entrepot c where c.etat= 'A Louer'");
+
+    return $query=$qb->getResult();
+
+    }
 }

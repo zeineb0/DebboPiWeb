@@ -6,8 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+    public function indexAdminAction()
     {
-        return $this->render('@GererEntrepot/Default/index.html.twig');
+
+        return $this->render('admin_home.html.twig',array('notifications' => $notif));
     }
 }

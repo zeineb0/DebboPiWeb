@@ -44,9 +44,8 @@
             <a class=" add-1" href="{{ path('location_edit', { 'idLocation': location.idLocation }) }}">Edit</a>
         </li>
         <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
+            <a class=" add-1" href="{{ path('location_delete', { 'idLocation': location.idLocation }) }}">Supprimer</a>
         </li>
+
     </ul>
 {% endblock %}
