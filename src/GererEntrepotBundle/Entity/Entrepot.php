@@ -3,6 +3,7 @@
 namespace GererEntrepotBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -26,12 +27,16 @@ class Entrepot
      * @var string
      *
      * @ORM\Column(name="adresse", type="string", length=10, nullable=false)
+     * @Assert\Length(min="3",max="20")
+     * @Assert\NotBlank()
      */
     private $adresse;
 
     /**
      * @var integer
      *
+     * @Assert\Length(min="3",max="10")
+     * @Assert\NotBlank()
      * @ORM\Column(name="num_fiscale", type="integer", nullable=false)
      */
     private $numFiscale;
@@ -52,7 +57,8 @@ class Entrepot
 
     /**
      * @var float
-     *
+     *  @Assert\Length(min="3",max="20")
+     * @Assert\NotBlank()
      * @ORM\Column(name="prix_location", type="float", length=20, nullable=false)
      */
     private $prixLocation;

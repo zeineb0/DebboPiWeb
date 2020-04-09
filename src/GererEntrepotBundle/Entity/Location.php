@@ -3,7 +3,8 @@
 namespace GererEntrepotBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
 /**
  * Location
  *
@@ -27,13 +28,20 @@ class Location
      * @ORM\Column(name="date_deb_location", type="date", nullable=false)
      */
     private $dateDebLocation;
+
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_fin_location", type="date", nullable=false)
      */
     private $dateFinLocation;
+    /**controle de saisie pour les dates */
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
+    {
+        $metadata->addPropertyConstraint('dateDebLocation', new Assert\LessThan('today UTC'));
+        $metadata->addPropertyConstraint('dateFinLocation', new Assert\LessThan('today UTC '));
 
+    }
     /**
      * @var float
      *

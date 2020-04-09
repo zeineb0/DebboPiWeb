@@ -2,6 +2,7 @@
 
 namespace GererEntrepotBundle\Controller;
 
+use EntrepotBundle\Entity\Utilisateur;
 use GererEntrepotBundle\Entity\Entrepot;
 use GererEntrepotBundle\Repository\EntrepotRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -15,6 +16,83 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class EntrepotController extends Controller
 {
+
+    // affichage les depot à louer
+    /**
+     *
+     * @Route("/showe_a_louer", name="entrepot_a_louer")
+     */
+    public function showeAction()
+    {
+        $entrepots= $this->getDoctrine()->getManager()->getRepository(Entrepot::class)
+            ->findBy(['etat' => 'A Louer']);
+
+        /* @var $etn Entrepot */
+        $etn = new Entrepot();
+
+        /* @var $user Utilisateur */
+        $user = $etn->getId();
+
+
+        //$entrepots =$repository->afficherEtatALouer();
+
+        return $this->render('@GererEntrepot/entrepot/alouer.html.twig', array(
+            'entrepots' => $entrepots,
+            // $ent = $location->getEnt();
+            //        $znt->setEt
+        ));
+    }
+    /**
+     * afficher entrepots loués.
+     * @Route("/loué", name="entrepot_loué")
+     */
+    public function entrepotLouéAction( )
+    {   $securityContext = $this->container->get('security.authorization_checker');
+        if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED'))
+        {
+            $user = $this->container->get('security.token_storage')->getToken()->getUser();
+
+            $entrepots = $this->getDoctrine()->getManager()->getRepository(Entrepot::class)
+                ->findBy(array('id' => $user,'etat' => 'Loué'));
+            return $this->render('@GererEntrepot/entrepot/alouer.html.twig', array(
+                'entrepots' => $entrepots,
+            ));
+        }
+
+        # if user not logged in yet
+        else
+        {
+            return $this->redirectToRoute('fos_user_security_login');
+        }
+
+    }
+
+
+    public function louerEntrepotAction (Request $request) {
+        // id entropot
+        //
+    }
+
+    /**
+     * Deletes a entrepot entity.
+     * @Route("/admin", name="entrepot_admin")
+     */
+    public function adminAction( )
+    {   $securityContext = $this->container->get('security.authorization_checker');
+        if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED'))
+        {
+            return $this->render('admin.html.twig');
+            }
+
+        # if user not logged in yet
+        else
+        {
+            return $this->redirectToRoute('fos_user_security_login');
+        }
+
+    }
+
+
     /**
      * Lists all entrepot entities.
      *
@@ -40,6 +118,7 @@ class EntrepotController extends Controller
             return $this->redirectToRoute('fos_user_security_login');
         }
     }
+
 
     /**
      * Creates a new entrepot entity.
@@ -77,21 +156,8 @@ class EntrepotController extends Controller
         }
     }
 
-    /**
-     * Finds and displays a entrepot entity.
-     *
-     * @Route("/{idEntrepot}", name="entrepot_show")
-     * @Method("GET")
-     */
-    public function showAction(Entrepot $entrepot)
-    {
-        $deleteForm = $this->createDeleteForm($entrepot);
 
-        return $this->render('@GererEntrepot/entrepot/show.html.twig', array(
-            'entrepot' => $entrepot,
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
+
 
     /**
      * Displays a form to edit an existing entrepot entity.
@@ -118,15 +184,19 @@ class EntrepotController extends Controller
         ));
     }
 
-
-    public function showeAction()
+    /**
+     * Finds and displays a entrepot entity.
+     *
+     * @Route("/{idEntrepot}", name="entrepot_show")
+     * @Method("GET")
+     */
+    public function showAction(Entrepot $entrepot)
     {
-        $repository= $this->getDoctrine()->getManager()->getRepository(Entrepot::class);
+        $deleteForm = $this->createDeleteForm($entrepot);
 
-        $entrepots =$repository->afficherEtatALouer();
-
-        return $this->render('@GererEntrepot/entrepot/alouer.html.twig', array(
-            'entrepots' => $entrepots,
+        return $this->render('@GererEntrepot/entrepot/show.html.twig', array(
+            'entrepot' => $entrepot,
+            'delete_form' => $deleteForm->createView()
         ));
     }
 
@@ -165,12 +235,7 @@ class EntrepotController extends Controller
         ;
     }
 
-    public function listAction()
-    {
 
 
-        return $this->render('admin.html.twig');
-
-    }
 
 }

@@ -24,8 +24,8 @@ class LocationType extends AbstractType
                  'placeholder' => '',
             ])
             ->add('prixLocation')
-            ->add('fkEntrepot',EntityType::class,array( 'class'=>'GererEntrepotBundle:Entrepot','choice_label'=>'idEntrepot'))
-            ->add('fkUser',EntityType::class,array('class'=>'EntrepotBundle:Utilisateur','choice_label'=>'id'));
+            ->add('fkEntrepot',EntityType::class,array( 'class'=>'GererEntrepotBundle:Entrepot','choice_label'=>'entreprise'));
+            //->add('fkUser',EntityType::class,array('class'=>'EntrepotBundle:Utilisateur','choice_label'=>'nom'));
     }/**
      * {@inheritdoc}
      */

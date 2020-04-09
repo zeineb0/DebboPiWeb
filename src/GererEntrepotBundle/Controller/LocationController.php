@@ -58,6 +58,8 @@ class LocationController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $user = $this->container->get('security.token_storage')->getToken()->getUser();
+            $location->setFkUser($user);
             $em->persist($location);
             $em->flush();
 

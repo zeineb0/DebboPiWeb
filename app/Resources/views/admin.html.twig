@@ -32,7 +32,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href={{ asset('Admin/index3.html') }} class="nav-link">Dashboard</a>
+                <a  href="{{ path('entrepot_admin') }}" class="nav-link">Dashboard</a>
             </li>
         </ul>
 
@@ -57,7 +57,7 @@
                     <span class="badge badge-danger navbar-badge">3</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <a href={{ asset('Admin/#') }} class="dropdown-item">
+                    <a href={{ asset('entrepot_admin') }} class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
                             <img src="{{ asset('Admin/dist/img/user1-128x128.jpg') }}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
@@ -114,14 +114,7 @@
                     <i class="far fa-bell"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    {% for notif in notifications %}
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> {{ notif.title }}
-                            <span class="float-right text-muted text-sm">{{ notif.date|date('d\m\y') }}</span>
-                        </a>
 
-                    {% endfor %}
                     <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                 </div>
@@ -137,10 +130,10 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="{{ path('debbo_admin_homepage') }}" class="brand-link">
-            <img src="{{ asset('images/debo.jpg') }}" alt="AdminLTE Logo" class="brand-image elevation-3"
+        <a href="{{ path('entrepot_index') }}" class="brand-link">
+            <img src="{{ asset('images/debbo.png') }}" alt="AdminLTE Logo" class="brand-image elevation-3"
                  style="opacity: .8; max-height: 55px;">
-
+            <span class="brand-text font-weight-light"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">deBBo dashboard</font></font></span>
         </a>
 
         <!-- Sidebar -->
@@ -152,7 +145,7 @@
                 </div>
                 <div class="info">
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <a href="#" class="d-block">{{app.user.nom}}</a>
+                        <a href="#" class="d-block">{{app.user.prenom}} {{app.user.nom}}</a>
                     {% else %}
                         <a href="#" class="d-block">User</a>
                     {% endif %}
@@ -166,7 +159,7 @@
                          with font-awesome or any other icon font library -->
                     <li class="nav-item has-treeview menu-open">
 
-                        <a href="{{ path('bike_admin_homepage') }}" class="nav-link active">
+                        <a href="{{ path('entrepot_index') }}" class="nav-link active">
 
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
@@ -193,13 +186,13 @@
                         </a>
                         <ul class="nav nav-treeview" style="display: block;">
                             <li class="nav-item">
-                                <a href="{{ path('produit_index') }}" class="nav-link">
+                                <a href="{{ path('entrepot_index') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Liste de produits</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ path('produit_stat') }}" class="nav-link">
+                                <a href="{{ path('entrepot_index') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Statistiques</p>
                                 </a>
@@ -217,7 +210,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ path('categorie_index') }}" class="nav-link">
+                                <a href="{{ path('entrepot_index') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Liste de catégories</p>
                                 </a>
@@ -228,7 +221,7 @@
 
 
                     <li class="nav-item">
-                        <a href="{{ path('livraison_index') }}" class="nav-link">
+                        <a href="{{ path('entrepot_index') }}" class="nav-link">
                             <i class="nav-icon fas  fa-rocket"></i>
                             <p>
                                 Livraison
@@ -237,7 +230,7 @@
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a href="{{ path('reclamation_index') }}" class="nav-link">
+                        <a href="{{ path('entrepot_index') }}" class="nav-link">
                             <i class="nav-icon fas fa-exclamation-triangle"></i>
                             <p>
                                 Reclamations
@@ -246,7 +239,7 @@
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a href="{{ path('promotion_index') }}" class="nav-link">
+                        <a href="{{ path('entrepot_index') }}" class="nav-link">
                             <i class="nav-icon fas fa-cart-arrow-down"></i>
                             <p>
                                 Promotions
@@ -255,7 +248,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ path('evenement_index') }}" class="nav-link">
+                        <a href="{{ path('entrepot_index') }}" class="nav-link">
                             <i class="nav-icon fas fa-fire"></i>
                             <p>
                                 Evenements
@@ -264,7 +257,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ path('formateur_index') }}" class="nav-link">
+                        <a href="{{ path('entrepot_index') }}" class="nav-link">
                             <i class="nav-icon fas fa-fire"></i>
                             <p>
                                 formateurs
@@ -273,16 +266,16 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ path('Commande_list') }}" class="nav-link">
+                        <a href="{{ path('entrepot_index') }}" class="nav-link">
                             <i class="nav-icon fas fa-tags"></i>
                             <p>
-                                Commandes
+                                entrepots
 
                             </p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ path('coupon_list') }}" class="nav-link">
+                        <a href="{{ path('entrepot_index') }}" class="nav-link">
                             <i class="nav-icon fas fa-salesforce"></i>
                             <p>
                                 Coupon codes
@@ -291,7 +284,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ path('livreur_index') }}" class="nav-link">
+                        <a href="{{ path('entrepot_index') }}" class="nav-link">
                             <i class="nav-icon fas fa-tags"></i>
                             <p>
                                 Livreur
@@ -316,7 +309,7 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
 
-                        <h1 class="m-0 text-dark">BikeOps Dashboard</h1>
+                        <h1 class="m-0 text-dark">deBBo. Dashboard</h1>
 
                     </div><!-- /.col -->
                     <div class="col-sm-6">
@@ -380,26 +373,6 @@
 
 <!-- PAGE SCRIPTS -->
 <script src="{{ asset('Admin/dist/js/pages/dashboard2.js') }}"></script>
-<!-- Notification -->
-{# Call NotificationsBundles's assets #}
-{{ notifications_assets() }}
-<script>
-    /**
-     * After calling notifications_assets() "pusher" is now available
-     * and you can use it this way
-     */
-
-        // select the channel you want to listen to
-    var channel = pusher.subscribe("notifications");// notifications channel
-    channel.bind("my-event", function(data) {
-        console.log('from notifications channel', data);
-    });
-
-    var channel = pusher.subscribe("messages");// messages channel
-    channel.bind("my-event", function(data) {
-        console.log('from messages channel', data);
-    });
-</script>
 
 {% block scripts %}{% endblock %}
 

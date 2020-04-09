@@ -6,11 +6,6 @@ gerer_entrepot_location:
     resource: "@GererEntrepotBundle/Controller/LocationController.php"
     type:     annotation
 
-entrepot:
-    resource: "@GererEntrepotBundle/Resources/config/routing.yml"
-    prefix:   /entrepot
-
-
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
