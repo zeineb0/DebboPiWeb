@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="banner-top">
+    <div class="container">
+        <h3 >Departement</h3>
+        <h4><a href="/DebboPiWeb/web/app_dev.php/">Accueil</a><label>/</label><a href="/DebboPiWeb/web/app_dev.php/dep/">Employees</a><label>/</label>Ajouter</h4>
+
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<div style="margin: 100px 200px 100px 200px">
+    <div class="spec ">
+        <h3>Affichage d'un employee</h3>
+        <div class="ser-t">
+            <b></b>
+            <span><i></i></span>
+            <b class="line"></b>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Nom</th>
+                <td>{{ employe.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ employe.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Cin</th>
+                <td>{{ employe.cin }}</td>
+            </tr>
+            <tr>
+                <th>Dateembauche</th>
+                <td>{% if employe.dateEmbauche %}{{ employe.dateEmbauche|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Salaire</th>
+                <td>{{ employe.salaire }}</td>
+            </tr>
+            <tr>
+                <th>Points</th>
+                <td>{{ employe.points }}</td>
+            </tr>
+            <tr>
+                <th>Recommandations</th>
+                <td>{{ employe.recommandations }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a class="btn btn-success btn-lg" href="{{ path('employe_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a class="btn btn-primary btn-lg" href="{{ path('employe_edit', { 'idEmp': employe.idEmp }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input class="btn btn-danger btn-lg" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -71,6 +71,150 @@ class Employe
     private $recommandations;
 
     /**
+     * @return int
+     */
+    public function getIdEmp()
+    {
+        return $this->idEmp;
+    }
+
+    /**
+     * @param int $idEmp
+     */
+    public function setIdEmp($idEmp)
+    {
+        $this->idEmp = $idEmp;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @param string $nom
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * @param string $prenom
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCin()
+    {
+        return $this->cin;
+    }
+
+    /**
+     * @param string $cin
+     */
+    public function setCin($cin)
+    {
+        $this->cin = $cin;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateEmbauche()
+    {
+        return $this->dateEmbauche;
+    }
+
+    /**
+     * @param \DateTime $dateEmbauche
+     */
+    public function setDateEmbauche($dateEmbauche)
+    {
+        $this->dateEmbauche = $dateEmbauche;
+    }
+
+    /**
+     * @return float
+     */
+    public function getSalaire()
+    {
+        return $this->salaire;
+    }
+
+    /**
+     * @param float $salaire
+     */
+    public function setSalaire($salaire)
+    {
+        $this->salaire = $salaire;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPoints()
+    {
+        return $this->points;
+    }
+
+    /**
+     * @param int $points
+     */
+    public function setPoints($points)
+    {
+        $this->points = $points;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRecommandations()
+    {
+        return $this->recommandations;
+    }
+
+    /**
+     * @param string $recommandations
+     */
+    public function setRecommandations($recommandations)
+    {
+        $this->recommandations = $recommandations;
+    }
+
+    /**
+     * @return \Departement
+     */
+    public function getFkDep()
+    {
+        return $this->fkDep;
+    }
+
+    /**
+     * @param \Departement $fkDep
+     */
+    public function setFkDep($fkDep)
+    {
+        $this->fkDep = $fkDep;
+    }
+
+    /**
      * @var \Departement
      *
      * @ORM\ManyToOne(targetEntity="Departement")

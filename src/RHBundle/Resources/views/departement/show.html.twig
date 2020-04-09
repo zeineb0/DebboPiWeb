@@ -42,10 +42,15 @@
 
     <ul>
 
-            <a class=" add-1" href="{{ path('dep_index') }}">Back to the list</a>
-
-            <a class=" add-1" href="{{ path('dep_edit', { 'idDep': departement.idDep }) }}">Edit</a>
-        <a class=" add-1" href="{{ path('dep_delete', { 'idDep': departement.idDep }) }}">Supprimer</a>
+            <a class="btn btn-success btn-lg" href="{{ path('dep_index') }}">Back to the list</a>
+<br>
+            <a class="btn btn-primary btn-lg" href="{{ path('dep_edit', { 'idDep': departement.idDep }) }}">Edit</a>
+        <br>
+        <li>
+            {{ form_start(delete_form) }}
+            <input class="btn btn-danger btn-lg" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
 
 
     </ul>

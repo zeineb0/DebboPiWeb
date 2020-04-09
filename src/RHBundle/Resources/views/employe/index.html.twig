@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="banner-top">
+    <div class="container">
+        <h3 >Employees</h3>
+        <h4><a href="/DebboPiWeb/web/app_dev.php/">Accueil</a><label>/</label><a href="/DebboPiWeb/web/app_dev.php/dep/">Employees</a><label>/</label>Ajouter</h4>
+
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<div class="bs-docs-example" style="margin:100px">
+    <div class="spec ">
+        <h3>Liste des Employees</h3>
+        <div class="ser-t">
+            <b></b>
+            <span><i></i></span>
+            <b class="line"></b>
+        </div>
+    </div>
+    <table class="table" style="font-size: 20px">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Cin</th>
+                <th>Dateembauche</th>
+                <th>Salaire</th>
+                <th>Points</th>
+                <th>Recommandations</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for employe in employes %}
+            <tr>
+                <td><a href="{{ path('employe_show', { 'idEmp': employe.idEmp }) }}">{{ employe.idEmp }}</a></td>
+                <td>{{ employe.nom }}</td>
+                <td>{{ employe.prenom }}</td>
+                <td>{{ employe.cin }}</td>
+                <td>{% if employe.dateEmbauche %}{{ employe.dateEmbauche|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ employe.salaire }}</td>
+                <td>{{ employe.points }}</td>
+                <td>{{ employe.recommandations }}</td>
+                <td>
+                    <ul>
+                        <li
+                            a class="label label-info" > <a style="color:white"  href="{{ path('employe_show', { 'idEmp': employe.idEmp }) }}">show</a>
+                        </li>
+                        <li
+                            a class="label label-info" > <a style="color:white" href="{{ path('employe_edit', { 'idEmp': employe.idEmp }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('employe_new') }}">Create a new employe</a>
+        </li>
+    </ul>
+{% endblock %}

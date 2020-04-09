@@ -18,10 +18,9 @@
                     <b class="line"></b>
                 </div>
             </div>
-    <table class="table">
+    <table class="table" style="font-size: 20px">
         <thead>
             <tr>
-
                 <th>Nom</th>
                 <th>Etage</th>
                 <th>Nombre des salles</th>
@@ -38,9 +37,9 @@
                 <td>{{ departement.budgetannuel }}</td>
                 <td>
                     <ul>
-                        <li class="label label-info" > <a style="color:white"  href="{{ path('dep_show', { 'idDep': departement.idDep }) }}">show</a>
+                        <li class="label label-info" > <a style="color:white"  class="btn btn-info btn-lg" href="{{ path('dep_show', { 'idDep': departement.idDep }) }}">show</a>
                         </li>
-                        <li class="label label-info" > <a style="color:white"  href="{{ path('dep_edit', { 'idDep': departement.idDep }) }}">edit</a>
+                        <li class="label label-info" > <a style="color:white" class="btn btn-info btn-lg" href="{{ path('dep_edit', { 'idDep': departement.idDep }) }}">edit</a>
                         </li>
                     </ul>
                 </td>

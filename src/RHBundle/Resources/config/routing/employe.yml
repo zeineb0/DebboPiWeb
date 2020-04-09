@@ -1,0 +1,24 @@
+employe_index:
+    path:     /
+    defaults: { _controller: "RHBundle:Employe:index" }
+    methods:  GET
+
+employe_show:
+    path:     /{idEmp}/show
+    defaults: { _controller: "RHBundle:Employe:show" }
+    methods:  GET
+
+employe_new:
+    path:     /new
+    defaults: { _controller: "RHBundle:Employe:new" }
+    methods:  [GET, POST]
+
+employe_edit:
+    path:     /{idEmp}/edit
+    defaults: { _controller: "RHBundle:Employe:edit" }
+    methods:  [GET, POST]
+
+employe_delete:
+    path:     /{idEmp}/delete
+    defaults: { _controller: "RHBundle:Employe:delete" }
+    methods:  DELETE

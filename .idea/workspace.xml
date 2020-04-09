@@ -2,16 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5efa15f4-3407-46f0-b8d6-8a222e470e65" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/departement/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RHBundle/Controller/EmployeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RHBundle/Form/EmployeType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RHBundle/Resources/config/routing/employe.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/employe/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/employe/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/employe/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/employe/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RHBundle/Tests/Controller/EmployeControllerTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/departement/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/departement/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/departement/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/departement/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/departement/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/departement/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/departement/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EntrepotBundle/Entity/Entrepot.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EntrepotBundle/Entity/Entrepot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RHBundle/Controller/DepartementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Controller/DepartementController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RHBundle/Form/DepartementType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Form/DepartementType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RHBundle/Entity/Employe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Entity/Employe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/views/departement/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/departement/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/views/departement/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/departement/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/views/departement/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/departement/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/views/departement/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/departement/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/bootstrap.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,14 +113,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/RHBundle/Resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/RHBundle/Entity" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Resources\views" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Entity" />
       <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Resources\views" />
       <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Repository" />
-      <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Entity" />
       <recent name="C:\wamp64\www\DebboWeb\web\images" />
       <recent name="C:\wamp64\www\DebboWeb\web" />
     </key>
@@ -143,10 +152,10 @@
       <command value="php -r &quot;echo ini_get('memory_limit').PHP_EOL;&quot; " />
       <command value="php composer.phar require friendsofsymfony/user-bundle &quot;~2.0&quot; " />
       <command value="s generate:bundle" />
-      <command value="s debug:router" />
       <command value="s doctrine:schema:update --force" />
-      <command value="s doctrine:generate:crud" />
       <command value="s cache:clear" />
+      <command value="s doctrine:generate:crud" />
+      <command value="s debug:router" />
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -164,7 +173,8 @@
       <workItem from="1585348576137" duration="1772000" />
       <workItem from="1585646781557" duration="572000" />
       <workItem from="1585837283695" duration="14351000" />
-      <workItem from="1586292047456" duration="20926000" />
+      <workItem from="1586292047456" duration="21999000" />
+      <workItem from="1586438274113" duration="7836000" />
     </task>
     <task id="LOCAL-00001" summary="Creation du bundle RH et FOSUserBundle">
       <created>1585850511463</created>
@@ -180,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586335307592</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="crud departement">
+      <created>1586384295626</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1586384295626</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,18 +210,22 @@
     <option name="LAST_COMMIT_MESSAGE" value="crud departement" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="476" y="81" key="#com.intellij.ide.util.MemberChooser" timestamp="1586379644291">
+    <state x="137" y="20" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586441435980">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="476" y="81" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1586379644291" />
+    <state x="137" y="20" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1586441435980" />
+    <state x="476" y="81" key="#com.intellij.ide.util.MemberChooser" timestamp="1586441325287">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="476" y="81" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1586441325287" />
     <state x="559" y="294" key="#com.jetbrains.php.framework.ui.FailedToParseDialog" timestamp="1585844044776">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="559" y="294" key="#com.jetbrains.php.framework.ui.FailedToParseDialog/0.0.1366.728@0.0.1366.728" timestamp="1585844044776" />
-    <state x="226" y="0" key="CommitChangelistDialog2" timestamp="1586335285527">
+    <state x="226" y="0" key="CommitChangelistDialog2" timestamp="1586452334838">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="226" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586335285527" />
+    <state x="226" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586452334838" />
     <state x="438" y="258" key="ComposerCompositePathDialog" timestamp="1585348732941">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -219,25 +240,25 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="622" y="302" key="FrameworkEditDialogDimensionKey/0.0.1536.824@0.0.1536.824" timestamp="1585162585652" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1586383548956">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1586440889489">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586383548956" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586440889489" />
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585061338048" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1586383548955">
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1586440889489">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586383548955" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586440889489" />
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585061338048" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1586383548955">
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1586440889489">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586383548955" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586440889489" />
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585061338048" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1586383548955">
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1586440889489">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586383548955" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586440889489" />
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585061338048" />
     <state x="483" y="179" key="NewPhpClassDialog" timestamp="1585852102442">
       <screen x="0" y="0" width="1366" height="728" />
@@ -257,14 +278,18 @@
     </state>
     <state x="478" y="279" key="SymfonyPathDialog/0.0.1366.728@0.0.1366.728" timestamp="1585348765112" />
     <state x="537" y="316" key="SymfonyPathDialog/0.0.1536.824@0.0.1536.824" timestamp="1585059146417" />
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1586292716537">
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1586438404022">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586292716537" />
-    <state x="378" y="165" width="672" height="599" key="run.anything.popup" timestamp="1586383548978">
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586438404022" />
+    <state x="417" y="59" key="com.jetbrains.php.test.PhpNewTestDialog" timestamp="1586441309846">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="378" y="165" width="672" height="599" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1586383548978" />
+    <state x="417" y="59" key="com.jetbrains.php.test.PhpNewTestDialog/0.0.1366.728@0.0.1366.728" timestamp="1586441309846" />
+    <state x="378" y="165" width="672" height="599" key="run.anything.popup" timestamp="1586440889511">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="378" y="165" width="672" height="599" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1586440889511" />
     <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1585154767732" />
   </component>
 </project>

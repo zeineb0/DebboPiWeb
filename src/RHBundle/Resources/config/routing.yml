@@ -2,6 +2,11 @@ rh_dep:
     resource: "@RHBundle/Resources/config/routing/departement.yml"
     prefix:   /dep
 
+rh_emp:
+    resource: "@RHBundle/Resources/config/routing/Employe.yml"
+    prefix:   /emp
+
+
 rh_homepage:
     path:     /
     defaults: { _controller: RHBundle:Default:index }

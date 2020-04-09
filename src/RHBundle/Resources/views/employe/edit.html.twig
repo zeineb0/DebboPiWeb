@@ -1,17 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
 <div class="banner-top">
     <div class="container">
         <h3 >Departement</h3>
-        <h4><a href="/DebboPiWeb/web/app_dev.php/">Accueil</a><label>/</label><a href="/DebboPiWeb/web/app_dev.php/dep/">Departement</a><label>/</label>Ajouter</h4>
+        <h4><a href="/DebboPiWeb/web/app_dev.php/">Accueil</a><label>/</label><a href="/DebboPiWeb/web/app_dev.php/dep/">Employees</a><label>/</label>Ajouter</h4>
 
         <div class="clearfix"> </div>
     </div>
 </div>
 <div style="margin: 100px 200px 100px 200px">
     <div class="spec ">
-        <h3>Modification d'un departement</h3>
+        <h3>Modification d'un Employee</h3>
         <div class="ser-t">
             <b></b>
             <span><i></i></span>
@@ -26,7 +27,7 @@
 
     <ul>
         <li>
-            <a class="btn btn-success btn-lg" href="{{ path('dep_index') }}">Back to the list</a>
+            <a class ="btn btn-success btn-lg"href="{{ path('employe_index') }}">Back to the list</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

@@ -22,10 +22,10 @@
             {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
             {{ form_start(form) }}
             {{ form_widget(form) }}
-            <input style="width: 150px; margin-bottom: 10px;height: 30px; border:none" class=" add-1"  type="submit" value="Ajouter" />
+            <input style="width: 150px; margin-bottom: 10px;height: 30px; border:none" class="btn btn-success btn-lg"  type="submit" value="Ajouter" />
             {{ form_end(form) }}
             <ul>
-                <a class=" add-1" href="{{ path('dep_index') }}">Retour à la liste </a>
+                <a class="btn btn-success btn-lg" href="{{ path('dep_index') }}">Retour à la liste </a>
             </ul>
         </div>
     </div>
