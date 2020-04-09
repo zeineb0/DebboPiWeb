@@ -168,10 +168,9 @@ class MouvementDuStockController extends Controller
         ;
     }
 
-        public  function ajouterQuantiteAction(MouvementDuStock $mouvementDuStock,$qte){
-            $idProduit = $mouvementDuStock->getFkProduit();
+        public  function ajouterQuantiteAction($qte,$fk){
             $repo=$this->getDoctrine()->getManager()->getRepository('StockBundle:MouvementDuStock');
-            $qtee=$repo->qteup($qte,$idProduit);
+            $qtee=$repo->qteup($qte,$fk);
             return new Response('bb');
         }
 

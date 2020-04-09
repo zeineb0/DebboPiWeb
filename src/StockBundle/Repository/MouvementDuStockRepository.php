@@ -16,22 +16,12 @@ class MouvementDuStockRepository extends \Doctrine\ORM\EntityRepository
 
 {
 
-
-    public function prod($fk){
-        $qb=$this->getClassName(Produit::class);
-
-
-    }
-
-
-
     public function qteup($qte, $fk)
     {
         $qb = $this->getEntityManager()
             ->createQuery("Select p.quantite from StockBundle:produit p WHERE p.idProduit=:fk")
             ->setParameter('fk', $fk);
-        $res = $qb->getFirstResult();
-        echo $ress = (int) $res.pars ;
+        $res = mysql_result($qb,1);
 
         if ($res == 0) {
             $qb1 = $this->getEntityManager()
@@ -41,7 +31,7 @@ class MouvementDuStockRepository extends \Doctrine\ORM\EntityRepository
         } else {
             $qb2 = $this->getEntityManager()
                 ->createQuery("UPDATE StockBundle:produit p SET p.quantite=:qte WHERE p.idProduit=:fk")
-                ->setParameters(array('qte' => $qte + 100, 'fk' => $fk))
+                ->setParameters(array('qte' => $qte + $res, 'fk' => $fk))
                 ->execute();
 
 
