@@ -20,7 +20,8 @@ class ProduitType extends AbstractType
             ->add('quantite')
             ->add('fkCategorie')
             ->add('fkEntrepot');
-    }/**
+    }
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

@@ -37,3 +37,9 @@ ategory_sh1:
 lategory_sh1:
     path:     /mouvementdustock_index
     defaults: { _controller: StockBundle:MouvementDuStock:index }
+lategry_sh1:
+    path:     /ajouter/{qte}/{fk}
+    defaults: { _controller: StockBundle:MouvementDuStock:ajouterQuantite }
+lategry_h1:
+    path:     /check/{fk}
+    defaults: { _controller: StockBundle:MouvementDuStock:check }

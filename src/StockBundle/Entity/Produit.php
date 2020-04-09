@@ -93,6 +93,15 @@ class Produit
      */
     private $idUser;
 
+    /**
+     * Produit constructor.
+     * @param int $idProduit
+     */
+    public function __construct($idProduit)
+    {
+        $this->idProduit = $idProduit;
+    }
+
     public function __toString()
     {
 return $this->libelle;
@@ -260,6 +269,8 @@ return $this->libelle;
     {
         $this->fkEntrepot = $fkEntrepot;
     }
+
+
 
 
 }

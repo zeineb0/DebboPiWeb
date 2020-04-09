@@ -22,12 +22,18 @@
         <tbody>
 
             <tr>
-                <th>Naturemouvement</th>
+                <th>Nature du mouvement</th>
                 <td>{{ mouvementDuStock.natureMouvement }}</td>
             </tr>
             <tr>
-                <th>Datemouv</th>
+                <th>Date du mouvement</th>
                 <td>{{ mouvementDuStock.dateMouv | date}}</td>
+            </tr>  <tr>
+                <th>produit</th>
+                <td>{{ mouvementDuStock.fkProduit.quantite }}</td>
+            </tr> <tr>
+                <th>prod</th>
+                <td>{{ p.idProduit }}</td>
             </tr>
 
         </tbody>

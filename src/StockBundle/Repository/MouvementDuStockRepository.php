@@ -2,6 +2,8 @@
 
 namespace StockBundle\Repository;
 
+use StockBundle\Entity\Produit;
+
 /**
  * MouvementDuStockRepository
  *
@@ -9,5 +11,54 @@ namespace StockBundle\Repository;
  * repository methods below.
  */
 class MouvementDuStockRepository extends \Doctrine\ORM\EntityRepository
+
+
+
 {
+
+
+    public function prod($fk){
+        $qb=$this->getClassName(Produit::class);
+
+
+    }
+
+
+
+    public function qteup($qte, $fk)
+    {
+        $qb = $this->getEntityManager()
+            ->createQuery("Select p.quantite from StockBundle:produit p WHERE p.idProduit=:fk")
+            ->setParameter('fk', $fk);
+        $res = $qb->getFirstResult();
+        echo $ress = (int) $res.pars ;
+
+        if ($res == 0) {
+            $qb1 = $this->getEntityManager()
+                ->createQuery("UPDATE StockBundle:produit p SET p.quantite=:qte WHERE p.idProduit=:fk")
+                ->setParameters(array('qte' => $qte, 'fk' => $fk))
+                ->execute();
+        } else {
+            $qb2 = $this->getEntityManager()
+                ->createQuery("UPDATE StockBundle:produit p SET p.quantite=:qte WHERE p.idProduit=:fk")
+                ->setParameters(array('qte' => $qte + 100, 'fk' => $fk))
+                ->execute();
+
+
+        }
+
+
+    }
+
+    public function qtechk($fk)
+    {
+
+        $qb = $this->getEntityManager()
+            ->createQuery("Select p.quantite from StockBundle:produit p WHERE p.idProduit=:fk")
+            ->setParameter('fk', $fk);
+       $res = $qb->getResult();
+        var_dump($res);
+      echo  json_encode($res);
+
+    }
 }

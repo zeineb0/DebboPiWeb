@@ -19,6 +19,9 @@
             <div class="form-w3agile form1">
         {{ form_start(form) }}
         {{ form_widget(form) }}
+                {{ form_start(form1) }}
+        {{ form_widget(form1.quantite) }}
+
         <input type="submit" value="Créer" />
             {{ form_end(form) }}
 

@@ -2,11 +2,11 @@
 
 namespace StockBundle\Form;
 
+use StockBundle\Form\ProduitType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
 class MouvementDuStockType extends AbstractType
 {
     /**
@@ -23,7 +23,8 @@ class MouvementDuStockType extends AbstractType
             )
             ->add('dateMouv')
             ->add('fkEntrepot')
-            ->add('fkProduit');
+            ->add('fkProduit')
+        ;
     }/**
      * {@inheritdoc}
      */
