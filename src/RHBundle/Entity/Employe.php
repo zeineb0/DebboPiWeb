@@ -3,6 +3,7 @@
 namespace RHBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Employe
@@ -23,21 +24,32 @@ class Employe
 
     /**
      * @var string
-     *
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="Saisir un nom valide SVP",
+     *     )
      * @ORM\Column(name="nom", type="string", length=30, nullable=false)
      */
     private $nom;
 
     /**
      * @var string
-     *
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="Saisir un prenom valide SVP",
+     *     )
      * @ORM\Column(name="prenom", type="string", length=30, nullable=false)
      */
     private $prenom;
 
     /**
      * @var string
-     *
+     * @Assert\Length(
+     *      min=8,
+     *     max=8,
+     *     )
      * @ORM\Column(name="cin", type="string", length=8, nullable=false)
      */
     private $cin;

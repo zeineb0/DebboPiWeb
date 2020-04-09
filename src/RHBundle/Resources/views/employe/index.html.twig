@@ -34,7 +34,6 @@
         <tbody>
         {% for employe in employes %}
             <tr>
-                <td><a href="{{ path('employe_show', { 'idEmp': employe.idEmp }) }}">{{ employe.idEmp }}</a></td>
                 <td>{{ employe.nom }}</td>
                 <td>{{ employe.prenom }}</td>
                 <td>{{ employe.cin }}</td>
