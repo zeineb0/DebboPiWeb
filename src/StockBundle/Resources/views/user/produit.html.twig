@@ -1,0 +1,45 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block content %}
+    <div class="banner-top">
+        <div class="container" >
+            <h3 > <center>Produits </h3></center>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <div class="spec ">
+        <h3>La liste des produits</h3>
+        <div class="ser-t">
+            <b></b>
+            <span><i></i></span>
+            <b class="line"></b>
+        </div>
+    </div>
+
+    <div class="bs-docs-example">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Libelle</th>
+                <th>Reference</th>
+                <th>Marque</th>
+                <th>Prix</th>
+                <th>Quantite</th>
+            </tr>
+            </thead>
+            <tbody>
+                    {% for produit in produits %}
+                            <tr>
+                                <td>{{ produit.libelle }}</td>
+                                <td>{{ produit.reference }}</td>
+                                <td>{{ produit.marque }}</td>
+                                <td>{{ produit.prix }}</td>
+                                <td>{{ produit.quantite }}</td>
+                            </tr>
+                    {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}

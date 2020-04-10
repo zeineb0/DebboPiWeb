@@ -43,3 +43,12 @@ lategry_sh1:
 lategry_h1:
     path:     /check/{fk}
     defaults: { _controller: StockBundle:MouvementDuStock:check }
+admin:
+    path:     /user
+    defaults: { _controller: StockBundle:Admin:user }
+admin1:
+    path:     /categ
+    defaults: { _controller: StockBundle:Admin:index }
+admin12:
+    path:     /prod
+    defaults: { _controller: StockBundle:Admin:produit }
