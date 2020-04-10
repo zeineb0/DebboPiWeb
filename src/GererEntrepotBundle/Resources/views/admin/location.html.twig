@@ -1,0 +1,30 @@
+{% extends 'admin.html.twig' %}
+{% block body %}
+
+    <table class="table table-striped">
+
+        <tr>
+            <th>Id Location</th>
+            <th>Date debut de location</th>
+            <th>Date fin de location</th>
+            <th>Prix de location</th>
+            <th>Entreprise</th>
+            <th>Nom de l'utilisateur</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for location in locations %}
+        <tr>
+            <td>{{ location.idLocation }}</td>
+            <td>{% if location.dateDebLocation %}{{ location.dateDebLocation|date('Y-m-d') }}{% endif %}</td>
+            <td>{% if location.dateFinLocation %}{{ location.dateFinLocation|date('Y-m-d') }}{% endif %}</td>
+            <td>{{ location.prixLocation }}</td>
+            <td>{{ location.fkEntrepot.getEntreprise }}</td>
+            <td>{{ location.fkUser }}</td>
+
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

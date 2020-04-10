@@ -12,7 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Entrepot controller.
  *
- * @Route("entrepot")
+ * @Route("")
  */
 class EntrepotController extends Controller
 {
@@ -20,7 +20,7 @@ class EntrepotController extends Controller
     // affichage les depot à louer
     /**
      *
-     * @Route("/showe_a_louer", name="entrepot_a_louer")
+     * @Route("entrepot/showe_a_louer", name="entrepot_a_louer")
      */
     public function showeAction()
     {
@@ -44,7 +44,7 @@ class EntrepotController extends Controller
     }
     /**
      * afficher entrepots loués.
-     * @Route("/loué", name="entrepot_loué")
+     * @Route("entrepot/loué", name="entrepot_loué")
      */
     public function entrepotLouéAction( )
     {   $securityContext = $this->container->get('security.authorization_checker');
@@ -73,30 +73,13 @@ class EntrepotController extends Controller
         //
     }
 
-    /**
-     * Deletes a entrepot entity.
-     * @Route("/admin", name="entrepot_admin")
-     */
-    public function adminAction( )
-    {   $securityContext = $this->container->get('security.authorization_checker');
-        if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED'))
-        {
-            return $this->render('admin.html.twig');
-            }
 
-        # if user not logged in yet
-        else
-        {
-            return $this->redirectToRoute('fos_user_security_login');
-        }
-
-    }
 
 
     /**
      * Lists all entrepot entities.
      *
-     * @Route("/", name="entrepot_index")
+     * @Route("entrepot/", name="entrepot_index")
      */
     public function indexAction()
     {   $securityContext = $this->container->get('security.authorization_checker');
@@ -123,7 +106,7 @@ class EntrepotController extends Controller
     /**
      * Creates a new entrepot entity.
      *
-     * @Route("/new", name="entrepot_new")
+     * @Route("entrepot/new", name="entrepot_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -156,13 +139,25 @@ class EntrepotController extends Controller
         }
     }
 
+    /**
+     * liste des entrepots pour l'admin .
+     * @Route("/admin/entrepot", name="entrepot_admin")
+     */
+    public function showAllAction( )
+    {   $em = $this->getDoctrine()->getManager();
 
+        $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->findAll();
+        return $this->render('@GererEntrepot/admin/index.html.twig', array(
+            'entrepots' => $entrepots,
+        ));
+
+    }
 
 
     /**
      * Displays a form to edit an existing entrepot entity.
      *
-     * @Route("/{idEntrepot}/edit", name="entrepot_edit")
+     * @Route("entrepot/{idEntrepot}/edit", name="entrepot_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Entrepot $entrepot)
@@ -187,7 +182,7 @@ class EntrepotController extends Controller
     /**
      * Finds and displays a entrepot entity.
      *
-     * @Route("/{idEntrepot}", name="entrepot_show")
+     * @Route("entrepot/{idEntrepot}", name="entrepot_show")
      * @Method("GET")
      */
     public function showAction(Entrepot $entrepot)
@@ -203,7 +198,7 @@ class EntrepotController extends Controller
     /**
      * Deletes a entrepot entity.
      *
-     * @Route("/{idEntrepot}/delete", name="entrepot_delete")
+     * @Route("entrepot/{idEntrepot}/delete", name="entrepot_delete")
      * @Method("DELETE")
      */
     public function deleteAction( $idEntrepot)

@@ -10,14 +10,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Location controller.
  *
- * @Route("location")
+ * @Route("")
  */
 class LocationController extends Controller
 {
     /**
      * Lists all location entities.
      *
-     * @Route("/", name="location_index")
+     * @Route("location/", name="location_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -44,7 +44,7 @@ class LocationController extends Controller
     /**
      * Creates a new location entity.
      *
-     * @Route("/new", name="location_new")
+     * @Route("location/new", name="location_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -81,7 +81,7 @@ class LocationController extends Controller
     /**
      * Finds and displays a location entity.
      *
-     * @Route("/{idLocation}", name="location_show")
+     * @Route("location/{idLocation}", name="location_show")
      * @Method("GET")
      */
     public function showAction(Location $location)
@@ -97,7 +97,7 @@ class LocationController extends Controller
     /**
      * Displays a form to edit an existing location entity.
      *
-     * @Route("/{idLocation}/edit", name="location_edit")
+     * @Route("location/{idLocation}/edit", name="location_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Location $location)
@@ -118,10 +118,24 @@ class LocationController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
+    /**
+     * liste des locations pour l'admin .
+     * @Route("/admin/location", name="location_admin")
+     */
+    public function showAllAction( )
+    {   $em = $this->getDoctrine()->getManager();
+
+        $locations = $em->getRepository('GererEntrepotBundle:Location')->findAll();
+        return $this->render('@GererEntrepot/admin/location.html.twig', array(
+            'locations' => $locations,
+        ));
+
+    }
     /**
      * Deletes a location entity.
      *
-     * @Route("/{idLocation}/delete", name="location_delete")
+     * @Route("location/{idLocation}/delete", name="location_delete")
      * @Method("DELETE")
      */
     public function deleteAction( $idLocation)

@@ -25,6 +25,7 @@ class Location
     /**
      * @var \DateTime
      *
+     * @Assert\GreaterThan(propertyPath="today")
      * @ORM\Column(name="date_deb_location", type="date", nullable=false)
      */
     private $dateDebLocation;
@@ -32,16 +33,14 @@ class Location
     /**
      * @var \DateTime
      *
+     * @Assert\GreaterThanOrEqual(
+     *      value = "today"
+     * )
      * @ORM\Column(name="date_fin_location", type="date", nullable=false)
      */
     private $dateFinLocation;
-    /**controle de saisie pour les dates */
-    public static function loadValidatorMetadata(ClassMetadata $metadata)
-    {
-        $metadata->addPropertyConstraint('dateDebLocation', new Assert\LessThan('today UTC'));
-        $metadata->addPropertyConstraint('dateFinLocation', new Assert\LessThan('today UTC '));
 
-    }
+
     /**
      * @var float
      *

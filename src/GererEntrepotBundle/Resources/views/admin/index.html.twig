@@ -1,0 +1,34 @@
+{% extends 'admin.html.twig' %}
+{% block body %}
+
+<table class="table table-striped">
+
+    <tbody>
+    <tr>
+        <th>Id Entrepot</th>
+        <th>Adresse</th>
+        <th>Numero fiscale</th>
+        <th>Quantite max</th>
+        <th>Etat</th>
+        <th>Prix location</th>
+        <th>Entreprise</th>
+        <th>Nom Client</th>
+
+    </tr>
+    {% for entrepot in entrepots %}
+    <tr>
+        <td>{{ entrepot.idEntrepot }}</td>
+        <td>{{ entrepot.adresse }}</td>
+        <td>{{ entrepot.numFiscale }}</td>
+        <td>{{ entrepot.quantiteMax }}</td>
+        <td>{{ entrepot.etat }}</td>
+        <td>{{ entrepot.prixLocation }}</td>
+        <td>{{ entrepot.entreprise }}</td>
+        <td>{{ entrepot.id }}</td>
+    </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
