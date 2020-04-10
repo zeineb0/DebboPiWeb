@@ -10,21 +10,6 @@ commande_commande:
     resource: "@CommandeBundle/Controller/CommandeController.php"
     type:     annotation
 
-commande:
-    resource: "@CommandeBundle/Resources/config/routing.yml"
-    prefix:   /Commande
-
-produit_commande:
-    resource: "@CommandeBundle/Resources/config/routing.yml"
-    prefix:   /ProduitCommande
-
-panier:
-    resource: "@CommandeBundle/Resources/config/routing.yml"
-    prefix:   /Panier
-
-entrepot:
-    resource: "@EntrepotBundle/Resources/config/routing.yml"
-    prefix:   /Entrepot
 
 app:
     resource: '@AppBundle/Controller/'

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Produitcommandes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Prixproduit</th>
+                <th>Quantiteproduit</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for produitCommande in produitCommandes %}
+            <tr>
+
+                <td>{{ produitCommande.prixProduit }}</td>
+                <td>{{ produitCommande.quantiteProduit }}</td>
+                <td>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('produitcommande_new') }}">Create a new produitCommande</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -13,14 +13,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Commande controller.
  *
- * @Route("commande")
+ * @Route("")
  */
 class CommandeController extends Controller
 {
     /**
      * Lists all commande entities.
      *
-     * @Route("/", name="commande_index")
+     * @Route("/commande/", name="commande_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -42,7 +42,7 @@ class CommandeController extends Controller
     /**
      * Lists all commande entities.
      *
-     * @Route("/list", name="commande_showOne")
+     * @Route("/admin/commande", name="commande_admin")
      * @Method("GET")
      */
     public function showAllAction()
@@ -50,14 +50,14 @@ class CommandeController extends Controller
         $em = $this->getDoctrine()->getManager();
         $commandes = $em->getRepository('CommandeBundle:Commande')->findAll();
 
-        return $this->render('@Commande/commande/list.html.twig', array(
+        return $this->render('@Commande/admin/commande.html.twig', array(
             'commandes' => $commandes,
         ));
     }
     /**
      * Creates a new commande entity.
      *
-     * @Route("/new", name="commande_new")
+     * @Route("/commande/new", name="commande_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -83,7 +83,7 @@ class CommandeController extends Controller
        /**
      * Finds and displays a commande entity.
      *
-     * @Route("/{idCommande}", name="commande_show")
+     * @Route("/commande/{idCommande}", name="commande_show")
      * @Method("GET")
      */
     public function showAction(Commande $commande)
@@ -109,7 +109,7 @@ class CommandeController extends Controller
     /**
      * Displays a form to edit an existing commande entity.
      *
-     * @Route("/{idCommande}/edit", name="commande_edit")
+     * @Route("/commande/{idCommande}/edit", name="commande_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Commande $commande)
@@ -133,7 +133,7 @@ class CommandeController extends Controller
     /**
      * Deletes a commande entity.
      *
-     * @Route("/{idCommande}/delete", name="commande_delete")
+     * @Route("/commande/{idCommande}/delete", name="commande_delete")
      * @Method("DELETE")
      */
     public function deleteAction( $idCommande)

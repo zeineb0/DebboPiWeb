@@ -56,7 +56,7 @@ class Utilisateur extends FOSUser
     /**
      * @var integer
      *
-     * @ORM\Column(name="tel", type="bigint", nullable=false)
+     * @ORM\Column(name="tel", type="bigint", nullable=true)
      */
     private $tel;
 
@@ -78,7 +78,7 @@ class Utilisateur extends FOSUser
     /**
      * @var string
      *
-     * @ORM\Column(name="disponniblite", type="string", length=20, nullable=false)
+     * @ORM\Column(name="disponniblite", type="string", length=20, nullable=true)
      */
     private $disponniblite;
 
