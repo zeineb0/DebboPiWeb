@@ -122,4 +122,15 @@ class EmployeController extends Controller
             ->getForm()
         ;
     }
+
+    public function  rechercheAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $motcle=$request->get('motcle');
+
+        $employes = $em->getRepository('RHBundle:Employe')->findBy( array('cin' =>$motcle) );
+
+        return $this->render('@RH/Employe/index.html.twig', array(
+            'employes' => $employes,
+        ));
+    }
 }

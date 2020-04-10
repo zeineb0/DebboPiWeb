@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5efa15f4-3407-46f0-b8d6-8a222e470e65" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RHBundle/Controller/EmployeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Controller/EmployeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/config/routing/employe.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/config/routing/employe.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/views/employe/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/employe/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/views/employe/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/employe/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,6 +146,8 @@
       <command value="s debug:router" />
       <command value="require symfony/validator doctrine/annotations" />
       <command value="c require symfony/validator doctrine/annotations" />
+      <command value="update knp-paginator-bundle" />
+      <command value="php composer.phar update knp-paginator-bundle " />
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -164,7 +167,8 @@
       <workItem from="1585837283695" duration="14351000" />
       <workItem from="1586292047456" duration="21999000" />
       <workItem from="1586438274113" duration="10769000" />
-      <workItem from="1586512285507" duration="1424000" />
+      <workItem from="1586512285507" duration="4521000" />
+      <workItem from="1586558431463" duration="2431000" />
     </task>
     <task id="LOCAL-00001" summary="Creation du bundle RH et FOSUserBundle">
       <created>1585850511463</created>
@@ -201,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586472342430</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Validation">
+      <created>1586513834331</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1586513834331</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,7 +224,8 @@
     <MESSAGE value="crud departement" />
     <MESSAGE value="crud employee+design" />
     <MESSAGE value="Validation des formulaires" />
-    <option name="LAST_COMMIT_MESSAGE" value="Validation des formulaires" />
+    <MESSAGE value="Validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Validation" />
   </component>
   <component name="WindowStateProjectService">
     <state x="137" y="20" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586441435980">
@@ -228,10 +240,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="559" y="294" key="#com.jetbrains.php.framework.ui.FailedToParseDialog/0.0.1366.728@0.0.1366.728" timestamp="1585844044776" />
-    <state x="226" y="0" key="CommitChangelistDialog2" timestamp="1586472227501">
+    <state x="226" y="0" key="CommitChangelistDialog2" timestamp="1586513828421">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="226" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586472227501" />
+    <state x="226" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586513828421" />
     <state x="438" y="258" key="ComposerCompositePathDialog" timestamp="1585348732941">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -284,18 +296,18 @@
     </state>
     <state x="478" y="279" key="SymfonyPathDialog/0.0.1366.728@0.0.1366.728" timestamp="1585348765112" />
     <state x="537" y="316" key="SymfonyPathDialog/0.0.1536.824@0.0.1536.824" timestamp="1585059146417" />
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1586512396012">
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1586558464631">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586512396012" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586558464631" />
     <state x="417" y="59" key="com.jetbrains.php.test.PhpNewTestDialog" timestamp="1586441309846">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="417" y="59" key="com.jetbrains.php.test.PhpNewTestDialog/0.0.1366.728@0.0.1366.728" timestamp="1586441309846" />
-    <state x="378" y="165" width="672" height="599" key="run.anything.popup" timestamp="1586470464798">
+    <state x="378" y="165" width="672" height="599" key="run.anything.popup" timestamp="1586559440169">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="378" y="165" width="672" height="599" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1586470464798" />
+    <state x="378" y="165" width="672" height="599" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1586559440169" />
     <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1585154767732" />
   </component>
 </project>

@@ -22,3 +22,7 @@ employe_delete:
     path:     /{idEmp}/delete
     defaults: { _controller: "RHBundle:Employe:delete" }
     methods:  DELETE
+employe_recherche:
+    path:     /recherche
+    defaults: { _controller: "RHBundle:Employe:recherche" }
+    methods:  GET
