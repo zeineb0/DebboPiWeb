@@ -46,7 +46,8 @@ class ProduitController extends Controller
         $form = $this->createForm('StockBundle\Form\ProduitType', $produit);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid())
+        {
             $em = $this->getDoctrine()->getManager();
             $id = $this->getUser();
             $produit->setIdUser($id);
@@ -90,7 +91,8 @@ class ProduitController extends Controller
         $editForm = $this->createForm('StockBundle\Form\ProduitType', $produit);
         $editForm->handleRequest($request);
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
+        if ($editForm->isSubmitted() && $editForm->isValid())
+        {
             $this->getDoctrine()->getManager()->flush();
 
 

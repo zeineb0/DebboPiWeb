@@ -6,22 +6,13 @@
         <thead>
         <tr>
             <th>Nom</th>
-            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
                 {% for category in categories %}
                         <tr>
                             <td>{{ category.nom }}</td>
-                            <td>
-                                <ul>
-                                    <ul>
-                                        <li class="label label-info" > <a style="color:white"  href="{{ path('categories_show', { 'idCategorie': category.idCategorie }) }}">show</a></li>
-                                        <li class="label label-default"><a style="color: white" href="{{ path('categories_edit', { 'idCategorie': category.idCategorie }) }}">edit</a></li>
-                                    </ul>
 
-                                </ul>
-                            </td>
                         </tr>
                 {% endfor %}
         </tbody>

@@ -52,3 +52,6 @@ admin1:
 admin12:
     path:     /prod
     defaults: { _controller: StockBundle:Admin:produit }
+admin123:
+    path:     /statC
+    defaults: { _controller: StockBundle:Admin:statC }

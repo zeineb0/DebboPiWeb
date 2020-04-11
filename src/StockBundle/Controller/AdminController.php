@@ -13,7 +13,8 @@ use AppBundle\Entity\User;
 class AdminController extends Controller
 {
 
-    public function userAction(){
+    public function userAction()
+    {
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository('AppBundle:User')->findAll();
         return $this->render('@Stock/user/ListUsers.html.twig', array(
@@ -39,6 +40,12 @@ class AdminController extends Controller
         return $this->render('@Stock/user/produit.html.twig', array(
             'produits' => $produits,
         ));
+    }
+
+    public  function statCAction()
+    {
+        return $this->render('@Stock/user/statcateg.html.twig');
+
     }
 
 }

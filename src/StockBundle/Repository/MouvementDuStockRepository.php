@@ -15,7 +15,19 @@ class MouvementDuStockRepository extends \Doctrine\ORM\EntityRepository
 
 
 {
+public function qa(){
 
+    $qb = $this->getEntityManager()
+        ->createQuery("UPDATE StockBundle:produit p SET p.quantite=:qte WHERE p.idProduit=:fk")
+        ->setParameters(array('qte' => 30, 'fk' => $mouvementDuStock->getFkProduit()))
+        ->execute();
+}public function qs(){
+
+    $qb = $this->getEntityManager()
+        ->createQuery("UPDATE StockBundle:produit p SET p.quantite=:qte WHERE p.idProduit=:fk")
+        ->setParameters(array('qte' => 30, 'fk' => $mouvementDuStock->getFkProduit()))
+        ->execute();
+}
     public function qteup($qte, $fk)
     {
         $qb = $this->getEntityManager()

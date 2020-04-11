@@ -40,42 +40,36 @@ class MouvementDuStockController extends Controller
      * @Route("/new", name="mouvementdustock_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request, Request $request1)
+    public function newAction(Request $request)
     {
         $mouvementDuStock = new Mouvementdustock();
         $mouvementDuStock->setDateMouv(new \DateTime('now'));
         $form = $this->createForm('StockBundle\Form\MouvementDuStockType', $mouvementDuStock);
-        $form1 = $this->createForm('StockBundle\Form\ProduitType', $p);
         $form->handleRequest($request);
-        $form1->handleRequest($request1);
 
         if ($form->isSubmitted() && $form->isValid())
         {
             $em = $this->getDoctrine()->getManager();
-            $p->getQuantite();
-            if ($p ==0){
 
-
-            }
             $mouvementDuStock->setIdUser($this->getUser());
+            if ($mouvementDuStock->getNatureMouvement()=='Entrée'){
+
+           }
+            else {
+                $qb = $this->getEntityManager()
+                    ->createQuery("UPDATE StockBundle:produit p SET p.quantite=:qte WHERE p.idProduit=:fk")
+                    ->setParameters(array('qte' => 40, 'fk' => $mouvementDuStock->getFkProduit()))
+                    ->execute();
+            }
             $em->persist($mouvementDuStock);
             $em->flush();
 
         }
-        if ($form1->isSubmitted() && $form1->isValid())
-        {
-            $em = $this->getDoctrine()->getManager();
 
-            $em->persist($p);
-            $em->flush();
-
-        }
 
         return $this->render('@Stock/mouvementdustock/new.html.twig', array(
             'mouvementDuStock' => $mouvementDuStock,
-            'p'=> $p->getQuantite(),
             'form' => $form->createView(),
-            'form1' => $form1->createView(),
 
         ));
     }
@@ -168,26 +162,11 @@ class MouvementDuStockController extends Controller
         ;
     }
 
-        public  function ajouterQuantiteAction($qte,$fk){
-            $repo=$this->getDoctrine()->getManager()->getRepository('StockBundle:MouvementDuStock');
-            $qtee=$repo->qteup($qte,$fk);
-            return new Response('bb');
-        }
+    public  function qteAction(){
 
-    private function createProduitForm(MouvementDuStock $produit)
-    {
-        return $this->getDoctrine()->getManager()->getRepository('StockBundle:Produit')
-            ->findOneBy(array('idProduit' => $produit->getFkProduit()));
-    }
-    public  function checkAction(M$fk){
 
-        $repo=$this->getDoctrine()->getManager()->getRepository('StockBundle:MouvementDuStock');
-        $qtee=$repo->qtechk($fk);
-        echo $qtee;
-        return new Response('bb');
 
     }
-
 
 
 }
