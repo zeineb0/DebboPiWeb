@@ -9,13 +9,33 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     *
+     * @Route( "" , name="user_Check")
+
      */
-    public function indexAction(Request $request)
-    {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+    public function userCheckAction()
+    { $securityContext = $this->container->get('security.authorization_checker');
+        if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') )
+        {
+            if( $securityContext->isGranted('ROLE_ADMIN')){
+            return $this->render('admin.html.twig', array(
+
+            ));}
+            else if( $securityContext->isGranted('ROLE_USER'))
+            {if( $securityContext->isGranted('ROLE_CLIENT')) {
+                return $this->redirectToRoute('commande_index');
+            }
+            else
+            {
+                return $this->render('base.html.twig', array(
+
+            ));}
+            }
+
+        }
+        else
+        {
+            return $this->redirectToRoute('fos_user_security_login');
+        }
     }
 }
