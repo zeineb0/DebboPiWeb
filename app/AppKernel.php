@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new EntrepotBundle\EntrepotBundle(),
             new CommandeBundle\CommandeBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

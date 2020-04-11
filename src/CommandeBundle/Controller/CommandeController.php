@@ -6,9 +6,11 @@ use CommandeBundle\CommandeBundle;
 use CommandeBundle\Entity\Commande;
 use CommandeBundle\Entity\ProduitCommande;
 use EntrepotBundle\Entity\Produit;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Commande controller.
@@ -39,6 +41,43 @@ class CommandeController extends Controller
             return $this->redirectToRoute('fos_user_security_login');
         }
     }
+
+    /**
+     * @Route("/commande/pdf", name="commande_pdf")
+     */
+    public function pdfAction()
+    {   $commande= new Commande();
+        $commande->setIdCommande(18);
+        $snappy = $this->get('knp_snappy.pdf');
+        $this->createDeleteForm($commande);
+        $listproduit=$this->createProduitCommandeForm($commande);
+
+        $i=0;
+        foreach($listproduit as $produitCommande){
+            $produits[$i]=$this->createProduitForm($produitCommande);
+            $i++;
+        }
+
+
+        // use absolute path !
+        $html = $this->renderView('@Commande/commande/pdf.html.twig', array(
+            "title"=>"Awsome",
+            'commande' => $commande,
+            'listproduit' => $listproduit,
+            'produits' =>$produits,
+
+        ));
+        $filename = 'myFirstSnappyPDF';
+        return new Response(
+            $snappy->getOutputFromHtml($html),
+            200,
+            array(
+                'Content-Type'          => 'application/pdf',
+                'Content-Disposition'   => 'inline; filename="'.$filename.'.pdf"'
+            )
+        );
+    }
+
     /**
      * Lists all commande entities.
      *
@@ -179,6 +218,13 @@ class CommandeController extends Controller
             ->findOneBy(array('idProduit' => $produit->getIdProduit()));
     }
 
+    public function testAction()
+    {
+        return "bonjour";
+
+
+
+    }
 
 
 }

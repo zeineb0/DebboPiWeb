@@ -1,21 +1,27 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Panier edit</h1>
+    <div class="banner-top">
+        <div class="container">
+            <h3 >Panier Edit</h3>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
 
+
+
+    {% form_theme edit_form 'bootstrap_4_horizontal_layout.html.twig' %}
+    <div style="display: block; margin: 100px; ">
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <input style="width: 150px; margin-bottom: 10px;height: 30px; border:none" class=" add-1" type="submit" value="Edit" />
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('panier_index') }}">Back to the list</a>
-        </li>
-        <li>
+            <a class="add-1" href="{{ path('panier_index') }}">Back to the list</a>
+
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input style="width: 150px; margin-bottom: 10px;height: 30px; border:none" class=" add-1" type="submit" value="Delete">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+
+</div>
 {% endblock %}

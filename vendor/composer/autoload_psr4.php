@@ -34,6 +34,8 @@ return array(
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'Psr\\Cache\\' => array($vendorDir . '/psr/cache/src'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
+    'Knp\\Snappy\\' => array($vendorDir . '/knplabs/knp-snappy/src/Knp/Snappy'),
+    'Knp\\Bundle\\SnappyBundle\\' => array($vendorDir . '/knplabs/knp-snappy-bundle'),
     'Incenteev\\ParameterHandler\\' => array($vendorDir . '/incenteev/composer-parameter-handler'),
     'Http\\Promise\\' => array($vendorDir . '/php-http/promise/src'),
     'Http\\Message\\' => array($vendorDir . '/php-http/message/src', $vendorDir . '/php-http/message-factory/src'),

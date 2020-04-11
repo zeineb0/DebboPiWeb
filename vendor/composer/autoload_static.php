@@ -66,6 +66,11 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         array (
             'Monolog\\' => 8,
         ),
+        'K' => 
+        array (
+            'Knp\\Snappy\\' => 11,
+            'Knp\\Bundle\\SnappyBundle\\' => 24,
+        ),
         'I' => 
         array (
             'Incenteev\\ParameterHandler\\' => 27,
@@ -222,6 +227,14 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'Knp\\Snappy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-snappy/src/Knp/Snappy',
+        ),
+        'Knp\\Bundle\\SnappyBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-snappy-bundle',
         ),
         'Incenteev\\ParameterHandler\\' => 
         array (
