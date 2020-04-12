@@ -4,12 +4,14 @@ namespace RHBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Employe
- *
  * @ORM\Table(name="employe", indexes={@ORM\Index(name="fk_emp", columns={"FK_id_dep"})})
  * @ORM\Entity(repositoryClass="RHBundle\Repository\EmployeRepository")
+ * @Vich\Uploadable
  */
 class Employe
 {
@@ -60,6 +62,12 @@ class Employe
      * @ORM\Column(name="date_embauche", type="date", nullable=false)
      */
     private $dateEmbauche;
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_empmois", type="date", nullable=true)
+     */
+    private $dateEmpMois;
 
     /**
      * @var float
@@ -81,6 +89,29 @@ class Employe
      * @ORM\Column(name="recommandations", type="string", length=100, nullable=false)
      */
     private $recommandations;
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="employees", fileNameProperty="imageName")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @var string|null
+     */
+    private $imageName;
+
+    /**
+     * @ORM\Column(type="datetime")
+     *
+     * @var \DateTimeInterface|null
+     */
+    private $updatedAt;
+
 
     /**
      * @return int
@@ -236,5 +267,69 @@ class Employe
      */
     private $fkDep;
 
+    /**
+     * @return \DateTime
+     */
+    public function getDateEmpMois()
+    {
+        return $this->dateEmpMois;
+    }
+
+    /**
+     * @param \DateTime $dateEmpMois
+     */
+    public function setDateEmpMois($dateEmpMois)
+    {
+        $this->dateEmpMois = $dateEmpMois;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
+    }
+
+    /**
+     * @param string|null $imageName
+     */
+    public function setImageName($imageName)
+    {
+        $this->imageName = $imageName;
+    }
+
+    /**
+     * @return \DateTimeInterface|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTimeInterface|null $updatedAt
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    }
+    public function setImageFile(File $imageFile = null)
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+    /**
+     * @return File|null
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
 
 }

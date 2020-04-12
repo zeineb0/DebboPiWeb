@@ -9,13 +9,17 @@
         <div class="clearfix"> </div>
     </div>
 </div>
-<div>
-    <form class="form-inline my-2 my-lg-0" action="{{ path('employe_recherche') }}" >
-
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="motcle">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+<div class="container">
+    <div class="banner-info">
+        <div class="search-form">
+            <form action="{{ path('employe_recherche') }}" >
+                <input type="search" placeholder="RechercheByCIN" name="motcle">
+                <input type="submit" value=" " >
+            </form>
+        </div>
+    </div>
 </div>
+
 <div class="bs-docs-example" style="margin:100px">
     <div class="spec ">
         <h3>Liste des Employees</h3>
@@ -48,6 +52,7 @@
                 <td>{{ employe.salaire }}</td>
                 <td>{{ employe.points }}</td>
                 <td>{{ employe.recommandations }}</td>
+                <td> <img src="{{ vich_uploader_asset(employe, 'imageFile') }}"> </td>
                 <td>
                     <ul>
                         <li

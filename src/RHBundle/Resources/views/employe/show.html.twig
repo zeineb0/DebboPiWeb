@@ -49,6 +49,10 @@
                 <th>Recommandations</th>
                 <td>{{ employe.recommandations }}</td>
             </tr>
+            <tr>
+                <th>Image</th>
+                <td><img class="img-responsive" src="{{ vich_uploader_asset(employe, 'imageFile','RHBundle\\Entity\\Employe') }}"  /></td>
+            </tr>
         </tbody>
     </table>
 

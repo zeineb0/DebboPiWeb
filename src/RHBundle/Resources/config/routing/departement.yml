@@ -22,3 +22,9 @@ dep_delete:
     path:     /{idDep}/delete
     defaults: { _controller: "RHBundle:Departement:delete" }
     methods:  DELETE
+departement_recherche:
+    path:     /recherchedep
+    defaults: { _controller: "RHBundle:Departement:recherche" }
+count_emp:
+    path:     /countemp{idDep}/countemp
+    defaults: { _controller: "RHBundle:Departement:nbemp" }

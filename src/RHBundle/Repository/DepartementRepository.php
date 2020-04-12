@@ -2,6 +2,8 @@
 
 namespace RHBundle\Repository;
 
+use Symfony\Component\HttpFoundation\Request;
+
 /**
  * DepartementRepository
  *
@@ -10,4 +12,5 @@ namespace RHBundle\Repository;
  */
 class DepartementRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }

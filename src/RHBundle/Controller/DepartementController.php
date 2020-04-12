@@ -122,4 +122,20 @@ class DepartementController extends Controller
             ->getForm()
         ;
     }
+    public function  rechercheAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $motcledep=$request->get('motcledep');
+
+        $departement = $em->getRepository('RHBundle:Departement')->findBy( array('nom' =>$motcledep) );
+
+        return $this->render('@RH/Departement/index.html.twig', array(
+            'departements' => $departement,
+        ));
+    }
+    public function nbempAction($idDep){
+        $query = $this->getEntityManager()->createQuery(
+            'SELECT COUNT(idemp) FROM RHBundle:Employe WHERE employe.idemp= :iddep');
+        return
+    }
+
 }

@@ -25,4 +25,4 @@ employe_delete:
 employe_recherche:
     path:     /recherche
     defaults: { _controller: "RHBundle:Employe:recherche" }
-    methods:  GET
+

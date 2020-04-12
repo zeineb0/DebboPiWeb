@@ -8,6 +8,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
+
 
 class EmployeType extends AbstractType
 {
@@ -23,7 +25,8 @@ class EmployeType extends AbstractType
             ->add('salaire')
             ->add('points')
             ->add('recommandations')
-            ->add('fkDep',EntityType::class,array( 'class'=>'RHBundle:Departement','choice_label'=>'nom'));
+            ->add('fkDep',EntityType::class,array( 'class'=>'RHBundle:Departement','choice_label'=>'nom'))
+            ->add('imageFile',VichImageType::class);
     }/**
      * {@inheritdoc}
      */
