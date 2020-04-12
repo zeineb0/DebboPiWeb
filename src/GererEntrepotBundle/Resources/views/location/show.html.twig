@@ -48,4 +48,10 @@
         </li>
 
     </ul>
+    </div>
+    <a href='{{ path('location_pdf',{id:location.getIdLocation()})  }}'class="btn btn-danger"> Generate PDF File</a>
+    <a title="Print Screen" alt="Print Screen" class="btn btn-primary" onclick="window.print();" target="_blank" style="cursor:pointer;"  class="genric-btn primary circle"> Print Me !  </a>
+
+    <!-- /.card -->
+    </div>
 {% endblock %}

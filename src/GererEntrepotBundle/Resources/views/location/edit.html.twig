@@ -17,21 +17,20 @@
             <b class="line"></b>
         </div>
     </div>
-    {% form_theme edit_form 'bootstrap_4_horizontal_layout.html.twig' %}
+<div style="display: block; margin: 100px; ">
+
+{% form_theme edit_form 'bootstrap_4_horizontal_layout.html.twig' %}
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
         <input style="width: 150px; margin-bottom: 10px;height: 30px; border:none" class=" add-1" type="submit" value="Modifier" />
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
+
             <a class=" add-1" href="{{ path('location_index') }}">Retour à la liste </a>
-        </li>
-        <li>
+
             {{ form_start(delete_form) }}
                 <input style="width: 150px; margin-bottom: 10px;height: 30px; border:none" class=" add-1" type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+</div>
 {% endblock %}

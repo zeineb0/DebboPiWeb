@@ -1,0 +1,37 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+
+    <table class="table table-striped">
+
+        <tbody>
+        <tr>
+            <th>Adresse</th>
+            <td>{{ entrepot.adresse }}</td>
+        </tr>
+        <tr>
+            <th>Numero fiscale</th>
+            <td>{{ entrepot.numFiscale }}</td>
+        </tr>
+        <tr>
+            <th>Quantite max</th>
+            <td>{{ entrepot.quantiteMax }}</td>
+        </tr>
+        <tr>
+            <th>Etat</th>
+            <td>{{ entrepot.etat }}</td>
+        </tr>
+        <tr>
+            <th>Prix location</th>
+            <td>{{ entrepot.prixLocation }}</td>
+        </tr>
+        <tr>
+            <th>Entreprise</th>
+            <td>{{ entrepot.entreprise }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+{% endblock %}

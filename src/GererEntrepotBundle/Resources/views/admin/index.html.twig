@@ -1,7 +1,26 @@
 {% extends 'admin.html.twig' %}
 {% block body %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                <h3 class="card-title">Liste des entrepots</h3>
+                    <div class="card-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                        <form action=" {{path('entrepot_search') }}">
+                        <input  type="text" name="keyword" class="form-control float-right" placeholder="Search">
 
-<table class="table table-striped">
+                        <div class="input-group-append">
+                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                        </div>
+                        </form>
+                        </div>
+                    </div>
+
+    <table id="table" class="table table-head-fixed text-nowrap"  data-toggle="table"
+           data-pagination="true" data-search="true" data-show-columns="true"
+           data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
+           data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
 
     <tbody>
     <tr>
@@ -21,14 +40,30 @@
         <td>{{ entrepot.adresse }}</td>
         <td>{{ entrepot.numFiscale }}</td>
         <td>{{ entrepot.quantiteMax }}</td>
-        <td>{{ entrepot.etat }}</td>
+        <td>
+        {% if entrepot.etat() == 'A Louer' %}
+            <span class="badge bg-danger">{{ entrepot.etat}}</span>
+        {% elseif entrepot.etat() == 'Loué'%}
+            <span class="badge bg-success">{{ entrepot.etat}}</span>
+        {% else %}
+                <span class="badge badge-secondary">{{ entrepot.etat}}</span>
+        {% endif %}
+        </td>
         <td>{{ entrepot.prixLocation }}</td>
         <td>{{ entrepot.entreprise }}</td>
         <td>{{ entrepot.id }}</td>
-    </tr>
 
+        <td><a href='{{ path('entrepot_admin_delete', {id: entrepot.getIdEntrepot()}) }}' >Supprimer </a> <br>
+            <a href='{{ path('entrepot_admin_details', {id: entrepot.getIdEntrepot()}) }}' >Detail</a> <td><br>
+    </tr>
     {% endfor %}
+
     </tbody>
-</table>
+        </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 {% endblock %}

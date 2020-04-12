@@ -24,7 +24,6 @@ class EntrepotType extends AbstractType
             ],
 
         ])
-
             -> add('prixLocation')
             ->add('entreprise')
         ;

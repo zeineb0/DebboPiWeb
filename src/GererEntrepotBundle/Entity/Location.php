@@ -33,8 +33,6 @@ class Location
     /**
      * @var \DateTime
      *
-     * @Assert\GreaterThanOrEqual(
-     *      value = "today"
      * )
      * @ORM\Column(name="date_fin_location", type="date", nullable=false)
      */

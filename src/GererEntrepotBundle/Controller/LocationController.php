@@ -2,8 +2,10 @@
 
 namespace GererEntrepotBundle\Controller;
 
+use GererEntrepotBundle\Entity\Entrepot;
 use GererEntrepotBundle\Entity\Location;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
@@ -40,6 +42,40 @@ class LocationController extends Controller
             return $this->redirectToRoute('fos_user_security_login');
         }
     }
+    /**
+     * @Route("/location/{id}/pdf", name="location_pdf")
+     */
+    public function pdfAction($id)
+    {
+        $snappy = $this->get('knp_snappy.pdf');
+
+
+        $em = $this->getDoctrine()->getManager();
+
+        /* @var Location $location */
+        $location = $em->getRepository(Location::class)->find($id);
+        $s=$location->getFkEntrepot();
+        $entrepot = $em->getRepository(Entrepot::class)->findBy(['idEntrepot' => $s]);
+
+
+        $html = $this->renderView('@GererEntrepot/location/Pdf.html.twig',
+            array(
+                'entrepot' => $entrepot,
+                'location' => $location,
+            ));
+
+        $filename = 'myFirstSnappyPDF';
+        return new Response(
+            $snappy->getOutputFromHtml($html),
+            200,
+            array(
+                'Content-Type'          => 'application/pdf',
+                'Content-Disposition'   => 'inline; filename="'.$filename.'.pdf"'
+            )
+        );
+
+    }
+
 
     /**
      * Creates a new location entity.
