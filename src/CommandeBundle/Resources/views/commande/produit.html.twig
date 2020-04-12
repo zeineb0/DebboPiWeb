@@ -1,0 +1,165 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="banner-top">
+        <div class="container">
+            <h3 >Produit</h3>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+    <div class="content-top ">
+        <div class="container ">
+
+            <div class="tab-head ">
+                <nav class="nav-sidebar">
+                    <ul class="nav tabs ">
+                        <li class="active"><a href="#tab1" data-toggle="tab">Staples</a></li>
+                        <li class=""><a href="#tab2" data-toggle="tab">Snacks</a></li>
+                        <li class=""><a href="#tab3" data-toggle="tab">Fruits & Vegetables</a></li>
+                        <li class=""><a href="#tab4" data-toggle="tab">Breakfast & Cereal</a></li>
+                    </ul>
+                </nav>
+                    <div class=" tab-content tab-content-t ">
+                        <div class="tab-pane active text-style" id="tab1">
+                            <div class=" con-w3l">
+
+                                {% for produit in produits %}
+                                    <div class="col-md-3 m-wthree">
+                                        <div class="col-m">
+                                            <a href="#" data-toggle="modal" data-target="#myModal4" class="offer-img">
+                                                <img src="{{ asset('images/of3.png') }}" class="img-responsive" alt="">
+
+                                            </a>
+                                            <div class="mid-1">
+                                                <div class="women">
+                                                    <h6><a href="single.html">{{  produit.libelle }}</a>(1 kg)</h6>
+                                                </div>
+                                                <div class="mid-2">
+                                                    <p ><em class="item_price">{{  produit.prix }} Dt</em></p>
+                                                    <div class="block">
+                                                        <div class="starbox small ghosting"> </div>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="add">
+                                                    <button class="btn btn-danger my-cart-btn my-cart-b" data-id="{{ produit.idProduit }}" data-name="{{ produit.libelle }} " data-summary="{{ produit.marque }}" data-price="{{ produit.prix }}" data-quantity="1" data-image="{{ asset('images/of3.png') }}">Add to Cart</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+
+
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="tab-pane  text-style" id="tab2">
+                        <div class=" con-w3l">
+
+                            {% for produit in produits %}
+                                <div class="col-md-3 m-wthree">
+                                    <div class="col-m">
+                                        <a href="#" data-toggle="modal" data-target="#myModal4" class="offer-img">
+                                            <img src="{{ asset('images/of3.png') }}" class="img-responsive" alt="">
+
+                                        </a>
+                                        <div class="mid-1">
+                                            <div class="women">
+                                                <h6><a href="single.html">{{  produit.libelle }}</a>(1 kg)</h6>
+                                            </div>
+                                            <div class="mid-2">
+                                                <p ><em class="item_price">{{  produit.prix }} Dt</em></p>
+                                                <div class="block">
+                                                    <div class="starbox small ghosting"> </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="add">
+                                                <button class="btn btn-danger my-cart-btn my-cart-b" data-id="{{ produit.idProduit }}" data-name="{{ produit.libelle }} " data-summary="{{ produit.marque }}" data-price="{{ produit.prix }}" data-quantity="1" data-image="{{ asset('images/of3.png') }}">Add to Cart</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="tab-pane  text-style" id="tab3">
+                        <div class=" con-w3l">
+
+                            {% for produit in produits %}
+                                <div class="col-md-3 m-wthree">
+                                    <div class="col-m">
+                                        <a href="#" data-toggle="modal" data-target="#myModal4" class="offer-img">
+                                            <img src="{{ asset('images/of3.png') }}" class="img-responsive" alt="">
+
+                                        </a>
+                                        <div class="mid-1">
+                                            <div class="women">
+                                                <h6><a href="single.html">{{  produit.libelle }}</a>(1 kg)</h6>
+                                            </div>
+                                            <div class="mid-2">
+                                                <p ><em class="item_price">{{  produit.prix }} Dt</em></p>
+                                                <div class="block">
+                                                    <div class="starbox small ghosting"> </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="add">
+                                                <button class="btn btn-danger my-cart-btn my-cart-b" data-id="{{ produit.idProduit }}" data-name="{{ produit.libelle }} " data-summary="{{ produit.marque }}" data-price="{{ produit.prix }}" data-quantity="1" data-image="{{ asset('images/of3.png') }}">Add to Cart</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="tab-pane text-style" id="tab4">
+                        <div class=" con-w3l">
+
+                            {% for produit in produits %}
+                                <div class="col-md-3 m-wthree">
+                                    <div class="col-m">
+                                        <a href="#" data-toggle="modal" data-target="#myModal4" class="offer-img">
+                                            <img src="{{ asset('images/of3.png') }}" class="img-responsive" alt="">
+
+                                        </a>
+                                        <div class="mid-1">
+                                            <div class="women">
+                                                <h6><a href="single.html">{{  produit.libelle }}</a>(1 kg)</h6>
+                                            </div>
+                                            <div class="mid-2">
+                                                <p ><em class="item_price">{{  produit.prix }} Dt</em></p>
+                                                <div class="block">
+                                                    <div class="starbox small ghosting"> </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="add">
+                                                <button class="btn btn-danger my-cart-btn my-cart-b"data-id="{{ produit.idProduit }}" data-name="{{ produit.libelle }} " data-summary="{{ produit.marque }}" data-price="{{ produit.prix }}" data-quantity="1" data-image="{{ asset('images/of3.png') }}">Add to Cart</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+
+
+
+{% endblock %}

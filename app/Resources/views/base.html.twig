@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <head>
     <title>Big store a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template| Home :: w3layouts</title>
     <!-- for-mobile-apps -->
@@ -139,8 +140,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                         <ul class="nav navbar-nav ">
-                            <li class=" dropdown"><a href="#" data-toggle="dropdown"  class="hyper dropdown-toggle"><span>Accueil</span></a></li>
-
+                            <li><a href="{{ path('produit_index')  }}" class="hyper"> <span>Accueil</span></a></li>
                             <li class="dropdown ">
                                 <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Entrepot<b class="caret"></b></span></a>
                                 <ul class="dropdown-menu multi">
@@ -225,7 +225,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </li>
 
                             <li><a href="{{ asset ('codes.html') }}" class="hyper"> <span>Livraison</span></a></li>
-                            <li><a href="{{ asset ('app_dev.php/commande')  }}" class="hyper"> <span>Commande</span></a></li>
+                            <li><a href="{{ path('commande_index')  }}" class="hyper"> <span>Commande</span></a></li>
                             <li><a href="{{ asset ('codes.html') }}" class="hyper"> <span>Forum</span></a></li>
 
                             <li><a href="{{ asset ('contact.html') }}" class="hyper"><span>Contact Us</span></a></li>

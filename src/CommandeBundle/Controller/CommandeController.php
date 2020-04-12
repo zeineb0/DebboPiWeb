@@ -19,6 +19,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CommandeController extends Controller
 {
+
     /**
      * Lists all commande entities.
      *
@@ -43,13 +44,13 @@ class CommandeController extends Controller
     }
 
     /**
-     * @Route("/commande/pdf", name="commande_pdf")
+     * @Route("/commande/{idCommande}/pdf", name="commande_pdf")
      */
-    public function pdfAction()
-    {   $commande= new Commande();
-        $commande->setIdCommande(18);
-        $snappy = $this->get('knp_snappy.pdf');
-        $this->createDeleteForm($commande);
+    public function pdfAction($idCommande)
+    {         $snappy = $this->get('knp_snappy.pdf');
+        $commande=$this->getDoctrine()->getManager()->getRepository('CommandeBundle:Commande')
+            ->findOneBy(array('idCommande' =>$idCommande));
+
         $listproduit=$this->createProduitCommandeForm($commande);
 
         $i=0;
@@ -125,9 +126,10 @@ class CommandeController extends Controller
      * @Route("/commande/{idCommande}", name="commande_show")
      * @Method("GET")
      */
-    public function showAction(Commande $commande)
-    {
-        $this->createDeleteForm($commande);
+    public function showAction($idCommande)
+    {    $commande=$this->getDoctrine()->getManager()->getRepository('CommandeBundle:Commande')
+        ->findOneBy(array('idCommande' =>$idCommande));
+
         $listproduit=$this->createProduitCommandeForm($commande);
 
         $i=0;
@@ -136,10 +138,12 @@ class CommandeController extends Controller
             $i++;
         }
 
+
         return $this->render('@Commande/commande/show.html.twig', array(
             'commande' => $commande,
             'listproduit' => $listproduit,
             'produits' =>$produits,
+
         ));
 
 
@@ -216,6 +220,11 @@ class CommandeController extends Controller
     {
         return $this->getDoctrine()->getManager()->getRepository('EntrepotBundle:Produit')
             ->findOneBy(array('idProduit' => $produit->getIdProduit()));
+    }
+    private function createEntrepotForm(Produit $produit)
+    {
+        return $this->getDoctrine()->getManager()->getRepository('EntrepotBundle:Entrepot')
+            ->findOneBy(array('fkEntrepot' => $produit->getFkEntrepot()));
     }
 
     public function testAction()

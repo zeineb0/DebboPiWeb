@@ -5,9 +5,26 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use EntrepotBundle\Entity\Produit;
 
 class DefaultController extends Controller
 {
+
+    /**
+     *
+     * @Route("produit", name="produit_index")
+     */
+    public function indexAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+         $produits=$em->getRepository(Produit::class)->findAll();
+
+        return $this->render('@Commande/commande/produit.html.twig', array(
+            'produits'=>$produits,
+        ));
+    }
+
     /**
      *
      * @Route( "" , name="user_Check")

@@ -12,7 +12,7 @@ commande_commande:
 
 
 app:
-    resource: '@AppBundle/Controller/'
+    resource: '@AppBundle/Controller/DefaultController.php'
     type: annotation
 
 fos_user:
