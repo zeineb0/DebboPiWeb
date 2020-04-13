@@ -77,11 +77,18 @@ class Employe
     private $salaire;
 
     /**
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email."
+     * )
+     */
+    protected $email;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="points", type="integer", nullable=false)
      */
-    private $points;
+    private $points=0;
 
     /**
      * @var string

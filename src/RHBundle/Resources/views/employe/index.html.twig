@@ -29,7 +29,7 @@
             <b class="line"></b>
         </div>
     </div>
-    <table class="table" style="font-size: 20px">
+    <table class="table table-striped table-bordered " style="font-size: 20px;width: 100%" >
         <thead>
             <tr>
                 <th>Nom</th>
@@ -39,6 +39,7 @@
                 <th>Salaire</th>
                 <th>Points</th>
                 <th>Recommandations</th>
+                <th>Departement </th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -52,7 +53,8 @@
                 <td>{{ employe.salaire }}</td>
                 <td>{{ employe.points }}</td>
                 <td>{{ employe.recommandations }}</td>
-                <td> <img src="{{ vich_uploader_asset(employe, 'imageFile') }}"> </td>
+                <td> {{   employe.fkDep.nom}} </td>
+                <td> <img  style="width: 50px;height: 50px" src="{{ asset(vich_uploader_asset(employe, 'imageFile'))  }}"> </td>
                 <td>
                     <ul>
                         <li
@@ -73,4 +75,6 @@
             <a href="{{ path('employe_new') }}">Ajouter un nouveau employe</a>
         </li>
     </ul>
+
+    
 {% endblock %}

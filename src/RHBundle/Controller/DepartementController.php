@@ -20,12 +20,16 @@ class DepartementController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $departements = $em->getRepository('RHBundle:Departement')->findAll();
-        $query = $em->createQuery('SELECT COUNT(c) cnt FROM RHBundle:Employe c JOIN c.fkDep d where d.idDep=c.fkDep');
-        $quantite = $query->getResult();
+        $i=0;
+        foreach ($departements as $departement)
+        {   $countemp=$this->countemp($departement->getIdDep());
+            $count[$i]=$countemp[0];
+            $i++;
+        }
         return $this->render('@RH/departement/index.html.twig', array(
-            'departements' => $departements,'quantite' => $quantite[0]
+            'departements' => $departements,
+            'count' => $count,
     ));
     }
 
@@ -132,6 +136,13 @@ class DepartementController extends Controller
         return $this->render('@RH/Departement/index.html.twig', array(
             'departements' => $departement,
         ));
+    }
+        public function countemp($idDep){
+            $em = $this->getDoctrine()->getManager();
+            $query = $em->createQuery('SELECT COUNT(c) cnt FROM RHBundle:Employe c JOIN c.fkDep d where d.idDep=:item')
+                ->setParameter('item',$idDep);
+            return $query->getResult();
+
     }
 
 
