@@ -30,10 +30,14 @@
                 <td>{{ mouvementDuStock.dateMouv | date}}</td>
             </tr>  <tr>
                 <th>produit</th>
+                <td>{{ mouvementDuStock.fkProduit}}</td>
+            </tr><tr>
+                <th>entrepot</th>
+                <td>{{ mouvementDuStock.fkEntrepot}}</td>
+            </tr>
+            <tr>
+                <th>quantité</th>
                 <td>{{ mouvementDuStock.fkProduit.quantite }}</td>
-            </tr> <tr>
-                <th>prod</th>
-                <td>{{ p.idProduit }}</td>
             </tr>
 
         </tbody>

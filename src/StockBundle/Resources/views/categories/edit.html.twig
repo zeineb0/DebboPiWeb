@@ -28,10 +28,9 @@
 
 
         <a href="{{ path('categories_index') }}"><input type="submit" value="Retour à la liste" /></a><br>
+                <a href="{{ path('categories_delete', { 'idCategorie': category.idCategorie }) }}"><input type="submit" value="Supprimer" /></a><br>
 
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
+
 
 </div>
         </div></div></div>

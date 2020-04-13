@@ -105,19 +105,18 @@ class CategoriesController extends Controller
     /**
      * Deletes a category entity.
      *
-     * @Route("/{idCategorie}", name="categories_delete")
+     * @Route("/{idCategorie}/delete", name="categories_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, Categories $categories)
+    public function deleteAction($idCategorie)
     {
-        $form = $this->createDeleteForm($categories);
-        $form->handleRequest($request);
+        $form = $this->getDoctrine()->getRepository(Categories::class)->find($idCategorie);
+        var_dump($form);
+        $em=$this->getDoctrine()->getManager();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($categories);
-            $em->flush();
-        }
+        $em->remove($form);
+        $em->flush();
+
 
         return $this->redirectToRoute('categories_index');
     }

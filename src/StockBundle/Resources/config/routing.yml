@@ -29,8 +29,8 @@ category_show2:
     path:     /produit_edit
     defaults: { _controller: StockBundle:Produit:edit }
 ategory_show21:
-    path:     /produit_deletee/{id}
-    defaults: { _controller: StockBundle:Produit:deleteProd }
+    path:     /produit_delete
+    defaults: { _controller: StockBundle:Produit:delete}
 ategory_sh1:
     path:     /mouvementdustock_new
     defaults: { _controller: StockBundle:MouvementDuStock:new }
@@ -43,6 +43,9 @@ lategry_sh1:
 lategry_h1:
     path:     /check/{fk}
     defaults: { _controller: StockBundle:MouvementDuStock:check }
+olategry_h1:
+    path:     /mouvementdustock_delete
+    defaults: { _controller: StockBundle:MouvementDuStock:delete }
 admin:
     path:     /user
     defaults: { _controller: StockBundle:Admin:user }

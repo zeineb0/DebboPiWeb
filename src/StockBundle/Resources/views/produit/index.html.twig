@@ -1,12 +1,63 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
+
         <div class="banner-top">
             <div class="container" >
                  <h3 > <center>Produits </h3></center>
                 <div class="clearfix"> </div>
             </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            produit view
+            <div class="col-md-3 m-wthree">
+                <div class="col-m">
+                    <a href="#" data-toggle="modal" data-target="#myModal1" class="offer-img">
+                        <img src="{{ asset('images/of.png') }}" class="img-responsive" alt="">
+                    </a>
+                    <div class="mid-1">
+                        <div class="women">
+                            {% for user in users %}
+                            {% if user.id == idconnected  %}
+                            {% for produit in produits %}
+                            {% if user == produit.idUser %}
+                            <h6><a href="single.html">
+                                    <td>{{ produit.libelle }}</td>
+                                </a>
+                                <td>{{ produit.marque }}</td>
+                            </h6>
+                        </div>
+                        <div class="mid-2">
+                            <p ><label>
+                                    <td>{{ produit.prix }}</td>
+                                </label><em class="item_price">
+                                    <td>{{ produit.quantite }}</td>
+                                </em></p>
+                            <div class="block">
+                                <div class="starbox small ghosting"> </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="add">
+                            <button class="btn btn-danger my-cart-btn my-cart-b " data-id="1" data-name="Moong" data-summary="summary 1" data-price="1.50" data-quantity="1" data-image="images/of.png">Add to Cart</button>
+                        </div>
+
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
         </div>
+
+
+
         <div class="spec ">
             <h3>La liste des produits</h3>
             <div class="ser-t">

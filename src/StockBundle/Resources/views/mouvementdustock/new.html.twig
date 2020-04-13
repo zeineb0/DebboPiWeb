@@ -19,10 +19,11 @@
             <div class="form-w3agile form1">
         {{ form_start(form) }}
         {{ form_widget(form) }}
+                <label>Quantité ajoutée</label>
+                <input type="text" value="" name="QA"  >
 
         <input type="submit" value="Créer" />
             {{ form_end(form) }}
-
     <ul>
         <a href="{{ path('mouvementdustock_index') }}"><input type="submit" value="Retour à la liste" /></a>
 

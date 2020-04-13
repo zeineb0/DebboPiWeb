@@ -2,6 +2,8 @@
 
 namespace StockBundle\Repository;
 
+use http\Env\Response;
+use StockBundle\Entity\MouvementDuStock;
 use StockBundle\Entity\Produit;
 
 /**
@@ -14,53 +16,27 @@ class MouvementDuStockRepository extends \Doctrine\ORM\EntityRepository
 
 
 
-{
-public function qa(){
+{   public function updateProduit(MouvementDuStock $mouvementDuStock, $qte, $fk){
 
-    $qb = $this->getEntityManager()
-        ->createQuery("UPDATE StockBundle:produit p SET p.quantite=:qte WHERE p.idProduit=:fk")
-        ->setParameters(array('qte' => 30, 'fk' => $mouvementDuStock->getFkProduit()))
-        ->execute();
-}public function qs(){
+    if ($mouvementDuStock->getNatureMouvement()=='Entrée'){
+        return $this->createQueryBuilder('p')
+            ->update('StockBundle:produit','p')
+            ->set('p.quantite', 'p.quantite + ?0')
+            ->where('p.idProduit = ?1')
+            ->setParameter(0,$qte)
+            ->setParameter(1,$fk)
+            ->getQuery()
+            ->execute();
 
-    $qb = $this->getEntityManager()
-        ->createQuery("UPDATE StockBundle:produit p SET p.quantite=:qte WHERE p.idProduit=:fk")
-        ->setParameters(array('qte' => 30, 'fk' => $mouvementDuStock->getFkProduit()))
-        ->execute();
-}
-    public function qteup($qte, $fk)
-    {
-        $qb = $this->getEntityManager()
-            ->createQuery("Select p.quantite from StockBundle:produit p WHERE p.idProduit=:fk")
-            ->setParameter('fk', $fk);
-        $res = mysql_result($qb,1);
+    }else {
 
-        if ($res == 0) {
-            $qb1 = $this->getEntityManager()
-                ->createQuery("UPDATE StockBundle:produit p SET p.quantite=:qte WHERE p.idProduit=:fk")
-                ->setParameters(array('qte' => $qte, 'fk' => $fk))
-                ->execute();
-        } else {
-            $qb2 = $this->getEntityManager()
-                ->createQuery("UPDATE StockBundle:produit p SET p.quantite=:qte WHERE p.idProduit=:fk")
-                ->setParameters(array('qte' => $qte + $res, 'fk' => $fk))
-                ->execute();
-
-
-        }
-
-
+        return $this->createQueryBuilder('p')
+            ->update('StockBundle:produit','p')
+            ->set('p.quantite', 'p.quantite - ?0')
+            ->where('p.idProduit = ?1')
+            ->setParameter(0,$qte)
+            ->setParameter(1,$fk)
+            ->getQuery()
+            ->execute();
     }
-
-    public function qtechk($fk)
-    {
-
-        $qb = $this->getEntityManager()
-            ->createQuery("Select p.quantite from StockBundle:produit p WHERE p.idProduit=:fk")
-            ->setParameter('fk', $fk);
-       $res = $qb->getResult();
-        var_dump($res);
-      echo  json_encode($res);
-
-    }
-}
+}}

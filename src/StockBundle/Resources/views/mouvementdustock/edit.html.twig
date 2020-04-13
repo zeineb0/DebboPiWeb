@@ -21,46 +21,45 @@
                 <form action="{{ path('mouvementdustock_edit', { 'idMouv': mouvementDuStock.idMouv})}}"  method="POST">
 
                 <div class="key">
-                    <label >Nom :</label>
+                    <label >Nature du mouvement  :</label>
                     <i class="fa fa-user" aria-hidden="true"></i>
                     {{ form_widget(edit_form.natureMouvement) }}
                     {{ form_errors(edit_form.natureMouvement) }}
                     <div class="clearfix"></div>
                 </div>  <div class="key">
-                    <label >Nom :</label>
+                    <label >Date du mouvement :</label>
                     <i class="fa fa-user" aria-hidden="true"></i>
                     {{ form_widget(edit_form.dateMouv) }}
                     {{ form_errors(edit_form.dateMouv) }}
                     <div class="clearfix"></div>
                 </div>  <div class="key">
-                    <label >Nom :</label>
+                    <label >Veillez choisir un entrepot :</label>
                     <i class="fa fa-user" aria-hidden="true"></i>
                     {{ form_widget(edit_form.fkEntrepot) }}
                     {{ form_errors(edit_form.fkEntrepot) }}
                     <div class="clearfix"></div>
                 </div>  <div class="key">
-                    <label >prod     :</label>
+                    <label >Veillez choisir un produit :</label>
                     <i class="fa fa-user" aria-hidden="true"></i>
                     {{ form_widget(edit_form.fkProduit) }}
                     {{ form_errors(edit_form.fkProduit) }}
                     <div class="clearfix"></div>
-                </div>  <div class="key">
-                    <label >qte :</label>
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                    {{ form_widget(qte_form.quantite) }}
-                    <div class="clearfix"></div>
                 </div>
- <div class="key">
-                    <label >qte :</label>
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                    {{ form_widget(qte_form.libelle) }}
-                    <div class="clearfix"></div>
-                </div>
+                    <div class="key">
+                    <label>Modifier la quantité</label>
+                        <i class="fa fa-user" aria-hidden="true"></i>
+
+                        <input type="text" value="" name="QA"  >
+                        <div class="clearfix"></div>
+
+                    </div>
+
 
         <input type="submit" value="Edit" />
                     {{ form_end(edit_form) }}
     <ul>
           <a href="{{ path('mouvementdustock_index') }}"><input type="submit" value="Retour à la liste"></a>
+          <a href="{{ path('mouvementdustock_delete', { 'idMouv': mouvementDuStock.idMouv }) }}"><input type="submit" value="Supprimer"></a>
 
 
             {{ form_start(delete_form) }}

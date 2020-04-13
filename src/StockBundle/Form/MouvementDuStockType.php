@@ -23,7 +23,7 @@ class MouvementDuStockType extends AbstractType
             )
             ->add('dateMouv')
             ->add('fkEntrepot')
-            ->add('fkProduit')
+            ->add('fkProduit' )
         ;
     }/**
      * {@inheritdoc}

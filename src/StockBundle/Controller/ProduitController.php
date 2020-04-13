@@ -106,26 +106,6 @@ class ProduitController extends Controller
         ));
     }
 
-    /**
-     * Deletes a produit entity.
-     *
-     * @Route("/{idProduit}", name="produit_delete")
-     * @Method("DELETE")
-     */
-    public function deleteAction(Request $request, Produit $produit)
-    {
-        $form = $this->createDeleteForm($produit);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid())
-        {
-            $em = $this->getDoctrine()->getManager();
-            $em->delete($produit);
-            $em->flush();
-        }
-
-        return new Response( "bonjouur");
-    }
 
     /**
      * Creates a form to delete a produit entity.
@@ -143,19 +123,22 @@ class ProduitController extends Controller
         ;
     }
 
+
     /**
-     * Deletes a produit entity.
-     *
-     * @Route("/{idProduit}", name="produit_deletee")
-     * @Method("DELETE")
-     */
-    public function deleteProdAction(Request $request, Produit $produit)
+ * Deletes a produit entity.
+ *
+ * @Route("/{idProduit}/delete", name="produit_delete")
+ * @Method("DELETE")
+ */
+    public function deleteAction( $idProduit)
     {
-        $club=$this->getDoctrine()->getRepository(Produit::class)->find($produit);
+        $form = $this->getDoctrine()->getRepository(Produit::class)->find($idProduit);
         $em=$this->getDoctrine()->getManager();
-        $em->remove($club);
+
+        $em->remove($form);
+
         $em->flush();
+
         return $this->redirectToRoute('produit_index');
     }
-
 }

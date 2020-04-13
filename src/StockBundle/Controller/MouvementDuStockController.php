@@ -4,9 +4,12 @@ namespace StockBundle\Controller;
 
 use StockBundle\Entity\MouvementDuStock;
 use StockBundle\Entity\Produit;
+use StockBundle\Form\MouvementDuStockType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Form\FormError;
+use Symfony\Component\HttpFoundation\Request;
 use StockBundle\Form\ProduitType;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -45,32 +48,45 @@ class MouvementDuStockController extends Controller
         $mouvementDuStock = new Mouvementdustock();
         $mouvementDuStock->setDateMouv(new \DateTime('now'));
         $form = $this->createForm('StockBundle\Form\MouvementDuStockType', $mouvementDuStock);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
         {
             $em = $this->getDoctrine()->getManager();
-
             $mouvementDuStock->setIdUser($this->getUser());
-            if ($mouvementDuStock->getNatureMouvement()=='Entrée'){
+            $id=$mouvementDuStock->getFkProduit();
 
-           }
-            else {
-                $qb = $this->getEntityManager()
-                    ->createQuery("UPDATE StockBundle:produit p SET p.quantite=:qte WHERE p.idProduit=:fk")
-                    ->setParameters(array('qte' => 40, 'fk' => $mouvementDuStock->getFkProduit()))
-                    ->execute();
-            }
+            $fk=$id->getIdProduit();
+            $qte=$_POST['QA'];
+            if ($mouvementDuStock->getNatureMouvement()=='Sortie') {
+                if ($id->getQuantite() < $qte)
+
+                {
+                    return $this->render('@Stock/mouvementdustock/msg.html.twig');
+                }
+                else {
+
+                    $rrepo=$this->getDoctrine()->getManager()->getRepository('StockBundle:MouvementDuStock');
+                    $update=$rrepo->updateProduit($mouvementDuStock,$qte,$fk);
+                }
+                }
+
+                elseif ($id->getQuantite() >= $qte)
+                    {
+                $rrepo=$this->getDoctrine()->getManager()->getRepository('StockBundle:MouvementDuStock');
+                $update=$rrepo->updateProduit($mouvementDuStock,$qte,$fk);
+                    }
+
             $em->persist($mouvementDuStock);
             $em->flush();
+            return $this->redirectToRoute('mouvementdustock_show', array('idMouv' => $mouvementDuStock->getIdMouv()));
 
         }
-
 
         return $this->render('@Stock/mouvementdustock/new.html.twig', array(
             'mouvementDuStock' => $mouvementDuStock,
             'form' => $form->createView(),
-
         ));
     }
 
@@ -83,14 +99,10 @@ class MouvementDuStockController extends Controller
     public function showAction(MouvementDuStock $mouvementDuStock)
     {
         $deleteForm = $this->createDeleteForm($mouvementDuStock);
-        $produits=$this->createProduitForm($mouvementDuStock);
-        $p=$mouvementDuStock->getFkProduit();
 
         return $this->render('@Stock/mouvementdustock/show.html.twig', array(
             'mouvementDuStock' => $mouvementDuStock,
             'delete_form' => $deleteForm->createView(),
-            'produits'=>$produits,
-            'p'=>$p->get,
         ));
     }
 
@@ -101,17 +113,40 @@ class MouvementDuStockController extends Controller
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, MouvementDuStock $mouvementDuStock)
-
     {
 
         $deleteForm = $this->createDeleteForm($mouvementDuStock);
-        $produits=$this->createProduitForm($mouvementDuStock);
         $editForm = $this->createForm('StockBundle\Form\MouvementDuStockType', $mouvementDuStock);
-        $qteForm = $this->createForm('StockBundle\Form\ProduitType', $produits);
 
         $editForm->handleRequest($request);
 
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
+        if ($editForm->isSubmitted() && $editForm->isValid())
+        {
+
+
+            $id=$mouvementDuStock->getFkProduit();
+
+            $fk=$id->getIdProduit();
+            $qte=$_POST['QA'];
+            if ($mouvementDuStock->getNatureMouvement()=='Sortie') {
+                if ($id->getQuantite() < $qte)
+
+                {
+                    return $this->render('@Stock/mouvementdustock/msg.html.twig');
+                }
+                else {
+
+                    $rrepo=$this->getDoctrine()->getManager()->getRepository('StockBundle:MouvementDuStock');
+                    $update=$rrepo->updateProduit($mouvementDuStock,$qte,$fk);
+                }
+            }
+
+            elseif ($id->getQuantite() >= $qte)
+            {
+                $rrepo=$this->getDoctrine()->getManager()->getRepository('StockBundle:MouvementDuStock');
+                $update=$rrepo->updateProduit($mouvementDuStock,$qte,$fk);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('mouvementdustock_edit', array('idMouv' => $mouvementDuStock->getIdmouv()));
@@ -120,31 +155,11 @@ class MouvementDuStockController extends Controller
 
         return $this->render('@Stock/mouvementdustock/edit.html.twig', array(
             'mouvementDuStock' => $mouvementDuStock,
-            'qte_form'=>$qteForm->createView(),
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
-    /**
-     * Deletes a mouvementDuStock entity.
-     *
-     * @Route("/{idMouv}", name="mouvementdustock_delete")
-     * @Method("DELETE")
-     */
-    public function deleteAction(Request $request, MouvementDuStock $mouvementDuStock)
-    {
-        $form = $this->createDeleteForm($mouvementDuStock);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($mouvementDuStock);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('mouvementdustock_index');
-    }
 
     /**
      * Creates a form to delete a mouvementDuStock entity.
@@ -162,10 +177,24 @@ class MouvementDuStockController extends Controller
         ;
     }
 
-    public  function qteAction(){
+
+    /**
+     * Deletes a mouvement entity.
+     *
+     * @Route("/{idMouv}/delete", name="mouvementdustock_delete")
+     * @Method("DELETE")
+     */
+    public function deleteAction($idMouv)
+    {
+        $form = $this->getDoctrine()->getRepository(MouvementDuStock::class)->find($idMouv);
+        var_dump($form);
+        $em=$this->getDoctrine()->getManager();
+
+        $em->remove($form);
+        $em->flush();
 
 
-
+        return $this->redirectToRoute('mouvementdustock_index');
     }
 
 
