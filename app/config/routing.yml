@@ -11,6 +11,7 @@ entrepot:
     resource: "@EntrepotBundle/Resources/config/routing.yml"
     prefix:   /Entrepot
 
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation

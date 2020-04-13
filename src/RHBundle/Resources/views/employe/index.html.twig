@@ -29,7 +29,7 @@
             <b class="line"></b>
         </div>
     </div>
-    <table class="table table-striped table-bordered " style="font-size: 20px;width: 100%" >
+    <table class="table table-bordered " style="font-size: 20px;width: 100%" >
         <thead>
             <tr>
                 <th>Nom</th>
@@ -37,24 +37,37 @@
                 <th>Cin</th>
                 <th>Dateembauche</th>
                 <th>Salaire</th>
-                <th>Points</th>
-                <th>Recommandations</th>
+                <th>Email</th>
                 <th>Departement </th>
+                <th> Entreprise </th>
+                <th>Points</th>
+                <th>SignalEMP</th>
+                <th>Recommandations</th>
+                <th> Photo </th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for employe in employes %}
-            <tr>
+             {%  if employe.signalemp==3 %}
+            <tr style="background-color:#ce8483">
+             {% endif %}
+            {%  if employe.signalemp>3 %}
+                <tr style="background-color:#B0413E">
+            {% endif %}
                 <td>{{ employe.nom }}</td>
                 <td>{{ employe.prenom }}</td>
                 <td>{{ employe.cin }}</td>
                 <td>{% if employe.dateEmbauche %}{{ employe.dateEmbauche|date('Y-m-d') }}{% endif %}</td>
                 <td>{{ employe.salaire }}</td>
-                <td>{{ employe.points }}</td>
-                <td>{{ employe.recommandations }}</td>
+                <td> {{ employe.email }} <a type="button" value="Envoyer un email"></td>
                 <td> {{   employe.fkDep.nom}} </td>
-                <td> <img  style="width: 50px;height: 50px" src="{{ asset(vich_uploader_asset(employe, 'imageFile'))  }}"> </td>
+                <td> {{ employe.fkDep.fkEnt.entreprise }}</td>
+                <td>{{ employe.points }}</td>
+                <td> {{ employe.signalemp }}</td>
+                <td>{{ employe.recommandations }}</td>
+
+                <td> <img src="{{ asset('images/' ~ employe.imageName) }}" style="height: 150px;width: 150px"></td>
                 <td>
                     <ul>
                         <li

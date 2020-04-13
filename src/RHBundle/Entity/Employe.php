@@ -59,7 +59,7 @@ class Employe
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_embauche", type="date", nullable=false)
+     * @ORM\Column(name="date_embauche", type="datetime", nullable=false,options={"default"="CURRENT_TIMESTAMP"})
      */
     private $dateEmbauche;
     /**
@@ -77,13 +77,6 @@ class Employe
     private $salaire;
 
     /**
-     * @Assert\Email(
-     *     message = "The email '{{ value }}' is not a valid email."
-     * )
-     */
-    protected $email;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="points", type="integer", nullable=false)
@@ -96,6 +89,7 @@ class Employe
      * @ORM\Column(name="recommandations", type="string", length=100, nullable=false)
      */
     private $recommandations;
+
 
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
@@ -118,6 +112,38 @@ class Employe
      * @var \DateTimeInterface|null
      */
     private $updatedAt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", nullable=false)
+     */
+    private $email;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="signalemp", type="integer", nullable=false)
+     */
+    private $signalemp=0;
+
+
+
+    /**
+     * @return int
+     */
+    public function getSignalemp()
+    {
+        return $this->signalemp;
+    }
+
+    /**
+     * @param int $signalemp
+     */
+    public function setSignalemp($signalemp)
+    {
+        $this->signalemp = $signalemp;
+    }
 
 
     /**
@@ -338,5 +364,31 @@ class Employe
     {
         return $this->imageFile;
     }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+
+    public function __construct()
+    {
+        $now = new \Datetime();
+        $this->setDateEmbauche($now);
+    }
+
+
+
 
 }

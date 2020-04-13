@@ -130,7 +130,10 @@ class EmployeController extends Controller
         $employes = $em->getRepository('RHBundle:Employe')->findBy( array('cin' =>$motcle) );
 
         return $this->render('@RH/Employe/index.html.twig', array(
-            'employes' => $employes,
+            'employes' => $employes, 'motcle' => $motcle,
         ));
+    }
+    public function empdateAction($dateEmbauche){
+        $dateEmbauche =new \DateTime('now');
     }
 }

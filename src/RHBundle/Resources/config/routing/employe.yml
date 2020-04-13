@@ -25,4 +25,15 @@ employe_delete:
 employe_recherche:
     path:     /recherche
     defaults: { _controller: "RHBundle:Employe:recherche" }
+ajax_search:
+    path: /search
+    defaults: { _controller: "RHBundle:Employe:search" }
+employe_date:
+    path: /getdate
+    defaults: { _controller: "RHBundle:Employe:empdate" }
+
+
+
+
+
 

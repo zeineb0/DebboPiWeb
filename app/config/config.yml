@@ -88,7 +88,7 @@ vich_uploader:
     mappings:
         employees:
             uri_prefix: /images/employees
-            upload_destination: '%kernel.project_dir%/public/images/employees'
+            upload_destination: '%kernel.project_dir%/web/images'
 
             inject_on_load: false
             delete_on_update: true

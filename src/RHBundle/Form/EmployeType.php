@@ -21,12 +21,15 @@ class EmployeType extends AbstractType
         $builder->add('nom')
             ->add('prenom')
             ->add('cin')
-            ->add('dateEmbauche')
             ->add('salaire')
-            ->add('points')
             ->add('recommandations')
             ->add('fkDep',EntityType::class,array( 'class'=>'RHBundle:Departement','choice_label'=>'nom'))
-            ->add('imageFile',VichImageType::class);
+            ->add('email')
+            ->add('imageFile',VichImageType::class)
+            ->add('signalemp')
+            ->add('points')
+            ->add('dateEmbauche');
+
     }/**
      * {@inheritdoc}
      */
