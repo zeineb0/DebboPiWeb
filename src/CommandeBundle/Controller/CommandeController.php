@@ -6,6 +6,7 @@ use CommandeBundle\CommandeBundle;
 use CommandeBundle\Entity\Commande;
 use CommandeBundle\Entity\ProduitCommande;
 use EntrepotBundle\Entity\Produit;
+use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -102,22 +103,34 @@ class CommandeController extends Controller
      */
     public function newAction(Request $request)
     {
-        $commande = new Commande();
-        $form = $this->createForm('CommandeBundle\Form\CommandeType', $commande);
-        $form->handleRequest($request);
+        if($request->isXmlHttpRequest()) {
+      $em=$this->getDoctrine()->getManager();
+      $date=new \DateTime('now');
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+      $commande= new Commande();
+      $commande->setTypePaiement('carte');
+      $commande->setDateCommande(new \DateTime('now'));
+      $commande->setTotal($request->request->get('total'));}
+      $commande->setDateExp($date->add(new \DateInterval('P30D')));
+        $commande->setIdClient($user);
+      $em->persist($commande);
+      $em->flush();
+       $produits= $request->request->get('commande');
+      foreach ($produits as $produit){
+          $produitCommande= new ProduitCommande();
+          $produitCommande->setIdCommande($commande);
+          $p= $this->getDoctrine()->getManager()->getRepository('EntrepotBundle:Produit')
+              ->findOneBy(array('idProduit' => $produit['id']));
+          $produitCommande->setIdProduit($p);
+          $produitCommande->setQuantiteProduit(floatval($produit['quantity']));
+          $produitCommande->setPrixProduit($produit['price']);
+          $em->persist($produitCommande);
+          $em->flush();
+      }
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($commande);
-            $em->flush();
+        return $this->json([200,"succées"],200);
 
-            return $this->redirectToRoute('commande_show', array('idCommande' => $commande->getIdcommande()));
-        }
 
-        return $this->render('@Commande/commande/new.html.twig', array(
-            'commande' => $commande,
-            'form' => $form->createView(),
-        ));
     }
 
        /**

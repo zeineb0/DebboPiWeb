@@ -61,6 +61,13 @@ class Commande
     private $idClient;
 
     /**
+     * Commande constructor.
+     */
+    public function __construct()
+    {
+    }
+
+    /**
      * @return int
      */
     public function getIdCommande()
