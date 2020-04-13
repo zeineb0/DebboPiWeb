@@ -22,10 +22,11 @@ class DepartementController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $departements = $em->getRepository('RHBundle:Departement')->findAll();
-
+        $query = $em->createQuery('SELECT COUNT(c) cnt FROM RHBundle:Employe c JOIN c.fkDep d where d.idDep=c.fkDep');
+        $quantite = $query->getResult();
         return $this->render('@RH/departement/index.html.twig', array(
-            'departements' => $departements,
-        ));
+            'departements' => $departements,'quantite' => $quantite[0]
+    ));
     }
 
     /**
@@ -132,10 +133,7 @@ class DepartementController extends Controller
             'departements' => $departement,
         ));
     }
-    public function nbempAction($idDep){
-        $query = $this->getEntityManager()->createQuery(
-            'SELECT COUNT(idemp) FROM RHBundle:Employe WHERE employe.idemp= :iddep');
-        return
-    }
+
+
 
 }

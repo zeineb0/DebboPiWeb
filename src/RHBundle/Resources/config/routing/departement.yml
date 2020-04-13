@@ -27,4 +27,4 @@ departement_recherche:
     defaults: { _controller: "RHBundle:Departement:recherche" }
 count_emp:
     path:     /countemp{idDep}/countemp
-    defaults: { _controller: "RHBundle:Departement:nbemp" }
+    defaults: { _controller: "RHBundle:Departement:getnb" }
