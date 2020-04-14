@@ -23,9 +23,17 @@ class EntrepotController extends Controller
      * @Route("entrepot/alouer", name="entrepot_a_louer")
      */
     public function aLouerAction()
-    {
+    {// $user
+        //$demande -> findLocation by user
+
         $entrepots= $this->getDoctrine()->getManager()->getRepository(Entrepot::class)
             ->findBy(array('etat' => ['A Louer', 'En Attente']));
+//entre2 nexiste pas demande
+   // for
+
+      //for ()
+       //   if bool
+         // entre2+entre
 
         /* @var $etn Entrepot */
         $etn = new Entrepot();

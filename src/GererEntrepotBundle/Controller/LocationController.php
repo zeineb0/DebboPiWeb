@@ -82,7 +82,11 @@ class LocationController extends Controller
         $em = $this->getDoctrine()->getManager();
         $em->persist($location);
         $em->flush();
-        return $this->json(1);
+        $entrepot=$em->getRepository('GererEntrepotBundle:Entrepot')->findOneBy(array('idEntrepot'=>$location->getFkEntrepot()));
+        $entrepot->setEtat('En Attente');
+        $em->persist($entrepot);
+        $em->flush();
+        return $this->json($location->getFkEntrepot());
 
     }
     /**
@@ -93,6 +97,10 @@ class LocationController extends Controller
      */
     public function newAction(Entrepot $entrepot,Request $request)
     { $securityContext = $this->container->get('security.authorization_checker');
+       if (!$entrepot->getIdEntrepot()){
+
+           return $this->redirectToRoute('entrepot_a_louer');
+       }
         if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') ){
             $location = new Location();
             $form = $this->createForm('GererEntrepotBundle\Form\LocationType', $location);
