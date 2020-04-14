@@ -22,6 +22,8 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new UserBundle\UserBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
+            new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
+
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

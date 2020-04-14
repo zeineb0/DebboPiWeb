@@ -21,7 +21,12 @@
 
     <table class="table table-striped" style="font-size: 20px">
         <tbody>
-            <tr>
+        <tr>
+            <th>Nom</th>
+            <td> <img src="{{ asset('images/' ~ employe.imageName) }}" style="height: 150px;width: 150px"></td>
+
+        </tr>
+         <tr>
                 <th>Nom</th>
                 <td>{{ employe.nom }}</td>
             </tr>
@@ -56,10 +61,6 @@
             <tr>
                 <th>Signal</th>
                 <td>{{ employe.signalemp }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td><img class="img-responsive" src="{{ vich_uploader_asset(employe, 'imageFile','RHBundle\\Entity\\Employe') }}"  /></td>
             </tr>
         </tbody>
     </table>

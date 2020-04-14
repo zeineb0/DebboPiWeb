@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
+use Gregwar\CaptchaBundle\Type\CaptchaType;
 
 
 class EmployeType extends AbstractType
@@ -28,7 +29,8 @@ class EmployeType extends AbstractType
             ->add('imageFile',VichImageType::class)
             ->add('signalemp')
             ->add('points')
-            ->add('dateEmbauche');
+            ->add('dateEmbauche')
+            ->add('captcha', CaptchaType::class);
 
     }/**
      * {@inheritdoc}

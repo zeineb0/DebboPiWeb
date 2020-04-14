@@ -2,26 +2,102 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5efa15f4-3407-46f0-b8d6-8a222e470e65" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/RHBundle/Entity/Email.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RHBundle/Repository/EmailRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RHBundle/Tests/Controller/EmailControllerTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/images/load.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/images/tick.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RHBundle/Controller/MailController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RHBundle/Repository/mailRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RHBundle/Resources/config/routing/mail.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/mail/sendmail.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Controller/CaptchaController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/DependencyInjection/Configuration.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/DependencyInjection/GregwarCaptchaExtension.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Generator/CaptchaGenerator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Generator/Font/captcha.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Generator/ImageFileHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/GregwarCaptchaBundle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/config/routing/routing.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/config/services.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/gregwar_captcha.ar.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/gregwar_captcha.bg.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/gregwar_captcha.cs.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/gregwar_captcha.de.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/gregwar_captcha.en.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/gregwar_captcha.es.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/gregwar_captcha.fr.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/gregwar_captcha.it.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/gregwar_captcha.nl.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/gregwar_captcha.pl.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/gregwar_captcha.pt_BR.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/gregwar_captcha.ro.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/gregwar_captcha.ru.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/gregwar_captcha.tr.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/gregwar_captcha.uk.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/gregwar_captcha.zh_CN.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/validators.ar.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/validators.bg.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/validators.cs.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/validators.de.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/validators.en.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/validators.es.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/validators.fr.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/validators.it.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/validators.nl.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/validators.pl.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/validators.pt_BR.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/validators.ro.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/validators.ru.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/validators.tr.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/validators.uk.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/translations/validators.zh_CN.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Resources/views/captcha.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Type/CaptchaType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/Validator/CaptchaValidator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha-bundle/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/demo/demo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/demo/fingerprint.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/demo/form.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/demo/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/demo/inline.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/demo/ocr.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/demo/output.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/demo/session.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/phpunit.xml.dist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/src/Gregwar/Captcha/CaptchaBuilder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/src/Gregwar/Captcha/CaptchaBuilderInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/src/Gregwar/Captcha/Font/captcha0.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/src/Gregwar/Captcha/Font/captcha1.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/src/Gregwar/Captcha/Font/captcha2.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/src/Gregwar/Captcha/Font/captcha3.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/src/Gregwar/Captcha/Font/captcha4.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/src/Gregwar/Captcha/Font/captcha5.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/src/Gregwar/Captcha/ImageFileHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/src/Gregwar/Captcha/PhraseBuilder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/src/Gregwar/Captcha/PhraseBuilderInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/gregwar/captcha/tests/CaptchaBuilderTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/images/taher.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/DebboWeb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DebboWeb.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/parameters.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/parameters.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RHBundle/Controller/EmployeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Controller/EmployeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RHBundle/Entity/Employe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Entity/Employe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RHBundle/Entity/Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Entity/mail.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RHBundle/Form/EmployeType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Form/EmployeType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RHBundle/Repository/EmployeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Repository/EmployeRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/config/routing/employe.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/config/routing/employe.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/views/employe/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/employe/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/views/employe/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/employe/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/views/employe/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/employe/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +112,13 @@
   </component>
   <component name="FavoritesManager">
     <favorites_list name="DebboPiWeb" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -106,6 +189,8 @@
       <path value="$PROJECT_DIR$/vendor/hwi/oauth-bundle" />
       <path value="$PROJECT_DIR$/vendor/jms/metadata" />
       <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
+      <path value="$PROJECT_DIR$/vendor/gregwar/captcha" />
+      <path value="$PROJECT_DIR$/vendor/gregwar/captcha-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1ZZuBcFn2Muvf0iEgjNy0vKZYjU" />
@@ -119,10 +204,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/RHBundle/Resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/RHBundle/Resources/config/routing" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
   </component>
@@ -131,11 +217,11 @@
       <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Resources\views" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Resources\config\routing" />
+      <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Resources\views\mail" />
       <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Resources\views" />
       <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Entity" />
       <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Repository" />
-      <recent name="C:\wamp64\www\DebboWeb\web\images" />
-      <recent name="C:\wamp64\www\DebboWeb\web" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -175,9 +261,9 @@
       <command value="s server:run" />
       <command value="s debug:router" />
       <command value="s doctrine:schema:update --force " />
-      <command value="s doctrine:generate:entity" />
-      <command value="s doctrine:generate:crud" />
       <command value="s cache:clear" />
+      <command value="s doctrine:generate:crud" />
+      <command value="s doctrine:generate:entity" />
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -204,7 +290,7 @@
       <workItem from="1586706366382" duration="16696000" />
       <workItem from="1586731639630" duration="7505000" />
       <workItem from="1586781381183" duration="2859000" />
-      <workItem from="1586787415059" duration="23154000" />
+      <workItem from="1586787415059" duration="32158000" />
     </task>
     <task id="LOCAL-00001" summary="Creation du bundle RH et FOSUserBundle">
       <created>1585850511463</created>
@@ -269,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586793208702</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="DeSIGN">
+      <created>1586819480681</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1586819480681</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,7 +378,8 @@
     <MESSAGE value="recherche" />
     <MESSAGE value="count employees par dep" />
     <MESSAGE value="count employees par depaa" />
-    <option name="LAST_COMMIT_MESSAGE" value="count employees par depaa" />
+    <MESSAGE value="DeSIGN" />
+    <option name="LAST_COMMIT_MESSAGE" value="DeSIGN" />
   </component>
   <component name="WindowStateProjectService">
     <state x="137" y="20" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586441435980">
@@ -304,10 +398,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="559" y="294" key="#com.jetbrains.php.framework.ui.FailedToParseDialog/0.0.1366.728@0.0.1366.728" timestamp="1585844044776" />
-    <state x="226" y="0" key="CommitChangelistDialog2" timestamp="1586793204347">
+    <state x="226" y="0" key="CommitChangelistDialog2" timestamp="1586819475648">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="226" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586793204347" />
+    <state x="226" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586819475648" />
     <state x="438" y="258" key="ComposerCompositePathDialog" timestamp="1585348732941">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -322,30 +416,30 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="622" y="302" key="FrameworkEditDialogDimensionKey/0.0.1536.824@0.0.1536.824" timestamp="1585162585652" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1586819241889">
+    <state width="1323" height="360" key="GridCell.Tab.0.bottom" timestamp="1586883472484">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586819241889" />
+    <state width="1323" height="360" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586883472484" />
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585061338048" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1586819241888">
+    <state width="1323" height="360" key="GridCell.Tab.0.center" timestamp="1586883472484">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586819241888" />
+    <state width="1323" height="360" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586883472484" />
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585061338048" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1586819241888">
+    <state width="1323" height="360" key="GridCell.Tab.0.left" timestamp="1586883472484">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586819241888" />
+    <state width="1323" height="360" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586883472484" />
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585061338048" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1586819241888">
+    <state width="1323" height="360" key="GridCell.Tab.0.right" timestamp="1586883472484">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586819241888" />
+    <state width="1323" height="360" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586883472484" />
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585061338048" />
-    <state x="483" y="179" key="NewPhpClassDialog" timestamp="1586817752384">
+    <state x="483" y="179" key="NewPhpClassDialog" timestamp="1586883492970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="483" y="179" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1586817752384" />
+    <state x="483" y="179" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1586883492970" />
     <state width="254" height="198" key="RunAnythingAction_Filter_Popup" timestamp="1585845314304">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -368,10 +462,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="417" y="59" key="com.jetbrains.php.test.PhpNewTestDialog/0.0.1366.728@0.0.1366.728" timestamp="1586441309846" />
-    <state x="378" y="165" width="672" height="599" key="run.anything.popup" timestamp="1586819443254">
+    <state x="378" y="165" width="672" height="599" key="run.anything.popup" timestamp="1586883383873">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="378" y="165" width="672" height="599" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1586819443254" />
+    <state x="378" y="165" width="672" height="599" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1586883383873" />
     <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1585154767732" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1586795557644">
       <screen x="0" y="0" width="1366" height="728" />

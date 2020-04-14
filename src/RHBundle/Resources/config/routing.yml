@@ -5,7 +5,9 @@ rh_dep:
 rh_emp:
     resource: "@RHBundle/Resources/config/routing/Employe.yml"
     prefix:   /emp
-
+rh_mail:
+    resource: "@RHBundle/Resources/config/routing/mail.yml"
+    prefix:   /mail
 
 
 rh_homepage:

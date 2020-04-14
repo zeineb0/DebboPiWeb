@@ -2,33 +2,50 @@
 
 namespace RHBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
- * Email
+ * mail
+ *
+ * @ORM\Table(name="mail")
+ * @ORM\Entity(repositoryClass="RHBundle\Repository\mailRepository")
  */
-class Email
+class Mail
 {
     /**
      * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="exp", type="string", length=255)
      */
-    private $expediteur;
+    private $exp;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="des", type="string", length=255)
      */
-    private $destination;
+    private $des;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="sujet", type="string", length=255)
      */
     private $sujet;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="contenu", type="text")
      */
     private $contenu;
 
@@ -44,51 +61,51 @@ class Email
     }
 
     /**
-     * Set expediteur
+     * Set exp
      *
-     * @param string $expediteur
+     * @param string $exp
      *
-     * @return Email
+     * @return mail
      */
-    public function setExpediteur($expediteur)
+    public function setExp($exp)
     {
-        $this->expediteur = $expediteur;
+        $this->exp = $exp;
     
         return $this;
     }
 
     /**
-     * Get expediteur
+     * Get exp
      *
      * @return string
      */
-    public function getExpediteur()
+    public function getExp()
     {
-        return $this->expediteur;
+        return $this->exp;
     }
 
     /**
-     * Set destination
+     * Set des
      *
-     * @param string $destination
+     * @param string $des
      *
-     * @return Email
+     * @return mail
      */
-    public function setDestination($destination)
+    public function setDes($des)
     {
-        $this->destination = $destination;
+        $this->des = $des;
     
         return $this;
     }
 
     /**
-     * Get destination
+     * Get des
      *
      * @return string
      */
-    public function getDestination()
+    public function getDes()
     {
-        return $this->destination;
+        return $this->des;
     }
 
     /**
@@ -96,7 +113,7 @@ class Email
      *
      * @param string $sujet
      *
-     * @return Email
+     * @return mail
      */
     public function setSujet($sujet)
     {
@@ -120,7 +137,7 @@ class Email
      *
      * @param string $contenu
      *
-     * @return Email
+     * @return mail
      */
     public function setContenu($contenu)
     {

@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
 <div class="banner-top">
     <div class="container">
         <h3 >Employees</h3>
@@ -60,10 +61,15 @@
                 <td>{{ employe.cin }}</td>
                 <td>{% if employe.dateEmbauche %}{{ employe.dateEmbauche|date('Y-m-d') }}{% endif %}</td>
                 <td>{{ employe.salaire }}</td>
-                <td> {{ employe.email }} <a type="button" value="Envoyer un email"></td>
+                <td> {{ employe.email }} <input type="submit" value="Envoyer un email" onClick=" {{ path('send_mail') }} "></td>
                 <td> {{   employe.fkDep.nom}} </td>
                 <td> {{ employe.fkDep.fkEnt.entreprise }}</td>
-                <td>{{ employe.points }}</td>
+            {%  if employe.signalemp==100 %}
+                <td>{{ employe.points }} <span class="fa fa-star checked" style="color: orange"></span> </td>
+            {% endif %}
+            {%  if employe.signalemp<100 %}
+                <td>{{ employe.points }} <span class="fa fa-star checked" ></span> </td>
+            {% endif %}
                 <td> {{ employe.signalemp }}</td>
                 <td>{{ employe.recommandations }}</td>
 

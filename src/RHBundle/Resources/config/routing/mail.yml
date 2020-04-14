@@ -1,0 +1,3 @@
+send_mail:
+    path: /sendmail
+    defaults: { _controller: "RHBundle:Mail:sendmail" }
