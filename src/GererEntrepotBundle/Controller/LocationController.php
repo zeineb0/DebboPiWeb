@@ -35,6 +35,7 @@ class LocationController extends Controller
 
         return $this->render('@GererEntrepot/location/index.html.twig', array(
             'locations' => $locations,
+
         ));
         }
         # if user not logged in yet
@@ -76,6 +77,36 @@ class LocationController extends Controller
         );
 
     }
+    /**
+     * @Route("location/search", name="search")
+     * @Method("GET")
+     */
+    public function searchAction()
+    {
+        $location = new  Location();
+
+        $form = $this->createFormBuilder( $location, array(
+            'action' => $this->generateUrl('search_article').'?term=',
+            'method' => 'GET',
+        ) )
+            ->add('fkUser', null, ['label' => ' Barre de recherche'] )
+            ->getForm();
+
+
+        return $this->render('@GererEntrepot/Location/test.html.twig', ['form' => $form->createView() ]);
+    }
+
+    /**
+     * @Route("location/search-article", name="search_article", defaults={"_format"="json"})
+     * @Method("GET")
+     */
+    public function searchArticleAction(Request $request)
+    {
+        $q = $request->query->get('term'); // use "term" instead of "q" for jquery-ui
+        $results = $this->getDoctrine()->getRepository('GererEntrepotBundle:Location')->findLike($q);
+
+        return $this->render("@GererEntrepot/location/search.json.twig", ['locations' => $results]);
+    }
 
     public function confirmationAction(Location $location){
 
@@ -86,8 +117,15 @@ class LocationController extends Controller
         $entrepot->setEtat('En Attente');
         $em->persist($entrepot);
         $em->flush();
-        return $this->json($location->getFkEntrepot());
+        return $this->json($location->getFkEntrepot()->getIdEntrepot());
 
+    }
+
+    /**
+     * @Route("location/confirmer", name="location_accepter")
+     */
+    public function confirmerAction(){
+        return $this->render('@GererEntrepot/location/test.html.twig');
     }
     /**
      * Creates a new location entity.
@@ -97,9 +135,13 @@ class LocationController extends Controller
      */
     public function newAction(Entrepot $entrepot,Request $request)
     { $securityContext = $this->container->get('security.authorization_checker');
-       if (!$entrepot->getIdEntrepot()){
+    $user = $this->container->get('security.token_storage')->getToken()->getUser();
 
-           return $this->redirectToRoute('entrepot_a_louer');
+        $test =$this->getDoctrine()->getManager()->getRepository('GererEntrepotBundle:Location')
+            ->findOneBy(array('fkEntrepot'=>$entrepot->getIdEntrepot(),'fkUser'=>$user));
+    if ($test){
+
+           return $this->redirectToRoute('location_accepter');
        }
         if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') ){
             $location = new Location();

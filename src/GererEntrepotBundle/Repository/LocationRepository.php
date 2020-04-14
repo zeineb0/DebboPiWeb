@@ -10,4 +10,21 @@ namespace GererEntrepotBundle\Repository;
  */
 class LocationRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+ * @param string $titre
+ *
+ * @return array
+ */
+    public function findLike($fkUser)
+    {
+        return $this
+            ->createQueryBuilder('a')
+            ->where('a.fkUSer LIKE :fkUser')
+            ->setParameter( 'fkUser', "%$fkUser%")
+            ->orderBy('a.fkUser')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->execute()
+            ;
+    }
 }

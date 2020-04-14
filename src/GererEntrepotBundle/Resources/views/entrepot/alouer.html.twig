@@ -19,6 +19,10 @@
                 <b class="line"></b>
             </div>
         </div>
+
+        {% if entrepots[0].idEntrepot == null %}
+            <a> Tableau est vide</a>
+        {% else %}
         <table class="table">
             <thead>
             <tr>
@@ -33,6 +37,8 @@
             </thead>
 
             <tbody>
+
+
             {% for entrepot in entrepots %}
                 <tr>
 
@@ -49,9 +55,11 @@
                     </td>
                 </tr>
             {% endfor %}
+
+
             </tbody>
         </table>
-
+        {% endif %}
     </div>
 
 {% endblock %}

@@ -4,6 +4,7 @@ namespace GererEntrepotBundle\Controller;
 
 use EntrepotBundle\Entity\Utilisateur;
 use GererEntrepotBundle\Entity\Entrepot;
+use GererEntrepotBundle\Entity\Location;
 use GererEntrepotBundle\Repository\EntrepotRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -23,32 +24,41 @@ class EntrepotController extends Controller
      * @Route("entrepot/alouer", name="entrepot_a_louer")
      */
     public function aLouerAction()
-    {// $user
-        //$demande -> findLocation by user
+    { $securityContext = $this->container->get('security.authorization_checker');
+        if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') )
+        {$user = $this->container->get('security.token_storage')->getToken()->getUser();
 
         $entrepots= $this->getDoctrine()->getManager()->getRepository(Entrepot::class)
             ->findBy(array('etat' => ['A Louer', 'En Attente']));
-//entre2 nexiste pas demande
-   // for
+        $demandes =$this->getDoctrine()->getManager()->getRepository(Location::class)->findBy(array('fkEntrepot'=>$entrepots,'fkUser'=>$user));
+           $i=0;
+            $ent [] = new Entrepot();
+            foreach($entrepots as $entrepot)
+            {$test=false;
+                foreach ($demandes as $demande)
+                {
+                    if ($demande->getfkEntrepot()->getIdEntrepot() ==$entrepot->getIdEntrepot())
+                    {$test=true;
+                    }
 
-      //for ()
-       //   if bool
-         // entre2+entre
+                }
+                if($test==false)
+                {$ent[$i]=$entrepot;
+                    $i++;
+                }
 
-        /* @var $etn Entrepot */
-        $etn = new Entrepot();
-
-        /* @var $user Utilisateur */
-        $user = $etn->getId();
-
-
-        //$entrepots =$repository->afficherEtatALouer();
+            }
 
         return $this->render('@GererEntrepot/entrepot/alouer.html.twig', array(
-            'entrepots' => $entrepots,
-            // $ent = $location->getEnt();
-            //        $znt->setEt
+            'entrepots' => $ent,
+
         ));
+        }
+        # if user not logged in yet
+        else
+        {
+            return $this->redirectToRoute('fos_user_security_login');
+        }
     }
     /**
      * afficher entrepots loués.
