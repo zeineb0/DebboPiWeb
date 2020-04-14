@@ -25,7 +25,7 @@ class Location
     /**
      * @var \DateTime
      *
-     * @Assert\GreaterThan(propertyPath="today")
+     *
      * @ORM\Column(name="date_deb_location", type="date", nullable=false)
      */
     private $dateDebLocation;

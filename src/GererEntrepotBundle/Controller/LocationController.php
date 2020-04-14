@@ -4,6 +4,7 @@ namespace GererEntrepotBundle\Controller;
 
 use GererEntrepotBundle\Entity\Entrepot;
 use GererEntrepotBundle\Entity\Location;
+use GererEntrepotBundle\GererEntrepotBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -76,36 +77,49 @@ class LocationController extends Controller
 
     }
 
+    public function confirmationAction(Location $location){
 
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($location);
+        $em->flush();
+        return $this->json(1);
+
+    }
     /**
      * Creates a new location entity.
      *
-     * @Route("location/new", name="location_new")
+     * @Route("location/new/{idEntrepot}", name="location_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Entrepot $entrepot,Request $request)
     { $securityContext = $this->container->get('security.authorization_checker');
-        if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') )
-        {
-        $location = new Location();
+        if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') ){
+            $location = new Location();
+            $form = $this->createForm('GererEntrepotBundle\Form\LocationType', $location);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $id= $this->getUser();
+                $location->setFkUser($id);
+                $location->setFkEntrepot($entrepot);
+                $prix=$entrepot->getPrixLocation();
+               $datDeb = new \DateTime($location->getDateDebLocation()->format('Y/m/d'));
+                $datFin = new \DateTime($location->getDateFinLocation()->format('Y/m/d'));
 
-        $form = $this->createForm('GererEntrepotBundle\Form\LocationType', $location);
-        $form->handleRequest($request);
+                $location->setPrixLocation(($datFin->diff($datDeb)->days)*($prix/30));
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $user = $this->container->get('security.token_storage')->getToken()->getUser();
-            $location->setFkUser($user);
-            $em->persist($location);
-            $em->flush();
+                return $this->render('@GererEntrepot/location/confirmation.html.twig', array(
+                    'location' => $location,
 
-            return $this->redirectToRoute('location_show', array('idLocation' => $location->getIdlocation()));
-        }
+                ));
+            }
 
-        return $this->render('@GererEntrepot/location/new.html.twig', array(
-            'location' => $location,
-            'form' => $form->createView(),
-        ));
+            return $this->render('@GererEntrepot/location/new.html.twig', array(
+                'location' => $location,
+                'form' => $form->createView(),
+
+            ));
+
+        return $this->render('@GererEntrepot/location/new.html.twig');
         }
         # if user not logged in yet
         else
@@ -113,6 +127,7 @@ class LocationController extends Controller
             return $this->redirectToRoute('fos_user_security_login');
         }
     }
+
 
     /**
      * Finds and displays a location entity.
@@ -143,9 +158,15 @@ class LocationController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            $prix=$location->getFkEntrepot()->getPrixLocation();
+            $datDeb = new \DateTime($location->getDateDebLocation()->format('Y/m/d'));
+            $datFin = new \DateTime($location->getDateFinLocation()->format('Y/m/d'));
+
+            $location->setPrixLocation(($datFin->diff($datDeb)->days)*($prix/30));
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('location_edit', array('idLocation' => $location->getIdlocation()));
+            return $this->redirectToRoute('location_show', array('idLocation' => $location->getIdlocation()));
         }
 
         return $this->render('@GererEntrepot/location/edit.html.twig', array(

@@ -22,9 +22,7 @@ class LocationType extends AbstractType
             ])
             ->add('dateFinLocation', DateType::class, [
                  'placeholder' => '',
-            ])
-            ->add('prixLocation')
-            ->add('fkEntrepot',EntityType::class,array( 'class'=>'GererEntrepotBundle:Entrepot','choice_label'=>'entreprise'));
+            ]);
             //->add('fkUser',EntityType::class,array('class'=>'EntrepotBundle:Utilisateur','choice_label'=>'nom'));
     }/**
      * {@inheritdoc}

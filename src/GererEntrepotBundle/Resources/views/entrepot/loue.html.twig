@@ -28,7 +28,7 @@
                 <th>Etat</th>
                 <th>Prixlocation</th>
                 <th>Entreprise</th>
-                <th>Action</th>
+                <th></th>
             </tr>
             </thead>
 
@@ -44,14 +44,17 @@
                     <td>{{ entrepot.entreprise }}</td>
                     <td>
                         <ul>
-                            <li class="label label-info" > <a style="color:white"  href="{{ path('location_new', { 'idEntrepot': entrepot.idEntrepot }) }}">Louer</a></li>
+                            <li class="label label-info" > <a style="color:white"  href="{{ path('entrepot_show', { 'idEntrepot': entrepot.idEntrepot }) }}">Afficher</a></li>
+                            <li class="label label-default"><a style="color: white" href="{{ path('entrepot_edit', { 'idEntrepot': entrepot.idEntrepot }) }}">Modifier</a></li>
                         </ul>
                     </td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
-
+        <ul>
+            <a class=" add-1"  href="{{ path('entrepot_new') }}">Ajouter entrepot</a>
+        </ul>
     </div>
 
 {% endblock %}

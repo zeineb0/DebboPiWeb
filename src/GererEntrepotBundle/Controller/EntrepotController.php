@@ -20,12 +20,12 @@ class EntrepotController extends Controller
     // affichage les depot à louer
     /**
      *
-     * @Route("entrepot/a_louer", name="entrepot_a_louer")
+     * @Route("entrepot/alouer", name="entrepot_a_louer")
      */
     public function aLouerAction()
     {
         $entrepots= $this->getDoctrine()->getManager()->getRepository(Entrepot::class)
-            ->findBy(['etat' => 'A Louer']);
+            ->findBy(array('etat' => ['A Louer', 'En Attente']));
 
         /* @var $etn Entrepot */
         $etn = new Entrepot();
@@ -191,13 +191,13 @@ class EntrepotController extends Controller
         $em = $this->getDoctrine()->getManager();
         $query = $em->createQuery('
         SELECT c, u FROM GererEntrepotBundle:Entrepot c 
-        JOIN c.utilisateur u
+        JOIN c.id u
         WHERE u.username like :item')
             ->setParameter('item',  '%'.$data.'%');
 
         $commandes = $query->getResult();
 
-        return $this->render('admin/index.html.twig', array('entrepots' => $commandes));
+        return $this->render('@GererEntrepot/admin/index.html.twig', array('entrepots' => $commandes));
 
 
     }
@@ -211,14 +211,14 @@ class EntrepotController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $query = $em->createQuery('
-        SELECT COUNT(c) FROM GererEntrepotBundle:Entrepot c 
+        SELECT COUNT(c) cnt FROM GererEntrepotBundle:Entrepot c 
         
-        WHERE c.etat :item')
-            ->setParameter('item=:Loué');
+        WHERE c.etat =:item')
+            ->setParameter('item','Loué');
 
         $quantite = $query->getResult();
 
-        return $this->render('statistic/index.html.twig', array('quantite' => $quantite));
+        return $this->render('@GererEntrepot/admin/statistic.html.twig', array('quantite' => $quantite[0]));
 
 
     }
