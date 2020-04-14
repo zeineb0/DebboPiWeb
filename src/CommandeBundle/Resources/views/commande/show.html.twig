@@ -13,7 +13,9 @@
         <h1> <a href=""><img src="images/debo.jpg" alt="" title="" />DeBBo.<span></span></a></h1>
     </div>
     <h3>COMMANDE</h3>
-    <table class="table-bordered" style="width: 500px;height: 100px; margin-top: 20px">
+
+
+        <table class="table-bordered" style="width: 500px;height: 100px; margin-top: 20px">
         <tbody class="text-center" style="text-align: center">
         <tr  >
             <th class="text-center">Reference</th>
@@ -22,7 +24,11 @@
             <th class="text-center">Dateexp</th>
         </tr>
         <tr>
-            <td>{{ commande.idCommande +123456789}}</td>
+            <td>
+
+                   {{   render(controller("CommandeBundle:Commande:chiffrement",{ 'commande': commande }))  }}
+
+            </td>
             <td>{{ commande.typePaiement }}</td>
             <td>{% if commande.dateCommande %}{{ commande.dateCommande|date('Y-m-d') }}{% endif %}</td>
             <td>{% if commande.dateExp %}{{ commande.dateExp|date('Y-m-d') }}{% endif %}</td>
@@ -30,41 +36,42 @@
         </tbody>
     </table>
 
-    <table class="table" style="border-bottom:none; border-left:none;  width: 500px;height: 100px; margin: 100px 0 20px 100px;">
-        <tbody>
-
-            <tr >
-                <th class="table-bordered">Reference</th>
-                <th class="table-bordered">Marque</th>
-                <th class="table-bordered">prix Produit</th>
-                <th class="table-bordered">Quantité</th>
+        <table>
+            <thead>
+            <tr>
+                <th >REFERENCE</th>
+                <th>MARQUE</th>
+                <th>PRIX</th>
+                <th>QUANTITE</th>
+                <th>TOTAL</th>
             </tr>
+            </thead>
+            <tbody>
             {% for i in 0..listproduit|length-1 %}
-                <tr>
-
-                    <td class="table-bordered">{{ produits[i].reference }}</td>
-                    <td class="table-bordered">{{ produits[i].marque }}</td>
-                    <td class="table-bordered">{{ listproduit[i].prixProduit }}</td>
-                    <td class="table-bordered">{{ listproduit[i].quantiteProduit }}</td>
-                </tr>
                 <tr >
 
-                    <th ></th>
-                    <th></th>
-                    <th></th>
-                    <th class="table-bordered">TOTAL</th>
+                    <td class="center">{{ produits[i].reference }}</td>
+                    <td class="center">{{ produits[i].marque }}</td>
+                    <td class="center">{{ listproduit[i].prixProduit }}</td>
+                    <td class="center">{{ listproduit[i].quantiteProduit }}</td>
+                    <td class="center">{{ listproduit[i].prixProduit * listproduit[i].quantiteProduit }}</td>
                 </tr>
-                <tr >
-
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="table-bordered">{{commande.total }}</td>
-                </tr>
-
             {% endfor %}
-        </tbody>
-    </table>
+
+            <tr>
+                <td colspan="4">TOTAL</td>
+                <td class="center">{{commande.total }}</td>
+            </tr>
+            <tr>
+                <td colspan="4">Remise</td>
+                <td class="center">0%</td>
+            </tr>
+            <tr>
+                <td colspan="4" class="grand total">TOTAL FINAL</td>
+                <td class="grand total center">{{commande.total }} Dt</td>
+            </tr>
+            </tbody>
+        </table>
 </div>
     <div style="float:left;margin: 100px 0 100px 100px;">
 
@@ -87,4 +94,103 @@
         <center><a style=" color: white" href="{{ path('commande_index') }}">retour</a></center>
     </div>
 </div>
+    <style>
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        a {
+            color: #5D6975;
+            text-decoration: underline;
+        }
+
+
+        #logo {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        #logo img {
+            width: 90px;
+            height: auto;
+        }
+
+
+        #project {
+            float: left;
+        }
+
+        #company {
+            float: right;
+            text-align: right;
+        }
+
+        #project div,
+        #company div {
+            white-space: nowrap;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin-bottom: 20px;
+        }
+
+        table tr:nth-child(2n-1) td {
+            background: #F5F5F5;
+        }
+
+        table th,
+        table td {
+            text-align: center;
+        }
+
+        table th {
+            padding: 5px 20px;
+            color: #5D6975;
+            border-bottom: 1px solid #C1CED9;
+            white-space: nowrap;
+            font-weight: normal;
+        }
+
+        table .service,
+        table .desc {
+            text-align: left;
+        }
+
+        table td {
+            padding: 20px;
+            text-align: right;
+        }
+
+        table td.service,
+        table td.desc {
+            vertical-align: top;
+        }
+
+        table td.unit,
+        table td.qty,
+        table td.total {
+            font-size: 1.2em;
+        }
+
+        table td.grand {
+            border-top: 1px solid #5D6975;;
+        }
+
+        #notices .notice {
+            color: #5D6975;
+            font-size: 1.2em;
+        }
+
+
+        .center{
+            text-align: center;
+        }
+    </style>
+
+
 {% endblock %}

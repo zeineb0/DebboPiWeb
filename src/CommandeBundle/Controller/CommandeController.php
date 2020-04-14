@@ -6,6 +6,7 @@ use CommandeBundle\CommandeBundle;
 use CommandeBundle\Entity\Commande;
 use CommandeBundle\Entity\ProduitCommande;
 use EntrepotBundle\Entity\Produit;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -240,13 +241,22 @@ class CommandeController extends Controller
             ->findOneBy(array('fkEntrepot' => $produit->getFkEntrepot()));
     }
 
-    public function testAction()
+    public function chiffrementAction(Commande $commande)
     {
-        return "bonjour";
+        $a=$commande->getIdCommande();
+        $x ="7291048536";
+        $y="ABCDEFHIKL";
+        $z=$y[$a%10].$x[$a%10];
+        while (($a/10)>1)
+        { $a=$a/10;
+            $z=$y[$a%10]. $x[$a%10].$z;
+        }
 
+        return $this->json($z);
 
 
     }
+
 
 
 }

@@ -34,7 +34,8 @@
         <tbody>
         {% for commande in commandes %}
             <tr>
-                <td><a href="{{ path('commande_show', { 'idCommande': commande.idCommande  }) }}">{{ (commande.idCommande+123456789) }}</a></td>
+                <td><a href="{{ path('commande_show', { 'idCommande': commande.idCommande  }) }}">
+                        {{ render(controller("CommandeBundle:Commande:chiffrement",{ 'commande': commande })) }}</a></td>
 
                 <td>{{ commande.total }}</td>
                 <td>{{ commande.typePaiement }}</td>

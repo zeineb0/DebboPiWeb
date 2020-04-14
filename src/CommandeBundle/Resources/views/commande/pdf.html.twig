@@ -17,7 +17,9 @@
         <div><a href="mailto:company@example.com">debbo@esprit.tn</a></div>
     </div>
     <div id="project">
-        <div><span>Commande</span> {{ commande.idCommande }} </div>
+        <div><span>Commande</span>
+                {{ render(controller("CommandeBundle:Commande:chiffrement",{ 'commande': commande })) }}
+        </div>
         <div><span>CLIENT</span> {{ commande.idClient.getNom()}} {{ commande.idClient.getPrenom() }} </div>
         <div><span>ADDRESS</span> {{ commande.idClient}}</div>
         <div><span>EMAIL</span> <a href="mailto:{{ commande.idClient.getEmail()}}">{{ commande.idClient.getEmail()}}</a></div>
@@ -49,12 +51,12 @@
         {% endfor %}
 
         <tr>
-            <td colspan="4">SUBTOTAL</td>
-            <td class="center">$5,200.00</td>
+            <td colspan="4">TOTAL</td>
+            <td class="center">{{commande.total }}</td>
         </tr>
         <tr>
-            <td colspan="4">TAX 25%</td>
-            <td class="center">$1,300.00</td>
+            <td colspan="4">Remise</td>
+            <td class="center">0%</td>
         </tr>
         <tr>
             <td colspan="4" class="grand total">TOTAL FINAL</td>
@@ -212,8 +214,7 @@
         text-align: center;
     }
     .center{
-       text-align: center;
+        text-align: center;
     }
 </style>
-
 
