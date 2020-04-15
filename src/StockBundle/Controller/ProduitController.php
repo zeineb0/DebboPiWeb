@@ -32,12 +32,22 @@ class ProduitController extends Controller
         $produits = $em->getRepository('StockBundle:Produit')->findAll();
         $category = $em->getRepository('StockBundle:Categories')->findAll();
         $entrepot = $em->getRepository('EntrepotBundle:Entrepot')->findAll();
+        $i=0;
+        $p=0;
+        foreach ($produits as $produit){
+
+
+                    $p=$p+ $produits[$i]->getQuantite(); $i++;
+
+                }
+
             return $this->render('@Stock/produit/index.html.twig', array(
             'produits' => $produits,
                 'idconnected'=>$idconnected,
                 'users'=>$users,
                 'category'=>$category,
                 'entrepot'=>$entrepot,
+                'p'=>$p
         ));
     }
 
@@ -149,4 +159,20 @@ class ProduitController extends Controller
 
         return $this->redirectToRoute('produit_index');
     }
+
+    public function calculNbProdAction(){
+        $em = $this->getDoctrine()->getManager();
+        $produits = $em->getRepository('StockBundle:Produit')->findAll();
+        //$entrepot = $em->getRepository('EntrepotBundle:Entrepot')->findAll();
+                $p=0;
+        for ($i=0; $i < $produits ;$i++){
+
+
+            $p=$p+ $i;
+
+        }
+        return $p;
+
+    }
+
 }

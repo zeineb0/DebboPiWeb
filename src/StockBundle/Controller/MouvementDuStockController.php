@@ -113,26 +113,19 @@ class MouvementDuStockController extends Controller
      */
     public function editAction(Request $request, MouvementDuStock $mouvementDuStock)
     {
-
         $deleteForm = $this->createDeleteForm($mouvementDuStock);
         $editForm = $this->createForm('StockBundle\Form\MouvementDuStockType', $mouvementDuStock);
-
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid())
         {
-
-
             $id=$mouvementDuStock->getFkProduit();
-
             $fk=$id->getIdProduit();
             $qte=$_POST['QA'];
             if ($mouvementDuStock->getNatureMouvement()=='Sortie') {
                 if ($id->getQuantite() < $qte)
 
-                {
-                    return $this->render('@Stock/mouvementdustock/msg.html.twig');
-                }
+                {return $this->render('@Stock/mouvementdustock/msg.html.twig');}
                 else {
 
                     $rrepo=$this->getDoctrine()->getManager()->getRepository('StockBundle:MouvementDuStock');
@@ -185,6 +178,7 @@ class MouvementDuStockController extends Controller
      */
     public function deleteAction($idMouv)
     {
+        $this->
         $form = $this->getDoctrine()->getRepository(MouvementDuStock::class)->find($idMouv);
         var_dump($form);
         $em=$this->getDoctrine()->getManager();

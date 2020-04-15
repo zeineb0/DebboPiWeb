@@ -16,36 +16,37 @@
         </div>
     </div>
 <div class="bs-docs-example">
-        {% for user in users %}
-            {% if user.id == idconnected  %}
-                {% for category in categories %}
-                    {% if user == category.idUser  %}
+
+
                             <div class="col-md-4 m-w3ls">
+                                {% for user in users %}
+                                    {% if user.id == idconnected  %}
+                                        {% for category in categories %}
+                                            {% if user == category.idUser  %}
                                 <div class="col-md1 ">
-                                        <img src="{{ asset('images/co1.jpg') }}" class="img-responsive" alt="">
+
+                                        <img src="{{ asset('images/co1.jpg') }}" class="img-responsive img" alt="">
                                         <div class="big-sa">
+
                                             <h6>{{ category.nom }}</h6>
                                         </div>
+                                        </div>
+
+                                {% endif %}
+                                {% endfor %}
+                                {% endif %}
+                                {% endfor %}
+                                    </div>
                                 </div>
                             </div>
-                            <td>
-                                <ul>
-                                    <ul>
-                                        <li class="label label-info" > <a style="color:white"  href="{{ path('categories_show', { 'idCategorie': category.idCategorie }) }}">show</a></li>
-                                        <li class="label label-default"><a style="color: white" href="{{ path('categories_edit', { 'idCategorie': category.idCategorie }) }}">edit</a></li>
-                                    </ul>
 
-                                </ul>
-                            </td>
-
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
-        {% endfor %}
 
 </div>
+    <ul>
         <li>
         <li class="label label-default"><a style="color: white"  href="{{ path('categories_new') }}"> Créer un nouveau produit</a></li>
         </li>
     </ul>
+
+
 {% endblock %}
