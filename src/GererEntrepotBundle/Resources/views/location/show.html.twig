@@ -23,7 +23,19 @@
 
         <tr>
             <th>Propriétaire Entrepot</th>
-            <td>{{ location.fkUser.Prenom }} {{ location.fkUser.Nom }}</td>
+            <td>{{ location.fkEntrepot.getId.Prenom }} {{ location.fkEntrepot.getId.Nom }}</td>
+        </tr>
+        <tr>
+            <th>Entreprise</th>
+            <td>{{ location.fkEntrepot.Entreprise }}</td>
+        </tr>
+        <tr>
+            <th>Adresse</th>
+            <td>{{ location.fkEntrepot.adresse }}</td>
+        </tr>
+        <tr>
+            <th>Prix/mois</th>
+            <td>{{ location.fkEntrepot.prixLocation }}</td>
         </tr>
         <tr>
             <th>Date de debut location</th>
@@ -37,15 +49,6 @@
             <th>Prix location</th>
             <td>{{ location.prixLocation }}</td>
         </tr>
-        <tr>
-            <th>Entreprise</th>
-            <td>{{ location.fkEntrepot.Entreprise }}</td>
-        </tr>
-        <tr>
-            <th>Adresse</th>
-            <td>{{ location.fkEntrepot.adresse }}</td>
-        </tr>
-
 
         </tbody>
     </table>
@@ -53,9 +56,6 @@
     <ul>
         <li>
             <a class=" add-1" href="{{ path('location_index') }}">Retour à la liste </a>
-        </li>
-        <li>
-            <a class=" add-1" href="{{ path('location_edit', { 'idLocation': location.idLocation }) }}">Edit</a>
         </li>
         <li>
             <a class=" add-1" href="{{ path('location_delete', { 'idLocation': location.idLocation }) }}">Supprimer</a>

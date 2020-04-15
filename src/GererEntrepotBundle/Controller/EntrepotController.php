@@ -35,12 +35,18 @@ class EntrepotController extends Controller
             $ent [] = new Entrepot();
             foreach($entrepots as $entrepot)
             {$test=false;
-                foreach ($demandes as $demande)
+            if($user->getId()==$entrepot->getId()->getId()) {
+                $test=true;
+            }
+                else
+                {
+                    foreach ($demandes as $demande)
                 {
                     if ($demande->getfkEntrepot()->getIdEntrepot() ==$entrepot->getIdEntrepot())
                     {$test=true;
                     }
 
+                }
                 }
                 if($test==false)
                 {$ent[$i]=$entrepot;

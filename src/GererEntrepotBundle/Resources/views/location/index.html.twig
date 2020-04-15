@@ -9,8 +9,7 @@
         <div class="clearfix"> </div>
     </div>
 </div>
-    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script src="{{ asset('bundles/pugxautocompleter/js/autocompleter-jqueryui.js') }}"></script>
+
 <div class="bs-docs-example" style="margin:100px">
     <div class="spec ">
         <h3>Liste des Locations</h3>
@@ -21,15 +20,12 @@
         </div>
     </div>
 
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Nom proprietaire entrepot</th>
                 <th>Adresse entrepot </th>
-                <th>Numero Fiscale entrepot </th>
-                <th>Quantité max de l'entrepot </th>
-                <th>adresse entrepot </th>
-
+                <th>l'entreprise de l'entrepot </th>
                 <th>Date debut de location</th>
                 <th>Date fin de location</th>
                 <th>Prix de location</th>
@@ -39,13 +35,15 @@
         <tbody>
         {% for location in locations %}
             <tr>
-
+                <td>{{ location.fkEntrepot.getId.Prenom }} {{ location.fkEntrepot.getId.Nom }}</td>
+                <td>{{ location.fkEntrepot.adresse }}</td>
+                <td>{{ location.fkEntrepot.entreprise }}</td>
                 <td>{% if location.dateDebLocation %}{{ location.dateDebLocation|date('Y-m-d') }}{% endif %}</td>
                 <td>{% if location.dateFinLocation %}{{ location.dateFinLocation|date('Y-m-d') }}{% endif %}</td>
                 <td>{{ location.prixLocation }}</td>
                 <td>
                     <ul>
-                            <li class="label label-info" > <a style="color:white"  href="{{ path('location_show', { 'idLocation': location.idLocation }) }}">Afficher</a></li>
+                            <li class="label label-info" > <a style="color:white"  href="{{ path('location_show', { 'idLocation': location.idLocation }) }}">Details</a></li>
                             <li class="label label-default" > <a style="color:white"  href="{{ path('location_edit', { 'idLocation': location.idLocation }) }}">Modifier</a></li>
                     </ul>
                 </td>

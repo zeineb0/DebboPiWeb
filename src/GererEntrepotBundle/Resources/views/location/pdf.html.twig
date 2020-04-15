@@ -1,106 +1,221 @@
-<head>
-    Details location:  {{ location.getIdLocation()+002360 }}
-    <link rel="stylesheet" type="text/css" href="impression.css" media="print">
-    ...
-</head>
 
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fr">
 
 <head>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-</head>
 
+</head>
 <body>
-<main role="main" class="container">
-    <div class="row">
-        <div class="col-8">
-            <h1 class="text-center">deBBo.</h1>
-            <img  src="{{ asset('images/debo.jpg') }}" class="brand-image elevation-3"
-                  style="opacity: .8; max-height: 55px;" />
-                <h4 class="text-left" style="padding-top:10px;">Details location:  {{ location.getIdLocation()+002360 }} </h4>
-
-                <a href="http://localhost/DebboPiWeb/web/app_dev.php/">http://localhost/DebboPiWeb/web/app_dev.php/</a>
-            </p>
-        </div>
-        <div class="col-4 border border-dark">
-            <img src="http://www.api2pdf.com/wp-content/uploads/2018/07/download-1.png" />
-            <h4>Order Information</h4>
-            <p class="lead">Order Number: 123456</p>
-            <p>Purchased: 01/01/2018</p>
-            <p>Shipped: 01/01/2018</p>
-            <h4>Shipping To</h4>
-            <p>John Doe</p>
-            <p>123 Angel Blvd</p>
-            <p>APT 7</p>
-            <p>New York, NY 11111</p>
-            <p>United States</p>
-        </div>
+<header class="clearfix">
+    <div id="logo">
+        <img src="../../../../../web/images/logo.png" >
     </div>
-    <hr/>
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <th scope="col">Item Code</th>
-            <th scope="col">Item Name</th>
-            <th scope="col">Quantity</th>
-        </tr>
-        </thead>
+    <h1>DeBBo.</h1>
+    <div id="company" class="clearfix">
+        <div>DeBBo.</div>
+        <div>Le meilleur entrepôt </div>
+        <div>+216 22222222</div>
+        <div><a href="mailto:company@example.com">debbo@esprit.tn</a></div>
+    </div>
+    <div id="project">
+        <div><h4>Proprietaire entrepot</h4>      {{ location.fkUser.getNom()}} {{ location.fkUser.getPrenom() }} </div>
+        <div><h4>Numero Proprietaire</h4>        {{ location.fkUser.getTel() }} </div>
+        <div><h4>Email</h4> <a href="mailto:{{ location.fkUser.getEmail()}}">{{ location.fkUser.getEmail()}}</a></div>
+    </div>
+</header>
+<main>
+    <table class="table">
         <tbody>
+
         <tr>
-            <td scope="row">001</th>
-            <td>Can of Beer</td>
-            <td>1</td>
+            <th>Client</th>
+            <td>{{ location.fkUser.getPrenom }} {{ location.fkUser.getNom }}</td>
         </tr>
         <tr>
-            <td scope="row">002</th>
-            <td>T-Shirt - SMALL</td>
-            <td>3</td>
+            <th>Cin du Client</th>
+            <td>{{ location.fkUser.getCin  }}</td>
         </tr>
         <tr>
-            <td scope="row">003</th>
-            <td>Men's Jeans - SIZE 32</td>
-            <td>1</td>
+            <th>Numero de telephone de client</th>
+            <td>{{ location.fkUser.gettel }} </td>
         </tr>
+        <tr>
+            <th>Entreprise</th>
+            <td>{{ location.fkEntrepot.Entreprise }}</td>
+        </tr>
+        <tr>
+            <th>Adresse</th>
+            <td>{{ location.fkEntrepot.adresse }}</td>
+        </tr>
+        <tr>
+            <th>Numero fiscale</th>
+            <td>{{ location.fkEntrepot.adresse }}</td>
+        </tr>
+        <tr>
+            <th>Prix/mois</th>
+            <td>{{ location.fkEntrepot.prixLocation }}</td>
+        </tr>
+        <tr>
+            <th>Date de debut location</th>
+            <td>{% if location.dateDebLocation %}{{ location.dateDebLocation|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Date de fin location</th>
+            <td>{% if location.dateFinLocation %}{{ location.dateFinLocation|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Prix location</th>
+            <td>{{ location.prixLocation }}</td>
+        </tr>
+
         </tbody>
     </table>
-    <div class="row">
-        <div class="col-12">
-            <div class="card bg-faded">
-                <div class="card-header">
-                    Return Policy
-                </div>
-                <div class="card-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel mi sed est imperdiet tempus. Praesent ac ipsum lectus. In vel posuere nulla, eget mattis mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus nec ex sed risus feugiat sagittis. Vivamus egestas id neque auctor vulputate. Donec tincidunt, leo ut malesuada mattis, felis dolor lacinia enim, sit amet fermentum est turpis id augue. Vivamus rutrum aliquam ornare. Proin leo dolor, porta ut libero nec, ultricies tincidunt elit. Vivamus pharetra lacus augue, ut sagittis velit pellentesque vitae.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
-</body>
 
+</main>
+
+<footer>
+Vous etes les bienvenues, contrat le {{ "now"|date("d/m/Y") }}
+
+</footer>
+</body>
 </html>
 <style>
-    .txt {
-        font-size: 20px;
+    .clearfix:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    a {
+        color: #5D6975;
+        text-decoration: underline;
+    }
+
+    body {
+        position: relative;
+        width: 21cm;
+        height: 29.7cm;
+        margin: 0 auto;
+        color: #001028;
+        background: #FFFFFF;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        font-family: Arial;
+    }
+
+    header {
+        padding: 10px 0;
+        margin-bottom: 30px;
+    }
+
+    #logo {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    #logo img {
+        width: 90px;
+        height: auto;
+    }
+
+    h1 {
+        border-top: 1px solid  #5D6975;
+        border-bottom: 1px solid  #5D6975;
+        color: #5D6975;
+        font-size: 2.4em;
+        line-height: 1.4em;
+        font-weight: normal;
+        text-align: center;
+        margin: 0 0 20px 0;
+        background: url(../../../../../web/images/dimension.png);
+    }
+
+    #project {
+        float: left;
+    }
+
+    #project span {
+        color: #5D6975;
+        text-align: right;
+        width: 52px;
+        margin-right: 10px;
+        display: inline-block;
+        font-size: 0.8em;
+    }
+
+    #company {
+        float: right;
+        text-align: right;
+    }
+
+    #project div,
+    #company div {
+        white-space: nowrap;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin-bottom: 20px;
+    }
+
+    table tr:nth-child(2n-1) td {
+        background: #F5F5F5;
+    }
+
+    table th,
+    table td {
+        text-align: left;
+    }
+
+    table th {
+        padding: 5px 20px;
+        color: #5D6975;
+        border-bottom: 1px solid #C1CED9;
+        white-space: nowrap;
+        font-weight: normal;
+    }
+
+    table .service,
+    table .desc {
+        text-align: left;
+    }
+
+    table td {
+        padding: 20px;
+        text-align: right;
+    }
+
+    table td.service,
+    table td.desc {
+        vertical-align: top;
+    }
+
+    table td.unit,
+    table td.qty,
+    table td.total {
+        font-size: 1.2em;
+    }
+
+    table td.grand {
+        border-top: 1px solid #5D6975;;
+    }
+
+
+
+    footer {
+        color: #5D6975;
+        width: 100%;
+        height: 30px;
+        position: absolute;
+        bottom: 0;
+        border-top: 1px solid #C1CED9;
+        padding: 8px 0;
+        text-align: center;
+    }
+    .center{
+        text-align: center;
     }
 </style>
-<h3 class="card-title">Details location:  {{ location.getIdLocation()+002360 }} </h3>
-<div class="txt">
-
-
-    ID Location:  {{ location.getIdLocation() }} <br>
-    Client :  {{ location.fkUser.getNom() }} {{ location.fkUser.getPrenom() }} <br>
-    Addresse     {{ location.fkEntrepot.getAdresse() }} <br>
-    Entreprise    {{ location.fkEntrepot.getEntreprise() }} <br>
-    Numero fiscale    {{ location.fkEntrepot.getNumFiscale() }} <br>
-
-    Date debut de location  {{ location.dateDebLocation|date('D/M/Y') }}<br>
-    Date fin de loation  {{ location.dateFinLocation|date('D/M/Y') }}<br>
-    Prix Location:  {{ location.getPrixLocation() }} <br>
-
-
-
-</div>
 
