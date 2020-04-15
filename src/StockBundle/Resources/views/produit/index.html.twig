@@ -1,115 +1,114 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
+    <div class="banner-top">
+        <div class="container">
+            <h3 >Produit</h3>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
 
-        <div class="banner-top">
-            <div class="container" >
-                 <h3 > <center>Produits </h3></center>
-                <div class="clearfix"> </div>
-            </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            produit view
-            <div class="col-md-3 m-wthree">
-                <div class="col-m">
-                    <a href="#" data-toggle="modal" data-target="#myModal1" class="offer-img">
-                        <img src="{{ asset('images/of.png') }}" class="img-responsive" alt="">
-                    </a>
-                    <div class="mid-1">
-                        <div class="women">
-                            {% for user in users %}
+    <div class="content-top ">
+        <div class="container ">
+            <div class="tab-head ">
+
+                <nav class="nav-sidebar">
+
+                    <ul class="nav tabs ">
+                        {% for user in users %}
                             {% if user.id == idconnected  %}
-                            {% for produit in produits %}
-                            {% if user == produit.idUser %}
-                            <h6><a href="single.html">
-                                    <td>{{ produit.libelle }}</td>
-                                </a>
-                                <td>{{ produit.marque }}</td>
-                            </h6>
-                        </div>
-                        <div class="mid-2">
-                            <p ><label>
-                                    <td>{{ produit.prix }}</td>
-                                </label><em class="item_price">
-                                    <td>{{ produit.quantite }}</td>
-                                </em></p>
-                            <div class="block">
-                                <div class="starbox small ghosting"> </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="add">
-                            <button class="btn btn-danger my-cart-btn my-cart-b " data-id="1" data-name="Moong" data-summary="summary 1" data-price="1.50" data-quantity="1" data-image="images/of.png">Add to Cart</button>
-                        </div>
+                                {% for entrepot in entrepot %}
+                                    {% if user == entrepot.idUser  %}
 
-                        {% endif %}
-                        {% endfor %}
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
+                                        <li class=""><a href="#a{{ entrepot.idEntrepot }}" data-toggle="tab">{{ entrepot.entreprise }}</a></li>
 
 
-
-        <div class="spec ">
-            <h3>La liste des produits</h3>
-            <div class="ser-t">
-                <b></b>
-                <span><i></i></span>
-                <b class="line"></b>
-            </div>
-        </div>
-
-        <div class="bs-docs-example">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Libelle</th>
-                    <th>Reference</th>
-                    <th>Marque</th>
-                    <th>Prix</th>
-                    <th>Quantite</th>
-                    <th>Image</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for user in users %}
-                    {% if user.id == idconnected  %}
-                        {% for produit in produits %}
-                            {% if user == produit.idUser %}
-                                <tr>
-                                    <td>{{ produit.libelle }}</td>
-                                    <td>{{ produit.reference }}</td>
-                                    <td>{{ produit.marque }}</td>
-                                    <td>{{ produit.prix }}</td>
-                                    <td>{{ produit.quantite }}</td>
-                                    <td>{{ produit.image }}</td>
-                                    <td>
-                                        <ul>
-                                            <li class="label label-info" > <a style="color:white"  href="{{ path('produit_show', { 'idProduit': produit.idProduit }) }}">Afficher</a></li>
-                                            <li class="label label-default"><a style="color: white" href="{{ path('produit_edit', { 'idProduit': produit.idProduit }) }}">Modifier</a></li>
-
-                                        </ul>
-                                    </td>
-                                </tr>
+                                    {% endif %}
+                                {% endfor %}
                             {% endif %}
                         {% endfor %}
-                    {% endif %}
-                {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        <div>
-            <li class="label label-default"><a style="color: white"  href="{{ path('produit_new') }}"> Créer un nouveau produit</a></li>
-        </div>
+
+                    </ul>
+                </nav>    <nav class="nav-sidebar">
+
+                     <ul class="nav tabs ">
+                         {% for user in users %}
+                            {% if user.id == idconnected  %}
+                                {% for category in category %}
+                                    {% if user == category.idUser  %}
+
+                            <li class=""><a href="#{{ category.idCategorie }}" data-toggle="tab">{{ category.nom }}</a></li>
 
 
-    {% endblock %}
+                                                 {% endif %}
+                                    {% endfor %}
+                             {% endif %}
+                                {% endfor %}
+
+                     </ul>
+                 </nav>
+                <div class=" tab-content tab-content-t ">
+                    {% for category in category %}
+
+
+                        {% for user in users %}
+                            {% if user.id == idconnected  %}
+
+                                {% for produit in produits %}
+                                    {% if user == produit.idUser  %}
+                                        {% if produit.fkCategorie == category  %}
+
+
+                                            <div class="tab-pane active text-style" id="{{ category.idCategorie }}">
+                                                    <div class="tab-pane active text-style" id="a{{ produit.fkEntrepot }}">
+
+
+                                                 <div class=" con-w3l">
+
+                                                         <div class="col-md-3 m-wthree">
+
+
+                                                <div class="col-m">
+                                    <a href="#" data-toggle="modal" data-target="#myModal4" class="offer-img">
+                                        <img src="{{ asset('public/images/produits/'~produit.imageName) }}" class="img-responsive" alt="">
+
+                                    </a>
+                                    <div class="mid-1">
+                                        <div class="women">
+                                            <h6><a href="single.html">{{  produit.libelle }}</a>({{ produit.marque }})</h6>
+                                        </div>
+                                        <div class="mid-2">
+                                            <p ><em class="item_price">{{  produit.prix }} Dt</em></p>
+                                            <div class="block">
+                                                <div class="starbox small ghosting"> </div>
+                                            </div>
+                                            {{ produit.imageName }}
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="add">
+                                            <li class="btn btn-danger my-cart-btn my-cart-b" > <a  href="{{ path('produit_show', { 'idProduit': produit.idProduit }) }}">Afficher</a></li>                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+                                        {% endif %}
+                                    {% endif %}
+
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+
+                    {% endfor %}
+                </div>
+        </div>
+    </div>
+
+
+{% endblock %}

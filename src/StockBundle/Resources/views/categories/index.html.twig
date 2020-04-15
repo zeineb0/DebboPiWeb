@@ -16,20 +16,18 @@
         </div>
     </div>
 <div class="bs-docs-example">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
         {% for user in users %}
             {% if user.id == idconnected  %}
                 {% for category in categories %}
                     {% if user == category.idUser  %}
-                        <tr>
-                            <td>{{ category.nom }}</td>
+                            <div class="col-md-4 m-w3ls">
+                                <div class="col-md1 ">
+                                        <img src="{{ asset('images/co1.jpg') }}" class="img-responsive" alt="">
+                                        <div class="big-sa">
+                                            <h6>{{ category.nom }}</h6>
+                                        </div>
+                                </div>
+                            </div>
                             <td>
                                 <ul>
                                     <ul>
@@ -39,15 +37,13 @@
 
                                 </ul>
                             </td>
-                        </tr>
+
                     {% endif %}
                 {% endfor %}
             {% endif %}
         {% endfor %}
-        </tbody>
-    </table>
+
 </div>
-    <ul>
         <li>
         <li class="label label-default"><a style="color: white"  href="{{ path('categories_new') }}"> Créer un nouveau produit</a></li>
         </li>

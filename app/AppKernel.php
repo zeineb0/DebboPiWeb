@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new EntrepotBundle\EntrepotBundle(),
             new StockBundle\StockBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
 
 
         ];

@@ -3,6 +3,8 @@
 namespace StockBundle\Controller;
 
 use StockBundle\Entity\Produit;
+use StockBundle\Entity\Categories;
+use EntrepotBundle\Entity\Entrepot;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -28,8 +30,14 @@ class ProduitController extends Controller
         $idconnected = $this->getUser()->getId();
         $users = $em->getRepository('AppBundle:User')->findAll();
         $produits = $em->getRepository('StockBundle:Produit')->findAll();
+        $category = $em->getRepository('StockBundle:Categories')->findAll();
+        $entrepot = $em->getRepository('EntrepotBundle:Entrepot')->findAll();
             return $this->render('@Stock/produit/index.html.twig', array(
-            'produits' => $produits, 'idconnected'=>$idconnected, 'users'=>$users
+            'produits' => $produits,
+                'idconnected'=>$idconnected,
+                'users'=>$users,
+                'category'=>$category,
+                'entrepot'=>$entrepot,
         ));
     }
 

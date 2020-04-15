@@ -47,11 +47,11 @@ class CategoriesController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
             $id = $this->getUser();
             $categories->setIdUser($id);
             $em->persist($categories);
             $em->flush();
-
             return $this->redirectToRoute('categories_show', array('idCategorie' => $categories->getIdcategorie()));
         }
 

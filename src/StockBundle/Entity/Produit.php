@@ -3,13 +3,15 @@
 namespace StockBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Produit
  *
  * @ORM\Table(name="produit", indexes={@ORM\Index(name="fk_en", columns={"FK_id_entrepot"}), @ORM\Index(name="Produit_Categories", columns={"FK_id_categorie"})})
  * @ORM\Entity(repositoryClass="StockBundle\Repository\ProduitRepository")
+ * @Vich\Uploadable
  */
 class Produit
 {
@@ -92,6 +94,30 @@ class Produit
      * })
      */
     private $idUser;
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="produit", fileNameProperty="imageName")
+     *
+     * @var File|null
+     */
+    private $imageFile;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image_name", type="string", length=255, nullable=true)
+     */
+    private $imageName;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
+
 
 
     public function __toString()
@@ -262,7 +288,41 @@ class Produit
         $this->fkEntrepot = $fkEntrepot;
     }
 
+    /**
+     * @return File
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
 
+    /**
+     * @param string $imageName
+     */
+    public function setImageName($imageName)
+    {
+        $this->imageName = $imageName;
+    }
 
+    /**
+     * @return string
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
+    }
+    /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     */
+    public function setImageFile($imageFile = null)
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
 
 }

@@ -50,7 +50,6 @@ class MouvementDuStockController extends Controller
         $form = $this->createForm('StockBundle\Form\MouvementDuStockType', $mouvementDuStock);
 
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid())
         {
             $em = $this->getDoctrine()->getManager();
