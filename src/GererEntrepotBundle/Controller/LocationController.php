@@ -77,36 +77,8 @@ class LocationController extends Controller
         );
 
     }
-    /**
-     * @Route("location/search", name="search")
-     * @Method("GET")
-     */
-    public function searchAction()
-    {
-        $location = new  Location();
-
-        $form = $this->createFormBuilder( $location, array(
-            'action' => $this->generateUrl('search_article').'?term=',
-            'method' => 'GET',
-        ) )
-            ->add('fkUser', null, ['label' => ' Barre de recherche'] )
-            ->getForm();
 
 
-        return $this->render('@GererEntrepot/Location/test.html.twig', ['form' => $form->createView() ]);
-    }
-
-    /**
-     * @Route("location/search-article", name="search_article", defaults={"_format"="json"})
-     * @Method("GET")
-     */
-    public function searchArticleAction(Request $request)
-    {
-        $q = $request->query->get('term'); // use "term" instead of "q" for jquery-ui
-        $results = $this->getDoctrine()->getRepository('GererEntrepotBundle:Location')->findLike($q);
-
-        return $this->render("@GererEntrepot/location/search.json.twig", ['locations' => $results]);
-    }
 
     public function confirmationAction(Location $location){
 

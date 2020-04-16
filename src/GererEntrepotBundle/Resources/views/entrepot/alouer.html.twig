@@ -1,65 +1,63 @@
 {% extends 'base.html.twig' %}
 
+
 {% block body %}
-    <div class="banner-top">
-        <div class="container">
-            <h3 >Entrepot</h3>
-            <h4><a href="/DebboPiWeb/web/app_dev.php/">Accueil</a><label>/</label>Entrepot</h4>
 
-            <div class="clearfix"> </div>
+
+
+
+
+    <div class="content-top ">
+        <div class="container ">
+            {% if entrepots[0].idEntrepot == null %}
+                <a> Tableau est vide</a>
+            {% else %}
+                <div class="tab-head ">
+                    <div class=" tab-content tab-content-t ">
+                        <div class="tab-pane active text-style" id="tab1">
+                            <div class=" con-w3l">
+
+                                {% for entrepot in entrepots %}
+                                    <div class="col-md-3 m-wthree">
+                                        <div class="col-m">
+                                            <a href="#" data-toggle="modal" data-target="#myModal4" class="offer-img">
+                                                <img src="{{ asset('images/4.jpg') }}" class="img-responsive" alt="">
+
+                                            </a>
+                                            <div class="mid-1">
+                                                <div class="women">
+                                                    <h6>{{ entrepot.adresse }}</h6>
+                                                </div>
+                                                <div class="mid-2">
+                                                    <p ><em class="item_price">{{ entrepot.prixLocation }} Dt</em></p>
+                                                    <div class="block">
+                                                        <div class="starbox small ghosting"> </div>
+                                                    </div>
+
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="add">
+                                                    <a href="{{ path('location_new', { 'idEntrepot': entrepot.idEntrepot }) }}" class="btn btn-danger my-cart-btn my-cart-b"  role="button" aria-pressed="true">Louer</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+
+
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            {% endif %}
         </div>
     </div>
-
-    <div class="bs-docs-example" style="margin:100px">
-        <div class="spec ">
-            <h3>Liste des entrepots</h3>
-            <div class="ser-t">
-                <b></b>
-                <span><i></i></span>
-                <b class="line"></b>
-            </div>
-        </div>
-
-        {% if entrepots[0].idEntrepot == null %}
-            <a> Tableau est vide</a>
-        {% else %}
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Adresse</th>
-                <th>Numfiscale</th>
-                <th>Quantitemax</th>
-                <th>Etat</th>
-                <th>Prixlocation</th>
-                <th>Entreprise</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-
-            <tbody>
-
-
-            {% for entrepot in entrepots %}
-                <tr>
-
-                    <td>{{ entrepot.adresse }}</td>
-                    <td>{{ entrepot.numFiscale }}</td>
-                    <td>{{ entrepot.quantiteMax }}</td>
-                    <td>{{ entrepot.etat }}</td>
-                    <td>{{ entrepot.prixLocation }}</td>
-                    <td>{{ entrepot.entreprise }}</td>
-                    <td>
-                        <ul>
-                            <li class="label label-info" > <a style="color:white"  href="{{ path('location_new', { 'idEntrepot': entrepot.idEntrepot }) }}">Louer</a></li>
-                        </ul>
-                    </td>
-                </tr>
-            {% endfor %}
-
-
-            </tbody>
-        </table>
-        {% endif %}
     </div>
+
+
+
 
 {% endblock %}

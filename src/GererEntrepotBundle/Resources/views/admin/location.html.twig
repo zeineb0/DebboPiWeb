@@ -5,11 +5,12 @@
 
         <tr>
             <th>Id Location</th>
+            <th>Client</th>
             <th>Date debut de location</th>
             <th>Date fin de location</th>
             <th>Prix de location</th>
             <th>Entreprise</th>
-            <th>Nom de l'utilisateur</th>
+            <th>Nom de proprietaire de l'entrepot</th>
 
         </tr>
         </thead>
@@ -17,18 +18,13 @@
         {% for location in locations %}
         <tr>
             <td>{{ location.idLocation }}</td>
+            <td>{{ location.fkUser.getPrenom }} {{ location.fkUser.getNom }}</td>
             <td>{% if location.dateDebLocation %}{{ location.dateDebLocation|date('Y-m-d') }}{% endif %}</td>
             <td>{% if location.dateFinLocation %}{{ location.dateFinLocation|date('Y-m-d') }}{% endif %}</td>
             <td>{{ location.prixLocation }}</td>
             <td>{{ location.fkEntrepot.getEntreprise }}</td>
-            <td>{{ location.fkUser }}</td>
-            <td>
-                <a class="btn btn-app" href='{{ path('Commande_confirme',{id:commande.getId()})  }}'>
-                    <i class="fas fa-check-circle"></i>
-                    Confirmer</a>
-            </td>
-            <td><a href='{{ path('Commande_delete', {id: commande.getId()}) }}' >Delete </a> <br>
-                <a href='{{ path('Commande_details', {id: commande.getId()}) }}' >Details</a> <td><br>
+            <td>  {{ location.fkUser.getNom()}} {{ location.fkUser.getPrenom() }} </td>
+
 
             {% endfor %}
         </tbody>

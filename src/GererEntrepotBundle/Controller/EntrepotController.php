@@ -97,6 +97,42 @@ class EntrepotController extends Controller
         //
     }
 
+    /**
+     * afficher les demandes de location.
+     * @Route("entrepot/demande", name="entrepot_demande_location")
+     */
+    public function entrepotDemandeAction(request $request )
+    {   $securityContext = $this->container->get('security.authorization_checker');
+        if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED'))
+        {
+            $user = $this->container->get('security.token_storage')->getToken()->getUser()->getId();
+         $em= $this->getDoctrine()->getManager();
+           $query = $em->createQuery(
+             "SELECT 
+       e.idEntrepot id_Entrepot, e.adresse , e.numFiscale, e.entreprise, l.idLocation id_Location, l.dateDebLocation,l.dateFinLocation, l.prixLocation, u.prenom prenom , u.nom nom, u.tel, u.email
+       FROM GererEntrepotBundle:Entrepot e  
+           JOIN GererEntrepotBundle:Location l WITH e.idEntrepot = l.fkEntrepot and e.id = $user and e.etat = 'En Attente'
+           JOIN EntrepotBundle:Utilisateur u WITH l.fkUser= u.id
+           
+           ");
+
+            $entrepots = $query->getResult();
+            return $this->render('@GererEntrepot/entrepot/demande.html.twig', array('entrepots' => $entrepots));
+
+
+        }
+
+        # if user not logged in yet
+        else
+        {
+            return $this->redirectToRoute('fos_user_security_login');
+        }
+
+    }
+
+
+
+
 
 
 
@@ -219,9 +255,9 @@ class EntrepotController extends Controller
         WHERE u.username like :item')
             ->setParameter('item',  '%'.$data.'%');
 
-        $commandes = $query->getResult();
+        $entrepots = $query->getResult();
 
-        return $this->render('@GererEntrepot/admin/index.html.twig', array('entrepots' => $commandes));
+        return $this->render('@GererEntrepot/admin/index.html.twig', array('entrepots' => $entrepots));
 
 
     }
@@ -267,7 +303,7 @@ class EntrepotController extends Controller
     /**
      * Finds and displays a entrepot entity.
      *
-     * @Route("entrepot/{id}", name="entrepot_admin_details")
+     * @Route("admin /entrepot/{id}", name="entrepot_admin_details")
      * @Method("GET")
      */
     public function detailEntrepotAdminAction(Entrepot $entrepot)
