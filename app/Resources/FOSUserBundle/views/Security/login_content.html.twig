@@ -1,9 +1,8 @@
 
-
 <div class="banner-top">
     <div class="container">
         <h3 >Login</h3>
-        <h4><a href="index.html">Home</a><label>/</label>Login</h4>
+        <h4><a href="{{ asset('/DebboPiWeb/web/app_dev.php/') }}">Home</a><label>/</label>Login</h4>
         <div class="clearfix"> </div>
     </div>
 </div>
@@ -18,14 +17,46 @@
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
     {% endif %}
 
-    <label for="username">{{ 'security.login.username'|trans }}</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
+    <div class="login">
+        <div class="main-agileits">
+            <div class="form-w3agile">
+                <h3>Login</h3>
 
-    <label for="password">{{ 'security.login.password'|trans }}</label>
-    <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
+                <form action="#" method="post">
 
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
 
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+                    <div class="key">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        <label for="username">{{ 'security.login.username'|trans }}</label>
+                        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
+                        <div class="clearfix"></div>
+                    </div>
+
+
+                    <div class="key">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <label for="password">{{ 'security.login.password'|trans }}</label>
+                        <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
+                        <div class="clearfix"></div>
+                    </div>
+
+
+
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                    <label for="remember_me" >{{ 'security.login.remember_me'|trans }}</label>
+                    <input style="margin-left: 100px" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}"  />
+
+            </form>
+            </div>
+
+            <div class="forg">
+                <a href="#"  class="forg-left">Mot de passe oublié ?</a>
+                <a href="{{ asset ('/DebboPiWeb/web/app_dev.php/register') }}" class="forg-right">S'inscrire</a>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+
+
 </form>

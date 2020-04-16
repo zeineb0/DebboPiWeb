@@ -5,18 +5,20 @@ namespace TransporteurBundle\Controller;
 use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use TransporteurBundle\Entity\Contrat;
 use TransporteurBundle\Entity\Livraison;
+use TransporteurBundle\Form\ContratType;
 use TransporteurBundle\Form\LivraisonType;
 use Symfony\Component\Lock\Factory;
 use Symfony\Component\Lock\Store\SemaphoreStore;
 
 
-class LivraisonController extends Controller
+class ContratController extends Controller
 {
 
 
 
-    public function ajouterLivraisonAction(Request $request)
+    public function ajouterContratAction(Request $request)
     {
 
      /*   $store = new SemaphoreStore();
@@ -24,20 +26,20 @@ class LivraisonController extends Controller
         $lock = $factory->createLock('the-lock-name', 30); */
 
 
-        $livraison = new Livraison();
-        $form=$this->createForm(LivraisonType::class,$livraison);
+        $contrat = new Contrat();
+        $form=$this->createForm(ContratType::class,$contrat);
 
         $form->handleRequest($request);
 
         if ($form ->isSubmitted() and $form->isValid())
         {
             $em=$this->getDoctrine()->getManager();
-            $em->persist($livraison);
+            $em->persist($contrat);
             $em->flush();
-            return $this->redirectToRoute('afficher_livraison_all');
+           // return $this->redirectToRoute('');
         }
 
-        return $this->render("@Transporteur/Transporteur/ajouter_livraison.html.twig",array("form"=>$form->createView()));
+        return $this->render("@Transporteur/Transporteur/ajouter_contrat.html.twig",array("form"=>$form->createView()));
 
 
 

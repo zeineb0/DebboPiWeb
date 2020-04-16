@@ -31,8 +31,8 @@ class LivraisonRepository extends \Doctrine\ORM\EntityRepository
     public function updateLivStat($id)
     {
         $qb=$this->getEntityManager()
-            ->createQuery("Update TransporteurBundle:livraison l SET l.etatLivraison=:etat where l.id=id")
-            ->setParameters(array('etat'=>'livrée','id'=>$id));
+            ->createQuery("Update TransporteurBundle:livraison l SET l.etatLivraison=?1 where l.idLivraison=?2")
+            ->setParameters(array(1=>'livrée',2=>$id));
         return $query=$qb->getResult();
     }
 

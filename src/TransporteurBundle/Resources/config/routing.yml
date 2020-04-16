@@ -23,6 +23,15 @@ aff_liv_Trans_L:
     path: /AffLivTransL
     defaults: {_controller: TransporteurBundle:Livraison:afficherLivraisonParTransporteurLivre}
 
+modifier_livraison:
+    path: /modifierLivraison/{id}
+    defaults: {_controller: TransporteurBundle:Livraison:modifierEtatLivraison}
+
+
+ajouter_contrat:
+    path : /ajouterContrat
+    defaults : {_controller: TransporteurBundle:Contrat:ajouterContrat}
+
 
 
 

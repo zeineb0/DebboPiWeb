@@ -1,6 +1,6 @@
 <?php
 
-namespace TransprteurBundle\Entity;
+namespace TransporteurBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -27,6 +27,14 @@ class Contrat
 
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="salaire", type="integer", nullable=false)
+     */
+    private $salaire;
+
+
+    /**
      * @var \Entrepot
      *
      * @ORM\Id
@@ -36,7 +44,7 @@ class Contrat
      * })
 
      */
-    private $FKidentrepotr;
+    private $FKidentrepot;
 
     /**
      * @var \User
@@ -49,21 +57,22 @@ class Contrat
 
      */
     private $FKiduser;
-
+/*
     /**
      * Contrat constructor.
      * @param \DateTime $datedeb
      * @param \DateTime $datefin
-     * @param \Entrepot $FKidentrepotr
+     * @param \Entrepot $FKidentrepot
      * @param \User $FKiduser
-     */
-    public function __construct(\DateTime $datedeb, \DateTime $datefin, \Entrepot $FKidentrepotr, \User $FKiduser)
+     /
+    public function __construct(\DateTime $datedeb, \DateTime $datefin, \Entrepot $FKidentrepot, \User $FKiduser)
     {
         $this->datedeb = $datedeb;
         $this->datefin = $datefin;
-        $this->FKidentrepotr = $FKidentrepotr;
+        $this->FKidentrepot = $FKidentrepot;
         $this->FKiduser = $FKiduser;
     }
+*/
 
 
     /**
@@ -101,17 +110,17 @@ class Contrat
     /**
      * @return \Entrepot
      */
-    public function getFKidentrepotr()
+    public function getFKidentrepot()
     {
-        return $this->FKidentrepotr;
+        return $this->FKidentrepot;
     }
 
     /**
-     * @param \Entrepot $FKidentrepotr
+     * @param \Entrepot $FKidentrepot
      */
-    public function setFKidentrepotr($FKidentrepotr)
+    public function setFKidentrepot($FKidentrepot)
     {
-        $this->FKidentrepotr = $FKidentrepotr;
+        $this->FKidentrepot = $FKidentrepot;
     }
 
     /**
@@ -128,6 +137,22 @@ class Contrat
     public function setFKiduser($FKiduser)
     {
         $this->FKiduser = $FKiduser;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSalaire()
+    {
+        return $this->salaire;
+    }
+
+    /**
+     * @param int $salaire
+     */
+    public function setSalaire($salaire)
+    {
+        $this->salaire = $salaire;
     }
 
 
