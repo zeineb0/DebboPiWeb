@@ -1,62 +1,58 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+    {% block body %}
 
-    <div class="banner-top">
-        <div class="container">
-            <h3 >Commande</h3>
-            <div class="clearfix"> </div>
-        </div>
-    </div>
-    <div  style="margin: 100px">
-        <div class="spec ">
-        <h3>list des commandes</h3>
-        <div class="ser-t">
-            <b></b>
-            <span><i></i></span>
-            <b class="line"></b>
-        </div>
+        <div class="banner-top">
+            <div class="container">
+                <h3 >Commande</h3>
+                <div class="clearfix"> </div>
+            </div>
         </div>
 
-<div class="bs-docs-example">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Reference</th>
-                <th>Total</th>
-                <th>Type paiement</th>
-                <th>Date commande</th>
-                <th>Date exp</th>
+        <div  style="margin:0 100px 0 100px" id="bloc-commande">
+            <div id="table-commande" class="bs-docs-example table-wrapper-scroll-y my-custom-scrollbar ">
+                <table class="table  table-striped table-sm" cellspacing="0" >
+                    <thead>
+                    <tr style="font-size:20px">
+                        <th>Reference<a style="text-decoration:none" href="{{ path('commande_index') }}">
+                                <span style=" margin-left: 10px" class="fa fa-angle-down"> </span></a></th>
+                        <th>Total<a style="text-decoration:none" href="{{ path('commande_trip') }}">
+                                <span style=" margin-left: 10px" class="fa fa-angle-down"> </span></a></th>
+                        <th>Date commande<a style="text-decoration:none" href="{{ path('commande_trid') }}">
+                                <span style=" margin-left: 10px" class="fa fa-angle-down"> </span></a></th>
+                        <th>Date expération<a style="text-decoration:none" href="{{ path('commande_trie') }}">
+                                <span style=" margin-left: 10px" class="fa fa-angle-down"> </span></a></th>
 
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for commande in commandes %}
-            <tr>
-                <td><a href="{{ path('commande_show', { 'idCommande': commande.idCommande  }) }}">
-                        {{ render(controller("CommandeBundle:Commande:chiffrement",{ 'commande': commande })) }}</a></td>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for commande in commandes %}
+                        <tr style="font-size:20px; text-aline:center">
+                            <td><a href="{{ path('commande_show', { 'idCommande': commande.idCommande  }) }}">
+                                    {% set a=render(controller("CommandeBundle:Commande:chiffrement",{ 'commande': commande })) %}
+                                    {{ a|trim('"') }}</a></td>
 
-                <td>{{ commande.total }}</td>
-                <td>{{ commande.typePaiement }}</td>
-                <td>{% if commande.dateCommande %}{{ commande.dateCommande|date('Y-m-d') }}{% endif %}</td>
-                <td>{% if commande.dateExp %}{{ commande.dateExp|date('Y-m-d') }}{% endif %}</td>
-                <td>
-                    <ul>
-                        <li class="label label-info" > <a style="color:white"  href="{{ path('commande_show', { 'idCommande': commande.idCommande }) }}">show</a></li>
-                        <li class="label label-default"><a style="color: white" href="{{ path('commande_edit', { 'idCommande': commande.idCommande }) }}">edit</a></li>
-                    </ul>
-                </td>
+                            <td>{{ commande.total }}</td>
+                            <td>{% if commande.dateCommande %}{{ commande.dateCommande|date('Y-m-d') }}{% endif %}</td>
+                            <td>{% if commande.dateExp %}{{ commande.dateExp|date('Y-m-d') }}{% endif %}</td>
+                            <td style="width: 300px">
+                                <ul>
+                                    <li class="btn btn-success" > <a style="color:white;   "  href="
+                {{ path('commande_show',{ 'idCommande': commande.idCommande }) }}">Afficher</a></li>
+                                    <li class="btn btn-danger"><a style="color: white" href="
+                {{ path('commande_delete', { 'idCommande': commande.idCommande }) }}">Supprimer</a></li>
+                                </ul>
+                            </td>
 
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
 
 
-        {#<a class=" add-1"   href="{{ path('commande_new') }}">Créer une commande</a>#}
-
+            </div>
         </div>
-    </div>
 
-{% endblock %}
+
+    {% endblock %}

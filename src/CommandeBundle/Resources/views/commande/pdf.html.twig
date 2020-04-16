@@ -18,7 +18,9 @@
     </div>
     <div id="project">
         <div><span>Commande</span>
-                {{ render(controller("CommandeBundle:Commande:chiffrement",{ 'commande': commande })) }}
+            {% set a=render(controller("CommandeBundle:Commande:chiffrement",{ 'commande': commande })) %}
+            {{ a|trim('"') }}</a></td>
+
         </div>
         <div><span>CLIENT</span> {{ commande.idClient.getNom()}} {{ commande.idClient.getPrenom() }} </div>
         <div><span>ADDRESS</span> {{ commande.idClient}}</div>

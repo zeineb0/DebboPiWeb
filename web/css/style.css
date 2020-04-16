@@ -517,19 +517,19 @@ span.fa.fa-shopping-cart.my-cart-icon {
     -ms-transition: 0.5s all;
 }
  ::-webkit-input-placeholder{
-	color:#fff;
+	color:#999;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: #fff; 
+   color: #999;
 }
 
-::-moz-placeholder {  /* Firefox 19+ */
-   color: #fff;  
+:-o-prefocus  {  /* Firefox 19+ */
+   color: #999;
 }
 
-:-ms-input-placeholder {  
-   color: #fff;  
+:-ms-input-placeholder {
+   color: #999;
 }
 /*-- //to-top --*/
 .spec {
@@ -912,7 +912,7 @@ ul.product-qty {
 }
 /*----*/
 .modal-dialog {
-    width: 800px;
+    width: 60%;
     margin: 30px auto;
 }
 .modal-spa {
@@ -1590,7 +1590,7 @@ h5.typ1{
   margin: 1em 0 2em;
 }
 .bs-docs-example {
-  margin: 1em 0;
+  margin: 5%;
 }
 section#tables  p {
  margin-top: 1em;

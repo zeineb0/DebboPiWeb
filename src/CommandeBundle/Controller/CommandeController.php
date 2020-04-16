@@ -45,6 +45,47 @@ class CommandeController extends Controller
         }
     }
 
+
+    /**
+     * @Route("/commandep", name="commande_trip")
+     * @Method("GET")
+     */
+    public function tripAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $commandes = $em->getRepository('CommandeBundle:Commande')->findBy(array('idClient' => $user),array('total' =>'asc'));
+        return $this->render('@Commande/commande/index.html.twig', array(
+            'commandes' => $commandes));
+
+    }
+    /**
+     * @Route("/commanded", name="commande_trid")
+     * @Method("GET")
+     */
+    public function tridAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $commandes = $em->getRepository('CommandeBundle:Commande')->findBy(array('idClient' => $user),array('dateCommande' =>'asc'));
+        return $this->render('@Commande/commande/index.html.twig', array(
+            'commandes' => $commandes));
+
+    }
+    /**
+     * @Route("/commandee", name="commande_trie")
+     * @Method("GET")
+     */
+    public function trieAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $commandes = $em->getRepository('CommandeBundle:Commande')->findBy(array('idClient' => $user),array('dateExp' =>'asc'));
+        return $this->render('@Commande/commande/index.html.twig', array(
+            'commandes' => $commandes));
+
+    }
+
     /**
      * @Route("/commande/{idCommande}/pdf", name="commande_pdf")
      */
@@ -103,7 +144,8 @@ class CommandeController extends Controller
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
-    {
+    {   $securityContext = $this->container->get('security.authorization_checker');
+        if( $securityContext->isGranted('ROLE_CLIENT')){
         if($request->isXmlHttpRequest()) {
       $em=$this->getDoctrine()->getManager();
       $date=new \DateTime('now');
@@ -111,7 +153,7 @@ class CommandeController extends Controller
       $commande= new Commande();
       $commande->setTypePaiement('carte');
       $commande->setDateCommande(new \DateTime('now'));
-      $commande->setTotal($request->request->get('total'));}
+      $commande->setTotal($request->request->get('total'));
       $commande->setDateExp($date->add(new \DateInterval('P30D')));
         $commande->setIdClient($user);
       $em->persist($commande);
@@ -129,10 +171,15 @@ class CommandeController extends Controller
           $em->flush();
       }
 
-        return $this->json([200,"succées"],200);
-
+        return $this->json([200,"succées"],200);}
+        }
+        else
+        {
+            return $this->render("@CommandeBundle/commande/produit.html.twig");
+        }
 
     }
+
 
        /**
      * Finds and displays a commande entity.
