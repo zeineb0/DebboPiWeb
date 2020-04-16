@@ -165,6 +165,11 @@ class Location
         $this->fkUser = $fkUser;
     }
 
+    public function __construct()
+    {$now = new\DateTime();
+    $this->setDateDebLocation($now);
+    $this->setDateFinLocation($now);
+    }
 
 
 }

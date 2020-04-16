@@ -1,13 +1,26 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+
+    <div class="banner-top">
+        <div class="container">
+            <h3 >Entrepot</h3>
+            <h4><a href="/DebboPiWeb/web/app_dev.php/">Accueil</a><label>/</label><a href="/DebboPiWeb/web/app_dev.php/entrepot/">Entrepot</a><label>/</label>Demandes de location</h4>
+
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <div class="spec ">
+        <h3>Les demandes de location d'un entrepot</h3>
+        <div class="ser-t">
+            <b></b>
+            <span><i></i></span>
+            <b class="line"></b>
+        </div>
+    </div>
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Liste des demandes de locations</h3>
 
-
-                </div>
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
                     <div class="data-table-area mg-b-15">
@@ -16,9 +29,6 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="sparkline13-list">
                                         <div class="sparkline13-hd">
-                                            <div class="main-sparkline13-hd">
-                                                <h1>Events List</h1>
-                                            </div>
                                         </div>
                                         <div class="sparkline13-graph">
                                             <div class="datatable-dashv1-list custom-datatable-overright">
@@ -30,10 +40,16 @@
 
                                                     <thead>
                                                     <tr>
-                                                        <th data-field="id">ID Location</th>
-                                                        <th data-field="client">Client</th>
-
-                                                        <th >Confirmer commande</th>
+                                                        <th>ID Entrepot</th>
+                                                        <th>Adresse</th>
+                                                        <th>Entreprise</th>
+                                                        <th>Client</th>
+                                                        <th>Date debut Location</th>
+                                                        <th>Date fin Location</th>
+                                                        <th>Prix Location</th>
+                                                        <th>Email</th>
+                                                        <th>Numero de telephone</th>
+                                                        <th data-field="action">Actions</th>
 
                                                     </tr>
                                                     </thead>
@@ -42,14 +58,21 @@
 
                                                         <tr>
                                                             <td>{{ entrepot.id_Entrepot}}</td>
+                                                            <td>{{ entrepot.adresse}}</td>
+                                                            <td>{{ entrepot.entreprise}}</td>
                                                             <td>{{ entrepot.prenom }} {{ entrepot.nom }} </td>
-
+                                                            <td>{% if entrepot.dateDebLocation %}{{ entrepot.dateDebLocation|date('Y-m-d') }}{% endif %}</td>
+                                                            <td>{% if entrepot.dateFinLocation %}{{ entrepot.dateFinLocation|date('Y-m-d') }}{% endif %}</td>
+                                                            <td>{{ entrepot.prixLocation}}</td>
+                                                            <td>{{ entrepot.email}}</td>
+                                                            <td>{{ entrepot.tel}}</td>
 
                                                             <td>
-                                                                <a class="btn btn-app" href='{{ path('entrepot_demande_location')  }}'>
-                                                                    <i class="fas fa-check-circle"></i>
-                                                                    Confirmer</a>
-
+                                                                <ul> <a class="btn btn-app-conf"  href="{{ path('entrepot_confirme_demande', { 'idEntrepot': entrepot.id_Entrepot }) }}">
+                                                                        <i class="fa fa-check-circle"></i>Confirmer</a>
+                                                                    <a class="btn btn-app" href="{{ path('entrepot_delete_demande', { 'idLocation': entrepot.id_Location }) }}">
+                                                                            <i class="fa fa-close"></i>Refuser</a>
+                                                                </ul>
                                                     {% endfor %}
                                                     </tbody>
                                                 </table>

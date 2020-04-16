@@ -109,7 +109,7 @@ class EntrepotController extends Controller
          $em= $this->getDoctrine()->getManager();
            $query = $em->createQuery(
              "SELECT 
-       e.idEntrepot id_Entrepot, e.adresse , e.numFiscale, e.entreprise, l.idLocation id_Location, l.dateDebLocation,l.dateFinLocation, l.prixLocation, u.prenom prenom , u.nom nom, u.tel, u.email
+       e.idEntrepot id_Entrepot, e.adresse adresse , e.numFiscale numFiscale, e.entreprise entreprise , l.idLocation id_Location, l.dateDebLocation dateDebLocation,l.dateFinLocation dateFinLocation, l.prixLocation prixLocation, u.prenom prenom , u.nom nom, u.tel tel, u.email email
        FROM GererEntrepotBundle:Entrepot e  
            JOIN GererEntrepotBundle:Location l WITH e.idEntrepot = l.fkEntrepot and e.id = $user and e.etat = 'En Attente'
            JOIN EntrepotBundle:Utilisateur u WITH l.fkUser= u.id
@@ -129,9 +129,50 @@ class EntrepotController extends Controller
         }
 
     }
+    /**
+     * confirmer les demandes de location.
+     * @Route("entrepot/demande/{idEntrepot}/confirmer", name="entrepot_confirme_demande")
+     */
+    public function confirmerDemandeAction($idEntrepot)
+    {
 
+        $em = $this->getDoctrine()->getManager();
 
+        /* @var Entrepot $entrepotObj */
+        $entrepotObj = $em->getRepository(Entrepot::class)->find($idEntrepot);
 
+        $entrepotObj->setEtat('Loué');
+        $em->persist($entrepotObj);
+        $em->flush();
+
+        return $this->redirectToRoute('entrepot_demande_location');
+
+    }
+
+    /**
+     * confirmer les demandes de location.
+     * @Route("location/demande/{idLocation}/delete", name="entrepot_delete_demande")
+     */
+    public function deleteDemandeAction($idLocation)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        /* @var Entrepot $entrepotObj */
+
+        $form = $this->getDoctrine()->getRepository(Location::class)->findOneBy(array('idLocation'=>$idLocation));
+        $idEntrepot = $form->getFkEntrepot();
+        $entrepotObj=$em->getRepository(Entrepot::class)->find($idEntrepot);
+        $entrepotObj->setEtat('A Louer');
+        $query= $this->getEntityManager()->createQuery('
+        Delete GererEntrepotBundle:Location l WHERE l.idLocation=:idloc')
+            ->setParameter('idloc', $idLocation)->execute();
+
+        $em->persist($entrepotObj);
+        $em->flush();
+
+        return $this->redirectToRoute('entrepot_demande_location');
+
+    }
 
 
 
@@ -342,8 +383,8 @@ class EntrepotController extends Controller
     {
         $form = $this->getDoctrine()->getRepository(Entrepot::class)->findBy(array("idEntrepot"=>$idEntrepot));
         $em=$this->getDoctrine()->getManager();
-        foreach($form as $product) {
-            $em->remove($product);
+        foreach($form as $entrepot) {
+            $em->remove($entrepot);
         }
 
         $em->flush();
