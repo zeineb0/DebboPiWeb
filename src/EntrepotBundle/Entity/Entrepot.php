@@ -67,12 +67,12 @@ class Entrepot
      */
     private $idUser;
 
-    /**
+  /*  /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", mappedBy="fkEntrepot")
-     */
-    private $fkUser;
+
+    private $fkUser; */
 
     /**
      * @return int

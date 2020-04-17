@@ -32,6 +32,12 @@ ajouter_contrat:
     path : /ajouterContrat
     defaults : {_controller: TransporteurBundle:Contrat:ajouterContrat}
 
+afficher_contrat:
+    path: /afficherContrat
+    defaults: {_controller: TransporteurBundle:Contrat:afficherContratParPropE}
+
+
+
 
 
 

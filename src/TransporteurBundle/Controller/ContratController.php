@@ -45,56 +45,13 @@ class ContratController extends Controller
 
     }
 
-    public function getAllLivraisonAction()
+
+    public function afficherContratParPropEAction()
     {
-
-
-        $livraison=$this->getDoctrine()->getRepository(Livraison::class)->findAll();
-        return $this->render("@Transporteur/Transporteur/afficher_livraison_all.html.twig",array("liste_livraison"=>$livraison));
-    }
-
-
-    public function supprimerLivraisonAction($id)
-    {
-        $livraison=$this->getDoctrine()->getRepository(Livraison::class)->find($id);
-        $em=$this->getDoctrine()->getManager();
-        $em->remove($livraison);
-        $em->flush();
-        return $this->getAllLivraisonAction();
+        $contrat=$this->getDoctrine()->getRepository(Contrat::class)->getContratByProp($id=$this->getUser()->getId());
+        return $this->render("@Transporteur/Transporteur/afficher_contrat.html.twig",array("liste_contrat"=>$contrat));
 
     }
-
-    public function afficherLivraisonParTransporteurNonLivreAction()
-    {
-        //$user=new User();
-        //$user->setId($id);
-        $livraison=$this->getDoctrine()->getRepository(Livraison::class)->getLivraisonByUserNotD($id=$this->getUser()->getId());
-        return $this->render("@Transporteur/Transporteur/afficher_livraison_all.html.twig",array("liste_livraison"=>$livraison));
-
-    }
-
-    public function afficherLivraisonParTransporteurLivreAction()
-    {
-
-        $livraison=$this->getDoctrine()->getRepository(Livraison::class)->getLivraisonByUserD($id=$this->getUser()->getId());
-        return $this->render("@Transporteur/Transporteur/afficher_livraison_all.html.twig",array("liste_livraison"=>$livraison));
-
-    }
-
-
-    public function modifierEtatLivraisonAction($id)
-    {
-        $livraison=$this->getDoctrine()->getRepository(Livraison::class)->find($id);
-        $em=$this->getDoctrine()->getManager();
-        $em->getRepository(Livraison::class)->updateLivStat($livraison);
-        $em->flush();
-        return $this->getAllLivraisonAction(); // à terminer
-
-
-    }
-
-
-
 
 
 

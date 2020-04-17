@@ -10,4 +10,14 @@ namespace TransporteurBundle\Repository;
  */
 class ContratRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function getContratByProp($id)
+    {
+        $qb=$this->getEntityManager()
+            ->createQuery("select c.datedeb , c.datefin , c.salaire , u.nom , u.prenom , e.entreprise from TransporteurBundle:contrat c JOIN c.FKiduser u JOIN c.FKidentrepot e where c.FKidentrepot IN ( select t.idEntrepot from EntrepotBundle:entrepot t where t.idUser=?1) ")
+            ->setParameters(array(1=>$id));
+        return $query = $qb->getResult();
+    }
+
+
 }

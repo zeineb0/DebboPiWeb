@@ -45,8 +45,6 @@ class LivraisonController extends Controller
 
     public function getAllLivraisonAction()
     {
-
-
         $livraison=$this->getDoctrine()->getRepository(Livraison::class)->findAll();
         return $this->render("@Transporteur/Transporteur/afficher_livraison_all.html.twig",array("liste_livraison"=>$livraison));
     }
