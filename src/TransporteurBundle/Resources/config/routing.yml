@@ -36,6 +36,10 @@ afficher_contrat:
     path: /afficherContrat
     defaults: {_controller: TransporteurBundle:Contrat:afficherContratParPropE}
 
+supprimer_contrat:
+    path: /supprimerContrat/{FKidentrepot}.{FKiduser}
+    defaults: {_controller: TransporteurBundle:Contrat:supprimerContrat}
+
 
 
 

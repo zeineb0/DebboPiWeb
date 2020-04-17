@@ -6,8 +6,8 @@
             <li>
 
                 {{ c.datedeb | date }} - {{ c.datefin | date }} - {{ c.salaire }} - {{ c.nom }} - {{ c.prenom }} - {{ c.entreprise }}
-            {#    <a href="{{  path("supprimer_livraison",{"id":f.idLivraison})  }}"> Supprimer </a><br/>
-                <a href="{{  path("modifier_livraison",{"id":f.idLivraison})  }}"> Modifier </a> #}
+                <a href="{{  path("supprimer_contrat",{"FKidentrepot":c.idEntrepot , "FKiduser":c.id })  }}"> Supprimer </a><br/>
+                {# <a href="{{  path("modifier_livraison",{"id":f.idLivraison})  }}"> Modifier </a> #}
 
             </li>
 

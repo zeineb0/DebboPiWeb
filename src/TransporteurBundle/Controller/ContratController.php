@@ -54,5 +54,16 @@ class ContratController extends Controller
     }
 
 
+    public function supprimerContratAction($FKidentrepot,$FKiduser)
+    {
+        $contrat=$this->getDoctrine()->getRepository(Contrat::class)->findOneBy(array('FKidentrepot'=>$FKidentrepot ,'FKiduser'=>$FKiduser ));
+        $em=$this->getDoctrine()->getManager();
+        $em->remove($contrat);
+        $em->flush();
+        return $this->afficherContratParPropEAction();
+
+    }
+
+
 
 }
