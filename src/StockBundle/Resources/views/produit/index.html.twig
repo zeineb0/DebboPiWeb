@@ -7,94 +7,90 @@
             <div class="clearfix"> </div>
         </div>
     </div>
-
-
     <div class="content-top ">
         <div class="container ">
-            <div class="tab-head ">
+            <div class="table-head ">
+                {% for entrepot in entrepots %}
 
-                <nav class="nav-sidebar">
+                <nav class="nav justify-content-center">
+                     <ul class="nav tabs dropdown " id="myTab" role="tablist">
+                            <li class="nav-item"><a href="#{{ entrepot.numFiscale }}" data-toggle="tab" role="tab">{{ entrepot.entreprise }}</a></li>
+                                        <nav class="nav-sidebar" >
+                                            <ul class="nav tabs dropdown ">
+                                                        {% for category in categorys %}
+                                                                {% if category.fkEntrepot == entrepot  %}
+                                                                <li class=""><a  href="#{{ category.idCategorie }}" data-toggle="tab"  >{{ category.nom }}</a></li>
 
-                     <ul class="nav tabs ">
-                         {% for user in users %}
-                            {% if user.id == idconnected  %}
-                                {% for category in category %}
-                                    {% if user == category.idUser  %}
-
-                            <li class=""><a href="#{{ category.idCategorie }}" data-toggle="tab">{{ category.nom }}</a></li>
-
-
-                                                 {% endif %}
-                                    {% endfor %}
-                             {% endif %}
-                                {% endfor %}
-
-                     </ul>
-                 </nav>
-                <div class=" tab-content tab-content-t ">
-                    {% for category in category %}
+                                                                {% endif %}
+                                                        {% endfor %}
+                                            </ul>
+                                        </nav>
 
 
-                        {% for user in users %}
-                            {% if user.id == idconnected  %}
-                                {% set qte=0 %}
-                                {% set i=0 %}
 
+                                            </ul>
+                </nav>
+                    <div class=" tab-content table tab-content-t "  style="display:block;width: 100%" id="myTabContent">
+                        {% for category in categorys %}
+                            <div class="tab-pane dropdown text-style" id="{{ category.idCategorie }}" role="tabpanel" >
                                 {% for produit in produits %}
-                                    {% if user == produit.idUser  %}
-                                        {% if produit.fkCategorie == category  %}
+                                    {% if produit.fkCategorie == category %}
 
-
-                                            <div class="tab-pane active text-style" id="{{ category.idCategorie }}">
-
-
-                                                 <div class=" con-w3l">
-
-                                                         <div class="col-md-3 m-wthree">
-
-
+                                        <div class=" con-w3l">
+                                            <div class="col-md-3 m-wthree">
                                                 <div class="col-m">
-                                    <a href="#" data-toggle="modal" data-target="#myModal4" class="offer-img">
-                                        <img src="{{ asset('public/images/produits/'~produit.imageName) }}" class="img-responsive img" alt="">
-                                        {% set qte= qte + produit.quantite %}
-                                    </a>
-                                    <div class="mid-1">
-                                        <div class="women">
+                                                    <a href="#" data-toggle="modal" data-target="#myModal4" class="offer-img">
+                                                        <img src="{{ asset('public/images/produits/'~produit.imageName) }}" class="img-responsive img" alt="">
+                                                    </a>
+                                                    <div class="mid-1">
+                                                        <div class="women">
 
-                                            <h6><a href="single.html">{{  produit.libelle }}</a>({{ produit.marque }})</h6>
-                                        </div>
-                                        <div class="mid-2">
-                                            <p ><em class="item_price">{{  produit.prix }} Dt</em></p>
-                                            <div class="block">
-                                                <div class="starbox small ghosting"> </div>
+                                                            <h6><a href="">{{  produit.libelle }}</a>({{ produit.marque }})</h6>
+                                                        </div>
+                                                        <div class="mid-2">
+                                                            <p ><em class="item_price">{{  produit.prix }} Dt</em></p>
+                                                            <div class="block">
+                                                                <div class="starbox small ghosting"> </div>
+                                                            </div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="add">
+                                                            <li class="btn btn-danger my-cart-btn my-cart-b" > <a  href="{{ path('produit_show', { 'idProduit': produit.idProduit }) }}">Afficher</a></li>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
-                                            <div class="clearfix"></div>
+
                                         </div>
-                                        <div class="add">
-                                            <li class="btn btn-danger my-cart-btn my-cart-b" > <a  href="{{ path('produit_show', { 'idProduit': produit.idProduit }) }}">Afficher</a></li>                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                                            {% set i=i+1 %}
-
-                                        {% endif %}
                                     {% endif %}
                                 {% endfor %}
-                            {% endif %}
+                            </div>
                         {% endfor %}
+                    </div>
+                {% endfor %}
 
-                    {% endfor %}
-                </div>
 
                 </div>
         </div>
     </div>
+
+    <div class="form-w3agile form1">
+        <center><br>
+            <a href="{{ path('produit_new') }}"><input type="submit" value="Ajouter un nouveau produit" /></a>
+
+        </center>
+    </div>
+    <script>
+        function ShowDiv() {
+
+            {% for category in categorys %}
+            document.getElementById("{{ category.idCategorie }}").style.display = "";
+            {% endfor %}
+
+        }
+    </script>
+
 
 
 {% endblock %}

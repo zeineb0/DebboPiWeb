@@ -311,6 +311,7 @@ class Produit
     {
         return $this->imageName;
     }
+
     /**
      * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
      */

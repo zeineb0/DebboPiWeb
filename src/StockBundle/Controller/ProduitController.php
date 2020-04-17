@@ -27,11 +27,11 @@ class ProduitController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $idconnected = $this->getUser()->getId();
-        $users = $em->getRepository('AppBundle:User')->findAll();
-        $produits = $em->getRepository('StockBundle:Produit')->findAll();
-        $category = $em->getRepository('StockBundle:Categories')->findAll();
-        $entrepot = $em->getRepository('EntrepotBundle:Entrepot')->findAll();
+
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $produits = $em->getRepository('StockBundle:Produit')->findBy(array('idUser'=>$user));
+        $categorys = $em->getRepository('StockBundle:Categories')->findBy(array('idUser'=>$user));
+        $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->findBy(array ('idUser'=>$user));
         $i=0;
         $p=0;
         foreach ($produits as $produit){
@@ -43,10 +43,8 @@ class ProduitController extends Controller
 
             return $this->render('@Stock/produit/index.html.twig', array(
             'produits' => $produits,
-                'idconnected'=>$idconnected,
-                'users'=>$users,
-                'category'=>$category,
-                'entrepot'=>$entrepot,
+                'categorys'=>$categorys,
+                'entrepots'=>$entrepots,
                 'p'=>$p
         ));
     }
@@ -59,11 +57,14 @@ class ProduitController extends Controller
      */
     public function newAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
 
         $produit = new Produit();
         $form = $this->createForm('StockBundle\Form\ProduitType', $produit);
         $form->handleRequest($request);
-
+        $idconnected = $this->getUser()->getId();
+        $users = $em->getRepository('AppBundle:User')->findAll();
+        $category = $em->getRepository('StockBundle:Categories')->findAll();
         if ($form->isSubmitted() && $form->isValid())
         {
             $em = $this->getDoctrine()->getManager();
@@ -77,6 +78,9 @@ class ProduitController extends Controller
 
         return $this->render('@Stock/produit/new.html.twig', array(
             'produit' => $produit,
+            'idconnected'=>$idconnected,
+            'users'=>$users,
+            'category'=>$category,
             'form' => $form->createView(),
         ));
     }
@@ -153,26 +157,13 @@ class ProduitController extends Controller
         $form = $this->getDoctrine()->getRepository(Produit::class)->find($idProduit);
         $em=$this->getDoctrine()->getManager();
 
-        $em->remove($form);
+        $em->
+        remove($form);
 
         $em->flush();
 
         return $this->redirectToRoute('produit_index');
     }
 
-    public function calculNbProdAction(){
-        $em = $this->getDoctrine()->getManager();
-        $produits = $em->getRepository('StockBundle:Produit')->findAll();
-        //$entrepot = $em->getRepository('EntrepotBundle:Entrepot')->findAll();
-                $p=0;
-        for ($i=0; $i < $produits ;$i++){
-
-
-            $p=$p+ $i;
-
-        }
-        return $p;
-
-    }
 
 }

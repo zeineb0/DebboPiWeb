@@ -12,7 +12,6 @@ use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use StockBundle\Form\ProduitType;
 use Symfony\Component\HttpFoundation\Response;
-
 /**
  * Mouvementdustock controller.
  *
@@ -26,14 +25,23 @@ class MouvementDuStockController extends Controller
      * @Route("/", name="mouvementdustock_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction( Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-
-        $mouvementDuStocks = $em->getRepository('StockBundle:MouvementDuStock')->findAll();
-
+        $dql="SELECT bp FROM StockBundle:MouvementDuStock bp";
+        $query=$em->createQuery($dql);
+       // $mouvementDuStocks = $em->getRepository('StockBundle:MouvementDuStock')->findAll();
+        /**
+         * @var $paginator Knp\Component\Pager\Paginator
+         */
+        $paginator = $this->get('knp_paginator');
+       $result= $paginator->paginate(
+          $query,
+            $request->query->getInt('page',1),
+            $request->query->getInt('limit',5)
+        );
         return $this->render('@Stock/mouvementdustock/index.html.twig', array(
-            'mouvementDuStocks' => $mouvementDuStocks,
+            'mouvementDuStocks' => $result,
         ));
     }
 

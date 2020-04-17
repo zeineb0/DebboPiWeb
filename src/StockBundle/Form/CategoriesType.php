@@ -5,6 +5,8 @@ namespace StockBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
+
 
 class CategoriesType extends AbstractType
 {
@@ -13,7 +15,10 @@ class CategoriesType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom');
+        $builder->add('nom')
+        ->add('fkEntrepot')
+        ->add('imageFile' ,VichImageType::class);
+
     }/**
      * {@inheritdoc}
      */

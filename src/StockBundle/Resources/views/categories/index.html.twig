@@ -15,38 +15,44 @@
             <b class="line"></b>
         </div>
     </div>
-<div class="bs-docs-example">
+<div class="content-mid">
+    <div class="container">
 
+                {% for user in users %}
+                    {% if user.id == idconnected  %}
+                        {% for category in categories %}
+                            {% if user == category.idUser  %}
 
-                            <div class="col-md-4 m-w3ls">
-                                {% for user in users %}
-                                    {% if user.id == idconnected  %}
-                                        {% for category in categories %}
-                                            {% if user == category.idUser  %}
-                                <div class="col-md1 ">
+                                <div class="col-md-4 m-w3ls">
 
-                                        <img src="{{ asset('images/co1.jpg') }}" class="img-responsive img" alt="">
-                                        <div class="big-sa">
+                                    <div class="col-md1 ">
 
-                                            <h6>{{ category.nom }}</h6>
+                                        <div class="col-m">
+                                        <a href="{{ path('categories_show' , { 'idCategorie': category.idCategorie }) }}" >
+                                         <div> <img src="{{ asset('public/images/categories/'~category.imageName) }}" class="img-responsive img" alt="">
+                                         </div>
+                                        </a>
+                                        <div class="text-center">
+                                            <h3> {{ category.nom }}  </h3>
                                         </div>
-                                        </div>
-
-                                {% endif %}
-                                {% endfor %}
-                                {% endif %}
-                                {% endfor %}
                                     </div>
+                                    </div>
+
                                 </div>
-                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
 
+    <br>
+    <div class="form-w3agile form1">
+        <center><br>
+            <a href="{{ path('categories_new') }}"><input type="submit" value="Ajouter une nouvelle categorie" /></a>
 
-</div>
-    <ul>
-        <li>
-        <li class="label label-default"><a style="color: white"  href="{{ path('categories_new') }}"> Créer un nouveau produit</a></li>
-        </li>
-    </ul>
+        </center>
+    </div>
 
 
 {% endblock %}

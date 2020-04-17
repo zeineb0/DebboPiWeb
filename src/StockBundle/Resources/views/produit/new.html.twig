@@ -17,8 +17,49 @@
     <div class="login">
         <div class="main-agileits">
             <div class="form-w3agile form1">
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
+                    <label >Libelle :</label>
+                    {{ form_widget(form.libelle) }}
+                    {{ form_errors(form.libelle) }}
+<br>
+                <label >Reference :</label>
+                    {{ form_widget(form.reference) }}
+                    {{ form_errors(form.reference) }}
+                <br>
+                <label >Marque :</label>
+                    {{ form_widget(form.marque) }}
+                    {{ form_errors(form.marque) }}
+                <br>
+                <label >Prix :</label>
+                    {{ form_widget(form.prix) }}
+                    {{ form_errors(form.prix) }}
+                <br>
+
+                <label >Quantite :</label>
+                    {{ form_widget(form.quantite) }}
+                    {{ form_errors(form.quantite) }}
+                <br>
+
+                <label >Ajouter l'image du produit :</label>
+                    {{ form_widget(form.imageFile) }}
+                    {{ form_errors(form.imageFile) }}
+                <br>
+                <label > Catégorie du produit :</label>
+
+                {% for user in users %}
+                {% if user.id == idconnected  %}
+                {% for category in category %}
+                {% if user == category.idUser  %}
+                    {{ form_widget(form.fkCategorie) }}
+                    {{ form_errors(form.fkCategorie) }}
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+                {% endfor %}
+                <br>
+                <label > Entrepot du produit :</label>
+                    {{ form_widget(form.fkEntrepot) }}
+                    {{ form_errors(form.fkEntrepot) }}
+                <br>
         <input type="submit" value="Créer" />
     {{ form_end(form) }}
 

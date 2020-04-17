@@ -20,32 +20,40 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Naturemouvement</th>
-                <th>Datemouv</th>
-                <th>Actions</th>
+
+                <th>    <h2>{{ knp_pagination_sortable(mouvementDuStocks,'Nature du mouvement', 'bp.natureMouvement',{}, {'direction': 'asc'}) }} </h2></th>
+                <th>    <h2>{{ knp_pagination_sortable(mouvementDuStocks,'Date du mouvement', 'bp.dateMouv',{}, {'direction': 'asc'}) }} </h2></th>
+                <th>    <h2>Actions </h2></th>
+
             </tr>
         </thead>
         <tbody>
         {% for mouvementDuStock in mouvementDuStocks %}
-            <tr>
-                <td>{{ mouvementDuStock.natureMouvement }}</td>
-                <td>{{ mouvementDuStock.dateMouv | date}}</td>
-                <td>
 
+            <tr>
+                <td > {{ mouvementDuStock.natureMouvement }}   </td>
+                <td> {{ mouvementDuStock.dateMouv | date}}   </td>
+                <td>
+            <h2 class="t-button">
                         <li class="label label-info"><a style="color: white" href="{{ path('mouvementdustock_show', { 'idMouv': mouvementDuStock.idMouv }) }}">Afficher</a></li>
                         <li class="label label-default"><a style="color: white" href="{{ path('mouvementdustock_edit', { 'idMouv': mouvementDuStock.idMouv }) }}">Modifier</a></li>
-
+            </h2>
 
                 </td>
             </tr>
+
         {% endfor %}
         </tbody>
     </table>
+    <div class="navigation text-center">
+        {{ knp_pagination_render(mouvementDuStocks) }}
+    </div>
+    <div class="form-w3agile form1">
+            <center>         <a href="{{ path('mouvementdustock_new') }}"><input type="submit" value="Ajouter un nouveau mouvement" /></a>
 
+        </center>
+    </div>
 
-    <center>         <a href="{{ path('mouvementdustock_new') }}"><input type="submit" value="Ajouter un nouveau mouvement" /></a>
-    </center>
-
-    </ul>
 </div>
+
 {% endblock %}
