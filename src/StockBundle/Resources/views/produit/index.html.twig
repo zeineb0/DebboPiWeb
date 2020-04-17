@@ -30,46 +30,47 @@
 
                                             </ul>
                 </nav>
-                    <div class=" tab-content table tab-content-t "  style="display:block;width: 100%" id="myTabContent">
-                        {% for category in categorys %}
-                            <div class="tab-pane dropdown text-style" id="{{ category.idCategorie }}" role="tabpanel" >
+                {% endfor %}
+                <div class=" tab-content tab-content-t " id="myTabContent">
+                    {% for category in categorys %}
+
+
+                                <div class="tab-pane  text-style" id="{{ category.idCategorie }}" role="tabpanel" >
                                 {% for produit in produits %}
-                                    {% if produit.fkCategorie == category %}
+                                        {% if produit.fkCategorie == category %}
 
-                                        <div class=" con-w3l">
-                                            <div class="col-md-3 m-wthree">
+                                                 <div class=" con-w3l">
+                                                         <div class="col-md-3 m-wthree">
                                                 <div class="col-m">
-                                                    <a href="#" data-toggle="modal" data-target="#myModal4" class="offer-img">
-                                                        <img src="{{ asset('public/images/produits/'~produit.imageName) }}" class="img-responsive img" alt="">
-                                                    </a>
-                                                    <div class="mid-1">
-                                                        <div class="women">
+                                    <a href="#" data-toggle="modal" data-target="#myModal4" class="offer-img">
+                                        <img src="{{ asset('public/images/produits/'~produit.imageName) }}" class="img-responsive img" alt="">
+                                    </a>
+                                    <div class="mid-1">
+                                        <div class="women">
 
-                                                            <h6><a href="">{{  produit.libelle }}</a>({{ produit.marque }})</h6>
-                                                        </div>
-                                                        <div class="mid-2">
-                                                            <p ><em class="item_price">{{  produit.prix }} Dt</em></p>
-                                                            <div class="block">
-                                                                <div class="starbox small ghosting"> </div>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                        <div class="add">
-                                                            <li class="btn btn-danger my-cart-btn my-cart-b" > <a  href="{{ path('produit_show', { 'idProduit': produit.idProduit }) }}">Afficher</a></li>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
+                                            <h6><a href="">{{  produit.libelle }}</a>({{ produit.marque }})</h6>
                                         </div>
+                                        <div class="mid-2">
+                                            <p ><em class="item_price">{{  produit.prix }} Dt</em></p>
+                                            <div class="block">
+                                                <div class="starbox small ghosting"> </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="add">
+                                            <li class="btn btn-danger my-cart-btn my-cart-b" > <a  href="{{ path('produit_show', { 'idProduit': produit.idProduit }) }}">Afficher</a></li>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
                                     {% endif %}
                                 {% endfor %}
-                            </div>
-                        {% endfor %}
                     </div>
-                {% endfor %}
-
+                    {% endfor %}
+                </div>
 
                 </div>
         </div>
