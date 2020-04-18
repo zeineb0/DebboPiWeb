@@ -137,6 +137,71 @@ class CommandeController extends Controller
             'commandes' => $commandes,
         ));
     }
+
+    /**
+     * Displays a form to edit an existing entrepot entity.
+     *
+     * @Route("admin/commande/statistic", name="commande_admin_stat")
+     */
+    public function commande_admin_statAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery('
+        SELECT COUNT(c) cnt FROM CommandeBundle:Commande c ');
+        $quantite = $query->getResult();
+        $date=new \DateTime('now');
+        $date->sub(new \DateInterval('P30D'));
+        $query2 = $em->createQuery('
+        SELECT COUNT(c) cnt FROM CommandeBundle:Commande c WHERE c.dateCommande>=:item')->setParameter(
+            'item',$date
+        );
+        $duree = $query2->getResult();
+        $produits= $em->getRepository('EntrepotBundle:Produit')->findAll();
+        $i=-1;
+        foreach ($produits as $produit){
+            $i++;
+            $tab[$i] = array('produit'=>$produit,'qtt'=>$em->createQuery('
+        SELECT SUM(c.quantiteProduit) somme FROM CommandeBundle:ProduitCommande c WHERE c.idProduit =:item')->setParameter(
+                'item',$produit
+            )->getResult());
+        }
+        $max=0;$i=-1;
+        foreach ($tab as $t){
+            $i++;
+        if($t['qtt']>$tab[$max]['qtt']){
+            $max=$i;
+        }
+        }
+
+        return $this->render('@Commande/admin/statCommande.html.twig', array('quantite' => $quantite[0],'duree'=>$duree[0],'produit'=>$tab[$max]));
+    }
+
+    /**
+     * Lists all commande entities.
+     *
+     * @Route("/admin/commande/{idCommande}", name="commande_admin_show")
+     * @Method("GET")
+     */
+    public function showAdminAction($idCommande)
+    {
+        $commande=$this->getDoctrine()->getManager()->getRepository('CommandeBundle:Commande')
+            ->findOneBy(array('idCommande' =>$idCommande));
+
+        $listproduit=$this->createProduitCommandeForm($commande);
+
+        $i=0;
+        foreach($listproduit as $produitCommande){
+            $produits[$i]=$this->createProduitForm($produitCommande);
+            $i++;
+        }
+
+        return $this->render('@Commande/admin/showAdminCommande.html.twig', array(
+            'commande' => $commande,
+            'listproduit' => $listproduit,
+            'produits' =>$produits,
+
+        ));
+    }
     /**
      * Creates a new commande entity.
      *

@@ -1,42 +1,27 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
 {% block body %}
-    <div class="banner-top">
-        <div class="container">
-            <h3 >Commande</h3>
-            <div class="clearfix"> </div>
-        </div>
-    </div>
 
     <div style="margin: 100px 100px 0 100px">
-    <div class="logo">
-        <h1> <a href=""><img src="images/debo.jpg" alt="" title="" />DeBBo.<span></span></a></h1>
-    </div>
-    <h3>COMMANDE</h3>
-
 
         <table style="width: 500px;height: 100px; margin-top: 20px">
-        <tbody class="text-center" style="text-align: center">
-        <tr  >
-            <th class="text-center">Reference</th>
-            <th class="text-center">Typepaiement</th>
-            <th class="text-center">Datecommande</th>
-            <th class="text-center">Dateexp</th>
-        </tr>
-        <tr>
-            <td>
-
-                {% set a=render(controller("CommandeBundle:Commande:chiffrement",{ 'commande': commande })) %}
-                {{ a|trim('"') }}</a></td>
-
-
-            </td>
-            <td>{{ commande.typePaiement }}</td>
-            <td>{% if commande.dateCommande %}{{ commande.dateCommande|date('Y-m-d') }}{% endif %}</td>
-            <td>{% if commande.dateExp %}{{ commande.dateExp|date('Y-m-d') }}{% endif %}</td>
-        </tr>
-        </tbody>
-    </table>
+            <tbody class="text-center" style="text-align: center">
+            <tr  >
+                <th class="text-center">Reference</th>
+                <th class="text-center">Typepaiement</th>
+                <th class="text-center">Datecommande</th>
+                <th class="text-center">Dateexp</th>
+            </tr>
+            <tr>
+                <td>
+                    {{ commande.idCommande }}
+                </td>
+                <td>{{ commande.typePaiement }}</td>
+                <td>{% if commande.dateCommande %}{{ commande.dateCommande|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if commande.dateExp %}{{ commande.dateExp|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            </tbody>
+        </table>
 
         <table>
             <thead>
@@ -74,20 +59,12 @@
             </tr>
             </tbody>
         </table>
-</div>
-    <div style="float:left;margin: 100px 0 100px 100px;">
+    </div>
 
-        <a class="btn btn-warning boutton"    href="{{ path('commande_pdf', { 'idCommande': commande.idCommande }) }}">
-            Generer PDF</a>
-
-
-        <a class="btn btn-success boutton"         href="{{ path('commande_index') }}">Retour</a>
-
-</div>
 
     <style>
         .boutton{clear: left;
-        margin-left:  100px;
+            margin-left:  100px;
             width: 150px;
             margin-bottom: 10px;
             height: 40px;
@@ -134,7 +111,6 @@
         table {
             width: 100%;
             border-collapse: collapse;
-
             border-spacing: 0;
             margin-bottom: 20px;
         }

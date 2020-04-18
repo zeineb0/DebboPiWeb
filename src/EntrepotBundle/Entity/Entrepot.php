@@ -74,5 +74,69 @@ class Entrepot
      */
     private $fkUser;
 
+    /**
+     * @return int
+     */
+    public function getIdEntrepot()
+    {
+        return $this->idEntrepot;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumFiscale()
+    {
+        return $this->numFiscale;
+    }
+
+    /**
+     * @return int
+     */
+    public function getQuantiteMax()
+    {
+        return $this->quantiteMax;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEntreprise()
+    {
+        return $this->entreprise;
+    }
+
+    /**
+     * @return \Utilisateur
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFkUser()
+    {
+        return $this->fkUser;
+    }
+
 
 }

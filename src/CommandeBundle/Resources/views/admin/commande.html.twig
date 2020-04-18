@@ -15,7 +15,7 @@
 
         {% for commande in commandes %}
             <tr>
-                <td><a href="{{ path('commande_show', { 'idCommande': commande.idCommande }) }}">{{ commande.idCommande }}</a></td>
+                <td><a href="{{ path('commande_admin_show', { 'idCommande': commande.idCommande }) }}">{{ commande.idCommande }}</a></td>
                 <td>{{ commande.idClient }}</td>
                 <td>{{ commande.total }}</td>
                 <td>{{ commande.typePaiement }}</td>

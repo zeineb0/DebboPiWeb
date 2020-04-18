@@ -215,8 +215,8 @@
             '<img width="30px" height="30px" src="' + this.image + '"/></td>' +
           '<td class="text-center ">' + this.name + '</td>' + '<td>' + this.marque + '</td>' +
           '<td title="Unit Price">$' + this.price + '</td>' +
-          '<td title="Quantity"><input type="number" min="1" class="form-control" style="width: 70px; border-radius: px" class=" ' + classProductQuantity + '" value="' + this.quantity + '"/>' +
-          '<td title="Total" class="' + classProductTotal + '">$' + total + '</td>' +
+            '<td title="Quantity"><input type="number" min="1"  style="width: 70px; " class="form-control ' + classProductQuantity + '" value="' + this.quantity + '"/></td>' +
+             '<td title="Total" class="' + classProductTotal + '">$' + total + '</td>' +
           '<td title="Remove from Cart" class="text-center" style="width: 30px;"><a href="javascript:void(0);" class="btn btn-xs btn-danger ' + classProductRemove + '">X</a></td>' +
           '</tr>'
         );
@@ -277,7 +277,8 @@
             '</tr>'+
         '<tr style="">' +
 
-        '<td colspan="7"style="width:150px;" ><a  href="javascript:void(0);"  style="float:right; margin: 20px" class="btn btn-success ' + classPasserCommande + '">Passer Commande</a></td>' +
+        '<td colspan="7"style="width:150px;" ><a  href="javascript:void(0);"  style="float:right; margin: 20px" class="btn btn-success ' +
+            classPasserCommande + '">Passer Commande</a></td>' +
 
         '</tr>'
         );
