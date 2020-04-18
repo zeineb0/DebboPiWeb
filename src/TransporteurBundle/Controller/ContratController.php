@@ -39,7 +39,7 @@ class ContratController extends Controller
            // return $this->redirectToRoute('');
         }
 
-        return $this->render("@Transporteur/Transporteur/ajouter_contrat.html.twig",array("form"=>$form->createView()));
+        return $this->render("@Transporteur/Fournisseur/ajouter_contrat.html.twig",array("form"=>$form->createView()));
 
 
 
@@ -49,7 +49,7 @@ class ContratController extends Controller
     public function afficherContratParPropEAction()
     {
         $contrat=$this->getDoctrine()->getRepository(Contrat::class)->getContratByProp($id=$this->getUser()->getId());
-        return $this->render("@Transporteur/Transporteur/afficher_contrat.html.twig",array("liste_contrat"=>$contrat));
+        return $this->render("@Transporteur/Fournisseur/afficher_contrat.html.twig",array("liste_contrat"=>$contrat));
 
     }
 
