@@ -1,17 +1,33 @@
 {% extends 'base.html.twig' %}
 {% block content %}
+
+
 <div class="product">
     <div class="container">
         <div class="spec ">
-            <h3>La liste de vos contrats signés </h3>
+            <h3> Espace des contrats</h3>
             <div class="ser-t">
                 <b></b>
                 <span><i></i></span>
                 <b class="line"></b>
             </div>
         </div>
+        <br/>
+
+
+        <div class="row" style="margin-bottom: 40px">
+        <div class="col">
+            <h2 class="forg-left" style="padding-left: 10px"> Voulez-vous ajouter un contrat ? </h2>
+        </div>
+        <div class="col-md-auto">
+        <a class="btn btn-success forg-right" href="" style="width: 180px  ">
+            <i class="fa fa-plus fa-lg"></i> Ajouter un contrat</a>
+        </div>
+        </div>
+
 
         <table class="table table-hover">
+            <caption style=" margin-bottom: 30px" > <h2 style="text-align: left" >La liste des contrats signés :</h2> </caption>
             <thead>
             <tr class="text-center w-auto" style="font-size: 1.27em" >
                 <th scope="col">Date Début</th>
