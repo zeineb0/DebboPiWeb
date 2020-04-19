@@ -36,22 +36,19 @@ class ContratController extends Controller
             $em=$this->getDoctrine()->getManager();
             $em->persist($contrat);
             $em->flush();
-           // return $this->redirectToRoute('');
+            // return $this->redirectToRoute('');
+            $request->query->set('salaire',null);
         }
-
-        return $this->render("@Transporteur/Fournisseur/ajouter_contrat.html.twig",array("form"=>$form->createView()));
-
-
-
-    }
-
-
-    public function afficherContratParPropEAction()
-    {
         $contrat=$this->getDoctrine()->getRepository(Contrat::class)->getContratByProp($id=$this->getUser()->getId());
-        return $this->render("@Transporteur/Fournisseur/afficher_contrat.html.twig",array("liste_contrat"=>$contrat));
+
+       return $this->render("@Transporteur/Fournisseur/afficher_contrat.html.twig",array("form"=>$form->createView(),"liste_contrat"=>$contrat));
+
+
+
+
 
     }
+
 
 
     public function supprimerContratAction($FKidentrepot,$FKiduser)
@@ -60,7 +57,7 @@ class ContratController extends Controller
         $em=$this->getDoctrine()->getManager();
         $em->remove($contrat);
         $em->flush();
-        return $this->afficherContratParPropEAction();
+        return $this->redirectToRoute('afficher_contrat');
 
     }
 

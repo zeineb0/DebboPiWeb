@@ -24,8 +24,7 @@ class ContratType extends AbstractType
                 'class'=>'AppBundle:User',
                 'choice_label'=>'nom',
                 'multiple'=>false))
-            ->add('Ajouter',SubmitType::class,
-                ['attr'=>['formnovalidate'=>'formnovalidate']]);
+            ;
 
     }/**
      * {@inheritdoc}

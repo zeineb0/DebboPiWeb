@@ -28,13 +28,10 @@ modifier_livraison:
     defaults: {_controller: TransporteurBundle:Livraison:modifierEtatLivraison}
 
 
-ajouter_contrat:
-    path : /ajouterContrat
+afficher_contrat:
+    path : /afficherContrat
     defaults : {_controller: TransporteurBundle:Contrat:ajouterContrat}
 
-afficher_contrat:
-    path: /afficherContrat
-    defaults: {_controller: TransporteurBundle:Contrat:afficherContratParPropE}
 
 supprimer_contrat:
     path: /supprimerContrat/{FKidentrepot}.{FKiduser}
