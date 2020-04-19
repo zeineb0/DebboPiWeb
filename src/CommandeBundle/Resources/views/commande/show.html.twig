@@ -14,8 +14,8 @@
     </div>
     <h3>COMMANDE</h3>
 
-
-        <table style="width: 500px;height: 100px; margin-top: 20px">
+<div >
+        <table style="width: 500px;height: 100px; margin-top: 20px; display: inline">
         <tbody class="text-center" style="text-align: center">
         <tr  >
             <th class="text-center">Reference</th>
@@ -35,10 +35,15 @@
             <td>{% if commande.dateCommande %}{{ commande.dateCommande|date('Y-m-d') }}{% endif %}</td>
             <td>{% if commande.dateExp %}{{ commande.dateExp|date('Y-m-d') }}{% endif %}</td>
         </tr>
+
         </tbody>
     </table>
+        <div style="display: inline;margin-left: 20%">
+        {{ barcode({code: a , type: 'qrcode', format: 'svg', width:4, height:4, color: 'green'}) }}
+        </div>
 
-        <table>
+</div>
+            <table>
             <thead>
             <tr>
                 <th >REFERENCE</th>

@@ -2,18 +2,17 @@
 
 namespace CommandeBundle\Controller;
 
-use CommandeBundle\CommandeBundle;
 use CommandeBundle\Entity\Commande;
 use CommandeBundle\Entity\ProduitCommande;
 use EntrepotBundle\Entity\Produit;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
-
+use Ob\HighchartsBundle\Highcharts\Highchart;
+use Knp\Component\Pager\PaginatorInterface;
+use Doctrine\ORM\EntityManagerInterface;
 /**
  * Commande controller.
  *
@@ -22,22 +21,32 @@ use Symfony\Component\HttpFoundation\Request;
 class CommandeController extends Controller
 {
 
+
     /**
      * Lists all commande entities.
      *
      * @Route("/commande/", name="commande_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     { $securityContext = $this->container->get('security.authorization_checker');
         if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') )
         {
         $em = $this->getDoctrine()->getManager();
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
         $commandes = $em->getRepository('CommandeBundle:Commande')->findBy(array('idClient'=>$user));
+            /**
+             * @var $paginator Knp\Component\Pager\Paginator
+             */
+        $paginator=$this->get('knp_paginator');
+       $result = $paginator->paginate(
+            $commandes,
+            $request->query->getInt('page', 1), /*page number*/
+            $request->query->getInt('limit', 5) /*limit par page*/
+        );
 
         return $this->render('@Commande/commande/index.html.twig', array(
-            'commandes' => $commandes,
+            'commandes' => $result,
         ));}
     else
         {
@@ -55,9 +64,19 @@ class CommandeController extends Controller
         $em = $this->getDoctrine()->getManager();
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
         $commandes = $em->getRepository('CommandeBundle:Commande')->findBy(array('idClient' => $user),array('total' =>'asc'));
-        return $this->render('@Commande/commande/index.html.twig', array(
-            'commandes' => $commandes));
+        /**
+         * @var $paginator Knp\Component\Pager\Paginator
+         */
+        $paginator=$this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $commandes,
+            $request->query->getInt('page', 1), /*page number*/
+            $request->query->getInt('limit', 5) /*limit par page*/
+        );
 
+        return $this->render('@Commande/commande/index.html.twig', array(
+            'commandes' => $result,
+        ));
     }
     /**
      * @Route("/commanded", name="commande_trid")
@@ -68,9 +87,19 @@ class CommandeController extends Controller
         $em = $this->getDoctrine()->getManager();
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
         $commandes = $em->getRepository('CommandeBundle:Commande')->findBy(array('idClient' => $user),array('dateCommande' =>'asc'));
-        return $this->render('@Commande/commande/index.html.twig', array(
-            'commandes' => $commandes));
+        /**
+         * @var $paginator Knp\Component\Pager\Paginator
+         */
+        $paginator=$this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $commandes,
+            $request->query->getInt('page', 1), /*page number*/
+            $request->query->getInt('limit', 5) /*limit par page*/
+        );
 
+        return $this->render('@Commande/commande/index.html.twig', array(
+            'commandes' => $result,
+        ));
     }
     /**
      * @Route("/commandee", name="commande_trie")
@@ -81,8 +110,19 @@ class CommandeController extends Controller
         $em = $this->getDoctrine()->getManager();
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
         $commandes = $em->getRepository('CommandeBundle:Commande')->findBy(array('idClient' => $user),array('dateExp' =>'asc'));
+        /**
+         * @var $paginator Knp\Component\Pager\Paginator
+         */
+        $paginator=$this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $commandes,
+            $request->query->getInt('page', 1), /*page number*/
+            $request->query->getInt('limit', 5) /*limit par page*/
+        );
+
         return $this->render('@Commande/commande/index.html.twig', array(
-            'commandes' => $commandes));
+            'commandes' => $result,
+        ));
 
     }
 
@@ -173,7 +213,29 @@ class CommandeController extends Controller
         }
         }
 
-        return $this->render('@Commande/admin/statCommande.html.twig', array('quantite' => $quantite[0],'duree'=>$duree[0],'produit'=>$tab[$max]));
+        // Chart
+        $series = array(
+            array("name" => "nombre des commandes passés",
+                "data"=>array(29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4),
+              
+            )
+        );
+
+        $ob = new Highchart();
+        $ob->chart->renderTo('linechart');  // The #id of the div where to render the chart
+        $ob->type('bar');
+        $ob->title->text('Courbe des commandes');
+        $ob->xAxis->title(array('text'  => "Jours"));
+        $ob->xAxis->type('datetime');
+        $ob->xAxis->categories(array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'));
+        $ob->yAxis->title(array('text'  => "quantité"));
+
+        $ob->series($series);
+
+
+
+        return $this->render('@Commande/admin/statCommande.html.twig',
+            array('quantite' => $quantite[0],'duree'=>$duree[0],'produit'=>$tab[$max],'chart' => $ob));
     }
 
     /**
@@ -369,6 +431,21 @@ class CommandeController extends Controller
 
     }
 
+    public function QRCodeAction(){
+        $options = array(
+            'code'   => 'string to encode',
+            'type'   => 'qrcode',
+            'format' => 'svg',
+            'width'  => 10,
+            'height' => 10,
+            'color'  => 'green',
+        );
+
+        $barcode =
+            $this->get('skies_barcode.generator')->generate($options);
+
+        return new Response($barcode);
+    }
 
 
 }

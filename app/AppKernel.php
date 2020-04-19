@@ -21,6 +21,9 @@ class AppKernel extends Kernel
             new CommandeBundle\CommandeBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+            new Ob\HighchartsBundle\ObHighchartsBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Skies\QRcodeBundle\SkiesQRcodeBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
