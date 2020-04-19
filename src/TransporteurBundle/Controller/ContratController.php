@@ -21,11 +21,6 @@ class ContratController extends Controller
     public function ajouterContratAction(Request $request)
     {
 
-     /*   $store = new SemaphoreStore();
-        $factory = new Factory($store);
-        $lock = $factory->createLock('the-lock-name', 30); */
-
-
         $contrat = new Contrat();
         $form=$this->createForm(ContratType::class,$contrat);
 
@@ -43,10 +38,6 @@ class ContratController extends Controller
 
        return $this->render("@Transporteur/Fournisseur/afficher_contrat.html.twig",array("form"=>$form->createView(),"liste_contrat"=>$contrat));
 
-
-
-
-
     }
 
 
@@ -61,6 +52,11 @@ class ContratController extends Controller
 
     }
 
+
+    public function modifierContratAction()
+    {
+        // à terminer ..
+    }
 
 
 }

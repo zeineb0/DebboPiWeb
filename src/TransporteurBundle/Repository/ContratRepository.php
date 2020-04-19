@@ -19,13 +19,13 @@ class ContratRepository extends \Doctrine\ORM\EntityRepository
         return $query = $qb->getResult();
     }
 
-  /*  public function updateContrat($dateDeb,$dateFin)
+    public function updateContrat($dateDeb,$dateFin,$id)
     {
         $qb=$this->getEntityManager()
-            ->createQuery("Update TransporteurBundle:livraison l SET l.etatLivraison=?1 where l.idLivraison=?2")
-            ->setParameters(array(1=>'livrée',2=>$id));
+            ->createQuery("Update TransporteurBundle:contrat c SET c.datedeb=?1 and c.datefin=?2 where c.FKiduser=?3")
+            ->setParameters(array(1=>$dateDeb,2=>$dateFin,3=>$id));
         return $query=$qb->getResult();
     }
-*/
+
 
 }
