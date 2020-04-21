@@ -1,58 +1,74 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
+
     <div class="banner-top">
         <div class="container">
             <h3 >Produit</h3>
             <div class="clearfix"> </div>
         </div>
     </div>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <a href="#"> <img class="first-slide" src="{{ asset('images/ba.jpg') }}" alt="First slide"></a>
+
+        </div>
+        <div class="item">
+            <a href="#"> <img class="second-slide " src="{{ asset('images/ba1.jpg') }}" alt="Second slide"></a>
+
+        </div>
+        <div class="item">
+            <a href="#"><img class="third-slide " src="{{ asset('images/ba2.jpg') }}" alt="Third slide"></a>
+
+        </div>
+    </div>
+    </div>
+
+{#*********************************************header*********************************************************#}
     <div class="content-top ">
-        <div class="container ">
-            <div class="table-head ">
-                {% for entrepot in entrepots %}
+    <div class="container ">
+    <div class="table-head ">
+        <nav class="nav justify-content-center">
+            <ul class="nav tabs dropdown " id="myTab" >
+                <li class="active"><a href="#tab" data-toggle="tab" id="tous" >Tous les produits</a></li>
+                <li class=""><a href="#tab1" data-toggle="tab" id="ent">Trier par entrepôt</a></li>
+                <li class=""><a href="#tab2" data-toggle="tab" id="categ">Trier par catégorie</a></li>
+            </ul>
+        </nav>
+{#*********************************************nav*********************************************************#}
 
-                <nav class="nav justify-content-center">
-                     <ul class="nav tabs dropdown " id="myTab" role="tablist">
-                            <li class="nav-item"><a href="#{{ entrepot.numFiscale }}" data-toggle="tab" role="tab">{{ entrepot.entreprise }}</a></li>
-                                        <nav class="nav-sidebar" >
-                                            <ul class="nav tabs dropdown ">
-                                                        {% for category in categorys %}
-                                                                {% if category.fkEntrepot == entrepot  %}
-                                                                <li class=""><a  href="#{{ category.idCategorie }}" data-toggle="tab"  >{{ category.nom }}</a></li>
-
-                                                                {% endif %}
-                                                        {% endfor %}
-                                            </ul>
-                                        </nav>
-
-
-
-                                            </ul>
-                </nav>
-                {% endfor %}
-                <div class=" tab-content tab-content-t " id="myTabContent">
-                    {% for category in categorys %}
-
-
-                                <div class="tab-pane  text-style" id="{{ category.idCategorie }}" role="tabpanel" >
-                                {% for produit in produits %}
-                                        {% if produit.fkCategorie == category %}
-
-                                                 <div class=" con-w3l">
-                                                         <div class="col-md-3 m-wthree">
-                                                <div class="col-m">
+    <div class=" tab-content tab-content-t " >
+            <div class="tab-pane active text-style" id="tab" >
+                {% for produit in produits %}
+                        <div class=" con-w3l">
+                            <div class="col-md-3 m-wthree">
+                                <div class="col-m">
                                     <a href="#" data-toggle="modal" data-target="#myModal4" class="offer-img">
                                         <img src="{{ asset('public/images/produits/'~produit.imageName) }}" class="img-responsive img" alt="">
+                                        {% if produit.quantite <= 10 %}
+                                            <div class="offer"><p><span>Promotion</span></p></div>
+                                        {% endif %}
                                     </a>
                                     <div class="mid-1">
                                         <div class="women">
 
-                                            <h6><a href="">{{  produit.libelle }}</a>({{ produit.marque }})</h6>
+                                                    <h6><a href="">{{  produit.libelle }}</a>({{ produit.marque }})</h6>
                                         </div>
                                         <div class="mid-2">
-                                            <p ><em class="item_price">{{  produit.prix }} Dt</em></p>
-                                            <div class="block">
+
+                                            {% if produit.quantite <= 10 %}
+                                           <p ><label>{{ produit.prix }}</label><em class="item_price">{{produit.prix * 0.9}}</em></p>
+                                                {% else %}
+                                                    <p ><em class="item_price">{{produit.prix }}DT</em></p>
+                                                    {% endif %}
+
+                                                    <div class="block">
                                                 <div class="starbox small ghosting"> </div>
                                             </div>
                                             <div class="clearfix"></div>
@@ -62,36 +78,122 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
-                                    {% endif %}
-                                {% endfor %}
-                    </div>
+                {% endfor %}
+            </div>
+{#**********************************************tt produits********************************************************#}
+        <div class="tab-pane text-style" id="tab1" >
+                <nav class="nav-sidebar">
+                    {% for entrepot in entrepots %}
+
+                        <ul class="nav tabs" >
+                            <li class=""><a href="#toto" data-toggle="tab" >{{entrepot.adresse}}</a></li>
+                        </ul>
+                    {% endfor %}
+
+                </nav>
+            {% for entrepot in entrepots %}
+                    {% for produit in produits %}
+                            {% if produit.fkEntrepot == entrepot %}
+                                <div class=" con-w3l">
+                                    <div class="col-md-3 m-wthree">
+                                        <div class="col-m">
+                                            <a href="#" data-toggle="modal" data-target="#myModal4" class="offer-img">
+                                                <img src="{{ asset('public/images/produits/'~produit.imageName) }}" class="img-responsive img" alt="">
+                                                {% if produit.quantite <= 10 %}
+                                                    <div class="offer"><p><span>Promotion</span></p></div>
+                                                {% endif %}
+                                            </a>
+                                            <div class="mid-1">
+                                                <div class="women">
+
+                                                    <h6><a href="">{{  produit.libelle }}</a>({{ produit.marque }})</h6>
+                                                </div>
+                                                <div class="mid-2">
+
+                                                    {% if produit.quantite <= 10 %}
+                                                        <p ><label>{{ produit.prix }}</label><em class="item_price">{{produit.prix * 0.9}}</em></p>
+                                                    {% else %}
+                                                        <p ><em class="item_price">{{produit.prix }}DT</em></p>
+                                                    {% endif %}
+
+                                                    <div class="block">
+                                                        <div class="starbox small ghosting"> </div>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="add">
+                                                    <li class="btn btn-danger my-cart-btn my-cart-b" > <a  href="{{ path('produit_show', { 'idProduit': produit.idProduit }) }}">Afficher</a></li>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                    {% endfor %}
                     {% endfor %}
                 </div>
+{#**********************************************par entrepot********************************************************#}
+    <div class="tab-pane text-style" id="tab2" >
+          {#  {% for produit in produits %}
+                    <div class=" con-w3l">
+                        <div class="col-md-3 m-wthree">
+                            <div class="col-m">
+                                <a href="#" data-toggle="modal" data-target="#myModal4" class="offer-img">
+                                    <img src="{{ asset('public/images/produits/'~produit.imageName) }}" class="img-responsive img" alt="">
+                                    {% if produit.quantite <= 10 %}
+                                        <div class="offer"><p><span>Promotion</span></p></div>
+                                    {% endif %}
+                                </a>
+                                <div class="mid-1">
+                                    <div class="women">
+                                        <h6><a href="">{{  produit.libelle }}</a>({{ produit.marque }})</h6>
+                                    </div>
+                                    <div class="mid-2">
+                                        {% if produit.quantite <= 10 %}
+                                            <p ><label>{{ produit.prix }}</label><em class="item_price">{{produit.prix * 0.9}}</em></p>
+                                        {% else %}
+                                            <p ><em class="item_price">{{produit.prix }}DT</em></p>
+                                        {% endif %}
 
-                </div>
-        </div>
+                                        <div class="block">
+                                            <div class="starbox small ghosting"> </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="add">
+                                        <li class="btn btn-danger my-cart-btn my-cart-b" > <a  href="{{ path('produit_show', { 'idProduit': produit.idProduit }) }}">Afficher</a></li>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            {% endfor %}#}
+    </div>
+    </div>
     </div>
 
+    </div>
+    </div>
+{#**********************************************par categorie********************************************************#}
     <div class="form-w3agile form1">
         <center><br>
             <a href="{{ path('produit_new') }}"><input type="submit" value="Ajouter un nouveau produit" /></a>
 
         </center>
     </div>
+    {#**********************************************footer********************************************************#}
     <script>
-        function ShowDiv() {
 
-            {% for category in categorys %}
-            document.getElementById("{{ category.idCategorie }}").style.display = "";
-            {% endfor %}
+        {#$("#ent").click(function(){
 
-        }
+            $("#tab").toggle(1000);
+        });
+
+        $("#categ").click(function(){
+            $("#tab").toggle(1000);
+        });#}
+
     </script>
-
-
-
 {% endblock %}

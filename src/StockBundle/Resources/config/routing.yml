@@ -31,6 +31,12 @@ category_show2:
 ategory_show21:
     path:     /produit_delete
     defaults: { _controller: StockBundle:Produit:delete}
+qategory_show21:
+    path:     /qte
+    defaults: { _controller: StockBundle:Produit:qte}
+uqategory_show21:
+    path:     /prix
+    defaults: { _controller: StockBundle:Produit:prix}
 pategory_show21:
     path:     /calcul
     defaults: { _controller: StockBundle:Produit:calculNbProd}

@@ -32,21 +32,17 @@ class ProduitController extends Controller
         $produits = $em->getRepository('StockBundle:Produit')->findBy(array('idUser'=>$user));
         $categorys = $em->getRepository('StockBundle:Categories')->findBy(array('idUser'=>$user));
         $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->findBy(array ('idUser'=>$user));
-        $i=0;
-        $p=0;
-        foreach ($produits as $produit){
+        /*foreach ($produits as $produit){
 
-
-                    $p=$p+ $produits[$i]->getQuantite(); $i++;
-
-                }
+            $repo=$this->getDoctrine()->getManager()->getRepository('StockBundle:Produit');
+            $update=$repo->updatePrix($produit);
+        }*/
 
             return $this->render('@Stock/produit/index.html.twig', array(
             'produits' => $produits,
                 'categorys'=>$categorys,
                 'entrepots'=>$entrepots,
-                'p'=>$p
-        ));
+          ));
     }
 
     /**
@@ -164,6 +160,48 @@ class ProduitController extends Controller
 
         return $this->redirectToRoute('produit_index');
     }
+
+    public function qteAction(){
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->findBy(array ('idUser'=>$user));
+        $i=-1; $tab= array();
+        foreach ($entrepots as $entrepot){
+            $i++;
+            $tab[$i] = array('entrepot'=>$entrepot,'qtt'=>$em->createQuery('
+        SELECT SUM(p.quantite) somme FROM StockBundle:Produit p WHERE p.fkEntrepot =:item ')->setParameter(
+                'item',$entrepot
+            )->getResult());
+        }
+        return $this->render('@Stock/default/index.html.twig',
+            array('tab' => $tab,
+                'entrepots'=>$entrepots,
+                ));
+
+        }
+    public function prixAction(){
+        $em = $this->getDoctrine()->getManager();
+
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $produits = $em->getRepository('StockBundle:Produit')->findBy(array('idUser'=>$user));
+        $i=0;
+        foreach($produits as $produit)
+        {
+
+            if ($produits[$i]->getQuantite()==10)
+            {
+                $produits[$i]->setPrix($produits[$i]->getPrix()*0.9);
+                $i++;
+            }
+            return $this->render('@Stock/default/index.html.twig',
+                array('produits'=>$produits
+                ));
+        }
+
+
+    }
+
+
 
 
 }

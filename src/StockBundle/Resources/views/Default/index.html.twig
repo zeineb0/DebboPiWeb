@@ -1,2 +1,11 @@
 bonjour
-{{ p }}
+{% for tab in tab %}
+    {{ tab.entrepot }}
+    {{ tab.entrepot.quantiteMax }}
+    {{ tab.qtt[0].somme}}
+    {{tab.entrepot.quantiteMax - tab.qtt[0].somme   }}
+{%  endfor %}
+
+{% for produit in produits %}
+{{ produit.marque }}
+{% endfor %}
