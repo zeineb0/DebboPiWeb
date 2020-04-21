@@ -190,6 +190,8 @@ class CommandeController extends Controller
         SELECT COUNT(c) cnt FROM CommandeBundle:Commande c ');
         $quantite = $query->getResult();
         $date=new \DateTime('now');
+        $year=$date->format('Y-01-01');
+        $year2=$date->format('Y-12-31');
         $date->sub(new \DateInterval('P30D'));
         $query2 = $em->createQuery('
         SELECT COUNT(c) cnt FROM CommandeBundle:Commande c WHERE c.dateCommande>=:item')->setParameter(
@@ -212,24 +214,41 @@ class CommandeController extends Controller
             $max=$i;
         }
         }
+        for($i=0;$i<12;$i++){
+            $valeur[$i]=0;
+        }
+        $stat = $em->createQuery('
+        SELECT c FROM CommandeBundle:Commande c where c.dateCommande between ?1 and ?2')
+            ->setParameter(1,$year)
+            ->setParameter(2,$year2)->getResult();
+
+                foreach ($stat as $elem){
+                    $d=$elem->getDateCommande();
+                    $d=$d->format('m');
+                    if($d[0]=='0'){
+                        $d=$d[1];
+                    }
+                        $valeur[$d]++;
+
+                }
 
         // Chart
         $series = array(
             array("name" => "nombre des commandes passés",
-                "data"=>array(29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4),
-              
+                "data"=>$valeur,
+
             )
         );
 
         $ob = new Highchart();
         $ob->chart->renderTo('linechart');  // The #id of the div where to render the chart
-        $ob->type('bar');
-        $ob->title->text('Courbe des commandes');
-        $ob->xAxis->title(array('text'  => "Jours"));
-        $ob->xAxis->type('datetime');
+        $ob->title->text('Courbe des commandes en '.$date->format('Y'));
+        $ob->xAxis->title(array('text'  => "Mois"));
         $ob->xAxis->categories(array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'));
-        $ob->yAxis->title(array('text'  => "quantité"));
+        $ob->yAxis->title(array('text'  => "Quantité"));
 
+
+        $ob->chart->type('bar');
         $ob->series($series);
 
 

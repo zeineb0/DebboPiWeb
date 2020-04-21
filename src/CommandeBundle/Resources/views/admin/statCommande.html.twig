@@ -13,28 +13,9 @@
                 <div class="icon">
                     <i class="ion ion-bag"></i>
                 </div>
-                <a href="#" class="small-box-footer"><i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-                <div class="inner">
-                    <h3>{{(duree.cnt/quantite.cnt* 100)|number_format(2)  }}%</h3>
 
-                    <p>pourcentage pour ce mois</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-person-add"></i>
-                </div>
-                <a href="#" class="small-box-footer"> <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
+            <div class="small-box bg-warning" style="margin-top: -11px">
                 <div class="inner">
                     <h3>{{duree.cnt}}</h3>
 
@@ -43,8 +24,59 @@
                 <div class="icon">
                     <i class="ion ion-pie-graph"></i>
                 </div>
-                <a href="#" class="small-box-footer"> <i class="fas fa-arrow-circle-right"></i></a>
+
             </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+                <div class="inner">
+
+                    <div class="percent">
+                        <svg>
+                            <circle cx="70" cy="70" r="70"></circle>
+                            <circle cx="70" cy="70" r="70"></circle>
+                        </svg>
+                        <div class="number">
+                            <h2>{{(duree.cnt/quantite.cnt* 100)|number_format(2)  }}
+                                <span>%</span></h2>
+                        </div>
+                    </div>
+                    <h4>pourcentage pour ce mois</h4>
+
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                </div>
+
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+                <div class="inner">
+                    <h3>{{ quantite.cnt }}</h3>
+
+                    <p>Nbr des commandes Total</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+
+            </div>
+            <div class="small-box bg-warning" style="margin-top: -11px">
+                <div class="inner">
+                    <h3>{{duree.cnt}}</h3>
+
+                    <p>Nbr des commandes Mensuel</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+
+        </div>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-6">
@@ -53,13 +85,13 @@
                 <div class="inner">
                     <div>
                     <h3>{{ produit.produit.getLibelle() }}</h3>
-                    <p>Produit le plus acheté</p>
+                    <h5>Produit le plus acheté</h5>
                     </div>
 
-                    <div id="info" style="display: none">
-                        <p>Marque     : {{ produit.produit.getMarque() }}</p>
-                        <p>Entreprise : {{ produit.produit.getfkEntrepot().getEntreprise() }}</p>
-                        <p>Qtt d'Achat : {{ produit.qtt[0].somme }}</p>
+                    <div id="info" style="display: none; height: 100px; ">
+                        <h6>Marque     : {{ produit.produit.getMarque() }}</h6>
+                        <h6>Entreprise : {{ produit.produit.getfkEntrepot().getEntreprise() }}</h6>
+                        <h6>Qtt d'Achat : {{ produit.qtt[0].somme }}</h6>
 
                     </div>
                 </div>
@@ -78,8 +110,8 @@
     <script type="text/javascript">
         {{ chart(chart) }}
     </script>
+        <div id="linechart" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
 
-    <div id="linechart" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
     <script>
         function myFunction() {
             var x = document.getElementById("info");
@@ -94,5 +126,60 @@
             }
         }
     </script>
+<style>
+  .percent  svg{
+        position: relative;
+        height: 150px;
+        width: 150px;
+        z-index: 1000;
+    }
+   .percent svg circle{
+        width: 100%;
+        height: 100%;
+        fill:none;
+        stroke: #fff;
+        stroke-width: 10;
+        stroke-linecap: round;
+        transform: translate(5px,5px);
 
+    }
+  .percent svg circle:nth-child(2){
+      stroke-dasharray: 440;
+      stroke-dashoffset: calc(440 - ((440 * var(--taille)) / 100));
+      stroke: orange;
+
+  }
+
+    .percent .number{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+    }
+  .percent {
+    --taille:{{(duree.cnt/quantite.cnt* 100)|number_format(2)  }};
+    margin: auto;
+      position: relative;
+      width: 150px;
+      height: 150px;
+      box-shadow: inset 0 0 50px #000;
+      border-radius: 50%;
+  }
+  .percent .number h2{
+    color: orange;
+      font-size: 25px;
+      font-weight: 700;
+      transition: 0.5s;
+  }
+  .percent:hover .number h2{
+      color: #fff;
+      font-size: 35px;
+  }
+
+</style>
 {% endblock %}
