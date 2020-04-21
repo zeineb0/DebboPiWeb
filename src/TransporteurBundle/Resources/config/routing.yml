@@ -37,6 +37,19 @@ supprimer_contrat:
     path: /supprimerContrat/{FKidentrepot}.{FKiduser}
     defaults: {_controller: TransporteurBundle:Contrat:supprimerContrat}
 
+modifier_contrat:
+    path: /modifierContrat/{FKidentrepot}.{FKiduser}
+    defaults : {_controller: TransporteurBundle:Contrat:modifierContrat}
+
+
+afficher_contrat_exp:
+    path : /afficherContratExp
+    defaults: {_controller: TransporteurBundle:Contrat:afficherContratExp}
+
+
+
+
+
 
 
 

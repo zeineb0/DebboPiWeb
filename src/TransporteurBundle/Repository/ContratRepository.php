@@ -2,6 +2,8 @@
 
 namespace TransporteurBundle\Repository;
 
+use TransporteurBundle\Entity\Contrat;
+
 /**
  * ContratRepository
  *
@@ -19,12 +21,30 @@ class ContratRepository extends \Doctrine\ORM\EntityRepository
         return $query = $qb->getResult();
     }
 
-    public function updateContrat($dateDeb,$dateFin,$id)
+    public function updateContrat(Contrat $contrat)
     {
         $qb=$this->getEntityManager()
-            ->createQuery("Update TransporteurBundle:contrat c SET c.datedeb=?1 and c.datefin=?2 where c.FKiduser=?3")
-            ->setParameters(array(1=>$dateDeb,2=>$dateFin,3=>$id));
+            ->createQuery("Update TransporteurBundle:contrat c SET c.datedeb=?1 and c.datefin=?2 and c.salaire=?3 where c.FKiduser=?4 and c.FKidentrepot=?5")
+            ->setParameters(array(1=>$contrat->getDatedeb(),2=>$contrat->getDatefin(),3=>$contrat->getSalaire(),4=>$contrat->getFKiduser(),5=>$contrat->getFKidentrepot()));
         return $query=$qb->getResult();
+    }
+
+
+    public function getNbrContrat()
+    {
+        $qb=$this->getEntityManager()
+            ->createQuery(" select COUNT(c.datefin) NBR from TransporteurBundle:contrat c where c.datefin < DATE_DIFF(c.datefin,CURRENT_DATE()) and DATE_DIFF(c.datefin,CURRENT_DATE()) < 29 ");
+        return $query = $qb->getResult();
+
+    }
+
+    public function getListContratExp($id)
+    {
+        $qb=$this->getEntityManager()
+            ->createQuery("select e.idEntrepot , u.id , c.datedeb , c.datefin , c.salaire , u.nom , u.prenom , e.entreprise from TransporteurBundle:contrat c JOIN c.FKiduser u JOIN c.FKidentrepot e where c.datefin < DATE_DIFF(c.datefin,CURRENT_DATE()) and DATE_DIFF(c.datefin,CURRENT_DATE()) < 29 and c.FKidentrepot IN ( select t.idEntrepot from EntrepotBundle:entrepot t where t.idUser=?1) ")
+            ->setParameters(array(1=>$id));
+        return $query = $qb->getResult();
+
     }
 
 

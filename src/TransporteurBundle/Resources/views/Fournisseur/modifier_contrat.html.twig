@@ -1,7 +1,29 @@
-<form>
+{% extends 'base.html.twig' %}
+{% block content %}
 
-    choisir une Date Debut <input type="date" name="date_deb">
-    choisir une Date fin <input type="date" name="date_deb">
-    <input type="submit" value="Modifier" >
+    <div class="product">
+    <div class="container">
+    <div class="spec ">
+        <h3> Espace des contrats</h3>
+        <div class="ser-t">
+            <b></b>
+            <span><i></i></span>
+            <b class="line"></b>
+        </div>
+    </div>
+    <br/>
+    {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+    <div style="display: block; margin: 100px; ">
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_widget(form) }}
+    </div>
+        <div class="row" style="text-align: center">
+            <input class="btn btn-danger"  type="submit" href="{{ path("afficher_contrat") }}" value="Annuler"/>
+            <input class="btn btn-warning" type="submit" value="Modifier"/>
+        </div>
+    {{ form_end(form) }}
 
-</form>
+    </div>
+    </div>
+
+{% endblock %}

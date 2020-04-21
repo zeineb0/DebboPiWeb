@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <div class="product">
+        <div class="container">
+            <div class="spec ">
+                <h3> Espace des contrats</h3>
+                <div class="ser-t">
+                    <b></b>
+                    <span><i></i></span>
+                    <b class="line"></b>
+                </div>
+            </div>
+            <br/>
+            <table class="table table-hover">
+                <caption style=" margin-bottom: 30px" > <h2 style="text-align: left" >La liste des contrats signés bientôt expirés :</h2> </caption>
+                <thead>
+                <tr class="text-center w-auto" style="font-size: 1.27em" >
+                    <th scope="col">Date Début</th>
+                    <th scope="col">Date Fin</th>
+                    <th scope="col">Salaire (DT)</th>
+                    <th scope="col">Nom du transporteur</th>
+                    <th scope="col">Prenom du transporteur</th>
+                    <th scope="col">L'entrepot</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for c in liste_contrat %}
+                    <tr class="table-light text-center " style="font-size: 1.2em">
+                        <td>{{ c.datedeb | date("m/d/Y") }}</td>
+                        <td>{{ c.datefin | date("m/d/Y")}}</td>
+                        <td>{{ c.salaire }}</td>
+                        <td>{{ c.nom }}</td>
+                        <td>{{ c.prenom }}</td>
+                        <td>{{ c.entreprise }}</td>
+                        <td class="text-right">
+
+                            <a class="btn btn-warning"  style="width: 100px"   href="{{  path("modifier_contrat",{"FKidentrepot":c.idEntrepot , "FKiduser":c.id })  }}"  {#data-toggle="modal" data-target="#edit"#}>
+                                <i class="fa fa-pencil-square fa-lg" ></i> Modifier</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td> <h4>Vous n'avez aucun contrat signé</h4> </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+{% endblock %}
