@@ -33,7 +33,7 @@ class ContratRepository extends \Doctrine\ORM\EntityRepository
     public function getNbrContrat()
     {
         $qb=$this->getEntityManager()
-            ->createQuery(" select COUNT(c.datefin) NBR from TransporteurBundle:contrat c where c.datefin < DATE_DIFF(c.datefin,CURRENT_DATE()) and DATE_DIFF(c.datefin,CURRENT_DATE()) < 29 ");
+            ->createQuery(" select COUNT(c.datefin) NBR from TransporteurBundle:contrat c where DATE_DIFF(c.datefin,CURRENT_DATE()) < 29 ");
         return $query = $qb->getResult();
 
     }
@@ -41,11 +41,12 @@ class ContratRepository extends \Doctrine\ORM\EntityRepository
     public function getListContratExp($id)
     {
         $qb=$this->getEntityManager()
-            ->createQuery("select e.idEntrepot , u.id , c.datedeb , c.datefin , c.salaire , u.nom , u.prenom , e.entreprise from TransporteurBundle:contrat c JOIN c.FKiduser u JOIN c.FKidentrepot e where c.datefin < DATE_DIFF(c.datefin,CURRENT_DATE()) and DATE_DIFF(c.datefin,CURRENT_DATE()) < 29 and c.FKidentrepot IN ( select t.idEntrepot from EntrepotBundle:entrepot t where t.idUser=?1) ")
+            ->createQuery("select e.idEntrepot , u.id , c.datedeb , c.datefin , c.salaire , u.nom , u.prenom , e.entreprise from TransporteurBundle:contrat c JOIN c.FKiduser u JOIN c.FKidentrepot e where DATE_DIFF(c.datefin,CURRENT_DATE()) < 29 and c.FKidentrepot IN ( select t.idEntrepot from EntrepotBundle:entrepot t where t.idUser=?1) ")
             ->setParameters(array(1=>$id));
         return $query = $qb->getResult();
 
     }
+
 
 
 }

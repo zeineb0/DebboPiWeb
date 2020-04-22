@@ -12,6 +12,7 @@ use TransporteurBundle\Form\LivraisonType;
 use Symfony\Component\Lock\Factory;
 use Symfony\Component\Lock\Store\SemaphoreStore;
 use Knp\Component\Pager\Paginator;
+use TransporteurBundle\Service\UtilsService;
 
 
 class ContratController extends Controller
@@ -19,7 +20,7 @@ class ContratController extends Controller
 
 
 
-    public function ajouterContratAction(Request $request)
+    public function ajouterContratAction(Request $request )
     {
 
         $contrat = new Contrat();
@@ -33,7 +34,21 @@ class ContratController extends Controller
             $em->persist($contrat);
             $em->flush();
             // return $this->redirectToRoute('');
+            $username='debbopi@gmail.com';
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Contrat Détail')
+                ->setFrom($username)
+                ->setTo('medfarouk.benakacha@gmail.com')
+                ->setBody(
+                    $this->renderView(
+                        '@Transporteur/Email/email_template.html.twig',array(
+                            "nom" => "Farouk","entreprise"=>"delice"))
+                );
+            $this->get('mailer')->send($message);
+
+
         }
+
         $contrat=$this->getDoctrine()->getRepository(Contrat::class)->getContratByProp($id=$this->getUser()->getId());
 
        /* $qb=$this->getEntityManager()
@@ -48,6 +63,7 @@ class ContratController extends Controller
 
 
         $nbrContrat = $this->getDoctrine()->getRepository(Contrat::class)->getNbrContrat();
+
 
 
        return $this->render("@Transporteur/Fournisseur/afficher_contrat.html.twig",array("form"=>$form->createView(),"liste_contrat"=>$pagination,"nbr_conrat"=>$nbrContrat));
