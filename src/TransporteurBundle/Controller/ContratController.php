@@ -20,7 +20,7 @@ class ContratController extends Controller
 
 
 
-    public function ajouterContratAction(Request $request )
+    public function ajouterContratAction(Request $request)
     {
 
         $contrat = new Contrat();
@@ -34,15 +34,23 @@ class ContratController extends Controller
             $em->persist($contrat);
             $em->flush();
             // return $this->redirectToRoute('');
+
+            $nom=$contrat->getFKiduser()->getNom();
+            $prenom=$contrat->getFKiduser()->getPrenom();
+            $entreprise=$contrat->getFKidentrepot()->getEntreprise();
+            $email=$contrat->getFKiduser()->getEmail();
             $username='debbopi@gmail.com';
             $message = \Swift_Message::newInstance()
                 ->setSubject('Contrat Détail')
                 ->setFrom($username)
-                ->setTo('medfarouk.benakacha@gmail.com')
+                ->setTo($email)
                 ->setBody(
                     $this->renderView(
                         '@Transporteur/Email/email_template.html.twig',array(
-                            "nom" => "Farouk","entreprise"=>"delice"))
+                            "nom" => $nom,"entreprise"=>$entreprise,"prenom"=>$prenom)
+                    ),
+                    'text/html'
+
                 );
             $this->get('mailer')->send($message);
 
@@ -51,9 +59,7 @@ class ContratController extends Controller
 
         $contrat=$this->getDoctrine()->getRepository(Contrat::class)->getContratByProp($id=$this->getUser()->getId());
 
-       /* $qb=$this->getEntityManager()
-            ->createQuery("select e.idEntrepot , u.id , c.datedeb , c.datefin , c.salaire , u.nom , u.prenom , e.entreprise from TransporteurBundle:contrat c JOIN c.FKiduser u JOIN c.FKidentrepot e where c.FKidentrepot IN ( select t.idEntrepot from EntrepotBundle:entrepot t where t.idUser=?1) ")
-            ->setParameters(array(1=>$this->getUser()->getId()));*/
+
 
         $pagination = $this->get('knp_paginator')->paginate(
             $contrat, /* query NOT result */
@@ -70,10 +76,18 @@ class ContratController extends Controller
 
     }
 
-    public function afficherContratExpAction()
+    public function afficherContratExpAction(Request $request)
     {
         $contrat=$this->getDoctrine()->getRepository(Contrat::class)->getListContratExp($id=$this->getUser()->getId());
-        return $this->render("@Transporteur/Fournisseur/afficher_contrat_exp.html.twig",array("liste_contrat"=>$contrat));
+
+        $pagination = $this->get('knp_paginator')->paginate(
+            $contrat, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            1 /*limit per page*/
+        );
+
+
+        return $this->render("@Transporteur/Fournisseur/afficher_contrat_exp.html.twig",array("liste_contrat"=>$pagination));
 
     }
 

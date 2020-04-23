@@ -1,199 +1,173 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
 
+<!DOCTYPE html>
+<html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>A Simple Responsive HTML Email</title>
-    <style type="text/css">
-        body {margin: 0; padding: 0; min-width: 100%!important;}
-        img {height: auto;}
-        .content {width: 100%; max-width: 600px;}
-        .header {padding: 40px 30px 20px 30px;}
-        .innerpadding {padding: 30px 30px 30px 30px;}
-        .borderbottom {border-bottom: 1px solid #f2eeed;}
-        .subhead {font-size: 15px; color: #ffffff; font-family: sans-serif; letter-spacing: 10px;}
-        .h1, .h2, .bodycopy {color: #153643; font-family: sans-serif;}
-        .h1 {font-size: 33px; line-height: 38px; font-weight: bold;}
-        .h2 {padding: 0 0 15px 0; font-size: 24px; line-height: 28px; font-weight: bold;}
-        .bodycopy {font-size: 16px; line-height: 22px;}
-        .button {text-align: center; font-size: 18px; font-family: sans-serif; font-weight: bold; padding: 0 30px 0 30px;}
-        .button a {color: #ffffff; text-decoration: none;}
-        .footer {padding: 20px 30px 15px 30px;}
-        .footercopy {font-family: sans-serif; font-size: 14px; color: #ffffff;}
-        .footercopy a {color: #ffffff; text-decoration: underline;}
-
-        @media only screen and (max-width: 550px), screen and (max-device-width: 550px) {
-            body[yahoo] .hide {display: none!important;}
-            body[yahoo] .buttonwrapper {background-color: transparent!important;}
-            body[yahoo] .button {padding: 0px!important;}
-            body[yahoo] .button a {background-color: #e05443; padding: 15px 15px 13px!important;}
-            body[yahoo] .unsubscribe {display: block; margin-top: 20px; padding: 10px 50px; background: #2f3942; border-radius: 5px; text-decoration: none!important; font-weight: bold;}
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Simple Transactional Email</title>
+    <style>
+        /* -------------------------------------
+            INLINED WITH htmlemail.io/inline
+        ------------------------------------- */
+        /* -------------------------------------
+            RESPONSIVE AND MOBILE FRIENDLY STYLES
+        ------------------------------------- */
+        @media only screen and (max-width: 620px) {
+            table[class=body] h1 {
+                font-size: 28px !important;
+                margin-bottom: 10px !important;
+            }
+            table[class=body] p,
+            table[class=body] ul,
+            table[class=body] ol,
+            table[class=body] td,
+            table[class=body] span,
+            table[class=body] a {
+                font-size: 16px !important;
+            }
+            table[class=body] .wrapper,
+            table[class=body] .article {
+                padding: 10px !important;
+            }
+            table[class=body] .content {
+                padding: 0 !important;
+            }
+            table[class=body] .container {
+                padding: 0 !important;
+                width: 100% !important;
+            }
+            table[class=body] .main {
+                border-left-width: 0 !important;
+                border-radius: 0 !important;
+                border-right-width: 0 !important;
+            }
+            table[class=body] .btn table {
+                width: 100% !important;
+            }
+            table[class=body] .btn a {
+                width: 100% !important;
+            }
+            table[class=body] .img-responsive {
+                height: auto !important;
+                max-width: 100% !important;
+                width: auto !important;
+            }
         }
 
-        /*@media only screen and (min-device-width: 601px) {
-          .content {width: 600px !important;}
-          .col425 {width: 425px!important;}
-          .col380 {width: 380px!important;}
-          }*/
-
+        /* -------------------------------------
+            PRESERVE THESE STYLES IN THE HEAD
+        ------------------------------------- */
+        @media all {
+            .ExternalClass {
+                width: 100%;
+            }
+            .ExternalClass,
+            .ExternalClass p,
+            .ExternalClass span,
+            .ExternalClass font,
+            .ExternalClass td,
+            .ExternalClass div {
+                line-height: 100%;
+            }
+            .apple-link a {
+                color: inherit !important;
+                font-family: inherit !important;
+                font-size: inherit !important;
+                font-weight: inherit !important;
+                line-height: inherit !important;
+                text-decoration: none !important;
+            }
+            #MessageViewBody a {
+                color: inherit;
+                text-decoration: none;
+                font-size: inherit;
+                font-family: inherit;
+                font-weight: inherit;
+                line-height: inherit;
+            }
+            .btn-primary table td:hover {
+                background-color: #34495e !important;
+            }
+            .btn-primary a:hover {
+                background-color: #34495e !important;
+                border-color: #34495e !important;
+            }
+        }
     </style>
 </head>
-
-<body yahoo bgcolor="#f6f8f1">
-<table width="100%" bgcolor="#f6f8f1" border="0" cellpadding="0" cellspacing="0">
+<body class="" style="background-color: #f6f6f6; font-family: sans-serif; -webkit-font-smoothing: antialiased; font-size: 14px; line-height: 1.4; margin: 0; padding: 0; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+<table border="0" cellpadding="0" cellspacing="0" class="body" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background-color: #f6f6f6;">
     <tr>
-        <td>
-            <!--[if (gte mso 9)|(IE)]>
-            <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                    <td>
-            <![endif]-->
-            <table bgcolor="#ffffff" class="content" align="center" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                    <td bgcolor="#c7d8a7" class="header">
-                        <table width="70" align="left" border="0" cellpadding="0" cellspacing="0">
-                            <tr>
-                                <td height="70" style="padding: 0 20px 20px 0;">
-                                    <img class="fix" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/icon.gif" width="70" height="70" border="0" alt="" />
-                                </td>
-                            </tr>
-                        </table>
-                        <!--[if (gte mso 9)|(IE)]>
-                        <table width="425" align="left" cellpadding="0" cellspacing="0" border="0">
-                            <tr>
-                                <td>
-                        <![endif]-->
-                        <table class="col425" align="left" border="0" cellpadding="0" cellspacing="0" style="width: 100%; max-width: 425px;">
-                            <tr>
-                                <td height="70">
-                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                        <tr>
-                                            <td class="subhead" style="padding: 0 0 0 3px;">
-                                                DeBBO.
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="h1" style="padding: 5px 0 0 0;">
-                                                Contrat Détail
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                        <!--[if (gte mso 9)|(IE)]>
+        <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">&nbsp;</td>
+        <td class="container" style="font-family: sans-serif; font-size: 14px; vertical-align: top; display: block; Margin: 0 auto; max-width: 580px; padding: 10px; width: 580px;">
+            <div class="content" style="box-sizing: border-box; display: block; Margin: 0 auto; max-width: 580px; padding: 10px;">
+
+                <!-- START CENTERED WHITE CONTAINER -->
+                <span class="preheader" style="color: transparent; display: none; height: 0; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; mso-hide: all; visibility: hidden; width: 0;"></span>
+                <table class="main" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background: #ffffff; border-radius: 3px;">
+
+                    <!-- START MAIN CONTENT AREA -->
+                    <tr>
+                        <td class="wrapper" style="font-family: sans-serif; font-size: 14px; vertical-align: top; box-sizing: border-box; padding: 20px;">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
+                                <tr>
+                                    <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
+                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;"> <h3>Salut Mr {{ nom }} {{ prenom }}, </h3> </p>
+                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;"> votre contrat avec l'entrepot <b>{{ entreprise }}</b> a été effectué avec succes le : {{ "now"|date("d/m/Y") }}.</p>
+                                        <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; box-sizing: border-box;">
+                                            <tbody>
+                                            <tr>
+                                                <td align="left" style="font-family: sans-serif; font-size: 14px; vertical-align: top; padding-bottom: 15px;">
+                                                    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: auto;">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td style="font-family: sans-serif; font-size: 14px; vertical-align: top; background-color: #3498db; border-radius: 5px; text-align: center;"> <a href="{{ path('afficher_contrat') }}" target="_blank" style="display: inline-block; color: #ffffff; background-color: #3498db; border: solid 1px #3498db; border-radius: 5px; box-sizing: border-box; cursor: pointer; text-decoration: none; font-size: 14px; font-weight: bold; margin: 0; padding: 12px 25px; text-transform: capitalize; border-color: #3498db;">Consulter immédiatement</a> </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;"><h5>Merci de nous choisir.</h5></p>
+                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;"><h5>L'equipe Debbo.</h5></p>
+                                    </td>
+                                </tr>
+                            </table>
                         </td>
+                    </tr>
+
+                    <!-- END MAIN CONTENT AREA -->
+                </table>
+
+                <!-- START FOOTER -->
+                <div class="footer" style="clear: both; Margin-top: 10px; text-align: center; width: 100%;">
+                    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
+                        <tr>
+                            <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
+                                <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">DeBBo Inc, Tunisia, Ariana </span>
+                                <br> Don't like these emails? <a href="http://i.imgur.com/CScmqnj.gif" style="text-decoration: underline; color: #999999; font-size: 12px; text-align: center;">Unsubscribe</a>.
+                            </td>
                         </tr>
-                        </table>
-                        <![endif]-->
-                    </td>
-                </tr>
-                <tr>
-                    <td class="innerpadding borderbottom">
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                            <tr>
-                                <td class="h2">
-                                    Salut Mr {{ nom }} ,
-                                </td>
-                            </tr>
-                            <tr>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="innerpadding borderbottom">
-                        <table width="115" align="left" border="0" cellpadding="0" cellspacing="0">
-                            <tr>
-                                <td height="115" style="padding: 0 20px 20px 0;">
-                                    <img class="fix" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/article1.png" width="115" height="115" border="0" alt="" />
-                                </td>
-                            </tr>
-                        </table>
-                        <!--[if (gte mso 9)|(IE)]>
-                        <table width="380" align="left" cellpadding="0" cellspacing="0" border="0">
-                            <tr>
-                                <td>
-                        <![endif]-->
-                        <table class="col380" align="left" border="0" cellpadding="0" cellspacing="0" style="width: 100%; max-width: 380px;">
-                            <tr>
-                                <td>
-                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                        <tr>
-                                            <td class="bodycopy">
-
-                                                votre contrat avec l'entrepot <b>{{ entreprise }}</b> a été effectué avec succes le : {{ "now"|date("d/m/Y") }}
-
-                                                   </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding: 20px 0 0 0;">
-                                                <table class="buttonwrapper" bgcolor="#e05443" border="0" cellspacing="0" cellpadding="0">
-                                                    <tr>
-                                                        <td class="button" height="45">
-                                                            <a href="{{ path('afficher_contrat') }}">Consulter tes contrats!</a>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                        <!--[if (gte mso 9)|(IE)]>
-                        </td>
+                        <tr>
+                            <td class="content-block powered-by" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
+                                Powered by <a href="http://htmlemail.io" style="color: #999999; font-size: 12px; text-align: center; text-decoration: none;">HTMLemail</a>.
+                            </td>
                         </tr>
-                        </table>
-                        <![endif]-->
-                    </td>
-                </tr>
-                <tr>
+                    </table>
+                </div>
+                <!-- END FOOTER -->
 
-                </tr>
-                <tr>
-                    <td class="innerpadding bodycopy">
-                        Merci de nous choisir.<br/>
-                        L'equipe Debbo.
-                    </td>
-                </tr>
-                <tr>
-                    <td class="footer" bgcolor="#44525f">
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                            <tr>
-                                <td align="center" class="footercopy">
-                                    &reg; DeBBo., Tunisie , Ariana 2020<br/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="center" style="padding: 20px 0 0 0;">
-                                    <table border="0" cellspacing="0" cellpadding="0">
-                                        <tr>
-                                            <td width="37" style="text-align: center; padding: 0 10px 0 10px;">
-                                                <a href="http://www.facebook.com/">
-                                                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/facebook.png" width="37" height="37" alt="Facebook" border="0" />
-                                                </a>
-                                            </td>
-                                            <td width="37" style="text-align: center; padding: 0 10px 0 10px;">
-                                                <a href="http://www.twitter.com/">
-                                                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/twitter.png" width="37" height="37" alt="Twitter" border="0" />
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
-            <!--[if (gte mso 9)|(IE)]>
-            </td>
-            </tr>
-            </table>
-            <![endif]-->
+                <!-- END CENTERED WHITE CONTAINER -->
+            </div>
         </td>
+        <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">&nbsp;</td>
     </tr>
 </table>
 </body>
 </html>
+
+
+
+
+

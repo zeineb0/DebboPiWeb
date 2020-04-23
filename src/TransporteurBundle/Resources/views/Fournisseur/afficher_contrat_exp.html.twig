@@ -17,12 +17,12 @@
                 <caption style=" margin-bottom: 30px" > <h2 style="text-align: left" >La liste des contrats signés bientôt expirés :</h2> </caption>
                 <thead>
                 <tr class="text-center w-auto" style="font-size: 1.27em" >
-                    <th scope="col">Date Début</th>
-                    <th scope="col">Date Fin</th>
-                    <th scope="col">Salaire (DT)</th>
-                    <th scope="col">Nom du transporteur</th>
-                    <th scope="col">Prenom du transporteur</th>
-                    <th scope="col">L'entrepot</th>
+                    <th scope="col"> {{ knp_pagination_sortable(liste_contrat,'Date Début','c.datedeb') }}</th>
+                    <th scope="col">{{ knp_pagination_sortable(liste_contrat,'Date Fin','c.datefin') }}</th>
+                    <th scope="col"> {{ knp_pagination_sortable(liste_contrat,'Salaire (DT)','c.salaire') }} </th>
+                    <th scope="col">{{ knp_pagination_sortable(liste_contrat,'Nom du transporteur','u.nom') }}</th>
+                    <th scope="col">{{ knp_pagination_sortable(liste_contrat,'Prenom du transporteur','u.prenom') }}</th>
+                    <th scope="col">{{ knp_pagination_sortable(liste_contrat,'L"entrepot','e.entreprise') }}</th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
@@ -48,6 +48,12 @@
                 {% endfor %}
                 </tbody>
             </table>
+
+
+            <div class="navigation text-center">
+                {{ knp_pagination_render(liste_contrat) }}
+            </div>
+
         </div>
     </div>
 
