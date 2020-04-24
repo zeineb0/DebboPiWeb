@@ -56,24 +56,39 @@ class LivraisonController extends Controller
         $em=$this->getDoctrine()->getManager();
         $em->remove($livraison);
         $em->flush();
-        return $this->getAllLivraisonAction();
+        return $this->redirectToRoute('aff_liv_Trans_L');
 
     }
 
-    public function afficherLivraisonParTransporteurNonLivreAction()
+    public function afficherLivraisonParTransporteurNonLivreAction(Request $request)
     {
         //$user=new User();
         //$user->setId($id);
         $livraison=$this->getDoctrine()->getRepository(Livraison::class)->getLivraisonByUserNotD($id=$this->getUser()->getId());
-        return $this->render("@Transporteur/Transporteur/afficher_livraison_all.html.twig",array("liste_livraison"=>$livraison));
+
+        $pagination = $this->get('knp_paginator')->paginate(
+            $livraison, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            1 /*limit per page*/
+        );
+
+       return $this->render("@Transporteur/Transporteur/liste_livraisons_non_livres.html.twig",array("liste_livraison"=>$pagination));
 
     }
 
-    public function afficherLivraisonParTransporteurLivreAction()
+    public function afficherLivraisonParTransporteurLivreAction(Request $request)
     {
 
         $livraison=$this->getDoctrine()->getRepository(Livraison::class)->getLivraisonByUserD($id=$this->getUser()->getId());
-        return $this->render("@Transporteur/Transporteur/afficher_livraison_all.html.twig",array("liste_livraison"=>$livraison));
+
+        $pagination = $this->get('knp_paginator')->paginate(
+            $livraison, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            3 /*limit per page*/
+        );
+
+
+        return $this->render("@Transporteur/Transporteur/liste_livraisons_livres.html.twig",array("liste_livraison"=>$pagination));
 
     }
 
@@ -84,7 +99,7 @@ class LivraisonController extends Controller
         $em=$this->getDoctrine()->getManager();
         $em->getRepository(Livraison::class)->updateLivStat($livraison);
         $em->flush();
-        return $this->getAllLivraisonAction(); // à terminer
+        return $this->redirectToRoute('aff_liv_Trans_L');
 
 
     }

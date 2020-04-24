@@ -20,7 +20,8 @@ class SecurityController extends Controller
 
         } else if ($authCheker ->isGranted('ROLE_ENTREPOT'))
         {
-            return $this->render('@App/Security/Entrepot_home.html.twig');
+            //return $this->render('@App/Security/Entrepot_home.html.twig');
+            return $this->redirectToRoute('afficher_contrat');
 
         } else if ($authCheker ->isGranted('ROLE_TRANSPORTEUR'))
         {

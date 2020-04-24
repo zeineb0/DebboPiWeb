@@ -104,7 +104,7 @@
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
-            <h4><strong>Vous avez {{ nbr_conrat[0].NBR }} contrat(s) bientôt vont être expirés !</strong></h4>
+            <h4><strong>Vous avez {{ nbr_conrat[0].NBR }} contrat(s) qui vont être expirés bientôt !</strong></h4>
             <br/>
             <h5>Voulez-vous les modifier ? <a href="{{ path('afficher_contrat_exp') }}" class="alert-link"> Click ici !</a></h5>
 
@@ -131,15 +131,15 @@
                 <th scope="col"> {{ knp_pagination_sortable(liste_contrat,'Salaire (DT)','c.salaire') }} </th>
                 <th scope="col">{{ knp_pagination_sortable(liste_contrat,'Nom du transporteur','u.nom') }}</th>
                 <th scope="col">{{ knp_pagination_sortable(liste_contrat,'Prenom du transporteur','u.prenom') }}</th>
-                <th scope="col">{{ knp_pagination_sortable(liste_contrat,'L"entrepot','e.entreprise') }}</th>
+                <th scope="col">{{ knp_pagination_sortable(liste_contrat,"L'entrepot",'e.entreprise') }}</th>
                 <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
             {% for c in liste_contrat %}
                 <tr class="table-light text-center " style="font-size: 1.2em">
-                    <td>{{ c.datedeb | date("m/d/Y") }}</td>
-                    <td>{{ c.datefin | date("m/d/Y")}}</td>
+                    <td>{{ c.datedeb | date("d/m/Y") }}</td>
+                    <td>{{ c.datefin | date("d/m/Y")}}</td>
                     <td>{{ c.salaire }}</td>
                     <td>{{ c.nom }}</td>
                     <td>{{ c.prenom }}</td>
