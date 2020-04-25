@@ -84,18 +84,27 @@
             </div>
 {#**********************************************tt produits********************************************************#}
         <div class="tab-pane text-style" id="tab1" >
+            {% set i=1 %}
+            {% for entrepot in entrepots %}
                 <nav class="nav-sidebar">
-                    {% for entrepot in entrepots %}
 
                         <ul class="nav tabs" >
-                            <li class=""><a href="#toto" data-toggle="tab" >{{entrepot.adresse}}</a></li>
-                        </ul>
-                    {% endfor %}
-
+                            {% if i==1 %}
+                            <li class="active"><a href="#{{ entrepot.idEntrepot }}" data-toggle="tab" id="ent1"~i>{{ entrepot.entreprise }}</a></li>
+                            {% else %}
+                                <li class=""><a href="#{{ entrepot.idEntrepot }}" data-toggle="tab" id="ent1"~i>{{ entrepot.entreprise }}</a></li>
+                            {% endif %}
+                                </ul>
+                {% set i=i+1 %}
                 </nav>
-            {% for entrepot in entrepots %}
+                {% if i==1 %}
+            <div class="tab-pane active text-style" id="{{ entrepot.idEntrepot }}" >
+                {% else %}
+                    <div class="tab-pane hide text-style" id="{{ entrepot.idEntrepot }}" >
+                        {% endif %}
+
                     {% for produit in produits %}
-                            {% if produit.fkEntrepot == entrepot %}
+                    {% if produit.fkEntrepot == entrepot %}
                                 <div class=" con-w3l">
                                     <div class="col-md-3 m-wthree">
                                         <div class="col-m">
@@ -130,46 +139,52 @@
                                         </div>
                                     </div>
                                 </div>
-                            {% endif %}
-                    {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </div>
                     {% endfor %}
                 </div>
 {#**********************************************par entrepot********************************************************#}
     <div class="tab-pane text-style" id="tab2" >
-          {#  {% for produit in produits %}
-                    <div class=" con-w3l">
-                        <div class="col-md-3 m-wthree">
-                            <div class="col-m">
-                                <a href="#" data-toggle="modal" data-target="#myModal4" class="offer-img">
-                                    <img src="{{ asset('public/images/produits/'~produit.imageName) }}" class="img-responsive img" alt="">
-                                    {% if produit.quantite <= 10 %}
-                                        <div class="offer"><p><span>Promotion</span></p></div>
-                                    {% endif %}
-                                </a>
-                                <div class="mid-1">
-                                    <div class="women">
-                                        <h6><a href="">{{  produit.libelle }}</a>({{ produit.marque }})</h6>
-                                    </div>
-                                    <div class="mid-2">
-                                        {% if produit.quantite <= 10 %}
-                                            <p ><label>{{ produit.prix }}</label><em class="item_price">{{produit.prix * 0.9}}</em></p>
-                                        {% else %}
-                                            <p ><em class="item_price">{{produit.prix }}DT</em></p>
-                                        {% endif %}
+         {% for category in categorys %}
+             <nav class="nav-sidebar">
 
-                                        <div class="block">
-                                            <div class="starbox small ghosting"> </div>
+                 <ul class="nav tabs" >
+                         <li class=""><a href="#{{ category.idCategorie }}" data-toggle="tab" id="ent1">{{ category.nom }}</a></li>
+                 </ul>
+             </nav>
+                <div class="tab-pane  text-style" id="{{ category.idCategorie }}" role="tabpanel" >
+                    {% for produit in produits %}
+                        {% if produit.fkCategorie == category %}
+                            <div class=" con-w3l">
+                                <div class="col-md-3 m-wthree">
+                                    <div class="col-m">
+                                        <a href="#" data-toggle="modal" data-target="#myModal4" class="offer-img">
+                                            <img src="{{ asset('public/images/produits/'~produit.imageName) }}" class="img-responsive img" alt="">
+                                        </a>
+                                        <div class="mid-1">
+                                            <div class="women">
+
+                                                <h6><a href="">{{  produit.libelle }}</a>({{ produit.marque }})</h6>
+                                            </div>
+                                            <div class="mid-2">
+                                                <p ><em class="item_price">{{  produit.prix }} Dt</em></p>
+                                                <div class="block">
+                                                    <div class="starbox small ghosting"> </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="add">
+                                                <li class="btn btn-danger my-cart-btn my-cart-b" > <a  href="{{ path('produit_show', { 'idProduit': produit.idProduit }) }}">Afficher</a></li>
+                                            </div>
                                         </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="add">
-                                        <li class="btn btn-danger my-cart-btn my-cart-b" > <a  href="{{ path('produit_show', { 'idProduit': produit.idProduit }) }}">Afficher</a></li>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-            {% endfor %}#}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
     </div>
     </div>
     </div>
@@ -189,11 +204,11 @@
         {#$("#ent").click(function(){
 
             $("#tab").toggle(1000);
-        });
-
-        $("#categ").click(function(){
-            $("#tab").toggle(1000);
         });#}
+
+        $("#ent1").click(function(){
+            $("#toto").toggle(1000);
+        });
 
     </script>
 {% endblock %}

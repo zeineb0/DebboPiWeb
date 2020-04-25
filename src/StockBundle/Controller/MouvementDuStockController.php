@@ -28,8 +28,9 @@ class MouvementDuStockController extends Controller
     public function indexAction( Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $dql="SELECT bp FROM StockBundle:MouvementDuStock bp";
-        $query=$em->createQuery($dql);
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $dql="SELECT bp FROM StockBundle:MouvementDuStock bp WHERE bp.idUser =:fk";
+        $query=$em->createQuery($dql)->setParameter('fk',$user );
        // $mouvementDuStocks = $em->getRepository('StockBundle:MouvementDuStock')->findAll();
         /**
          * @var $paginator Knp\Component\Pager\Paginator
