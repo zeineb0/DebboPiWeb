@@ -54,7 +54,6 @@ class ContratController extends Controller
                 );
             $this->get('mailer')->send($message);
 
-
         }
 
         $contrat=$this->getDoctrine()->getRepository(Contrat::class)->getContratByProp($id=$this->getUser()->getId());

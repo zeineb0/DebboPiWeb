@@ -2,6 +2,10 @@ transporteur_homepage:
     path:     /
     defaults: { _controller: TransporteurBundle:Default:index }
 
+
+
+# Livraison routing :
+
 ajouter_livraison:
     path: /ajouterLivraison
     defaults: {_controller: TransporteurBundle:Livraison:ajouterLivraison}
@@ -28,6 +32,16 @@ modifier_livraison:
     defaults: {_controller: TransporteurBundle:Livraison:modifierEtatLivraison}
 
 
+afficher_calendrier:
+    path: /affCal
+    defaults: {_controller: TransporteurBundle:Livraison:afficherCalendrier}
+
+
+
+
+# Contrat routing :
+
+
 afficher_contrat:
     path : /afficherContrat
     defaults : {_controller: TransporteurBundle:Contrat:ajouterContrat}
@@ -45,7 +59,6 @@ modifier_contrat:
 afficher_contrat_exp:
     path : /afficherContratExp
     defaults: {_controller: TransporteurBundle:Contrat:afficherContratExp}
-
 
 
 
