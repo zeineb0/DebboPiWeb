@@ -36,6 +36,15 @@ class LivraisonRepository extends \Doctrine\ORM\EntityRepository
         return $query=$qb->getResult();
     }
 
+    public function getNbrLivraison($id)
+    {
+        $qb=$this->getEntityManager()
+            ->createQuery(" select COUNT(l.etatLivraison) NBR from TransporteurBundle:livraison l where l.etatLivraison=?1 and l.fkUser=?2 ")
+            ->setParameters(array(1=>'non livrée',2=>$id));
+        return $query = $qb->getResult();
+
+    }
+
 
 
 

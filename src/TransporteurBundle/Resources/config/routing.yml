@@ -37,6 +37,10 @@ afficher_calendrier:
     defaults: {_controller: TransporteurBundle:Livraison:afficherCalendrier}
 
 
+livraison_calendar:
+    path: /livraison
+    defaults: {_controller: TransporteurBundle:Livraison:livraisonCalendar}
+
 
 
 # Contrat routing :

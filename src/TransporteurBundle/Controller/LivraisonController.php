@@ -107,8 +107,16 @@ class LivraisonController extends Controller
 
     public function afficherCalendrierAction()
     {
-        return $this->render("@Transporteur/Transporteur/accueil.html.twig");
+
+        $livraison=$this->getDoctrine()->getRepository(Livraison::class)->getLivraisonByUserNotD($id=$this->getUser()->getId());
+
+        $nbrLivraison=$this->getDoctrine()->getRepository(Livraison::class)->getNbrLivraison($id=$this->getUser()->getId());
+
+
+        return $this->render("@Transporteur/Transporteur/accueil.html.twig",array("liste_livraison"=>$livraison,"nbr_livraison"=>$nbrLivraison));
     }
+
+
 
 
 
