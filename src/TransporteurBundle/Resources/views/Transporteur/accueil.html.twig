@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
 
+
+
+
 {% block content %}
 
 
@@ -26,23 +29,24 @@
                 var m = date.getMonth();
                 var y = date.getFullYear();
 
-                /*  className colors
+             /*   className colors
 
                 className: default(transparent), important(red), chill(pink), success(green), info(blue)
 
-                */
+              */
 
 
                 /* initialize events array
                 -----------------------------------------------------------------*/
 
-                var livraison=[];
+                let livraison=[];
 
                 {% for l in liste_livraison  %}
                 livraison.push({
                     "title" : "{{ l.adresseLivraison }}",
                     "start"  : "{{ l.dateLivraison | date }}",
-                    "className": "important"
+                    "className" : "important"
+
                 });
                 {% endfor %}
 
@@ -59,7 +63,8 @@
                     // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
                     // it doesn't need to have a start or end
                     var eventObject = {
-                        title: $.trim($(this).text()) // use the element's text as the event title
+                        title: $.trim($(this).text()), // use the element's text as the event title
+
                     };
 
                     // store the Event Object in the DOM element so we can get to it later
@@ -142,56 +147,12 @@
                         }
 
                     },
+                    eventClick: function(info)
+                    {
+                        alert('Clicked ' + info.event.title);
+                    },
 
-                    events: livraison
-
-
-
-                        {#  {
-                            id: 999,
-                            title: 'Repeating Event',
-                            start: new Date(y, m, d-3, 16, 0),
-                            allDay: false,
-                            className: 'info'
-                        },
-                        {
-                            id: 999,
-                            title: 'Repeating Event',
-                            start: new Date(y, m, d+4, 16, 0),
-                            allDay: false,
-                            className: 'info'
-                        },
-                        {
-                            title: 'Meeting',
-                            start: new Date(y, m, d, 10, 30),
-                            allDay: false,
-                            className: 'important'
-                        },
-                        {
-                            title: 'Lunch',
-                            start: new Date(y, m, d, 12, 0),
-                            end: new Date(y, m, d, 14, 0),
-                            allDay: false,
-                            className: 'important'
-                        },
-                        {
-                            title: 'Birthday Party',
-                            start: new Date(y, m, d+1, 19, 0),
-                            end: new Date(y, m, d+1, 22, 30),
-                            allDay: false,
-                        },
-                        {
-                            title: 'Click for Google',
-                            start: new Date(y, m, 28),
-                            end: new Date(y, m, 29),
-                            url: 'http://google.com/',
-                            className: 'success'
-                        }
-
-#}
-
-                    ,
-
+                    events: livraison,
                 });
 
 
@@ -206,68 +167,7 @@
     {% endblock %}
 
 
-    <style>
 
-
-        body {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 14px;
-            font-family: "Helvetica Nueue",Arial,Verdana,sans-serif;
-            /* background-color: #DDDDDD;*/
-        }
-
-        #wrap {
-            width: 1100px;
-            margin-bottom: 20px;
-            margin-left: auto;
-            margin-top: 50px;
-            margin-right: auto;
-        }
-
-        #external-events {
-            float: left;
-            width: 150px;
-            padding: 0 10px;
-            text-align: left;
-        }
-
-        #external-events h4 {
-            font-size: 16px;
-            margin-top: 0;
-            padding-top: 1em;
-        }
-
-        .external-event { /* try to mimick the look of a real event */
-            margin: 10px 0;
-            padding: 2px 4px;
-            background: #3366CC;
-            color: #fff;
-            font-size: .85em;
-            cursor: pointer;
-        }
-
-        #external-events p {
-            margin: 1.5em 0;
-            font-size: 11px;
-            color: #666;
-        }
-
-        #external-events p input {
-            margin: 0;
-            vertical-align: middle;
-        }
-
-        #calendar {
-            /* 		float: right; */
-            margin: 0 auto;
-            width: 900px;
-            background-color: #FFFFFF;
-            border-radius: 6px;
-            box-shadow: 0 1px 2px #C3C3C3;
-        }
-
-    </style>
 
 
     <div class="product">
@@ -277,7 +177,7 @@
                 <div class="ser-t">
                     <b></b>
                     <span><i></i></span>
-                    <b class="line"></b>
+                    <b class="line"></b>S
                 </div>
             </div>
             <br/>
@@ -317,6 +217,77 @@
         $( "div" ).html( "{{ liste_livraison[0].idLivraison }}" );
     </script>
 #}
+
+
+    {% block style %}
+
+        <style>
+
+
+            body {
+                margin-top: 40px;
+                text-align: center;
+                font-size: 14px;
+                font-family: "Helvetica Nueue",Arial,Verdana,sans-serif;
+                /* background-color: #DDDDDD;*/
+            }
+
+            #wrap {
+                width: 1100px;
+                margin-bottom: 20px;
+                margin-left: auto;
+                margin-top: 50px;
+                margin-right: auto;
+            }
+
+            #external-events {
+                float: left;
+                width: 150px;
+                padding: 0 10px;
+                text-align: right;
+
+            }
+
+            #external-events h4 {
+                font-size: 16px;
+                margin-top: 0;
+                padding-top: 1em;
+            }
+
+            .external-event { /* try to mimick the look of a real event */
+                margin: 10px 0;
+                padding: 2px 4px;
+                background: #3366CC;
+                color: #fff;
+                font-size: .85em;
+                cursor: pointer;
+            }
+
+            #external-events  {
+                margin: 1.5em 0;
+                font-size: 11px;
+                color: #000;
+            }
+
+            #external-events p input {
+                margin: 0;
+                vertical-align: middle;
+            }
+
+            #calendar {
+                /* 		float: right; */
+                margin: 0 auto;
+                width: 900px;
+                background-color: #FFFFFF;
+                border-radius: 6px;
+                box-shadow: 0 1px 2px #C3C3C3;
+            }
+
+
+        </style>
+
+
+    {% endblock %}
 
 
  {% endblock %}
