@@ -17,7 +17,8 @@
     <div class="login">
         <div class="main-agileits">
             <div class="form-w3agile form1">
-                    <label >Libelle :</label>
+                {{ form_start(form) }}
+                <label >Libelle :</label>
                     {{ form_widget(form.libelle) }}
                     {{ form_errors(form.libelle) }}
 <br>
@@ -45,23 +46,16 @@
                 <br>
                 <label > Catégorie du produit :</label>
 
-                {% for user in users %}
-                {% if user.id == idconnected  %}
-                {% for category in category %}
-                {% if user == category.idUser  %}
                     {{ form_widget(form.fkCategorie) }}
                     {{ form_errors(form.fkCategorie) }}
-                {% endif %}
-                {% endfor %}
-                {% endif %}
-                {% endfor %}
+
                 <br>
                 <label > Entrepot du produit :</label>
                     {{ form_widget(form.fkEntrepot) }}
                     {{ form_errors(form.fkEntrepot) }}
                 <br>
         <input type="submit" value="Créer" />
-    {{ form_end(form) }}
+                {{ form_end(form) }}
 
     <ul>
             <a href="{{ path('produit_index') }}"><input type="submit" value="Retour à la liste" /></a>

@@ -59,14 +59,13 @@ class ProduitController extends Controller
         $produit = new Produit();
         $form = $this->createForm('StockBundle\Form\ProduitType', $produit);
         $form->handleRequest($request);
-        $idconnected = $this->getUser()->getId();
-        $users = $em->getRepository('AppBundle:User')->findAll();
-        $category = $em->getRepository('StockBundle:Categories')->findAll();
         if ($form->isSubmitted() && $form->isValid())
         {
             $em = $this->getDoctrine()->getManager();
             $id = $this->getUser();
             $produit->setIdUser($id);
+           /* $fk=$produit->getFkEntrepot();
+            echo $fk;*/
             $em->persist($produit);
             $em->flush();
 
@@ -75,9 +74,6 @@ class ProduitController extends Controller
 
         return $this->render('@Stock/produit/new.html.twig', array(
             'produit' => $produit,
-            'idconnected'=>$idconnected,
-            'users'=>$users,
-            'category'=>$category,
             'form' => $form->createView(),
         ));
     }
@@ -167,6 +163,7 @@ class ProduitController extends Controller
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
         $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->findBy(array ('idUser'=>$user));
         $i=-1; $tab= array();
+
         foreach ($entrepots as $entrepot){
             $i++;
             $tab[$i] = array('entrepot'=>$entrepot,'qtt'=>$em->createQuery('

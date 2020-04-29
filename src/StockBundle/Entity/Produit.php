@@ -34,7 +34,7 @@ class Produit
     /**
      * @var boolean
      *
-     * @ORM\Column(name="promotion", type="boolean", nullable=false)
+     * @ORM\Column(name="promotion", type="boolean", nullable=true)
      */
     private $promotion;
 
