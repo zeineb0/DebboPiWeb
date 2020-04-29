@@ -32,11 +32,12 @@ class ProduitController extends Controller
         $produits = $em->getRepository('StockBundle:Produit')->findBy(array('idUser'=>$user));
         $categorys = $em->getRepository('StockBundle:Categories')->findBy(array('idUser'=>$user));
         $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->findBy(array ('idUser'=>$user));
-        /*foreach ($produits as $produit){
 
+        foreach ($produits as $produit){
+            if ($produit->isPromotion()==0){
             $repo=$this->getDoctrine()->getManager()->getRepository('StockBundle:Produit');
-            $update=$repo->updatePrix($produit);
-        }*/
+            $update=$repo->updatePrix($produit);}
+        }
 
             return $this->render('@Stock/produit/index.html.twig', array(
             'produits' => $produits,

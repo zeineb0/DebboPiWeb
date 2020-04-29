@@ -32,6 +32,13 @@ class Produit
     private $libelle;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="promotion", type="boolean", nullable=false)
+     */
+    private $promotion;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="reference", type="integer", nullable=false)
@@ -324,6 +331,22 @@ class Produit
             // otherwise the event listeners won't be called and the file is lost
             $this->updatedAt = new \DateTimeImmutable();
         }
+    }
+
+    /**
+     * @return bool
+     */
+    public function isPromotion()
+    {
+        return $this->promotion;
+    }
+
+    /**
+     * @param bool $promotion
+     */
+    public function setPromotion($promotion)
+    {
+        $this->promotion = $promotion;
     }
 
 }

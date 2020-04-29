@@ -20,6 +20,7 @@ class ProduitRepository extends \Doctrine\ORM\EntityRepository
             return $this->createQueryBuilder('p')
                 ->update('StockBundle:produit','p')
                 ->set('p.prix', 'p.prix * 0.9')
+                ->set('p.promotion', 'true')
                 ->where('p.idProduit = ?0')
                 ->setParameter(0,$fk)
                 ->getQuery()
