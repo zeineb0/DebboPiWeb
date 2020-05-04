@@ -2,8 +2,12 @@
 
 namespace AppBundle\Controller;
 
+
+use NotificationBundle\Controller\BlogController;
+use NotificationBundle\Entity\Blog;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EntrepotBundle\Entity\Produit;
 
@@ -17,12 +21,11 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-         $produits=$em->getRepository(Produit::class)->findAll();
-
+        $produits=$em->getRepository(Produit::class)->findAll();
         return $this->render('@Commande/commande/produit.html.twig', array(
             'produits'=>$produits,
         ));
+
     }
 
     /**

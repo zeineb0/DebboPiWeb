@@ -8,6 +8,7 @@
     <meta property="og:title" content="Vide" />
     <meta name="keywords" content="Big store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
         function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- //for-mobile-apps -->
@@ -155,7 +156,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                         </div>
                                         <div class="col-sm-3 w3l">
-                                            <a href="{{ asset('kitchen.html') }}"><img src="images/me.png" class="img-responsive" alt=""></a>
+                                            <a href="{{ asset('kitchen.html') }}"><img src="{{ asset('images/me.png') }}" class="img-responsive" alt=""></a>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
@@ -175,7 +176,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                         </div>
                                         <div class="col-sm-3 w3l">
-                                            <a href="{{ asset ('care.html') }} "><img src="images/me1.png" class="img-responsive" alt=""></a>
+                                            <a href="{{ asset ('care.html') }} "><img src="{{ asset('images/me1.png') }}" class="img-responsive" alt=""></a>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
@@ -217,7 +218,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             </ul>
                                         </div>
                                         <div class="col-sm-3 w3l">
-                                            <a href="{{ asset ('hold.html') }}"><img src="images/me2.png" class="img-responsive" alt=""></a>
+                                            <a href="{{ asset ('hold.html') }}"><img src="{{ asset('images/me2.png') }}" class="img-responsive" alt=""></a>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
@@ -232,15 +233,120 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </ul>
                     </div>
                 </nav>
-                <div class="cart" >
 
+
+                <div class="cart"  style="margin-right: 50px; " >
+                    <style>
+                        #notif{
+                            height: 30px; width: 30px;
+                            border-radius: 50%;
+                        }
+                        #notif:hover{ background-color: #ddd;
+                        }
+
+                    </style>
+                <div id="notif" >
+                    <span  style=" color: mediumseagreen;  " class="fa fa-bell"></span>
+                    <span id="count" style="position: absolute; margin-top: 10px" class="badge badge-notify my-cart-badge"></span>
+                </div>
+
+                    <div id="listNotif" style="display: flex;  position:absolute; margin-top: 0px"  >
+
+                    </div>
+                </div>
+                <div class="cart">
                     <span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
                 </div>
+
                 <div class="clearfix"></div>
             </div>
 
         </div>
+
+
     </div>
+    <style>
+        ::-webkit-scrollbar {width: 5px;}
+        ::-webkit-scrollbar-track {box-shadow: inset 0 0 5px grey;
+            border-top-right-radius: 10px;border-bottom-right-radius: 10px;}
+        ::-webkit-scrollbar-thumb {background: green;border-top-right-radius: 10px;border-bottom-right-radius: 10px;}
+        ::-webkit-scrollbar-thumb:hover {background: #00A000;}
+        .blockNotification{
+        border-radius:5px;
+        box-shadow:0px 1px 5px 5px rgba(0, 0, 0, .2);
+        background-color: #fff;}
+        .blockNotification{
+            display: table;
+        }
+        .listNotification{
+            width: 240px; overflow-y:auto; overflow-x: hidden; display:flex; height: 300px;
+        }
+        .listNotification td{
+            background-color: #DDDDDD;
+            width: 220px;
+            margin: 5px;
+            margin-bottom: 0px;
+            border-radius: 5px;
+        }
+        .listNotification th {
+            position:fixed;
+        }
+    </style>
+    <script>
+
+                var listes = function(){
+                    $("#listNotif").append(
+
+                        '<div class="blockNotification" > <label style="width: 220px">Notification</label>' +
+                        '<table class="listNotification table"   id="block_notif" >'+
+                        '</table></div>'
+
+                    );
+                    $.ajax({
+                        type:"POST",
+                        url:"{{ path('blog_index') }}",
+                        success: function(reponse){
+                            if (!reponse.length)
+                            {
+                                $("#block_notif").append(
+                                    '<tr>' +
+                                    '<td>Pas de Notification</td>' +
+                                    '</tr>'
+                                );
+                            }
+                            else {
+                                $.each(reponse, function () {
+                                    $("#block_notif").append(
+
+                                            '<tr >'+
+                                            '<td style="float: left; ">' + this.title +' '+this.auteur + this.date+
+                                        '<p style=" white-space: nowrap;width: 200px;overflow: hidden;' +
+                                        'text-overflow: ellipsis;">' + this.description + '</p></td>' +
+                                            '</tr>'
+                                    )
+
+                                });
+
+                            }
+
+                        }
+                    });
+
+                };
+                $("#notif").click(function () {
+                    $("#listNotif").toggle();
+                });
+
+                $("#listNotif").load(listes());
+                setInterval(function () {
+                    $("#listNotif").empty();
+                    $("#listNotif").load(listes());
+                },10000);
+
+
+
+
+    </script>
     <!---->
     {#
     <div class="banner-top" data-vide-bg="{{ asset('video/video')}}">

@@ -24,6 +24,8 @@ class AppKernel extends Kernel
             new Ob\HighchartsBundle\ObHighchartsBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Skies\QRcodeBundle\SkiesQRcodeBundle(),
+            new SBC\NotificationsBundle\NotificationsBundle(),
+            new NotificationBundle\NotificationBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
