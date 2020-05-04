@@ -126,9 +126,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="head-t">
                 <ul class="card">
-                    <li><a href="{{ asset('wishlist.html') }}" ><i class="fa fa-heart" aria-hidden="true"></i>Favoris</a></li>
+
+
+                    <li>{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <a href="{{ path('fos_user_security_logout') }}">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                    <li><a href="{{ asset ('/DebboPiWeb/web/app_dev.php/profile') }}" ><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
+                    </a>
+                    {% else %}
+                        <a href="{{ path('fos_user_security_login') }}">  <i class="fa fa-sign-in" aria-hidden="true"></i>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                        <li><a href="{{ asset ('/DebboPiWeb/web/app_dev.php/register') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>S'enregistrer</a></li>
+                    {% endif %}
+                    </li>
+
+
+
+                    {#<li><a href="{{ asset('wishlist.html') }}" ><i class="fa fa-heart" aria-hidden="true"></i>Favoris</a></li>
                     <li><a href="{{ asset('/DebboPiWeb/web/app_dev.php/login') }}" ><i class="fa fa-user" aria-hidden="true"></i>Se connecter</a></li>
                     <li><a href="{{ asset('/DebboPiWeb/web/app_dev.php/register') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>S'enregistrer</a></li>
+#}
+
                 </ul>
             </div>
 
@@ -260,7 +278,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <p><i class="fa fa-home" aria-hidden="true"></i>ESPRIT EL GHAZELA</p>
                 </div>
                 <div class="col-md-4 fo-grid1">
-                    <p><i class="fa fa-phone" aria-hidden="true"></i>+216 22222222</p>
+                    <p><i class="fa fa-phone" aria-hidden="true"></i>+216 22 222 222</p>
                 </div>
                 <div class="col-md-4 fo-grid1">
                     <p><a href="{{ asset ('mailto:info@example.com') }}"><i class="fa fa-envelope-o" aria-hidden="true"></i>debbo@esprit.tn</a></p>
@@ -270,7 +288,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
         <div class="copy-right">
-            <p> &copy; 2016 Big store. All Rights Reserved | Design by  <a href="{{ asset ('http://w3layouts.com/') }}">WeDev</a></p>
+            <p> &copy; 2020 DeBBo. All Rights Reserved | Design by  <a href="{{ asset ('http://w3layouts.com/') }}">WeDev</a></p>
         </div>
     </div>
     </div>

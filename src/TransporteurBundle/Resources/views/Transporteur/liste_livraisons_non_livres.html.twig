@@ -23,6 +23,7 @@
                     <th scope="col">{{ knp_pagination_sortable(liste_livraison,'Adresse de la livraison','l.adresseLivraison') }}</th>
                     <th scope="col"> {{ knp_pagination_sortable(liste_livraison,'Etat de la livraison','l.etatLivraison') }} </th>
                     <th scope="col">{{ knp_pagination_sortable(liste_livraison,'Numero commande','l.fkCommande') }}</th>
+                    <th scope="col">{{ knp_pagination_sortable(liste_livraison,'Numero du client','l.tel') }}</th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
@@ -32,7 +33,9 @@
                         <td>{{ l.dateLivraison | date("d/m/Y") }}</td>
                         <td>{{ l.adresseLivraison }}</td>
                         <td>{{ l.etatLivraison }}</td>
-                        <td>{{ l.fkCommande.idCommande }}</td>
+                        <td>{{ l.idCommande }}</td>
+                        <td>{{ l.tel }}</td>
+
                         <td class="text-right">
 
                             <a class="btn btn-warning"  style="width: 100px"   href="{{  path("modifier_livraison",{"id":l.idLivraison})  }}"  {#data-toggle="modal" data-target="#edit"#}>

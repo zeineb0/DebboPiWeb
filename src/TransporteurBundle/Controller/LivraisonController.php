@@ -117,6 +117,22 @@ class LivraisonController extends Controller
     }
 
 
+    public  function pageLivraisonAffecterAction(Request $request)
+    {
+        $nbrLivraison=$this->getDoctrine()->getRepository(Livraison::class)->getNbrLivraisonNonAff();
+        $livraison=$this->getDoctrine()->getRepository(Livraison::class)->getLivraisonNonAff();
+        $pagination = $this->get('knp_paginator')->paginate(
+            $livraison, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            3 /*limit per page*/
+        );
+
+        return $this->render("@Transporteur/Fournisseur/list_livraison_affecter.html.twig",array("liste_livraison"=>$pagination,"nbr_livraison"=>$nbrLivraison));
+
+
+    }
+
+
 
 
 

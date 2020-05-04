@@ -14,7 +14,7 @@ class LivraisonRepository extends \Doctrine\ORM\EntityRepository
     public function getLivraisonByUserNotD($id)
     {
         $qb=$this->getEntityManager()
-            ->createQuery("select l from TransporteurBundle:livraison l where l.etatLivraison=?1 and l.fkUser=?2 ")
+            ->createQuery("select l.idLivraison , l.dateLivraison , l.adresseLivraison , l.etatLivraison , c.idCommande , u.tel from TransporteurBundle:livraison l JOIN l.fkCommande c JOIN c.idClient u where l.etatLivraison=?1 and l.fkUser=?2 ")
             ->setParameters(array(1=>'non livrée',2=>$id));
         return $query = $qb->getResult();
     }
@@ -23,7 +23,7 @@ class LivraisonRepository extends \Doctrine\ORM\EntityRepository
     public function getLivraisonByUserD($id)
     {
         $qb=$this->getEntityManager()
-            ->createQuery("select l from TransporteurBundle:livraison l where l.etatLivraison=?1 and l.fkUser=?2 ")
+            ->createQuery("select l.idLivraison , l.dateLivraison , l.adresseLivraison , l.etatLivraison , c.idCommande , u.tel from TransporteurBundle:livraison l JOIN l.fkCommande c JOIN c.idClient u where l.etatLivraison=?1 and l.fkUser=?2 ")
             ->setParameters(array(1=>'livrée',2=>$id));
         return $query = $qb->getResult();
     }
@@ -41,6 +41,25 @@ class LivraisonRepository extends \Doctrine\ORM\EntityRepository
         $qb=$this->getEntityManager()
             ->createQuery(" select COUNT(l.etatLivraison) NBR from TransporteurBundle:livraison l where l.etatLivraison=?1 and l.fkUser=?2 ")
             ->setParameters(array(1=>'non livrée',2=>$id));
+        return $query = $qb->getResult();
+
+    }
+
+
+    public function getNbrLivraisonNonAff()
+    {
+        $qb=$this->getEntityManager()
+            ->createQuery(" select COUNT(l.idLivraison ) NBR from TransporteurBundle:livraison l where l.acceptation=?1")
+        ->setParameters(array(1=>"non acceptée"));
+        return $query = $qb->getResult();
+
+    }
+
+    public function getLivraisonNonAff()
+    {
+        $qb=$this->getEntityManager()
+            ->createQuery(" select l.idLivraison , l.dateLivraison , l.adresseLivraison , l.etatLivraison , c.idCommande , u.tel from TransporteurBundle:livraison l JOIN l.fkCommande c JOIN c.idClient u where l.acceptation=?1")
+            ->setParameters(array(1=>"non acceptée"));
         return $query = $qb->getResult();
 
     }

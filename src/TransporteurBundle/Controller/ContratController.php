@@ -12,7 +12,7 @@ use TransporteurBundle\Form\LivraisonType;
 use Symfony\Component\Lock\Factory;
 use Symfony\Component\Lock\Store\SemaphoreStore;
 use Knp\Component\Pager\Paginator;
-use TransporteurBundle\Service\UtilsService;
+
 
 
 class ContratController extends Controller
@@ -63,7 +63,7 @@ class ContratController extends Controller
         $pagination = $this->get('knp_paginator')->paginate(
             $contrat, /* query NOT result */
             $request->query->getInt('page', 1), /*page number*/
-            1 /*limit per page*/
+            2 /*limit per page*/
         );
 
 

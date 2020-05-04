@@ -16,7 +16,7 @@ class SecurityController extends Controller
 
         if($authCheker ->isGranted('ROLE_SUPER_ADMIN'))
         {
-            return $this->render('@App/Security/Admin_home.html.twig');
+            return $this->redirectToRoute('admin_page');
 
         } else if ($authCheker ->isGranted('ROLE_ENTREPOT'))
         {
@@ -25,7 +25,8 @@ class SecurityController extends Controller
 
         } else if ($authCheker ->isGranted('ROLE_TRANSPORTEUR'))
         {
-            return $this->render('@App/Security/Transporteur_home.html.twig');
+           // return $this->render('@App/Security/Transporteur_home.html.twig');
+            return $this->redirectToRoute('livraison_calendar');
 
         } else if ($authCheker ->isGranted('ROLE_CLIENT'))
         {

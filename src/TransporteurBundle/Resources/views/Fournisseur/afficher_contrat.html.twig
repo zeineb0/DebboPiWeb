@@ -32,62 +32,6 @@
     </div>
 
 
-
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="edit" data-backdrop="static"  tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 style="text-align: center" class="modal-title" id="staticBackdropLabel">Modifier la durée du contrat</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-            {#    <form action="">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>Date Début :</label>
-                        <input type="date" class="form-control" name="date_deb"  >
-
-                    </div>
-                    <div class="form-group">
-                        <label>Date Fin :</label>
-                        <input type="date" class="form-control" name="date_fin" >
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
-                    <input type="submit" class="btn btn-warning" value="Modifier"/>
-                </div>
-                </form> #}
-
-
-                <div class="modal-body">
-                    {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
-                    <div style="display: block; margin: 100px; ">
-                        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-                        {{ form_widget(form) }}
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
-                    <input class="btn btn-success" type="submit" value="Ajouter" />
-                </div>
-                {{ form_end(form) }}
-
-
-
-            </div>
-        </div>
-    </div>
-
-
-
-
-
 <div class="product">
     <div class="container">
         <div class="spec ">
@@ -137,7 +81,7 @@
             </thead>
             <tbody>
             {% for c in liste_contrat %}
-                <tr class="table-light text-center " style="font-size: 1.2em">
+                <tr class="table-light text-center "  style="font-size: 1.2em ">
                     <td>{{ c.datedeb | date("d/m/Y") }}</td>
                     <td>{{ c.datefin | date("d/m/Y")}}</td>
                     <td>{{ c.salaire }}</td>

@@ -1,6 +1,10 @@
-transporteur_homepage:
-    path:     /
-    defaults: { _controller: TransporteurBundle:Default:index }
+
+
+#admin routing :
+
+admin_page:
+    path:     /adminPage
+    defaults: { _controller: TransporteurBundle:Admin:index }
 
 
 
@@ -41,6 +45,9 @@ livraison_calendar:
     path: /livraison
     defaults: {_controller: TransporteurBundle:Livraison:livraisonCalendar}
 
+livraison_affecter:
+    path: /livraisonAffecter
+    defaults: {_controller: TransporteurBundle:Livraison:pageLivraisonAffecter}
 
 
 # Contrat routing :

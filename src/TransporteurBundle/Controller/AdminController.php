@@ -4,7 +4,7 @@ namespace TransporteurBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+class AdminController extends Controller
 {
     public function indexAction()
     {
