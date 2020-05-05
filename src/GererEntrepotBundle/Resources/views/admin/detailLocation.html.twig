@@ -1,0 +1,42 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+
+    <table class="table table-striped">
+
+        <tbody>
+
+        <tr>
+            <th>Propriétaire Entrepot</th>
+            <td>{{ location.fkEntrepot.getId.Prenom }} {{ location.fkEntrepot.getId.Nom }}</td>
+        </tr>
+        <tr>
+            <th>Entreprise</th>
+            <td>{{ location.fkEntrepot.Entreprise }}</td>
+        </tr>
+        <tr>
+            <th>Adresse</th>
+            <td>{{ location.fkEntrepot.adresse }}</td>
+        </tr>
+        <tr>
+            <th>Prix/mois</th>
+            <td>{{ location.fkEntrepot.prixLocation }}</td>
+        </tr>
+        <tr>
+            <th>Date de debut location</th>
+            <td>{% if location.dateDebLocation %}{{ location.dateDebLocation|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Date de fin location</th>
+            <td>{% if location.dateFinLocation %}{{ location.dateFinLocation|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Prix location</th>
+            <td>{{ location.prixLocation }}</td>
+        </tr>
+
+    </table>
+
+
+
+{% endblock %}

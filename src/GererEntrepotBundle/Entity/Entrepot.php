@@ -208,5 +208,8 @@ class Entrepot
         $this->id = $id;
     }
 
+    public function __toString()
+    {
+return  $this->entreprise;  }
 
 }

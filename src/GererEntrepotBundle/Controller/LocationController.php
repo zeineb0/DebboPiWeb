@@ -197,7 +197,40 @@ class LocationController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
+    /**
+     * Displays a form to edit an existing entrepot entity.
+     *
+     * @Route("admin/location/statistic", name="location_statistic")
+     * @Method({"GET", "POST"})
+     */
+    public function staticticlocAction(Request $request)
+    {
 
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery('
+        SELECT COUNT(c) cnt FROM GererEntrepotBundle:Location c 
+        
+      ');
+
+        $quantite = $query->getResult();
+
+
+        $query3 = $em->createQuery('
+        SELECT COUNT(c) cnt FROM GererEntrepotBundle:Entrepot c 
+        
+        WHERE c.etat =:item')
+            ->setParameter('item','En Attente');
+
+        $quantite3 = $query3->getResult();
+
+        return $this->render('@GererEntrepot/admin/staticticLocation.html.twig', array(
+
+            'quantite' => $quantite[0],
+
+            'quantite3'=>$quantite3[0]));
+
+
+    }
     /**
      * liste des locations pour l'admin .
      * @Route("/admin/location", name="location_admin")
@@ -211,6 +244,42 @@ class LocationController extends Controller
         ));
 
     }
+
+    /**
+     * Deletes a entrepot entity.
+     *
+     * @Route("admin/location/{id}/delete", name="location_admin_delete")
+     * @Method("DELETE")
+     */
+    public function deleteAdminAction( $idLocation)
+    {
+        $form = $this->getDoctrine()->getRepository(Location::class)->findBy(array("idEntrepot"=>$idLocation));
+        $em=$this->getDoctrine()->getManager();
+        foreach($form as $product) {
+            $em->remove($product);
+        }
+
+        $em->flush();
+
+        return $this->redirectToRoute('location_admin');
+    }
+    /**
+     * Finds and displays a entrepot entity.
+     *
+     * @Route("admin /location/{id}", name="location_admin_details")
+     * @Method("GET")
+     */
+    public function detailEntrepotAdminAction(Location $location)
+    {
+        $deleteForm = $this->createDeleteForm($location);
+
+        return $this->render('@GererEntrepot/admin/detailLocation.html.twig', array(
+            'location' => $location,
+            'delete_form' => $deleteForm->createView()
+        ));
+    }
+
+
     /**
      * Deletes a location entity.
      *

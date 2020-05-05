@@ -163,10 +163,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <ul class="multi-column-dropdown">
+                                                <li><a href="{{ asset('app_dev.php/entrepot') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Consulter mes entrepots</a></li>
+                                                <li><a href="{{ asset('app_dev.php/entrepot/alouer') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Consulter les entrepots a louer</a></li>
+                                                <li><a href="{{ asset('app_dev.php/entrepot/loue') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Consulter mes entrepots loués</a></li>
+                                            </ul>
 
-                                                <li><a href="{{ asset('app_dev.php/entrepot') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Gestion Entrepot</a></li>
-                                                <li><a href="{{ asset('app_dev.php/location') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Gestion Location</a></li>
-
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="{{ asset('app_dev.php/location') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Consulter mes locations</a></li>
+                                                <li><a href="{{ asset('app_dev.php/entrepot/demande') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Consulter les demandes de location</a></li>
                                             </ul>
 
                                         </div>
@@ -296,5 +302,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     </div>
     <!-- //footer-->
+
 {% endblock %}
 {% block javascripts %}{% endblock %}
