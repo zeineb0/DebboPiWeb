@@ -3,7 +3,7 @@
 #admin routing :
 
 admin_page:
-    path:     /adminPage
+    path:     /admin
     defaults: { _controller: TransporteurBundle:Admin:index }
 
 
