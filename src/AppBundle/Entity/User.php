@@ -105,18 +105,19 @@ class User extends BaseUser
     /**
      * @return int
      */
-    public function getIdUser()
+    public function getId()
     {
-        return $this->idUser;
+        return $this->id;
     }
 
     /**
-     * @param int $idUser
+     * @param int $id
      */
-    public function setIdUser($idUser)
+    public function setId($id)
     {
-        $this->idUser = $idUser;
+        $this->id = $id;
     }
+
 
     /**
      * @return string

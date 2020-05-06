@@ -20,10 +20,7 @@
 <div class="content-mid">
     <div class="container">
 
-                {% for user in users %}
-                    {% if user.id == idconnected  %}
                         {% for category in categories %}
-                            {% if user == category.idUser  %}
 
                                 <div class="col-md-4 m-w3ls">
 
@@ -41,9 +38,6 @@
                                     </div>
 
                                 </div>
-                            {% endif %}
-                        {% endfor %}
-                    {% endif %}
                 {% endfor %}
             </div>
         </div>

@@ -8,8 +8,13 @@ use EntrepotBundle\Entity\Entrepot;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 /**
  * Produit controller.
@@ -45,6 +50,36 @@ class ProduitController extends Controller
                 'entrepots'=>$entrepots,
           ));
     }
+    public function allAction(){
+
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('StockBundle:Produit')->findAll();
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonContent = $serializer->serialize($categories, 'json');
+        echo $jsonContent;
+        return new Response($jsonContent);
+    }
+    public function ajouterAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $produit = new Produit();
+       $produit->setLibelle($request->get('libelle'));
+       $produit->setMarque($request->get('marque'));
+       $produit->setPrix($request->get('prix'));
+       $produit->setFkEntrepot($request->get('fkEntrepot'));
+       $produit->setReference($request->get('reference'));
+       $produit->setImageName($request->get('imageName'));
+       $produit->setQuantite($request->get('quantite'));
+       $produit->setIdUser($request->get('idUser'));
+        //$produit->setFkCategorie($request->get('fkCategorie'));
+        $em->persist($produit);
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($produit);
+        return new JsonResponse($formatted);
+
+    }
 
     /**
      * Creates a new produit entity.
@@ -64,6 +99,7 @@ class ProduitController extends Controller
             $em = $this->getDoctrine()->getManager();
             $id = $this->getUser();
             $produit->setIdUser($id);
+            $produit->setPromotion(0);
            /* $fk=$produit->getFkEntrepot();
             echo $fk;*/
             $em->persist($produit);

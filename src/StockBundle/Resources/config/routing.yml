@@ -7,6 +7,18 @@ stock_category:
 category_sho:
     path:     /categories_show
     defaults: { _controller: StockBundle:Categories:show }
+rcategory_sho:
+    path:     /allC
+    defaults: { _controller: StockBundle:Categories:all }
+prcategory_sho:
+    path:     /allP
+    defaults: { _controller: StockBundle:Produit:all }
+rfcategory_sho:
+    path:     /newC
+    defaults: { _controller: StockBundle:Categories:ajouter }
+rpfcategory_sho:
+    path:     /newP
+    defaults: { _controller: StockBundle:Produit:ajouter }
 category_sho1:
     path:     /categories_new
     defaults: { _controller: StockBundle:Categories:new }

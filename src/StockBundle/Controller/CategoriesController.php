@@ -7,6 +7,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
 
 /**
  * Category controller.
@@ -24,13 +29,26 @@ class CategoriesController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $idconnected = $this->getUser()->getId();
-        $users = $em->getRepository('AppBundle:User')->findAll();
-        $categories = $em->getRepository('StockBundle:Categories')->findAll();
-
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $categories = $em->getRepository('StockBundle:Categories')->findBy(array('idUser'=>$user));
         return $this->render('@Stock/categories/index.html.twig', array(
-            'categories' => $categories,'idconnected'=>$idconnected, 'users'=>$users
+            'categories' => $categories
         ));
+
+
+    }
+    public function allAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $categories = $em->getRepository('StockBundle:Categories')->findAll();
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonContent = $serializer->serialize($categories, 'json');
+        echo $jsonContent;
+        return new Response($jsonContent);
+
     }
 
     /**
@@ -59,6 +77,22 @@ class CategoriesController extends Controller
             'categories' => $categories,
             'form' => $form->createView(),
         ));
+    }
+    public function ajouterAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $categories = new Categories();
+        //  $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $categories->setNom($request->get('nom'));
+        $categories->setFkEntrepot($request->get('fkEntrepot'));
+        $categories->setIdUser($request->get('idUser'));
+        // $categories->setIdUser($user);
+        $categories->setImageName($request->get('imageName'));
+        $em->persist($categories);
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($categories);
+        return new JsonResponse($formatted);
+
     }
 
     /**
