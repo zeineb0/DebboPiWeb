@@ -1,0 +1,50 @@
+
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<div class="product">
+    <div class="container">
+        <div class="spec ">
+            <h3> Espace des livraisons</h3>
+            <div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>
+        </div>
+        <br/>
+
+        <form action="">
+
+            <label style="margin-bottom: 20px"> <h3> CHoisissez l'adresse et la date de la livraison : </h3></label>
+            <br/>
+            <div class="form-group row">
+                <div class="col-md-4">
+                    <input class="form-control" type="date" value="2020-05-05" name="dateLiv">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4">
+                    <input class="form-control" type="text" value="" name="adresse">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4">
+                    <input type="submit" class="btn btn-info" style="text-align: center" value="Chercher un Transporteur"/>
+                </div>
+            </div>
+        </form>
+
+
+        <h2>
+            {{ livraison.idLivraison }}
+        </h2>
+
+
+
+
+    </div>
+</div>
+{% endblock %}
+
+

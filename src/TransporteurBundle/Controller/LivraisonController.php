@@ -134,6 +134,17 @@ class LivraisonController extends Controller
 
 
 
+    public function affecterLivraisonAction($id)
+    {
+        $livraison=$this->getDoctrine()->getRepository(Livraison::class)->find($id);
+
+
+
+        return $this->render("@Transporteur/Fournisseur/affecter_livraison.html.twig",array("livraison"=>$livraison));
+    }
+
+
+
 
 
 

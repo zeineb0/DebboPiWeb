@@ -49,6 +49,12 @@ livraison_affecter:
     path: /livraisonAffecter
     defaults: {_controller: TransporteurBundle:Livraison:pageLivraisonAffecter}
 
+affecter_livraison:
+    path: /AffecterLivraison/{id}
+    defaults: {_controller: TransporteurBundle:Livraison:affecterLivraison}
+
+
+
 
 # Contrat routing :
 
