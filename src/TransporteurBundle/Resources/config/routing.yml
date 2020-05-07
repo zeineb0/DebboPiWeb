@@ -53,6 +53,11 @@ affecter_livraison:
     path: /AffecterLivraison/{id}
     defaults: {_controller: TransporteurBundle:Livraison:affecterLivraison}
 
+recherche_transporteur:
+    path: /recherche
+    defaults: {_controller: TransporteurBundle:Livraison:getTransporteur}
+
+
 
 
 

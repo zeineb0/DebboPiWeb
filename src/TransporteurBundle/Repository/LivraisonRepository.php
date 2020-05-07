@@ -64,6 +64,15 @@ class LivraisonRepository extends \Doctrine\ORM\EntityRepository
 
     }
 
+    public function getTransporteur($adresse,$date)
+    {
+        $qb=$this->getEntityManager()
+            ->createQuery("select u.nom , u.prenom from TransporteurBundle:livraison l JOIN l.fkUser u where l.adresseLivraison=?1 and l.dateLivraison=?2")
+            ->setParameters(array(1=>$adresse,2=>$date));
+        return $query = $qb->getResult();
+
+    }
+
 
 
 

@@ -9,6 +9,9 @@ use TransporteurBundle\Entity\Livraison;
 use TransporteurBundle\Form\LivraisonType;
 use Symfony\Component\Lock\Factory;
 use Symfony\Component\Lock\Store\SemaphoreStore;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 
 class LivraisonController extends Controller
@@ -138,9 +141,19 @@ class LivraisonController extends Controller
     {
         $livraison=$this->getDoctrine()->getRepository(Livraison::class)->find($id);
 
-
-
         return $this->render("@Transporteur/Fournisseur/affecter_livraison.html.twig",array("livraison"=>$livraison));
+    }
+
+
+    public function getTransporteurAction(Request $request)
+    {
+
+        $transporteur=$this->getDoctrine()->getRepository(Livraison::class)->getTransporteur($request->get('adresse'),$request->get('dateLiv'));
+
+        $serializer=new Serializer([new ObjectNormalizer()]);
+        $formatted= $serializer->normalize($transporteur);
+        return new JsonResponse($formatted);
+
     }
 
 

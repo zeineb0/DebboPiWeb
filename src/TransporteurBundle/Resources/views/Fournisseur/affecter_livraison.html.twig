@@ -14,37 +14,77 @@
         </div>
         <br/>
 
-        <form action="">
+
 
             <label style="margin-bottom: 20px"> <h3> CHoisissez l'adresse et la date de la livraison : </h3></label>
             <br/>
             <div class="form-group row">
                 <div class="col-md-4">
-                    <input class="form-control" type="date" value="2020-05-05" name="dateLiv">
+                    <input class="form-control" type="date" value="2020-05-05" id="dateLiv">
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-md-4">
-                    <input class="form-control" type="text" value="" name="adresse">
+                    <input class="form-control" type="text" value="" id="adress">
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-md-4">
-                    <input type="submit" class="btn btn-info" style="text-align: center" value="Chercher un Transporteur"/>
+                    <button id="affecter" class="btn btn-info">Chercher un Transporteur</button>
                 </div>
             </div>
-        </form>
 
 
-        <h2>
+
+       {# <h2>
             {{ livraison.idLivraison }}
-        </h2>
+        </h2>#}
 
+        <div >
+            <ul id="transp">
+
+            </ul>
+
+        </div>
 
 
 
     </div>
 </div>
+
+
+
+    <script>
+
+
+        $("#affecter").click(function () {
+
+            var dateLiv = $("#dateLiv").val();
+            var adresse = $("#adress").val();
+            $.ajax({
+                url: "http://localhost/DebboPiWeb/web/app_dev.php/Transporteur/recherche?dateLiv="+dateLiv+"&adresse="+adresse,
+                type:"GET",
+               // data:{dateLiv:"2020-04-16",adresse:"beja"},
+                success:function (retour) {
+                    onSuccess(retour);
+
+                }
+            });
+
+            function onSuccess(retour) {
+                let html = "";
+                $.each(retour, function(k, v){
+                    html += `<li> ${ v.nom } <a class="btn btn-warning"  style="width: 100px">
+                                    <i class="fa fa-pencil-square fa-lg" ></i> Affecter</a>
+                        </li>
+                        <br />`
+                })
+                $("#transp").html(html);
+            }
+
+        });
+
+    </script>
 {% endblock %}
 
 
