@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Blog
  *
- * @ORM\Table(name="blog")
+ * @ORM\Table(name="blog",indexes={@ORM\Index(name="fkUser", columns={"idUser"})})
  * @ORM\Entity(repositoryClass="NotificationBundle\Repository\BlogRepository")
  */
 class Blog
@@ -40,6 +40,18 @@ class Blog
      * @ORM\Column(name="auteur", type="string")
      */
        private $auteur;
+
+    /**
+     * @var \Utilisateur
+     *
+     * @ORM\ManyToOne(targetEntity="EntrepotBundle\Entity\Utilisateur")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idUser", referencedColumnName="id_user")
+     * })
+     */
+    private $idUser;
+
+
     /**
      * Get id
      *
@@ -113,5 +125,23 @@ class Blog
     {
         $this->auteur = $auteur;
     }
+
+    /**
+     * @return \Utilisateur
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
+
+    /**
+     * @param \Utilisateur $idUser
+     */
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
+    }
+
+
 }
 

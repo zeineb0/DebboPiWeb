@@ -247,7 +247,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </style>
                 <div id="notif" >
                     <span  style=" color: mediumseagreen;  " class="fa fa-bell"></span>
-                    <span id="count" style="position: absolute; margin-top: 10px" class="badge badge-notify my-cart-badge"></span>
+                    <span id="count" style="position: absolute; margin-top: 10px" class="badge "></span>
                 </div>
 
                     <div id="listNotif" style="display: flex;  position:absolute; margin-top: 0px"  >
@@ -293,57 +293,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
     </style>
     <script>
+        $("document").ready(function () {
 
-                var listes = function(){
-                    $("#listNotif").append(
+            var listes = function(){
+                $("#listNotif").append(
 
-                        '<div class="blockNotification" > <label style="width: 220px">Notification</label>' +
-                        '<table class="listNotification table"   id="block_notif" >'+
-                        '</table></div>'
+                    '<div class="blockNotification" > <label style="width: 220px">Notification</label>' +
+                    '<table class="listNotification table"   id="block_notif" >'+
+                    '</table></div>'
 
-                    );
-                    $.ajax({
-                        type:"POST",
-                        url:"{{ path('blog_index') }}",
-                        success: function(reponse){
-                            if (!reponse.length)
-                            {
+                );
+                $.ajax({
+                    type:"POST",
+                    url:"{{ path('blog_index') }}",
+                    success: function(reponse){
+                        $("#count").text(reponse[0]['count']);
+                        if (!reponse.length)
+                        {
+                            $("#block_notif").append(
+                                '<tr>' +
+                                '<td>Pas de Notification</td>' +
+                                '</tr>'
+                            );
+                        }
+                        else {
+                            $.each(reponse, function () {
                                 $("#block_notif").append(
-                                    '<tr>' +
-                                    '<td>Pas de Notification</td>' +
+
+                                    '<tr  >'+
+                                    '<td  style="float: left; "><b>' + this.auteur +'</b> à '+ this.title +
+                                    '<p style=" white-space: nowrap;width: 200px;overflow: hidden;' +
+                                    'text-overflow: ellipsis;">' + this.description + '</p>' +
+                                    '<p style="color:blue;">' + this.date + '</p></td>' +
                                     '</tr>'
-                                );
-                            }
-                            else {
-                                $.each(reponse, function () {
-                                    $("#block_notif").append(
+                                )
 
-                                            '<tr >'+
-                                            '<td style="float: left; ">' + this.title +' '+this.auteur + this.date+
-                                        '<p style=" white-space: nowrap;width: 200px;overflow: hidden;' +
-                                        'text-overflow: ellipsis;">' + this.description + '</p></td>' +
-                                            '</tr>'
-                                    )
-
-                                });
-
-                            }
+                            });
 
                         }
-                    });
 
-                };
-                $("#notif").click(function () {
-                    $("#listNotif").toggle();
+                    }
                 });
 
+            };
+            $("#notif").click(function () {
+                $("#listNotif").toggle();
+            });
+            $("#listNotif").load(listes());
+            setInterval(function () {
+                $("#listNotif").empty();
                 $("#listNotif").load(listes());
-                setInterval(function () {
-                    $("#listNotif").empty();
-                    $("#listNotif").load(listes());
-                },10000);
+            },60000);
 
-
+        });
 
 
     </script>

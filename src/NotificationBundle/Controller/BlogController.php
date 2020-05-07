@@ -19,6 +19,11 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class BlogController extends Controller
 {
+
+
+
+
+
     /**
      * Lists all blog entities.
      *
@@ -31,10 +36,16 @@ class BlogController extends Controller
         $blogs = $em->createQuery(
             'select n.date date,b.title title, b.description description, b.auteur auteur
             from NotificationBundle:Notification n inner join 
-         NotificationBundle:Blog  b  where n.idUser=:item and (b.id = n.parameters)'
+         NotificationBundle:Blog  b  where b.idUser=:item and (b.id = n.parameters) order by date desc'
         )->setParameter('item',$user)->getResult();
+            $NBR = $em->createQuery(
+            'select COUNT(n) nbr
+                from NotificationBundle:Notification n inner join 
+             NotificationBundle:Blog  b  where (b.idUser=:item and (n.seen = 0)) and (b.id = n.parameters)'
+          )->setParameter('item',$user)->getResult();
 
         $data= array();
+        $data[0]['count']= $NBR[0]['nbr'];
         foreach ($blogs as $key => $blog)
         {
             $data[$key]['title'] = $blog['title'];
@@ -42,6 +53,7 @@ class BlogController extends Controller
             $data[$key]['auteur'] = $blog['auteur'];
             $date=$blog['date'];
             $data[$key]['date'] = $date->format('H:i Y-m-d');
+
         }
         return  new JsonResponse($data);
     }
@@ -60,16 +72,17 @@ class BlogController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $user = $this->container->get('security.token_storage')->getToken()->getUser();
+            $blog->setIdUser($user);
             $em->persist($blog);
             $em->flush();
-            $user = $this->container->get('security.token_storage')->getToken()->getUser();
+
             $notification = new Notification();
             $notification
                 ->setTitle('New comment')
                 ->setDescription($blog->getTitle())
                 ->setRoute('blog_show')// I suppose you have a show route for your entity
-                ->setParameters($blog)
-                ->setIdUser(null);
+                ->setParameters($blog);
           $em->persist($notification);
           $em->flush();
 

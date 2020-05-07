@@ -8,7 +8,7 @@ use SBC\NotificationsBundle\Model\BaseNotification;
 /**
  * Notification
  *
- * @ORM\Table(name="notification",indexes={@ORM\Index(name="fkUser", columns={"idUser"})})
+ * @ORM\Table(name="notification")
  * @ORM\Entity(repositoryClass="NotificationBundle\Repository\NotificationRepository")
  */
 class Notification extends BaseNotification
@@ -22,15 +22,6 @@ class Notification extends BaseNotification
      */
     protected $id;
 
-    /**
-     * @var \Utilisateur
-     *
-     * @ORM\ManyToOne(targetEntity="EntrepotBundle\Entity\Utilisateur")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idUser", referencedColumnName="id_user")
-     * })
-     */
-    private $idUser;
 
     /**
      * Get id
@@ -42,21 +33,6 @@ class Notification extends BaseNotification
         return $this->id;
     }
 
-    /**
-     * @return \Utilisateur
-     */
-    public function getIdUser()
-    {
-        return $this->idUser;
-    }
-
-    /**
-     * @param \Utilisateur $idUser
-     */
-    public function setIdUser($idUser)
-    {
-        $this->idUser = $idUser;
-    }
 
 }
 
