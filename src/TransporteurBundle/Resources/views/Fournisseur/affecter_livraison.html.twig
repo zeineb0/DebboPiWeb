@@ -16,7 +16,7 @@
 
 
 
-            <label style="margin-bottom: 20px"> <h3> CHoisissez l'adresse et la date de la livraison : </h3></label>
+            <label style="margin-bottom: 20px"> <h3> Choisissez l'adresse et la date de la livraison : </h3></label>
             <br/>
             <div class="form-group row">
                 <div class="col-md-4">
@@ -40,8 +40,8 @@
             {{ livraison.idLivraison }}
         </h2>#}
 
-        <div >
-            <ul id="transp">
+        <div class="col-lg-6" style="margin-top: 2px" >
+            <ul id="transp" class="list-group list-group-flush">
 
             </ul>
 
@@ -53,10 +53,7 @@
 </div>
 
 
-
     <script>
-
-
         $("#affecter").click(function () {
 
             var dateLiv = $("#dateLiv").val();
@@ -74,12 +71,34 @@
             function onSuccess(retour) {
                 let html = "";
                 $.each(retour, function(k, v){
-                    html += `<li> ${ v.nom } <a class="btn btn-warning"  style="width: 100px">
-                                    <i class="fa fa-pencil-square fa-lg" ></i> Affecter</a>
+                   // var idUser= ${v.id};
+                    html += `<li class="list-group-item "> <p id="idLiv">${v.id}</p> <p style="margin-bottom: 1px">Nom : ${ v.nom }</p> <br/><p style="margin-bottom: 1px"> Prenom : ${ v.prenom }</p> <br/><p style="margin-bottom: 4px"> Téléphone : ${ v.tel }</p> <br/>
+                                <button id="edit" class="btn btn-warning text-right " style="width: 100px ">
+                                <i class="fa fa-pencil-square fa-lg" ></i> Affecter</button>
                         </li>
                         <br />`
                 })
                 $("#transp").html(html);
+                $("document").ready(function () {
+                    $("#edit").click(function () {
+                        var idUser = $("#idLiv").val();
+
+                        $.ajax({
+                            url: "http://localhost/DebboPiWeb/web/app_dev.php/Transporteur/modifierLiv?dateLiv="+dateLiv+"&idUser="+idUser+"&id="+{{ livraison.idLivraison }},
+                            type:"GET",
+                            // data:{dateLiv:"2020-04-16",adresse:"beja"},
+                            success:function (retour) {
+                                onSuccess(retour);
+
+                            }
+                        });
+
+
+
+                    })
+
+                })
+
             }
 
         });

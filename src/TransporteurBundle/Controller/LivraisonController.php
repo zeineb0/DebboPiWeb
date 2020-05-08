@@ -156,6 +156,17 @@ class LivraisonController extends Controller
 
     }
 
+    public function modifierLivraisonAction(Request $request)
+    {
+        //$livraison=$this->getDoctrine()->getRepository(Livraison::class)->find($id);
+        $em=$this->getDoctrine()->getManager();
+        $em->getRepository(Livraison::class)->modifierLivraison($request->get('dateLiv'),$request->get('idUser'),$request->get('id'));
+        $em->flush();
+        return $this->redirectToRoute('livraison_affecter');
+
+
+    }
+
 
 
 

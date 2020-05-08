@@ -57,6 +57,11 @@ recherche_transporteur:
     path: /recherche
     defaults: {_controller: TransporteurBundle:Livraison:getTransporteur}
 
+modifier_livraison_aff:
+    path: /modifierLiv
+    defaults: {_controller: TransporteurBundle:Livraison:modifierLivraison}
+
+
 
 
 
