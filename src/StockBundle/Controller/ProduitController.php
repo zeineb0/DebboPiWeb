@@ -72,7 +72,8 @@ class ProduitController extends Controller
        $produit->setImageName($request->get('imageName'));
        $produit->setQuantite($request->get('quantite'));
        $produit->setIdUser($request->get('idUser'));
-        //$produit->setFkCategorie($request->get('fkCategorie'));
+        $categories = $em->getRepository('StockBundle:Categories')->find($request->get('fkCategorie'));
+        $produit->setFkCategorie($categories);
         $em->persist($produit);
         $em->flush();
         $serializer = new Serializer([new ObjectNormalizer()]);
