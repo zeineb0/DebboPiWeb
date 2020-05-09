@@ -67,7 +67,7 @@ class LivraisonRepository extends \Doctrine\ORM\EntityRepository
     public function getTransporteur($adresse,$date)
     {
         $qb=$this->getEntityManager()
-            ->createQuery("select u.id , u.nom , u.prenom , u.tel from TransporteurBundle:livraison l JOIN l.fkUser u where l.adresseLivraison=?1 and l.dateLivraison=?2")
+            ->createQuery("select DISTINCT u.id , u.nom , u.prenom , u.tel from TransporteurBundle:livraison l JOIN l.fkUser u where l.adresseLivraison=?1 and l.dateLivraison=?2")
             ->setParameters(array(1=>$adresse,2=>$date));
         return $query = $qb->getResult();
 
@@ -79,7 +79,13 @@ class LivraisonRepository extends \Doctrine\ORM\EntityRepository
             ->createQuery("Update TransporteurBundle:livraison l SET l.dateLivraison=?1 , l.fkUser=?2 , l.acceptation=?3  where l.idLivraison=?4")
             ->setParameters(array(1=>$date,2=>$idUser,3=>"acceptée",4=>$id));
         return $query = $qb->getResult();
+    }
 
+    public function getLivraisonParRegion()
+    {
+        $qb=$this->getEntityManager()
+            ->createQuery("select COUNT(l.idLivraison) AS LBR , l.adresseLivraison AS adresse from TransporteurBundle:livraison l GROUP BY adresse ");
+        return $query = $qb->getResult();
 
     }
 

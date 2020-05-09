@@ -45,8 +45,19 @@
 
     <script>
 
+        var region =[];
+        var nbr =[];
+        {% for r in stat %}
+            region.push( "{{ r.adresse}}" );
+            nbr.push( {{ r.LBR}} );
+        {% endfor %}
+
+
+
+
+
         var areaChartData = {
-            labels  : ['Ariana', 'Tunis', 'Sfax', 'Sousse', 'Nabeul', 'Mahdia', 'Bizerte','Beja','Zaghouane'],
+            labels  :  region,   //['Ariana', 'Tunis', 'Sfax', 'Sousse', 'Nabeul', 'Mahdia', 'Bizerte','Beja','Zaghouane'],
             datasets: [
                 {
                     label               : 'Livraisons',
@@ -57,7 +68,7 @@
                     pointStrokeColor    : 'rgba(60,141,188,1)',
                     pointHighlightFill  : '#fff',
                     pointHighlightStroke: 'rgba(60,141,188,1)',
-                    data                : [28, 48, 40, 19, 86, 27, 90]
+                    data                :   nbr  //[28, 48, 40, 19, 86, 27, 90]
                 },
 
             ]

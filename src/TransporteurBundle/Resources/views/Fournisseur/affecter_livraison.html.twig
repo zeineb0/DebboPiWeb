@@ -40,10 +40,15 @@
             {{ livraison.idLivraison }}
         </h2>#}
 
-        <div class="col-lg-6" style="margin-top: 2px" >
-            <ul id="transp" class="list-group list-group-flush">
+        <div id="transp" class="col-lg-6" style="margin-top: 2px" >
+            <p id="result"></p>
 
-            </ul>
+
+
+
+
+
+
 
         </div>
 
@@ -58,48 +63,64 @@
 
             var dateLiv = $("#dateLiv").val();
             var adresse = $("#adress").val();
+            var result ="il n y a aucun transporteur";
             $.ajax({
                 url: "http://localhost/DebboPiWeb/web/app_dev.php/Transporteur/recherche?dateLiv="+dateLiv+"&adresse="+adresse,
                 type:"GET",
                // data:{dateLiv:"2020-04-16",adresse:"beja"},
                 success:function (retour) {
+                    if (!Array.isArray(retour) || !retour.length)
+                    {
+                        $("#result").append(result);
+                        return;
+                    }
                     onSuccess(retour);
+
 
                 }
             });
 
             function onSuccess(retour) {
+                $("#result").empty();
                 let html = "";
                 $.each(retour, function(k, v){
-                   // var idUser= ${v.id};
-                    html += `<li class="list-group-item "> <p id="idLiv">${v.id}</p> <p style="margin-bottom: 1px">Nom : ${ v.nom }</p> <br/><p style="margin-bottom: 1px"> Prenom : ${ v.prenom }</p> <br/><p style="margin-bottom: 4px"> Téléphone : ${ v.tel }</p> <br/>
-                                <button id="edit" class="btn btn-warning text-right " style="width: 100px ">
-                                <i class="fa fa-pencil-square fa-lg" ></i> Affecter</button>
-                        </li>
-                        <br />`
-                })
-                $("#transp").html(html);
-                $("document").ready(function () {
+                    html += ` <ul id="#ul" class="list-group list-group-flush">
+                    <li id="idLiv" class="list-group-item " value="${v.id}"></li>
+
+                    <li id="nom" class="list-group-item " >Nom : ${ v.nom }</li>
+                    <li id="prenom" class="list-group-item " > Prenom : ${ v.prenom }</li>
+                    <li id="tel" class="list-group-item " > Téléphone : ${ v.tel }</li>
+
+                            <li class="list-group-item ">  <button id="edit" class="btn btn-warning text-right " style="width: 100px ">
+                                    <i class="fa fa-pencil-square fa-lg" ></i> Affecter</button>
+                                 </li>
+
+
+                        <br />
+                        </ul>
+                        `
+
+
+                });
+
+                $("#transp").append(html);
                     $("#edit").click(function () {
-                        var idUser = $("#idLiv").val();
+                        var idUser = $("#idLiv").attr('value');
 
                         $.ajax({
                             url: "http://localhost/DebboPiWeb/web/app_dev.php/Transporteur/modifierLiv?dateLiv="+dateLiv+"&idUser="+idUser+"&id="+{{ livraison.idLivraison }},
                             type:"GET",
-                            // data:{dateLiv:"2020-04-16",adresse:"beja"},
                             success:function (retour) {
-                                onSuccess(retour);
-
+                                window.location.href = 'http://localhost/DebboPiWeb/web/app_dev.php/Transporteur/livraisonAffecter';
+                                return false;
                             }
                         });
 
+                    });
 
-
-                    })
-
-                })
 
             }
+
 
         });
 
