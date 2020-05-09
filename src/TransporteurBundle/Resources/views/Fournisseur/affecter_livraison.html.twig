@@ -40,8 +40,10 @@
             {{ livraison.idLivraison }}
         </h2>#}
 
+        <h3 id="result" style="margin-top: 20px"></h3>
+
         <div id="transp" class="col-lg-6" style="margin-top: 2px" >
-            <p id="result"></p>
+
 
 
 
@@ -60,10 +62,11 @@
 
     <script>
         $("#affecter").click(function () {
+            $("#transp").empty();
 
             var dateLiv = $("#dateLiv").val();
             var adresse = $("#adress").val();
-            var result ="il n y a aucun transporteur";
+            var result ="il n'y a aucun transporteur";
             $.ajax({
                 url: "http://localhost/DebboPiWeb/web/app_dev.php/Transporteur/recherche?dateLiv="+dateLiv+"&adresse="+adresse,
                 type:"GET",
@@ -71,7 +74,9 @@
                 success:function (retour) {
                     if (!Array.isArray(retour) || !retour.length)
                     {
+
                         $("#result").append(result);
+
                         return;
                     }
                     onSuccess(retour);
