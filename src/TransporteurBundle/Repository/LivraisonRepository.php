@@ -89,6 +89,14 @@ class LivraisonRepository extends \Doctrine\ORM\EntityRepository
 
     }
 
+    public function getNbrLivraisonTOT()
+    {
+        $qb=$this->getEntityManager()
+            ->createQuery("select COUNT(l.idLivraison) AS LBR from TransporteurBundle:livraison l  ");
+        return $query = $qb->getResult();
+
+    }
+
 
 
 
