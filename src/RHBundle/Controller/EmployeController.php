@@ -22,7 +22,6 @@ class EmployeController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $employes = $em->getRepository('RHBundle:Employe')->findAll();
-
         return $this->render('@RH/Employe/index.html.twig', array(
             'employes' => $employes,
         ));
@@ -42,7 +41,7 @@ class EmployeController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($employe);
             $em->flush();
-
+            $this->addFlash('info', 'Employee ajoutée avec succées');
             return $this->redirectToRoute('employe_show', array('idEmp' => $employe->getIdemp()));
         }
 
@@ -59,7 +58,7 @@ class EmployeController extends Controller
     public function showAction(Employe $employe)
     {
         $deleteForm = $this->createDeleteForm($employe);
-
+        $this->addFlash('info', 'Voici les informations de votre employée');
         return $this->render('@RH/Employe/show.html.twig', array(
             'employe' => $employe,
             'delete_form' => $deleteForm->createView(),
@@ -79,8 +78,9 @@ class EmployeController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('employe_edit', array('idEmp' => $employe->getIdemp()));
+            return $this->redirectToRoute('employe_index', array('idEmp' => $employe->getIdemp()));
         }
+        $this->addFlash('info', 'Modification faites avec succées');
 
         return $this->render('@RH/Employe/edit.html.twig', array(
             'employe' => $employe,
@@ -103,7 +103,7 @@ class EmployeController extends Controller
             $em->remove($employe);
             $em->flush();
         }
-
+        $this->addFlash('info', 'Employée suppriméé avec succées');
         return $this->redirectToRoute('employe_index');
     }
 
@@ -128,6 +128,7 @@ class EmployeController extends Controller
         $motcle=$request->get('motcle');
 
         $employes = $em->getRepository('RHBundle:Employe')->findBy( array('cin' =>$motcle) );
+        $this->addFlash('info', 'Voici la résultat de votre recherche');
 
         return $this->render('@RH/Employe/index.html.twig', array(
             'employes' => $employes, 'motcle' => $motcle,
@@ -136,4 +137,7 @@ class EmployeController extends Controller
     public function empdateAction($dateEmbauche){
         $dateEmbauche =new \DateTime('now');
     }
+
+
+
 }

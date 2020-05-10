@@ -31,6 +31,10 @@ ajax_search:
 employe_date:
     path: /getdate
     defaults: { _controller: "RHBundle:Employe:empdate" }
+employe_mail:
+    path: /sendm
+    defaults: { _controller: "RHBundle:Mail:sendmail" }
+
 
 
 

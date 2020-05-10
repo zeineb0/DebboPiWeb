@@ -9,6 +9,11 @@
         <div class="clearfix"> </div>
     </div>
 </div>
+{% for msg in app.flashes('info') %}
+    <div style="font-size: 18px" class="alert alert-success">
+        {{ msg }}
+    </div>
+{% endfor %}
 <div style="margin: 100px 200px 100px 200px">
     <div class="spec ">
         <h3>Modification d'un departement</h3>

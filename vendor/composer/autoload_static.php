@@ -10,12 +10,12 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         '92c8763cd6170fce6fcfe7e26b4e8c10' => __DIR__ . '/..' . '/symfony/phpunit-bridge/bootstrap.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        '9c67151ae59aff4788964ce8eb2a0f43' => __DIR__ . '/..' . '/clue/stream-filter/src/functions_include.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
+        '9c67151ae59aff4788964ce8eb2a0f43' => __DIR__ . '/..' . '/clue/stream-filter/src/functions_include.php',
         '8cff32064859f4559445b89279f3199c' => __DIR__ . '/..' . '/php-http/message/src/filters.php',
-        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '32dcc8afd4335739640db7d200c1971d' => __DIR__ . '/..' . '/symfony/polyfill-apcu/bootstrap.php',
         '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
@@ -26,6 +26,11 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
     );
 
     public static $prefixLengthsPsr4 = array (
+        'W' => 
+        array (
+            'WBW\\Library\\Core\\' => 17,
+            'WBW\\Bundle\\HighchartsBundle\\' => 28,
+        ),
         'V' => 
         array (
             'Vich\\UploaderBundle\\' => 20,
@@ -72,6 +77,9 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         ),
         'I' => 
         array (
+            'Ivory\\JsonBuilder\\' => 18,
+            'Ivory\\GoogleMap\\' => 16,
+            'Ivory\\GoogleMapBundle\\' => 22,
             'Incenteev\\ParameterHandler\\' => 27,
         ),
         'H' => 
@@ -113,10 +121,19 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         array (
             'Composer\\CaBundle\\' => 18,
             'Clue\\StreamFilter\\' => 18,
+            'CMEN\\GoogleChartsBundle\\' => 24,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'WBW\\Library\\Core\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/webeweb/core-library',
+        ),
+        'WBW\\Bundle\\HighchartsBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/webeweb/highcharts-bundle',
+        ),
         'Vich\\UploaderBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/vich/uploader-bundle',
@@ -233,6 +250,18 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Ivory\\JsonBuilder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/egeloen/json-builder/src',
+        ),
+        'Ivory\\GoogleMap\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/egeloen/google-map/src',
+        ),
+        'Ivory\\GoogleMapBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/egeloen/google-map-bundle',
+        ),
         'Incenteev\\ParameterHandler\\' => 
         array (
             0 => __DIR__ . '/..' . '/incenteev/composer-parameter-handler',
@@ -339,6 +368,10 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         array (
             0 => __DIR__ . '/..' . '/clue/stream-filter/src',
         ),
+        'CMEN\\GoogleChartsBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cmen/google-charts-bundle',
+        ),
     );
 
     public static $fallbackDirsPsr4 = array (
@@ -346,11 +379,25 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
     );
 
     public static $prefixesPsr0 = array (
+        'b' => 
+        array (
+            'blackknight467\\StarRatingBundle' => 
+            array (
+                0 => __DIR__ . '/..' . '/blackknight467/star-rating-bundle',
+            ),
+        ),
         'T' => 
         array (
             'Twig_' => 
             array (
                 0 => __DIR__ . '/..' . '/twig/twig/lib',
+            ),
+        ),
+        'S' => 
+        array (
+            'Sfk\\EmailTemplateBundle' => 
+            array (
+                0 => __DIR__ . '/..' . '/sfk/email-template-bundle',
             ),
         ),
         'M' => 

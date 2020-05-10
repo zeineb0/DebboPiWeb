@@ -206,6 +206,15 @@ img.img-head {
     color: #fff;
     line-height: 8px;
 }
+.msg {
+    color:#000000;
+    background-color: #32CD32;
+    padding: 1em;
+    font: italic bold 12px/30px Georgia, Serif;
+    border: 1px solid #4CAF50;
+}
+
+
 .head-t {
     margin: 1em 0;
 }
@@ -487,7 +496,7 @@ span.fa.fa-shopping-cart.my-cart-icon {
     margin: 0 auto 1em;
 }
 .search-form {
-    width: 55%;
+    width: 100%;
     margin: 0 auto;
 }
 .search-form input[type='text']{

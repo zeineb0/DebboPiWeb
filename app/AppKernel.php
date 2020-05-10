@@ -23,6 +23,8 @@ class AppKernel extends Kernel
             new UserBundle\UserBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
+            new WBW\Bundle\HighchartsBundle\HighchartsBundle(),
+            new blackknight467\StarRatingBundle\StarRatingBundle(),
 
         ];
 

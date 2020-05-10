@@ -18,6 +18,11 @@
             <b class="line"></b>
         </div>
     </div>
+    {% for msg in app.flashes('info') %}
+        <div style="font-size: 18px" class="alert alert-success">
+            {{ msg }}
+        </div>
+    {% endfor %}
     <div class="spec ">
         {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
     {{ form_start(form) }}

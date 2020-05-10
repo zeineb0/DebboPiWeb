@@ -20,6 +20,11 @@
         </div>
     </div>
     </div>
+    {% for msg in app.flashes('info') %}
+        <div style="font-size: 18px" class="alert alert-success">
+            {{ msg }}
+        </div>
+    {% endfor %}
         <div class="bs-docs-example" style="margin:100px">
             <div class="spec ">
                 <h3>Liste des departements</h3>

@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'WBW\\Library\\Core\\' => array($vendorDir . '/webeweb/core-library'),
+    'WBW\\Bundle\\HighchartsBundle\\' => array($vendorDir . '/webeweb/highcharts-bundle'),
     'Vich\\UploaderBundle\\' => array($vendorDir . '/vich/uploader-bundle'),
     'Twig\\' => array($vendorDir . '/twig/twig/src'),
     'Tests\\' => array($baseDir . '/tests'),
@@ -35,6 +37,9 @@ return array(
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'Psr\\Cache\\' => array($vendorDir . '/psr/cache/src'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
+    'Ivory\\JsonBuilder\\' => array($vendorDir . '/egeloen/json-builder/src'),
+    'Ivory\\GoogleMap\\' => array($vendorDir . '/egeloen/google-map/src'),
+    'Ivory\\GoogleMapBundle\\' => array($vendorDir . '/egeloen/google-map-bundle'),
     'Incenteev\\ParameterHandler\\' => array($vendorDir . '/incenteev/composer-parameter-handler'),
     'Http\\Promise\\' => array($vendorDir . '/php-http/promise/src'),
     'Http\\Message\\' => array($vendorDir . '/php-http/message/src', $vendorDir . '/php-http/message-factory/src'),
@@ -61,5 +66,6 @@ return array(
     'Doctrine\\Bundle\\DoctrineBundle\\' => array($vendorDir . '/doctrine/doctrine-bundle'),
     'Composer\\CaBundle\\' => array($vendorDir . '/composer/ca-bundle/src'),
     'Clue\\StreamFilter\\' => array($vendorDir . '/clue/stream-filter/src'),
+    'CMEN\\GoogleChartsBundle\\' => array($vendorDir . '/cmen/google-charts-bundle'),
     '' => array($baseDir . '/src'),
 );

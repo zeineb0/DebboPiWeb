@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
+
 {% block body %}
 
 <div class="banner-top">
@@ -20,7 +21,11 @@
         </div>
     </div>
 </div>
-
+{% for msg in app.flashes('info') %}
+    <div  style="font-size: 18px" class="alert alert-success">
+        {{ msg }}
+    </div>
+{% endfor %}
 <div class="bs-docs-example" style="margin:100px">
     <div class="spec ">
         <h3>Liste des Employees</h3>
@@ -61,7 +66,7 @@
                 <td>{{ employe.cin }}</td>
                 <td>{% if employe.dateEmbauche %}{{ employe.dateEmbauche|date('Y-m-d') }}{% endif %}</td>
                 <td>{{ employe.salaire }}</td>
-                <td> {{ employe.email }} <input type="submit" value="Envoyer un email" onClick=" {{ path('send_mail') }} "></td>
+                <td> {{ employe.email }} <div class="btn btn-primary btn-lg">  <a style="color:white" href="{{ path('employe_mail', { 'email': employe.email }) }}" target="_blank">Envoyer un email</a> </div> </td>
                 <td> {{   employe.fkDep.nom}} </td>
                 <td> {{ employe.fkDep.fkEnt.entreprise }}</td>
             {%  if employe.signalemp==100 %}

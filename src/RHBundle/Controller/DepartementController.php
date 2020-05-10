@@ -47,6 +47,7 @@ class DepartementController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($departement);
             $em->flush();
+            $this->addFlash('info', 'Departement ajoutée avec succées');
 
             return $this->redirectToRoute('dep_show', array('idDep' => $departement->getIddep()));
         }
@@ -64,6 +65,7 @@ class DepartementController extends Controller
     public function showAction(Departement $departement)
     {
         $deleteForm = $this->createDeleteForm($departement);
+        $this->addFlash('info', 'Voici les informations de votre departement');
 
         return $this->render('@RH/departement/show.html.twig', array(
             'departement' => $departement,
@@ -84,9 +86,9 @@ class DepartementController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('dep_edit', array('idDep' => $departement->getIddep()));
+            return $this->redirectToRoute('dep_index', array('idDep' => $departement->getIddep()));
         }
-
+        $this->addFlash('info', 'Voici les informations de votre departement');
         return $this->render('@RH/departement/edit.html.twig', array(
             'departement' => $departement,
             'edit_form' => $editForm->createView(),
@@ -108,6 +110,7 @@ class DepartementController extends Controller
             $em->remove($departement);
             $em->flush();
         }
+        $this->addFlash('info', 'Suppression faites avec succées');
 
         return $this->redirectToRoute('dep_index');
     }
@@ -132,7 +135,7 @@ class DepartementController extends Controller
         $motcledep=$request->get('motcledep');
 
         $departement = $em->getRepository('RHBundle:Departement')->findBy( array('nom' =>$motcledep) );
-
+        $this->addFlash('info', 'Voici la résultat de votre recherche');
         return $this->render('@RH/Departement/index.html.twig', array(
             'departements' => $departement,
         ));

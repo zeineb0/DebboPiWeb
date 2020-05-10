@@ -63,6 +63,14 @@
       <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
       <path value="$PROJECT_DIR$/vendor/gregwar/captcha" />
       <path value="$PROJECT_DIR$/vendor/gregwar/captcha-bundle" />
+      <path value="$PROJECT_DIR$/vendor/cmen/google-charts-bundle" />
+      <path value="$PROJECT_DIR$/vendor/egeloen/json-builder" />
+      <path value="$PROJECT_DIR$/vendor/egeloen/google-map-bundle" />
+      <path value="$PROJECT_DIR$/vendor/egeloen/google-map" />
+      <path value="$PROJECT_DIR$/vendor/sfk/email-template-bundle" />
+      <path value="$PROJECT_DIR$/vendor/webeweb/core-library" />
+      <path value="$PROJECT_DIR$/vendor/webeweb/highcharts-bundle" />
+      <path value="$PROJECT_DIR$/vendor/blackknight467/star-rating-bundle" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="5.5.0" />

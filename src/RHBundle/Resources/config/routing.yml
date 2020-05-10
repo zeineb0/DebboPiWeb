@@ -10,6 +10,11 @@ rh_mail:
     prefix:   /mail
 
 
+admin_dashboard:
+    path:     /admin
+    defaults: { _controller: RHBundle:Default:admin }
+
+
 rh_homepage:
     path:     /
     defaults: { _controller: RHBundle:Default:index }
