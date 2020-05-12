@@ -9,6 +9,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 /**
  * MobileEntrepot controller.
@@ -25,14 +30,11 @@ class MobileEntrepotController extends Controller
      * @Route("entrepot/alouer", name="entrepot_a_louer")
      */
     public function aLouerAction()
-    { $securityContext = $this->container->get('security.authorization_checker');
-        if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') )
-        {
-            $user = $this->container->get('security.token_storage')->getToken()->getUser();
+    {
 
             $entrepots= $this->getDoctrine()->getManager()->getRepository(Entrepot::class)
                 ->findBy(array('etat' => ['A Louer', 'En Attente']));
-            $demandes =$this->getDoctrine()->getManager()->getRepository(Location::class)->findBy(array('fkEntrepot'=>$entrepots,'fkUser'=>$user));
+            $demandes =$this->getDoctrine()->getManager()->getRepository(Location::class)->findBy(array('fkEntrepot'=>$entrepots,'fkUser'=>8));
             $i=0;
             $ent [] = new Entrepot();
             foreach($entrepots as $entrepot)
@@ -56,42 +58,33 @@ class MobileEntrepotController extends Controller
                 }
 
             }
+            $encoders = [new XmlEncoder(), new JsonEncoder()];
+            $normalizers = [new ObjectNormalizer()];
+            $serializer = new Serializer($normalizers, $encoders);
+            $jsonContent = $serializer->serialize($ent, 'json');
+            return new Response($jsonContent);
 
-            return $this->render('@GererEntrepot/entrepot/alouer.html.twig', array(
-                'entrepots' => $ent,
-
-
-            ));
         }
-        # if user not logged in yet
-        else
-        {
-            return $this->redirectToRoute('fos_user_security_login');
-        }
-    }
+
+
 
     /**
      * afficher entrepots loués.
      * @Route("entrepot/loue", name="entrepot_loue")
      */
     public function entrepotLouéAction( )
-    {   $securityContext = $this->container->get('security.authorization_checker');
-        if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED'))
-        {
-            $user = $this->container->get('security.token_storage')->getToken()->getUser();
-
+    {
             $entrepots = $this->getDoctrine()->getManager()->getRepository(Entrepot::class)
-                ->findBy(array('id' => $user,'etat' => 'Loué'));
+                ->findBy(array('id' => 8,'etat' => 'Loué'));
             return $this->render('@GererEntrepot/entrepot/loue.html.twig', array(
                 'entrepots' => $entrepots,
             ));
-        }
 
-        # if user not logged in yet
-        else
-        {
-            return $this->redirectToRoute('fos_user_security_login');
-        }
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonContent = $serializer->serialize($ent, 'json');
+        return new Response($jsonContent);
 
     }
 
@@ -106,33 +99,27 @@ class MobileEntrepotController extends Controller
      * @Route("entrepot/demande", name="entrepot_demande_location")
      */
     public function entrepotDemandeAction(request $request )
-    {   $securityContext = $this->container->get('security.authorization_checker');
-        if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED'))
-        {
-            $user = $this->container->get('security.token_storage')->getToken()->getUser()->getId();
+    {
             $em= $this->getDoctrine()->getManager();
             $query = $em->createQuery(
                 "SELECT 
        e.idEntrepot id_Entrepot, e.adresse adresse , e.numFiscale numFiscale, e.entreprise entreprise , l.idLocation id_Location, l.dateDebLocation dateDebLocation,l.dateFinLocation dateFinLocation, l.prixLocation prixLocation, u.prenom prenom , u.nom nom, u.tel tel, u.email email
        FROM GererEntrepotBundle:Entrepot e  
-           JOIN GererEntrepotBundle:Location l WITH e.idEntrepot = l.fkEntrepot and e.id = $user and e.etat = 'En Attente'
+           JOIN GererEntrepotBundle:Location l WITH e.idEntrepot = l.fkEntrepot and e.id = 8 and e.etat = 'En Attente'
            JOIN EntrepotBundle:Utilisateur u WITH l.fkUser= u.id
            
            ");
 
             $entrepots = $query->getResult();
-            return $this->render('@GererEntrepot/entrepot/demande.html.twig', array('entrepots' => $entrepots));
+
+            $encoders = [new XmlEncoder(), new JsonEncoder()];
+            $normalizers = [new ObjectNormalizer()];
+            $serializer = new Serializer($normalizers, $encoders);
+            $jsonContent = $serializer->serialize($entrepots, 'json');
+            return new Response($jsonContent);
 
 
         }
-
-        # if user not logged in yet
-        else
-        {
-            return $this->redirectToRoute('fos_user_security_login');
-        }
-
-    }
     /**
      * confirmer les demandes de location.
      * @Route("entrepot/demande/{idEntrepot}/confirmer", name="entrepot_confirme_demande")
@@ -156,7 +143,7 @@ class MobileEntrepotController extends Controller
         $email=$locationObj[0]->getFKUser()->getEmail();
         $username='debbopi@gmail.com';
         $message = \Swift_Message::newInstance()
-            ->setSubject('Contrat Détail')
+            ->setSubject('Location confirmation Détail')
             ->setFrom($username)
             ->setTo($email)
             ->setBody(
@@ -210,64 +197,47 @@ class MobileEntrepotController extends Controller
     /**
      * Lists all entrepot entities.
      *
-     * @Route("entrepot/", name="entrepot_index")
+     * @Route("entrepotM/", name="entrepot_index")
      */
     public function indexAction()
-    {   $securityContext = $this->container->get('security.authorization_checker');
-        if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') )
-        {
-            $user = $this->container->get('security.token_storage')->getToken()->getUser();
-
+    {
             $em = $this->getDoctrine()->getManager();
 
-            $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->findBy(array('id'=>$user));
+            $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->findAll();
 
-            return $this->render('@GererEntrepot/entrepot/index.html.twig', array(
-                'entrepots' => $entrepots,
-            ));
-        }
-        # if user not logged in yet
-        else
-        {
-            return $this->redirectToRoute('fos_user_security_login');
-        }
+
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonContent = $serializer->serialize($entrepots, 'json');
+        return new Response($jsonContent);
+
+
     }
 
 
     /**
      * Creates a new entrepot entity.
      *
-     * @Route("entrepot/new", name="entrepot_new")
+     * @Route("entrepotM/new", name="entrepot_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
-    {   $securityContext = $this->container->get('security.authorization_checker');
-        if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') )
-        {
+    {
             $entrepot = new Entrepot();
             $id= $this->getUser();
             $entrepot->setId($id);
             $form = $this->createForm('GererEntrepotBundle\Form\EntrepotType', $entrepot);
             $form->handleRequest($request);
+            
 
-            if ($form->isSubmitted() && $form->isValid()) {
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($entrepot);
-                $em->flush();
 
-                return $this->redirectToRoute('entrepot_show', array('idEntrepot' => $entrepot->getIdentrepot()));
-            }
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonContent = $serializer->serialize($entrepot, 'json');
+        return new Response($jsonContent);
 
-            return $this->render('@GererEntrepot/entrepot/new.html.twig', array(
-                'entrepot' => $entrepot,
-                'form' => $form->createView(),
-            ));
-        }
-        # if user not logged in yet
-        else
-        {
-            return $this->redirectToRoute('fos_user_security_login');
-        }
     }
 
     /**
@@ -278,9 +248,13 @@ class MobileEntrepotController extends Controller
     {   $em = $this->getDoctrine()->getManager();
 
         $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->findAll();
-        return $this->render('@GererEntrepot/admin/index.html.twig', array(
-            'entrepots' => $entrepots,
-        ));
+
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonContent = $serializer->serialize($entrepots, 'json');
+        echo $jsonContent;
+        return new Response($jsonContent);
 
     }
 
@@ -303,11 +277,12 @@ class MobileEntrepotController extends Controller
             return $this->redirectToRoute('entrepot_edit', array('idEntrepot' => $entrepot->getIdentrepot()));
         }
 
-        return $this->render('@GererEntrepot/entrepot/edit.html.twig', array(
-            'entrepot' => $entrepot,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonContent = $serializer->serialize($entrepot, 'json');
+        echo $jsonContent;
+        return new Response($jsonContent);
     }
 
     /**
@@ -328,9 +303,12 @@ class MobileEntrepotController extends Controller
 
         $entrepots = $query->getResult();
 
-        return $this->render('@GererEntrepot/admin/index.html.twig', array('entrepots' => $entrepots));
-
-
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonContent = $serializer->serialize($entrepots, 'json');
+        echo $jsonContent;
+        return new Response($jsonContent);
     }
     /**
      * Displays a form to edit an existing entrepot entity.
