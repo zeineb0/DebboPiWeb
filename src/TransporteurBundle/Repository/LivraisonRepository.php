@@ -97,6 +97,24 @@ class LivraisonRepository extends \Doctrine\ORM\EntityRepository
 
     }
 
+    public function getpercentageNLiv()
+    {
+        $qb=$this->getEntityManager()
+            ->createQuery("select COUNT(l.idLivraison)*100 AS FBR from TransporteurBundle:livraison l where l.etatLivraison=?1  ")
+            ->setParameters(array(1=>'non livrée'));
+
+        return $query = $qb->getResult();
+    }
+
+    public function getpercentageLiv()
+    {
+        $qb=$this->getEntityManager()
+            ->createQuery("select COUNT(l.idLivraison)*100 AS ABR from TransporteurBundle:livraison l where l.etatLivraison=?1  ")
+            ->setParameters(array(1=>'livrée'));
+
+        return $query = $qb->getResult();
+    }
+
 
 
 

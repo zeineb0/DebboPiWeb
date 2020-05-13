@@ -122,7 +122,7 @@
                         <div class="inner">
                             <h3>{{nbr_transporteur[0].NBR}}</h3>
 
-                            <p>Transporteur</p>
+                            <p>Transporteurs</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
@@ -151,9 +151,9 @@
                         <!-- small box -->
                         <div class="small-box bg-gradient-success">
                             <div class="inner">
-                                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                                <h3>{{ (nbr_liv_NL[0].FBR / nbr_livraison[0].LBR)|number_format(2, '.', ',') }}<sup style="font-size: 20px">%</sup></h3>
 
-                                <p>Livrées</p>
+                                <p>Des livraison sont non livrées</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
@@ -167,9 +167,9 @@
                         <!-- small box -->
                         <div class="small-box bg-gradient-danger">
                             <div class="inner">
-                                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                                <h3>{{ (nbr_liv_L[0].ABR / nbr_livraison[0].LBR)|number_format(2, '.', ',') }}<sup style="font-size: 20px">%</sup></h3>
 
-                                <p>Non Livrées</p>
+                                <p>Des livraison sont Livrées</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>

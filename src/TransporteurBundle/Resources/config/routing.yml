@@ -90,6 +90,11 @@ afficher_contrat_exp:
 
 
 
+# Mobile api routing :
+
+afficherLivraisonLivre:
+    path: /affLivL/{id}
+    defaults: {_controller: TransporteurBundle:Api:getLivParTransporteurD}
 
 
 

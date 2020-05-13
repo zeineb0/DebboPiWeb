@@ -17,7 +17,9 @@ class ContratType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('datedeb',DateType::class,['label'=>'Date Début'])->add('datefin',DateType::class,['label'=>'Date Fin'])->add('salaire',TextType::class,['label'=>'Le Salaire'])
+        $builder->add('datedeb',DateType::class,['label'=>'Date Début'])
+            ->add('datefin',DateType::class,['label'=>'Date Fin'])
+            ->add('salaire',TextType::class,['label'=>'Le Salaire'])
             ->add('FKidentrepot',EntityType::class,array(
                 'class'=>'EntrepotBundle:Entrepot',
                 'choice_label'=>'entreprise',
@@ -28,8 +30,7 @@ class ContratType extends AbstractType
                 'choice_label'=>'nom',
                 'multiple'=>false,
                 'label'=>'Nom du transporteur'
-                ))
-            ;
+                ));
 
     }/**
      * {@inheritdoc}
