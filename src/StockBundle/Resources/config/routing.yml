@@ -7,18 +7,6 @@ stock_category:
 category_sho:
     path:     /categories_show
     defaults: { _controller: StockBundle:Categories:show }
-rcategory_sho:
-    path:     /allC
-    defaults: { _controller: StockBundle:Categories:all }
-prcategory_sho:
-    path:     /allP
-    defaults: { _controller: StockBundle:Produit:all }
-rfcategory_sho:
-    path:     /newC
-    defaults: { _controller: StockBundle:Categories:ajouter }
-rpfcategory_sho:
-    path:     /newP
-    defaults: { _controller: StockBundle:Produit:ajouter }
 category_sho1:
     path:     /categories_new
     defaults: { _controller: StockBundle:Categories:new }
@@ -82,3 +70,36 @@ admin12:
 admin123:
     path:     /statC
     defaults: { _controller: StockBundle:Admin:statC }
+rcategory_sho:
+    path:     /allC
+    defaults: { _controller: StockBundle:Json:allC }
+mrcategory_sho:
+    path:     /allE
+    defaults: { _controller: StockBundle:Json:allE }
+prcategory_sho:
+    path:     /allP
+    defaults: { _controller: StockBundle:Json:allP }
+pprcategory_sho:
+    path:     /allM
+    defaults: { _controller: StockBundle:Json:allM }
+rfcategory_sho:
+    path:     /newC
+    defaults: { _controller: StockBundle:Json:ajouterC }
+rpfcategory_sho:
+    path:     /newP
+    defaults: { _controller: StockBundle:Json:ajouterP }
+mrpfcategory_sho:
+    path:     /newM
+    defaults: { _controller: StockBundle:Json:ajouterM }
+pmrpfcategory_sho:
+    path:     /modifP
+    defaults: { _controller: StockBundle:Json:modifierP }
+qpmrpfcategory_sho:
+    path:     /suppP
+    defaults: { _controller: StockBundle:Json:deleteP }
+qpmrpfcaptegory_sho:
+    path:     /suppC
+    defaults: { _controller: StockBundle:Json:deleteC }
+mqpmrpfcaptegory_sho:
+    path:     /suppM
+    defaults: { _controller: StockBundle:Json:deleteM }

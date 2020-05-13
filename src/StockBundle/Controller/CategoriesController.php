@@ -37,19 +37,7 @@ class CategoriesController extends Controller
 
 
     }
-    public function allAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $user = $this->container->get('security.token_storage')->getToken()->getUser();
-        $categories = $em->getRepository('StockBundle:Categories')->findAll();
-        $encoders = [new XmlEncoder(), new JsonEncoder()];
-        $normalizers = [new ObjectNormalizer()];
-        $serializer = new Serializer($normalizers, $encoders);
-        $jsonContent = $serializer->serialize($categories, 'json');
-        echo $jsonContent;
-        return new Response($jsonContent);
 
-    }
 
     /**
      * Creates a new category entity.
@@ -77,22 +65,6 @@ class CategoriesController extends Controller
             'categories' => $categories,
             'form' => $form->createView(),
         ));
-    }
-    public function ajouterAction(Request $request){
-        $em = $this->getDoctrine()->getManager();
-        $categories = new Categories();
-        //  $user = $this->container->get('security.token_storage')->getToken()->getUser();
-        $categories->setNom($request->get('nom'));
-        $categories->setFkEntrepot($request->get('fkEntrepot'));
-        $categories->setIdUser($request->get('idUser'));
-        // $categories->setIdUser($user);
-        $categories->setImageName($request->get('imageName'));
-        $em->persist($categories);
-        $em->flush();
-        $serializer = new Serializer([new ObjectNormalizer()]);
-        $formatted = $serializer->normalize($categories);
-        return new JsonResponse($formatted);
-
     }
 
     /**

@@ -1,0 +1,204 @@
+<?php
+
+
+namespace StockBundle\Controller;
+
+
+use StockBundle\Entity\Categories;
+use StockBundle\Entity\MouvementDuStock;
+use StockBundle\Entity\Produit;
+use EntrepotBundle\Entity\Entrepot;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
+
+class JsonController extends Controller
+{
+    //***************************catégorie**************************************
+    public function allCAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $categories = $em->getRepository('StockBundle:Categories')->findAll();
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonContent = $serializer->serialize($categories, 'json');
+        echo $jsonContent;
+        return new Response($jsonContent);
+
+    }
+    public function ajouterCAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $categories = new Categories();
+        //  $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $categories->setNom($request->get('nom'));
+        $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
+        $categories->setFkEntrepot($entrepots);
+        $categories->setIdUser($request->get('idUser'));
+        // $categories->setIdUser($user);
+        $categories->setImageName($request->get('imageName'));
+        $em->persist($categories);
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($categories);
+        return new JsonResponse($formatted);
+
+    }
+    public function deleteCAction(Request $request){
+
+
+        $categorie= $this->getDoctrine()->getRepository(Categories::class)->find($request->get('idCategorie'));
+        $em=$this->getDoctrine()->getManager();
+
+        $em->remove($categorie);
+
+        $em->flush();
+
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($categorie);
+        return new JsonResponse($formatted);
+    }
+
+    //***********************************entrepot**********************************
+    public function allEAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('EntrepotBundle:Entrepot')->findAll();
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonContent = $serializer->serialize($categories, 'json');
+        echo $jsonContent;
+        return new Response($jsonContent);
+
+    }
+    //***********************************produit***********************************
+    public function allPAction(){
+
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('StockBundle:Produit')->findAll();
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonContent = $serializer->serialize($categories, 'json');
+        echo $jsonContent;
+        return new Response($jsonContent);
+    }
+    public function ajouterPAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $produit = new Produit();
+        $produit->setLibelle($request->get('libelle'));
+        $produit->setMarque($request->get('marque'));
+        $produit->setPrix($request->get('prix'));
+        $produit->setFkEntrepot($request->get('fkEntrepot'));
+        $produit->setReference($request->get('reference'));
+        $produit->setImageName($request->get('imageName'));
+        $produit->setQuantite($request->get('quantite'));
+
+        $produit->setIdUser($request->get('idUser'));
+        $categories = $em->getRepository('StockBundle:Categories')->find($request->get('fkCategorie'));
+        $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
+        $produit->setFkCategorie($categories);
+        $produit->setFkEntrepot($entrepots);
+        $em->persist($produit);
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($produit);
+        return new JsonResponse($formatted);
+
+    }
+    public function modifierPAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $produit = $em->getRepository('StockBundle:Produit')->find($request->get('idProduit'));
+
+        if (($request->get('libelle')&$request->get('marque')&$request->get('prix')&$request->get('reference')&$request->get('quantite'))!=null) {
+            $produit->setLibelle($request->get('libelle'));
+            $produit->setMarque($request->get('marque'));
+            $produit->setPrix($request->get('prix'));
+            $produit->setReference($request->get('reference'));
+            $produit->setImageName($request->get('imageName'));
+            $produit->setQuantite($request->get('quantite'));
+        }
+        if ($request->get('fkEntrepot')!=null){
+            $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
+            $produit->setFkEntrepot($entrepots);
+
+        }
+        if ($request->get('fkCategorie')!=null){
+            $categories = $em->getRepository('StockBundle:Categories')->find($request->get('fkCategorie'));
+            $produit->setFkCategorie($categories);
+
+        }
+
+        $em->persist($produit);
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($produit);
+        return new JsonResponse($formatted);
+
+    }
+    public function deletePAction(Request $request){
+
+
+        $produit= $this->getDoctrine()->getRepository(Produit::class)->find($request->get('idProduit'));
+        $em=$this->getDoctrine()->getManager();
+
+        $em->remove($produit);
+
+        $em->flush();
+
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($produit);
+        return new JsonResponse($formatted);
+    }
+    //*********************************mvt***********************************
+
+    public function allMAction(){
+
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('StockBundle:MouvementDuStock')->findAll();
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonContent = $serializer->serialize($categories, 'json');
+        echo $jsonContent;
+        return new Response($jsonContent);
+    }
+    public function ajouterMAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $mvt= new MouvementDuStock();
+        $mvt->setNatureMouvement($request->get('natureMouvement'));
+        $mvt->setDateMouv($request->get('dateMouv'));
+        $produits = $em->getRepository('StockBundle:Produit')->find($request->get('fkProduit'));
+        $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
+        $mvt->setFkEntrepot($entrepots);
+        $mvt->setFkProduit($produits);
+        $em->persist($mvt);
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($mvt);
+        return new JsonResponse($formatted);
+
+    }
+    public function deleteMAction(Request $request){
+
+
+        $categorie= $this->getDoctrine()->getRepository(MouvementDuStock::class)->find($request->get('idMouv'));
+        $em=$this->getDoctrine()->getManager();
+
+        $em->remove($categorie);
+
+        $em->flush();
+
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($categorie);
+        return new JsonResponse($formatted);
+    }
+
+}
