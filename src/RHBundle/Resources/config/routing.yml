@@ -3,12 +3,16 @@ rh_dep:
     prefix:   /dep
 
 rh_emp:
-    resource: "@RHBundle/Resources/config/routing/Employe.yml"
+    resource: "@RHBundle/Resources/config/routing/employe.yml"
     prefix:   /emp
+
 rh_mail:
     resource: "@RHBundle/Resources/config/routing/mail.yml"
     prefix:   /mail
 
+rh_conge:
+    resource: "@RHBundle/Resources/config/routing/conge.yml"
+    prefix:   /conge
 
 admin_dashboard:
     path:     /admin

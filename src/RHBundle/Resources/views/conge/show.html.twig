@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Conge</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ conge.id }}</td>
+            </tr>
+            <tr>
+                <th>Datesortie</th>
+                <td>{% if conge.datesortie %}{{ conge.datesortie|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datearrive</th>
+                <td>{% if conge.datearrive %}{{ conge.datearrive|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ conge.type }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ conge.etat }}</td>
+            </tr>
+            <tr>
+                <th>Fkidemp</th>
+                <td>{{ conge.fKIdEmp }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('conge_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('conge_edit', { 'id': conge.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
