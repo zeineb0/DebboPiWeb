@@ -3,6 +3,7 @@
 namespace TransporteurBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Contrat
@@ -12,16 +13,18 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Contrat
 {   /**
- * @var \DateTime
- *
- * @ORM\Column(name="date_deb", type="date", nullable=false)
- */
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_deb", type="date", nullable=false)
+     *
+     */
     private $datedeb;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_fin", type="date", nullable=false)
+     *
      */
     private $datefin;
 

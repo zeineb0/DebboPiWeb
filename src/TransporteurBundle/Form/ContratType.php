@@ -27,7 +27,7 @@ class ContratType extends AbstractType
                 'label'=>"L'Entreprise"))
             ->add('FKiduser',EntityType::class,array(
                 'class'=>'AppBundle:User',
-                'choice_label'=>'nom',
+                'choice_label'=>'prenom',
                 'multiple'=>false,
                 'label'=>'Nom du transporteur'
                 ));
