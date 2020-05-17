@@ -76,14 +76,14 @@ class MouvementDuStockController extends Controller
                 else {
 
                     $rrepo=$this->getDoctrine()->getManager()->getRepository('StockBundle:MouvementDuStock');
-                    $update=$rrepo->updateProduit($mouvementDuStock,$qte,$fk);
+                    $update=$rrepo->updateProduitS($mouvementDuStock,$qte,$fk);
                 }
                 }
 
-                elseif ($id->getQuantite() >= $qte)
+                else
                     {
                 $rrepo=$this->getDoctrine()->getManager()->getRepository('StockBundle:MouvementDuStock');
-                $update=$rrepo->updateProduit($mouvementDuStock,$qte,$fk);
+                $update=$rrepo->updateProduitE($mouvementDuStock,$qte,$fk);
                     }
 
             $em->persist($mouvementDuStock);

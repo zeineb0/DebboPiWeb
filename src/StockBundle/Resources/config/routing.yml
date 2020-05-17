@@ -94,6 +94,9 @@ mrpfcategory_sho:
 pmrpfcategory_sho:
     path:     /modifP
     defaults: { _controller: StockBundle:Json:modifierP }
+cpmrpfcategory_sho:
+    path:     /modifC
+    defaults: { _controller: StockBundle:Json:modifierC }
 qpmrpfcategory_sho:
     path:     /suppP
     defaults: { _controller: StockBundle:Json:deleteP }

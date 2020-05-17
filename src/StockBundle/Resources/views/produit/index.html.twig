@@ -63,7 +63,7 @@
                                         <div class="mid-2">
 
                                             {% if produit.quantite <= 10 %}
-                                           <p ><label>{{ produit.prix }}</label><em class="item_price">{{produit.prix * 0.9}}</em></p>
+                                           <p ><label>{{ produit.prix /0.9 }}</label><em class="item_price">{{produit.prix }}DT</em></p>
                                                 {% else %}
                                                     <p ><em class="item_price">{{produit.prix }}DT</em></p>
                                                     {% endif %}
@@ -122,7 +122,7 @@
                                                 <div class="mid-2">
 
                                                     {% if produit.quantite <= 10 %}
-                                                        <p ><label>{{ produit.prix }}</label><em class="item_price">{{produit.prix * 0.9}}</em></p>
+                                                        <p ><label>{{ produit.prix }}</label><em class="item_price">{{produit.prix }}</em></p>
                                                     {% else %}
                                                         <p ><em class="item_price">{{produit.prix }}DT</em></p>
                                                     {% endif %}

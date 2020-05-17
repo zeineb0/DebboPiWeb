@@ -15,10 +15,10 @@ use StockBundle\Entity\Produit;
 class MouvementDuStockRepository extends \Doctrine\ORM\EntityRepository
 
 {
-    public function updateProduit(MouvementDuStock $mouvementDuStock, $qte, $fk)
+    public function updateProduitE(MouvementDuStock $mouvementDuStock, $qte, $fk)
     {
 
-    if ($mouvementDuStock->getNatureMouvement()=='Entrée'){
+
         return $this->createQueryBuilder('p')
             ->update('StockBundle:produit','p')
             ->set('p.quantite', 'p.quantite + ?0')
@@ -29,7 +29,8 @@ class MouvementDuStockRepository extends \Doctrine\ORM\EntityRepository
             ->execute();
 
     }
-    else {
+    public function updateProduitS(MouvementDuStock $mouvementDuStock, $qte, $fk){
+
 
         return $this->createQueryBuilder('p')
             ->update('StockBundle:produit','p')
@@ -40,5 +41,5 @@ class MouvementDuStockRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery()
             ->execute();
     }
-}
+
 }
