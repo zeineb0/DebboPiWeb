@@ -254,7 +254,7 @@ class JsonController extends Controller
 
     }
 
-    public function modifierM(Request $request){
+    public function modifierMAction(Request $request){
         $em = $this->getDoctrine()->getManager();
         $mvt = $em->getRepository('StockBundle:MouvementDuStock')->find($request->get('idMouv'));
 
@@ -307,7 +307,7 @@ class JsonController extends Controller
         $em->persist($mvt);
         $em->flush();
         $serializer = new Serializer([new ObjectNormalizer()]);
-        $formatted = $serializer->normalize($produit);
+        $formatted = $serializer->normalize($mvt);
         return new JsonResponse($formatted);
 
 
