@@ -255,8 +255,62 @@ class JsonController extends Controller
     }
 
     public function modifierM(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $mvt = $em->getRepository('StockBundle:MouvementDuStock')->find($request->get('idMouv'));
 
-        
+        if ($request->get('natureMouvement')!=null ){
+            $mvt->setNatureMouvement($request->get('natureMouvement'));}
+
+        if($request->get('dateMouv') !=null){
+
+            $datee=$request->get('dateMouv');
+            $dateM = new \DateTime($datee);
+            $mvt->setDateMouv($dateM);
+
+        }
+
+        if($request->get('qte') !=null){
+            $qte=($request->get('qte'));
+            $id=$mvt->getFkProduit();
+            $fk=$id->getIdProduit();
+            if ($mvt->getNatureMouvement()=='Sortie') {
+                if ($id->getQuantite() < $qte)
+
+                {
+                    return new Response("qte");
+                }
+                else {
+
+                    $rrepo=$this->getDoctrine()->getManager()->getRepository('StockBundle:MouvementDuStock');
+                    $update=$rrepo->updateProduitS($mvt,$qte,$fk);
+                }
+            }
+
+            else
+            {
+                $rrepo=$this->getDoctrine()->getManager()->getRepository('StockBundle:MouvementDuStock');
+                $update=$rrepo->updateProduitE($mvt,$qte,$fk);
+            }
+        }
+
+        if ($request->get('fkEntrepot')!=null){
+            $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
+            $mvt->setFkEntrepot($entrepots);
+
+        }
+        if ($request->get('fkProduit')!=null){
+            $categories = $em->getRepository('StockBundle:Produit')->find($request->get('fkProduit'));
+            $mvt->setFkProduit($categories);
+
+        }
+
+        $em->persist($mvt);
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($produit);
+        return new JsonResponse($formatted);
+
+
     }
 
     public function deleteMAction(Request $request){
