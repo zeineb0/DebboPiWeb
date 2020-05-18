@@ -66,7 +66,12 @@ class conge
     {
         return $this->id;
     }
+    public function setId($id)
+    {
+        $this->$id = $id;
 
+        return $this;
+    }
     /**
      * Set datesortie
      *
@@ -125,7 +130,6 @@ class conge
     public function setType($type)
     {
         $this->type = $type;
-    
         return $this;
     }
 
