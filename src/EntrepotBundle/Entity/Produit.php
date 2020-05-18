@@ -85,29 +85,6 @@ class Produit
     private $fkEntrepot;
 
     /**
-     * Produit constructor.
-     * @param string $libelle
-     * @param int $reference
-     * @param string $marque
-     * @param float $prix
-     * @param int $quantite
-     * @param string $image
-     * @param \Categories $fkCategorie
-     * @param \Entrepot $fkEntrepot
-     */
-    public function __construct($libelle, $reference, $marque, $prix, $quantite, $image, \Categories $fkCategorie, \Entrepot $fkEntrepot)
-    {
-        $this->libelle = $libelle;
-        $this->reference = $reference;
-        $this->marque = $marque;
-        $this->prix = $prix;
-        $this->quantite = $quantite;
-        $this->image = $image;
-        $this->fkCategorie = $fkCategorie;
-        $this->fkEntrepot = $fkEntrepot;
-    }
-
-    /**
      * @return int
      */
     public function getIdProduit()

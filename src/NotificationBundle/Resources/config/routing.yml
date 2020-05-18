@@ -1,3 +1,8 @@
 notification_homepage:
     path:     /
     defaults: { _controller: NotificationBundle:Default:index }
+
+
+nootification_homepage:
+    path:     /index
+    defaults: { _controller: NotificationBundle:Blog:index }

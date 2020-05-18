@@ -4,12 +4,16 @@ notification_blog:
 
 notification:
     resource: "@NotificationBundle/Resources/config/routing.yml"
-    prefix:   annotation
+    prefix:   /Notification
+
 
 commande_commande:
     resource: "@CommandeBundle/Controller/CommandeController.php"
     type:     annotation
 
+commande_json:
+    resource: "@CommandeBundle/Controller/CommandeJsonController.php"
+    type:     annotation
 
 app:
     resource: '@AppBundle/Controller/DefaultController.php'

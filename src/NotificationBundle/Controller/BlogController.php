@@ -9,8 +9,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
-
 
 /**
  * Blog controller.
@@ -55,7 +53,7 @@ class BlogController extends Controller
             $data[$key]['date'] = $date->format('H:i Y-m-d');
 
         }
-        return  new JsonResponse($data);
+       return  new JsonResponse($data);
     }
 
     /**

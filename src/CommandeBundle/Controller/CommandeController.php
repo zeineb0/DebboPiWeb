@@ -11,8 +11,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Ob\HighchartsBundle\Highcharts\Highchart;
-use Knp\Component\Pager\PaginatorInterface;
-use Doctrine\ORM\EntityManagerInterface;
+
+
 /**
  * Commande controller.
  *

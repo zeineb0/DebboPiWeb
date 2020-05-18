@@ -67,12 +67,6 @@ class Entrepot
      */
     private $idUser;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Utilisateur", mappedBy="fkEntrepot")
-     */
-    private $fkUser;
 
     /**
      * @return int
@@ -130,13 +124,7 @@ class Entrepot
         return $this->idUser;
     }
 
-    /**
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getFkUser()
-    {
-        return $this->fkUser;
-    }
+
 
 
 }
