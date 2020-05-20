@@ -33,17 +33,17 @@
                                             </a>
                                             <div class="mid-1">
                                                 <div class="women">
-                                                    <h6><a href="single.html">{{  produit.libelle }}</a>(1 kg)</h6>
+                                                    <h6><a href="single.html">{{  produit.libelle }}</a>{{ produit.quantite }}</h6>
                                                 </div>
                                                 <div class="mid-2">
-                                                    <p ><em class="item_price">{{  produit.prix }} Dt</em></p>
+                                                    <p ><em class="item_price">{{  produit.prix}} Dt</em></p>
                                                     <div class="block">
                                                         <div class="starbox small ghosting"> </div>
                                                     </div>
                                                     <div class="clearfix"></div>
                                                 </div>
                                                 <div class="add">
-                                                    <button class="btn btn-danger my-cart-btn my-cart-b" data-id="{{ produit.idProduit }}" data-name="{{ produit.libelle }} " data-marque="{{ produit.marque }}" data-price="{{ produit.prix }}" data-quantity="1" data-image="{{ asset('images/of3.png') }}">Add to Cart</button>
+                                                    <button class="btn btn-danger my-cart-btn my-cart-b" data-id="{{ produit.idProduit }}" data-name="{{ produit.libelle }} " data-marque="{{ produit.marque }}"  data-price="{{ produit.prix }}" data-max="{{ produit.quantite }}" data-quantity="1" data-image="{{ asset('images/of3.png') }} ">Add to Cart</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -77,7 +77,7 @@
                                                 <div class="clearfix"></div>
                                             </div>
                                             <div class="add">
-                                                <button class="btn btn-danger my-cart-btn my-cart-b" data-id="{{ produit.idProduit }}" data-name="{{ produit.libelle }} " data-summary="{{ produit.marque }}" data-price="{{ produit.prix }}" data-quantity="1" data-image="{{ asset('images/of3.png') }}">Add to Cart</button>
+                                                <button class="btn btn-danger my-cart-btn my-cart-b" data-max="{{ produit.quantite }}" data-id="{{ produit.idProduit }}" data-name="{{ produit.libelle }} " data-summary="{{ produit.marque }}" data-price="{{ produit.prix }}" data-quantity="1" data-image="{{ asset('images/of3.png') }}">Add to Cart</button>
                                             </div>
                                         </div>
                                     </div>
@@ -88,7 +88,7 @@
                             <div class="clearfix"></div>
                         </div>
                     </div>
-                    <div class="tab-pane  text-style" id="tab3">
+                     <div class="tab-pane  text-style" id="tab3">
                         <div class=" con-w3l">
 
                             {% for produit in produits %}
@@ -110,7 +110,7 @@
                                                 <div class="clearfix"></div>
                                             </div>
                                             <div class="add">
-                                                <button class="btn btn-danger my-cart-btn my-cart-b" data-id="{{ produit.idProduit }}" data-name="{{ produit.libelle }} " data-summary="{{ produit.marque }}" data-price="{{ produit.prix }}" data-quantity="1" data-image="{{ asset('images/of3.png') }}">Add to Cart</button>
+                                                <button class="btn btn-danger my-cart-btn my-cart-b" data-max="{{ produit.quantite }}" data-id="{{ produit.idProduit }}" data-name="{{ produit.libelle }} " data-summary="{{ produit.marque }}" data-price="{{ produit.prix }}" data-quantity="1" data-image="{{ asset('images/of3.png') }}">Add to Cart</button>
                                             </div>
                                         </div>
                                     </div>
@@ -142,7 +142,7 @@
                                                 <div class="clearfix"></div>
                                             </div>
                                             <div class="add">
-                                                <button class="btn btn-danger my-cart-btn my-cart-b"data-id="{{ produit.idProduit }}" data-name="{{ produit.libelle }} " data-summary="{{ produit.marque }}" data-price="{{ produit.prix }}" data-quantity="1" data-image="{{ asset('images/of3.png') }}">Add to Cart</button>
+                                                <button class="btn btn-danger my-cart-btn my-cart-b" data-max="{{ produit.quantite }}" data-id="{{ produit.idProduit }}" data-name="{{ produit.libelle }} " data-summary="{{ produit.marque }}" data-price="{{ produit.prix }}" data-quantity="1" data-image="{{ asset('images/of3.png') }}">Add to Cart</button>
                                             </div>
                                         </div>
                                     </div>

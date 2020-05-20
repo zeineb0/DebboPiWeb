@@ -61,7 +61,7 @@
     var setAllProducts = function(products){
       localStorage.products = JSON.stringify(products);
     }
-    var addProduct = function(id, name, marque, price, quantity, image) {
+    var addProduct = function(id, name, marque, price, quantity, image, max ) {
       var products = getAllProducts();
       products.push({
         id: id,
@@ -69,7 +69,8 @@
         marque: marque,
         price: price,
         quantity: quantity,
-        image: image
+        image: image,
+        max: max
       });
       setAllProducts(products);
     }
@@ -95,7 +96,7 @@
       setAllProducts(products);
       return true;
     }
-    var setProduct = function(id, name, summary, price, quantity, image) {
+    var setProduct = function(id, name, summary, price, quantity, image,max) {
       if(typeof id === "undefined"){
         console.error("id required")
         return false;
@@ -119,7 +120,7 @@
       summary = typeof summary === "undefined" ? "" : summary;
 
       if(!updatePoduct(id)){
-        addProduct(id, name, summary, price, quantity, image);
+        addProduct(id, name, summary, price, quantity, image, max);
       }
     }
     var clearProduct = function(){
@@ -215,7 +216,7 @@
             '<img width="30px" height="30px" src="' + this.image + '"/></td>' +
           '<td class="text-center ">' + this.name + '</td>' + '<td>' + this.marque + '</td>' +
           '<td title="Unit Price">$' + this.price + '</td>' +
-            '<td title="Quantity"><input type="number" min="1"  style="width: 70px; " class="form-control ' + classProductQuantity + '" value="' + this.quantity + '"/></td>' +
+            '<td title="Quantity"><input type="number" min="1" max="'+this.max+'"  style="width: 70px; " class="form-control ' + classProductQuantity + '" value="' + this.quantity + '"/></td>' +
              '<td title="Total" class="' + classProductTotal + '">$' + total + '</td>' +
           '<td title="Remove from Cart" class="text-center" style="width: 30px;"><a href="javascript:void(0);" class="btn btn-xs btn-danger ' + classProductRemove + '">X</a></td>' +
           '</tr>'
@@ -410,8 +411,8 @@
       var price = $target.data('price');
       var quantity = $target.data('quantity');
       var image = $target.data('image');
-
-      ProductManager.setProduct(id, name, marque, price, quantity, image);
+      var max = $target.data('max');
+      ProductManager.setProduct(id, name, marque, price, quantity, image,max);
       $cartBadge.text(ProductManager.getTotalQuantity());
     });
 
