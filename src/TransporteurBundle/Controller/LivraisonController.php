@@ -72,7 +72,7 @@ class LivraisonController extends Controller
         $pagination = $this->get('knp_paginator')->paginate(
             $livraison, /* query NOT result */
             $request->query->getInt('page', 1), /*page number*/
-            1 /*limit per page*/
+            3 /*limit per page*/
         );
 
        return $this->render("@Transporteur/Transporteur/liste_livraisons_non_livres.html.twig",array("liste_livraison"=>$pagination));

@@ -96,6 +96,13 @@ afficherLivraisonLivre:
     path: /affLivL/{id}
     defaults: {_controller: TransporteurBundle:Api:getLivParTransporteurD}
 
+supprimerLivraison:
+    path: /suppLiv/{idliv}
+    defaults: {_controller: TransporteurBundle:Api:supprimerLivraison}
+
+modifierLivraison:
+    path: /modLiv
+    defaults: {_controller: TransporteurBundle:Api:modifierLivraison}
 
 
 
