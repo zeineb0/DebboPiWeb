@@ -44,7 +44,7 @@ class JsonController extends Controller
         $categories->setFkEntrepot($entrepots);
         $categories->setIdUser($request->get('idUser'));
         // $categories->setIdUser($user);
-        $categories->setImageName($request->get('imageName'));
+        $categories->setImageName('covered_with_a_veil-wallpaper-1920x1080.jpg');
         $em->persist($categories);
         $em->flush();
         $serializer = new Serializer([new ObjectNormalizer()]);
@@ -119,7 +119,7 @@ class JsonController extends Controller
         $produit->setPrix($request->get('prix'));
         $produit->setFkEntrepot($request->get('fkEntrepot'));
         $produit->setReference($request->get('reference'));
-        $produit->setImageName($request->get('imageName'));
+        $produit->setImageName('covered_with_a_veil-wallpaper-1920x1080.jpg');
         $produit->setQuantite($request->get('quantite'));
 
         $produit->setIdUser($request->get('idUser'));
@@ -270,9 +270,12 @@ class JsonController extends Controller
         }
 
         if($request->get('qte') !=null){
-            $qte=($request->get('qte'));
+            $qte=$request->get('qte');
+            echo $qte;
             $id=$mvt->getFkProduit();
+            var_dump($id);
             $fk=$id->getIdProduit();
+            echo $fk;
             if ($mvt->getNatureMouvement()=='Sortie') {
                 if ($id->getQuantite() < $qte)
 
