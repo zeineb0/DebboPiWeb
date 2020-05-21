@@ -35,12 +35,15 @@ class ApiController extends Controller
 
     public function modifierLivraisonAction(Request $request)
     {
-        $date=$request->get("date");
+
+        $datee=$request->get("date");
+        $dateL = new \DateTime($datee);
+
         $id_liv=$request->get("id_liv");
 
         $em=$this->getDoctrine()->getManager() ;
         $em->createQuery("Update TransporteurBundle:Livraison l SET l.dateLivraison=?1 where l.idLivraison=?2")
-            ->setParameters(array(1=>$date,2=>$id_liv))
+            ->setParameters(array(1=>$dateL,2=>$id_liv))
             ->execute();
 
         return $this->getLivParTransporteurDAction($request->get("id_user"));
