@@ -21,6 +21,15 @@ class ApiController extends Controller
 
     }
 
+    public function getLivParTransporteurNDAction($id)
+    {
+        $livraison=$this->getDoctrine()->getRepository(Livraison::class)->getLivraisonByUserNotD($id);
+        $serializer=new Serializer([new ObjectNormalizer()]);
+        $formatted= $serializer->normalize($livraison);
+        return new JsonResponse($formatted);
+
+    }
+
 
     public function supprimerLivraisonAction($idliv)
     {
