@@ -16,7 +16,7 @@ class CategoriesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('nom')
-        ->add('fkEntrepot')
+        ->add('fkEntrepot' )
         ->add('imageFile' ,VichImageType::class);
 
     }/**

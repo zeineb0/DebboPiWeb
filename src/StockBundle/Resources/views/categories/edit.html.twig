@@ -20,8 +20,19 @@
             <div class="form-w3agile form1">
 
     {{ form_start(edit_form) }}
-                {{ form_widget(edit_form) }}
 
+                <label >Nom :</label>
+                {{ form_widget(edit_form.nom) }}
+                {{ form_errors(edit_form.nom) }}
+                <br>
+                <label >Choisissez un entrepot :</label>
+                {{ form_widget(edit_form.fkEntrepot) }}
+                {{ form_errors(edit_form.fkEntrepot) }}
+                <br>
+                <label >Ajouter l'image du produit :</label>
+                {{ form_widget(edit_form.imageFile) }}
+                {{ form_errors(edit_form.imageFile) }}
+                <br>
                 <br>
         <input type="submit" value="Modifier" />
     {{ form_end(edit_form) }}

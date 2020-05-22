@@ -18,18 +18,18 @@
     <div class="login">
         <div class="main-agileits">
             <div class="form-w3agile form1">
-    <table>
-        <tbody>
-            <tr>
-                <th>Nom</th>
-                <td>{{ category.nom }}</td>
-            </tr>
-            <tr>
-                <th>Entrepot</th>
-                <td>{{ category.fkEntrepot }}</td>
-            </tr>
-        </tbody>
-    </table>
+
+                <a href="#" data-toggle="modal" data-target="#myModal4" class="offer-img">
+                    <img src="{{ asset('public/images/categories/'~category.imageName) }}" class="img-responsive img" alt="">
+
+                </a><br>
+
+                <label>Nom: </label>
+                {{ category.nom }}
+<br>
+                <label>Entrepot :</label>
+                {{ category.fkEntrepot }}
+
 
     <ul>
 
@@ -37,6 +37,7 @@
 
 
             <a href="{{ path('categories_edit', { 'idCategorie': category.idCategorie }) }}"><input type="submit" value="Modifier"></a>
+        <br>
 
 
             {{ form_start(delete_form) }}

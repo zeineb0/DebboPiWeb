@@ -85,26 +85,34 @@
 {#**********************************************tt produits********************************************************#}
         <div class="tab-pane text-style" id="tab1" >
             {% set i=1 %}
-            {% for entrepot in entrepots %}
-                <nav class="nav-sidebar">
+
+                <nav class="nav-sidebar block-w3">
 
                         <ul class="nav tabs" >
-                            {% if i==1 %}
-                            <li class="active"><a href="#{{ entrepot.idEntrepot }}" data-toggle="tab" id="ent1"~i>{{ entrepot.entreprise }}</a></li>
-                            {% else %}
-                                <li class=""><a href="#{{ entrepot.idEntrepot }}" data-toggle="tab" id="ent1"~i>{{ entrepot.entreprise }}</a></li>
-                            {% endif %}
-                                </ul>
-                {% set i=i+1 %}
+                            {% for entrepot in entrepots %}
+                                {% if i==1 %}
+                                    <li class="active"><a href="#{{ entrepot.idEntrepot }}" data-toggle="tab" >{{ entrepot.entreprise }}</a></li>
+                                {% else %}
+                                    <li class=""><a href="#{{ entrepot.idEntrepot }}" data-toggle="tab" >{{ entrepot.entreprise }}</a></li>
+                                {% endif %}
+                                {% set i=i+1 %}
+                            {% endfor %}
+
+                        </ul>
                 </nav>
-                {% if i==1 %}
-            <div class="tab-pane active text-style" id="{{ entrepot.idEntrepot }}" >
-                {% else %}
-                    <div class="tab-pane hide text-style" id="{{ entrepot.idEntrepot }}" >
+
+            <div class=" tab-content tab-content-t " >
+                {% set x=1 %}
+                {% for entrepot in entrepots %}
+                {% if x==1 %}
+                <div class="tab-pane active text-style" id="{{ entrepot.idEntrepot }}">
+                    {% else %}
+                    <div class="tab-pane text-style" id="{{ entrepot.idEntrepot}}">
                         {% endif %}
 
-                    {% for produit in produits %}
-                    {% if produit.fkEntrepot == entrepot %}
+                        {% for produit in produits %}
+                            {% if produit.fkEntrepot == entrepot %}
+                                {% set x=x+1 %}
                                 <div class=" con-w3l">
                                     <div class="col-md-3 m-wthree">
                                         <div class="col-m">
@@ -122,7 +130,7 @@
                                                 <div class="mid-2">
 
                                                     {% if produit.quantite <= 10 %}
-                                                        <p ><label>{{ produit.prix }}</label><em class="item_price">{{produit.prix }}</em></p>
+                                                        <p ><label>{{ produit.prix/0.9 }}</label><em class="item_price">{{produit.prix }}</em></p>
                                                     {% else %}
                                                         <p ><em class="item_price">{{produit.prix }}DT</em></p>
                                                     {% endif %}
@@ -139,28 +147,49 @@
                                         </div>
                                     </div>
                                 </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
+                            {% endif %}
+                        {% endfor %}
+
+                    </div>
                     {% endfor %}
                 </div>
+            </div>
 {#**********************************************par entrepot********************************************************#}
     <div class="tab-pane text-style" id="tab2" >
-         {% for category in categorys %}
-             <nav class="nav-sidebar">
 
+             <nav class="nav-sidebar">
+            {% set i=1 %}
                  <ul class="nav tabs" >
-                         <li class=""><a href="#{{ category.idCategorie }}" data-toggle="tab" id="ent1">{{ category.nom }}</a></li>
+                     {% for category in categorys %}
+                        {% if i==1 %}
+                         <li class="active"><a href="#{{ category.idCategorie }}" data-toggle="tab" >{{ category.nom }}</a></li>
+                         {% else %}
+                             <li class=""><a href="#{{ category.idCategorie }}" data-toggle="tab" >{{ category.nom }}</a></li>
+                        {% endif %}
+                         {% set i=i+1 %}
+                     {% endfor %}
                  </ul>
              </nav>
-                <div class="tab-pane  text-style" id="{{ category.idCategorie }}" role="tabpanel" >
-                    {% for produit in produits %}
+        <div class=" tab-content tab-content-t " >
+            {% set x=1 %}
+        {% for category in categorys %}
+            {% if x==1 %}
+                <div class="tab-pane active text-style" id="{{ category.idCategorie }}">
+        {% else %}
+            <div class="tab-pane text-style" id="{{ category.idCategorie }}">
+                {% endif %}
+
+            {% for produit in produits %}
                         {% if produit.fkCategorie == category %}
+                            {% set x=x+1 %}
                             <div class=" con-w3l">
                                 <div class="col-md-3 m-wthree">
                                     <div class="col-m">
                                         <a href="#" data-toggle="modal" data-target="#myModal4" class="offer-img">
                                             <img src="{{ asset('public/images/produits/'~produit.imageName) }}" class="img-responsive img" alt="">
+                                            {% if produit.quantite <= 10 %}
+                                                <div class="offer"><p><span>Promotion</span></p></div>
+                                            {% endif %}
                                         </a>
                                         <div class="mid-1">
                                             <div class="women">
@@ -168,7 +197,13 @@
                                                 <h6><a href="">{{  produit.libelle }}</a>({{ produit.marque }})</h6>
                                             </div>
                                             <div class="mid-2">
-                                                <p ><em class="item_price">{{  produit.prix }} Dt</em></p>
+
+                                                {% if produit.quantite <= 10 %}
+                                                    <p ><label>{{ produit.prix/0.9 }}</label><em class="item_price">{{produit.prix }}</em></p>
+                                                {% else %}
+                                                    <p ><em class="item_price">{{produit.prix }}DT</em></p>
+                                                {% endif %}
+
                                                 <div class="block">
                                                     <div class="starbox small ghosting"> </div>
                                                 </div>
@@ -183,9 +218,12 @@
                             </div>
                         {% endif %}
                     {% endfor %}
+
                 </div>
-            {% endfor %}
+        {% endfor %}
     </div>
+    </div>
+
     </div>
     </div>
 
@@ -201,13 +239,15 @@
     {#**********************************************footer********************************************************#}
     <script>
 
-        {#$("#ent").click(function(){
-
-            $("#tab").toggle(1000);
-        });#}
-
         $("#ent1").click(function(){
-            $("#toto").toggle(1000);
+
+            $("#bardo").hide();
+            $("#ariana").show();
+        });
+        $("#ent2").click(function(){
+
+                $("#ariana").hide();
+                     $("#bardo").show();
         });
 
     </script>
