@@ -90,7 +90,7 @@ afficher_contrat_exp:
 
 
 
-# Mobile api routing :
+# Mobile api livraison routing :
 
 afficherLivraisonLivre:
     path: /affLivL/{id}
@@ -111,6 +111,15 @@ modifierLivraison:
     defaults: {_controller: TransporteurBundle:Api:modifierLivraison}
 
 
+# Mobile api contrat routing :
 
+afficherContrat:
+    path: /affContrat/{id}
+    defaults: {_controller: TransporteurBundle:Api:getContrat}
+
+
+afficherContratEXP:
+    path: /affContratEXP/{id}
+    defaults: {_controller: TransporteurBundle:Api:getContratEXP}
 
 

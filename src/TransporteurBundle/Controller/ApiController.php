@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
+use TransporteurBundle\Entity\Contrat;
 use TransporteurBundle\Entity\Livraison;
 
 
@@ -24,6 +25,7 @@ class ApiController extends Controller
     public function getLivParTransporteurNDAction($id)
     {
         $livraison=$this->getDoctrine()->getRepository(Livraison::class)->getLivraisonByUserNotD($id);
+
         $serializer=new Serializer([new ObjectNormalizer()]);
         $formatted= $serializer->normalize($livraison);
         return new JsonResponse($formatted);
@@ -58,6 +60,38 @@ class ApiController extends Controller
         return $this->getLivParTransporteurDAction($request->get("id_user"));
 
     }
+
+
+    // Contrat Actions :
+
+
+    public function getContratAction($id)
+    {
+        $contrat = $this->getDoctrine()->getRepository(Contrat::class)->getContratByProp($id);
+
+        $serializer=new Serializer([new ObjectNormalizer()]);
+        $formatted= $serializer->normalize($contrat);
+        return new JsonResponse($formatted);
+
+
+    }
+
+
+    public function getContratEXPAction($id)
+    {
+        $contrat = $this->getDoctrine()->getRepository(Contrat::class)->getListContratExp($id);
+
+        $serializer=new Serializer([new ObjectNormalizer()]);
+        $formatted= $serializer->normalize($contrat);
+        return new JsonResponse($formatted);
+
+
+    }
+
+
+
+
+
 
 
 }
