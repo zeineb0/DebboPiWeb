@@ -28,7 +28,10 @@ class MouvementDuStockController extends Controller
     public function indexAction( Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->findBy(array ('idUser'=>$user));
+
         $dql="SELECT bp FROM StockBundle:MouvementDuStock bp WHERE bp.idUser =:fk";
         $query=$em->createQuery($dql)->setParameter('fk',$user );
        // $mouvementDuStocks = $em->getRepository('StockBundle:MouvementDuStock')->findAll();
@@ -43,6 +46,8 @@ class MouvementDuStockController extends Controller
         );
         return $this->render('@Stock/mouvementdustock/index.html.twig', array(
             'mouvementDuStocks' => $result,
+            'entrepots'=>$entrepots,
+
         ));
     }
 

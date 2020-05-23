@@ -16,44 +16,88 @@
     </div>
 </div>
 
-<div class="bs-docs-example">
-    <table class="table">
-        <thead>
-            <tr>
+<div class="content-top ">
+    <div class="container ">
+        <div class="table-head ">
+            <nav class="nav justify-content-center">
+                {% set i=1 %}
+                <ul class="nav tabs dropdown " id="myTab" >
+                    {% for entrepot in entrepots %}
+                        {% if i==1 %}
+                            <li class="active"><a href="#{{ entrepot.idEntrepot }}" data-toggle="tab" >{{ entrepot.entreprise }}</a></li>
+                        {% else %}
+                            <li class=""><a href="#{{ entrepot.idEntrepot }}" data-toggle="tab" >{{ entrepot.entreprise }}</a></li>
+                        {% endif %}
+                        {% set i=i+1 %}
+                    {% endfor %}
+                </ul>
+            </nav>
 
-                <th>    <h2>{{ knp_pagination_sortable(mouvementDuStocks,'Nature du mouvement', 'bp.natureMouvement',{}, {'direction': 'asc'}) }} </h2></th>
-                <th>    <h2>{{ knp_pagination_sortable(mouvementDuStocks,'Date du mouvement', 'bp.dateMouv',{}, {'direction': 'asc'}) }} </h2></th>
-                <th>    <h2>Actions </h2></th>
+            <div class=" tab-content tab-content-t " >
+                {% set x=1 %}
+                    {% for entrepot in entrepots %}
+                        {% if x==1 %}
+                            <div class="tab-pane active text-style" id="{{ entrepot.idEntrepot }}">
+                        {% else %}
+                                    <div class="tab-pane text-style" id="{{ entrepot.idEntrepot}}">
+                        {% endif %}
+    <div class="bs-docs-example">
+        <table class="table">
+             <thead>
+                <tr>
 
-            </tr>
-        </thead>
-        <tbody>
-        {% for mouvementDuStock in mouvementDuStocks %}
+                 <th>    <h2>{{ knp_pagination_sortable(mouvementDuStocks,'Nature du mouvement', 'bp.natureMouvement',{}, {'direction': 'asc'}) }} </h2></th>
+                 <th>    <h2>{{ knp_pagination_sortable(mouvementDuStocks,'Date du mouvement', 'bp.dateMouv',{}, {'direction': 'asc'}) }} </h2></th>
+                 <th>    <h2>Produit </h2></th>
+                 <th>    <h2>Entrepot </h2></th>
+                 <th>    <h2>Actions </h2></th>
+
+                </tr>
+             </thead>
+            <tbody>
+
+            {% for mouvementDuStock in mouvementDuStocks %}
+               {% if mouvementDuStock.fkEntrepot == entrepot %}
+                 {% set x=x+1 %}
 
             <tr>
                 <td > {{ mouvementDuStock.natureMouvement }}   </td>
                 <td> {{ mouvementDuStock.dateMouv | date}}   </td>
+                <td> {{ mouvementDuStock.fkProduit.libelle}}   </td>
+                <td> {{ mouvementDuStock.fkEntrepot.entreprise}}   </td>
                 <td>
-            <h2 class="t-button">
+                    <h2 class="t-button">
                         <li class="label label-info"><a style="color: white" href="{{ path('mouvementdustock_show', { 'idMouv': mouvementDuStock.idMouv }) }}">Afficher</a></li>
                         <li class="label label-default"><a style="color: white" href="{{ path('mouvementdustock_edit', { 'idMouv': mouvementDuStock.idMouv }) }}">Modifier</a></li>
-            </h2>
+                    </h2>
 
                 </td>
             </tr>
 
-        {% endfor %}
-        </tbody>
-    </table>
+
+
+               {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+    </div>
+                                    </div>
+                             {% endfor %}
+                            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
     <div class="navigation text-center">
         {{ knp_pagination_render(mouvementDuStocks) }}
     </div>
     <div class="form-w3agile form1">
-            <center>         <a href="{{ path('mouvementdustock_new') }}"><input type="submit" value="Ajouter un nouveau mouvement" /></a>
+        <center>         <a href="{{ path('mouvementdustock_new') }}"><input type="submit" value="Ajouter un nouveau mouvement" /></a>
 
         </center>
     </div>
-
-</div>
 
 {% endblock %}

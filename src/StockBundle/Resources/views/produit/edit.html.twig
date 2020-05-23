@@ -25,9 +25,9 @@
     {{ form_end(edit_form) }}
 
     <ul>
-            <a href="{{ path('produit_index') }}">        <input type="submit" value="Retour à la liste" /></a>
+            <a href="{{ path('produit_index') }}"><input type="submit" value="Retour à la liste" /></a>
+            <a href="{{ path('produit_delete', { 'idProduit': produit.idProduit }) }}"><input type="submit" value="Supprimer" /></a>
 
-        <li class="label label-default"><a style="color: white" href="{{ path('produit_delete', { 'idProduit': produit.idProduit }) }}">supp</a></li>
     </ul>
             </div>
         </div>
