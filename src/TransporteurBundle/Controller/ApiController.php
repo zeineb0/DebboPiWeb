@@ -88,6 +88,21 @@ class ApiController extends Controller
 
     }
 
+    public function supprimerContratAction(Request $request)
+    {
+
+        $id_transporteur=$request->get("id_transporteur");
+        $id_entrepot=$request->get("id_entrepot");
+
+        $em=$this->getDoctrine()->getManager() ;
+        $em->createQuery('delete from TransporteurBundle:Contrat c where c.FKidentrepot=?0 and c.FKiduser=?1')
+            ->setParameters(array(0=>$id_entrepot,1=>$id_transporteur))
+            ->execute();
+
+        return $this->getContratAction(2);
+
+    }
+
 
 
 
