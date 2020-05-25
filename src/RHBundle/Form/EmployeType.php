@@ -28,6 +28,7 @@ class EmployeType extends AbstractType
             ->add('email')
             ->add('imageFile',VichImageType::class)
             ->add('signalemp')
+            ->add('nbcong')
             ->add('points')
             ->add('dateEmbauche')
             ->add('captcha', CaptchaType::class);

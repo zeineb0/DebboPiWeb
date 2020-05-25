@@ -126,7 +126,6 @@ class EmployeController extends Controller
     public function  rechercheAction(Request $request){
         $em = $this->getDoctrine()->getManager();
         $motcle=$request->get('motcle');
-
         $employes = $em->getRepository('RHBundle:Employe')->findBy( array('cin' =>$motcle) );
         $this->addFlash('info', 'Voici la résultat de votre recherche');
 

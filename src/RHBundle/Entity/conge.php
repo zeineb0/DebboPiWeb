@@ -50,6 +50,29 @@ class conge
     private $etat;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="raison", type="string", length=255)
+     */
+    private $raison;
+
+    /**
+     * @return string
+     */
+    public function getRaison()
+    {
+        return $this->raison;
+    }
+
+    /**
+     * @param string $raison
+     */
+    public function setRaison($raison)
+    {
+        $this->raison = $raison;
+    }
+
+    /**
      * @var int
      *
      * @ORM\Column(name="FK_id_emp", type="integer")

@@ -127,7 +127,28 @@ class Employe
      */
     private $signalemp=0;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbcong", type="integer", nullable=true)
+     */
+    private $nbcong;
 
+    /**
+     * @return int
+     */
+    public function getNbcong()
+    {
+        return $this->nbcong;
+    }
+
+    /**
+     * @param int $nbcong
+     */
+    public function setNbcong($nbcong)
+    {
+        $this->nbcong = $nbcong;
+    }
 
     /**
      * @return int
