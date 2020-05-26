@@ -95,8 +95,10 @@
                                 {% else %}
                                     <li class=""><a href="#{{ entrepot.idEntrepot }}" data-toggle="tab" >{{ entrepot.entreprise }}</a></li>
                                 {% endif %}
+
                                 {% set i=i+1 %}
                             {% endfor %}
+                            <li class=""><a href="#cara" data-toggle="tab" >Caractéristique</a></li>
 
                         </ul>
                 </nav>
@@ -152,7 +154,25 @@
 
                     </div>
                     {% endfor %}
-                </div>
+                    <div class="tab-pane text-style" id="cara">
+                        {% for tab in tab %}
+                        <div class="login">
+                            <div class="main-agileits">
+                                <div class="form-w3agile form1">
+                                    <h3>   {{ tab.entrepot }}            </h3>
+
+                                    <br>
+                            Quantité maximale : {{ tab.entrepot.quantiteMax }}<br>
+                           Quantité existante : {{ tab.qtt[0].somme}}<br>
+                            Quantité restante :{{tab.entrepot.quantiteMax - tab.qtt[0].somme   }}<br>
+
+                    </div>
+                    </div>
+                    </div>
+                        {% endfor %}
+
+                    </div>
+                    </div>
             </div>
 {#**********************************************par entrepot********************************************************#}
     <div class="tab-pane text-style" id="tab2" >

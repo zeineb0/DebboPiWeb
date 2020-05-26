@@ -43,11 +43,21 @@ class ProduitController extends Controller
             $repo=$this->getDoctrine()->getManager()->getRepository('StockBundle:Produit');
             $update=$repo->updatePrix($produit);}
         }
+        $i=-1; $tab= array();
+
+        foreach ($entrepots as $entrepot){
+            $i++;
+            $tab[$i] = array('entrepot'=>$entrepot,'qtt'=>$em->createQuery('
+        SELECT SUM(p.quantite) somme FROM StockBundle:Produit p WHERE p.fkEntrepot =:item ')->setParameter(
+                'item',$entrepot
+            )->getResult());
+        }
+
 
             return $this->render('@Stock/produit/index.html.twig', array(
             'produits' => $produits,
                 'categorys'=>$categorys,
-                'entrepots'=>$entrepots,
+                'entrepots'=>$entrepots,'tab' => $tab,
           ));
     }
 
