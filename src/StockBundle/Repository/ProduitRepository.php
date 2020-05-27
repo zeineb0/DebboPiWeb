@@ -2,6 +2,7 @@
 
 namespace StockBundle\Repository;
 
+use EntrepotBundle\Entity\Entrepot;
 use StockBundle\Entity\Produit;
 
 /**
@@ -28,4 +29,5 @@ class ProduitRepository extends \Doctrine\ORM\EntityRepository
         }
 
     }
+
 }

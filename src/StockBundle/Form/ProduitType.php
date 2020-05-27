@@ -20,8 +20,7 @@ class ProduitType extends AbstractType
             ->add('prix')
             ->add('quantite')
             ->add('imageFile' ,VichImageType::class)
-            ->add('fkCategorie')
-            ->add('fkEntrepot');
+            ->add('fkCategorie');
     }
     /**
      * {@inheritdoc}

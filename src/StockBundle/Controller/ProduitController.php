@@ -41,7 +41,9 @@ class ProduitController extends Controller
         foreach ($produits as $produit){
             if ($produit->isPromotion()==0){
             $repo=$this->getDoctrine()->getManager()->getRepository('StockBundle:Produit');
-            $update=$repo->updatePrix($produit);}
+            $update=$repo->updatePrix($produit);
+
+            }
         }
         $i=-1; $tab= array();
 
@@ -80,11 +82,28 @@ class ProduitController extends Controller
             $id = $this->getUser();
             $produit->setIdUser($id);
             $produit->setPromotion(0);
-           /* $fk=$produit->getFkEntrepot();
-            echo $fk;*/
-            $em->persist($produit);
-            $em->flush();
+           $fk=$produit->getFkEntrepot();
+            $qteM=$fk->getQuantiteMax();
+            //echo $qteM;
+            $qteA=$produit->getQuantite();
+            $qteE = $em->createQuery('SELECT SUM(p.quantite) somme FROM StockBundle:Produit p WHERE p.fkEntrepot =:item ')
+                ->setParameter('item',$fk)
+                ->getResult();
 
+            $categories=$produit->getFkCategorie();
+            $ent=$categories->getFkEntrepot();
+            $produit->setFkEntrepot($ent);
+            foreach ($qteE as $qteE){
+                $qteEE= $qteE['somme'] ;
+
+            }
+         //   echo $qteEE;
+            if($qteEE + $qteA <= $qteM){
+                $em->persist($produit);
+                $em->flush();
+       } else {
+                return $this->render('@Stock/produit/msg.html.twig');
+            }
             return $this->redirectToRoute('produit_show', array('idProduit' => $produit->getIdproduit()));
         }
 

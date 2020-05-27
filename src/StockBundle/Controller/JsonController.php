@@ -44,7 +44,8 @@ class JsonController extends Controller
         $categories->setFkEntrepot($entrepots);
         $categories->setIdUser($request->get('idUser'));
         // $categories->setIdUser($user);
-        $categories->setImageName('covered_with_a_veil-wallpaper-1920x1080.jpg');
+        $categories->setImageName('covered_with_a_veil-wallpaper-1920x1080.jpg'
+        );
         $em->persist($categories);
         $em->flush();
         $serializer = new Serializer([new ObjectNormalizer()]);
@@ -121,12 +122,13 @@ class JsonController extends Controller
         $produit->setReference($request->get('reference'));
         $produit->setImageName('covered_with_a_veil-wallpaper-1920x1080.jpg');
         $produit->setQuantite($request->get('quantite'));
-
+        $produit->setPromotion(0);
         $produit->setIdUser($request->get('idUser'));
         $categories = $em->getRepository('StockBundle:Categories')->find($request->get('fkCategorie'));
         $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
+        $ent=$categories->getFkEntrepot();
         $produit->setFkCategorie($categories);
-        $produit->setFkEntrepot($entrepots);
+        $produit->setFkEntrepot($ent);
         $em->persist($produit);
         $em->flush();
         $serializer = new Serializer([new ObjectNormalizer()]);

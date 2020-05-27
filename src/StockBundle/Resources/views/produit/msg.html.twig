@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="banner-top">
+        <div class="container" >
+            <h3 > <center>Produit </h3></center>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <div class="spec ">
+    <h3>     Quantitée supérieure à la quantité maximale de l'entrepot ! Merci de réessayer !
+    </h3>
+
+    <a href="{{ path('produit_new') }}"><input type="submit" value="Reessayer d'ajouter" /></a>
+    </div>
+{% endblock %}
