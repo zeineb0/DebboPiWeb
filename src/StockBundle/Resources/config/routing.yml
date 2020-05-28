@@ -64,6 +64,9 @@ admin:
 admin1:
     path:     /categ
     defaults: { _controller: StockBundle:Admin:index }
+aadmin1:
+    path:     /accueil
+    defaults: { _controller: StockBundle:Admin:acc }
 admin12:
     path:     /prod
     defaults: { _controller: StockBundle:Admin:produit }
