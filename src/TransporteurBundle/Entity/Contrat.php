@@ -5,6 +5,7 @@ namespace TransporteurBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
+
 /**
  * Contrat
  *
@@ -14,15 +15,17 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Contrat
 {   /**
      * @var \DateTime
-     *
-     * @ORM\Column(name="date_deb", type="date", nullable=false)
+     *@Assert\NotBlank()
+     *@Assert\GreaterThanOrEqual("today")
+     *@ORM\Column(name="date_deb", type="date", nullable=false)
      *
      */
     private $datedeb;
 
     /**
      * @var \DateTime
-     *
+     *@Assert\NotBlank()
+     * @Assert\GreaterThan(propertyPath="datedeb")
      * @ORM\Column(name="date_fin", type="date", nullable=false)
      *
      */
@@ -31,7 +34,11 @@ class Contrat
 
     /**
      * @var integer
-     *
+     *@Assert\NotBlank()
+     *@Assert\Type(
+     *     type="integer"
+     * )
+     * @Assert\Length(min=3)
      * @ORM\Column(name="salaire", type="integer", nullable=false)
      */
     private $salaire;

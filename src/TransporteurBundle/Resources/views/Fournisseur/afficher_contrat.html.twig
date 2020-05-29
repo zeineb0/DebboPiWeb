@@ -16,17 +16,66 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div style="display: block; margin: 100px; ">
-                        {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
-                        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-                        {{ form_widget(form) }}
+
+
+                    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                    {{ form_errors(form) }}
+
+
+                        <legend style="margin: 10px;"> Contrat :</legend>
+                    <div class="form-group row" style="margin: 10px;">
+                        <label class="col-md-2 col-form-label"> {{ form_label(form.datedeb) }} </label>
+
+                        <div class="col-md-10">
+                            {{ form_widget(form.datedeb,{ 'attr': { 'class': 'form-control' } }) }}
+                            {{ form_errors(form.datedeb) }}
+                         </div>
                     </div>
-                </div>
+
+                    <div class="form-group row" style="margin: 10px;">
+                        <label class="col-md-2 col-form-label"> {{ form_label(form.datefin) }} </label>
+
+                        <div class="col-md-10">
+                            {{ form_widget(form.datefin,{ 'attr': { 'class': 'form-control' } }) }}
+                            {{ form_errors(form.datefin) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group row" style="margin: 10px;">
+                        <label class="col-md-2 col-form-label"> {{ form_label(form.salaire) }} </label>
+
+                        <div class="col-md-10">
+                            {{ form_widget(form.salaire,{ 'attr': { 'class': 'form-control' } }) }}
+                            {{ form_errors(form.salaire) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group row" style="margin: 10px;">
+                        <label class="col-md-2 col-form-label"> {{ form_label(form.FKidentrepot) }} </label>
+
+                        <div class="col-md-10">
+                            {{ form_widget(form.FKidentrepot,{ 'attr': { 'class': 'form-control' } }) }}
+                            {{ form_errors(form.FKidentrepot) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group row" style="margin: 10px;">
+                        <label class="col-md-2 col-form-label"> {{ form_label(form.FKiduser) }} </label>
+
+                        <div class="col-md-10">
+                            {{ form_widget(form.FKiduser,{ 'attr': { 'class': 'form-control' } }) }}
+                            {{ form_errors(form.FKiduser) }}
+                        </div>
+                    </div>
+                    
+                    </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
                     <input class="btn btn-success" type="submit" value="Ajouter" />
                 </div>
                 {{ form_end(form) }}
+
             </div>
         </div>
     </div>

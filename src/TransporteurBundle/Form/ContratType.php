@@ -4,6 +4,7 @@ namespace TransporteurBundle\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,14 +18,14 @@ class ContratType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('datedeb',DateType::class,['label'=>'Date Début'])
-            ->add('datefin',DateType::class,['label'=>'Date Fin'])
-            ->add('salaire',TextType::class,['label'=>'Le Salaire'])
+        $builder->add('datedeb',DateType::class,['label'=>'Date Début','widget'=>'single_text'])
+            ->add('datefin',DateType::class,['label'=>'Date Fin','widget'=>'single_text'])
+            ->add('salaire',IntegerType::class,['label'=>'Salaire'])
             ->add('FKidentrepot',EntityType::class,array(
                 'class'=>'EntrepotBundle:Entrepot',
                 'choice_label'=>'entreprise',
                 'multiple'=>false,
-                'label'=>"L'Entreprise"))
+                'label'=>"Entreprise"))
             ->add('FKiduser',EntityType::class,array(
                 'class'=>'AppBundle:User',
                 'choice_label'=>'prenom',
