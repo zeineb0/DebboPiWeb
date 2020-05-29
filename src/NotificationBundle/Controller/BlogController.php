@@ -56,40 +56,29 @@ class BlogController extends Controller
        return  new JsonResponse($data);
     }
 
-    /**
-     * Creates a new blog entity.
-     *
-     * @Route("/new", name="blog_new")
-     * @Method({"GET", "POST"})
-     */
-    public function newAction(Request $request)
-    {
-        $blog = new Blog();
-        $form = $this->createForm('NotificationBundle\Form\BlogType', $blog);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $user = $this->container->get('security.token_storage')->getToken()->getUser();
+    public function newAction($user,$em)
+    {
+            $blog = new Blog();
             $blog->setIdUser($user);
+            $blog->setTitle("Commande");
+            $blog->setDescription(" avez passer une commande.");
+            $blog->setAuteur("Vous");
+            $em->getRepository("NotificationBundle:Blog");
             $em->persist($blog);
             $em->flush();
 
             $notification = new Notification();
-            $notification
-                ->setTitle('New comment')
-                ->setDescription($blog->getTitle())
-                ->setRoute('blog_show')// I suppose you have a show route for your entity
-                ->setParameters($blog);
-          $em->persist($notification);
-          $em->flush();
+            $notification->setTitle('New comment');
+            $notification ->setDescription($blog->getTitle());
+            $notification->setRoute('blog_show');// I suppose you have a show route for your entity
 
-        }
+             $notification->setParameters($blog);
+            $em->getRepository("NotificationBundle:Notification");
+             $em->persist($notification);
+                $em->flush();
 
-        return $this->render('@Notification/blog/new.html.twig', array(
-            'blog' => $blog,
-            'form' => $form->createView(),
-        ));
+
     }
 
     /**

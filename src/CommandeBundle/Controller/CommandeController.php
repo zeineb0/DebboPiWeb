@@ -5,6 +5,8 @@ namespace CommandeBundle\Controller;
 use CommandeBundle\Entity\Commande;
 use CommandeBundle\Entity\ProduitCommande;
 use EntrepotBundle\Entity\Produit;
+use NotificationBundle\Controller\BlogController;
+use NotificationBundle\NotificationBundle;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -315,8 +317,11 @@ class CommandeController extends Controller
           $produitCommande->setPrixProduit($produit['price']);
           $em->persist($produitCommande);
           $em->flush();
+          $this->getDoctrine()->getManager()->createQuery('update EntrepotBundle:Produit p 
+                set p.quantite = p.quantite-?0 where p.idProduit=?1
+                ')->setParameter(0,floatval($produit['quantity']))->setParameter(1,$produit['id'])->execute();
       }
-
+            BlogController::newAction($user,$em);
         return $this->json([200,"succées"],200);}
         }
         else

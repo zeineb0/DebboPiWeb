@@ -4,6 +4,7 @@ namespace CommandeBundle\Controller;
 
 use CommandeBundle\Entity\Commande;
 use CommandeBundle\Entity\ProduitCommande;
+use NotificationBundle\Controller\BlogController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -79,6 +80,10 @@ class CommandeJsonController extends Controller
                 $produitCommande->setPrixProduit(floatval($prix));
                 $em->persist($produitCommande);
                 $em->flush();
+                $em=$this->getDoctrine()->getManager()->createQuery('update EntrepotBundle:Produit p 
+                set p.quantite = p.quantite-?0 where p.idProduit=?1
+                ')->setParameter(0,floatval($qtt))->setParameter(1,floatval($prd))->execute();
+                $em = $this->getDoctrine()->getManager();
                 $ch="";
                 $produits=substr($produits,1);
             }
@@ -88,7 +93,7 @@ class CommandeJsonController extends Controller
             }
 
         }
-
+                BlogController::newAction($user,$em);
                $encoders = [new XmlEncoder(), new JsonEncoder()];
                $normalizers = [new ObjectNormalizer()];
                $serializer = new Serializer($normalizers, $encoders);
