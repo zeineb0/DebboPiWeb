@@ -139,18 +139,20 @@ class MouvementDuStockController extends Controller
             if ($mouvementDuStock->getNatureMouvement()=='Sortie') {
                 if ($id->getQuantite() < $qte)
 
-                {return $this->render('@Stock/mouvementdustock/msg.html.twig');}
+                {
+                    return $this->render('@Stock/mouvementdustock/msg.html.twig');
+                }
                 else {
 
                     $rrepo=$this->getDoctrine()->getManager()->getRepository('StockBundle:MouvementDuStock');
-                    $update=$rrepo->updateProduit($mouvementDuStock,$qte,$fk);
+                    $update=$rrepo->updateProduitS($mouvementDuStock,$qte,$fk);
                 }
             }
 
-            elseif ($id->getQuantite() >= $qte)
+            else
             {
                 $rrepo=$this->getDoctrine()->getManager()->getRepository('StockBundle:MouvementDuStock');
-                $update=$rrepo->updateProduit($mouvementDuStock,$qte,$fk);
+                $update=$rrepo->updateProduitE($mouvementDuStock,$qte,$fk);
             }
 
             $this->getDoctrine()->getManager()->flush();
@@ -192,9 +194,8 @@ class MouvementDuStockController extends Controller
      */
     public function deleteAction($idMouv)
     {
-        $this->
+
         $form = $this->getDoctrine()->getRepository(MouvementDuStock::class)->find($idMouv);
-        var_dump($form);
         $em=$this->getDoctrine()->getManager();
 
         $em->remove($form);

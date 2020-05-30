@@ -5,6 +5,8 @@ namespace StockBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Produit
@@ -40,21 +42,27 @@ class Produit
 
     /**
      * @var integer
-     *
+     *@Assert\NotBlank()
+     * @Assert\Length(min=8)
+     * @Assert\Length(max=8)
      * @ORM\Column(name="reference", type="integer", nullable=false)
      */
     private $reference;
 
     /**
      * @var string
-     *
+     * *@Assert\Type(
+     *     type="string"
+     * )
      * @ORM\Column(name="marque", type="string", length=255, nullable=false)
      */
     private $marque;
 
     /**
      * @var float
-     *
+     *@Assert\Type(
+     *     type="float"
+     * )
      * @ORM\Column(name="prix", type="float", precision=7, scale=2, nullable=false)
      */
     private $prix;
@@ -65,6 +73,12 @@ class Produit
      * @ORM\Column(name="quantite", type="integer", nullable=false)
      */
     private $quantite;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="note", type="integer", nullable=false)
+     */
+    private $note;
 
     /**
      * @var string
@@ -78,7 +92,7 @@ class Produit
      *
      * @ORM\ManyToOne(targetEntity="Categories")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="FK_id_categorie", referencedColumnName="id_categorie")
+     *   @ORM\JoinColumn(name="FK_id_categorie", referencedColumnName="id_categorie",nullable=false)
      * })
      */
     private $fkCategorie;
@@ -88,7 +102,7 @@ class Produit
      *
      * @ORM\ManyToOne(targetEntity="EntrepotBundle\Entity\Entrepot")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="FK_id_entrepot", referencedColumnName="id_entrepot")
+     *   @ORM\JoinColumn(name="FK_id_entrepot", referencedColumnName="id_entrepot",nullable=false)
      * })
      */
     private $fkEntrepot;
@@ -224,6 +238,7 @@ class Produit
     }
 
     /**
+     *
      * @param float $prix
      */
     public function setPrix($prix)
@@ -347,6 +362,22 @@ class Produit
     public function setPromotion($promotion)
     {
         $this->promotion = $promotion;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNote()
+    {
+        return $this->note;
+    }
+
+    /**
+     * @param int $note
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
     }
 
 }

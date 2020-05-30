@@ -33,4 +33,4 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/back, role: ROLE_ADMIN }
         - { path: ^/front, role: ROLE_USER }
-        - { path: ^/front, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/frontF, role: ROLE_USER }

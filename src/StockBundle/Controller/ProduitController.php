@@ -81,6 +81,9 @@ class ProduitController extends Controller
             $em = $this->getDoctrine()->getManager();
             $id = $this->getUser();
             $produit->setIdUser($id);
+            $categories=$produit->getFkCategorie();
+            $ent=$categories->getFkEntrepot();
+            $produit->setFkEntrepot($ent);
             $produit->setPromotion(0);
            $fk=$produit->getFkEntrepot();
             $qteM=$fk->getQuantiteMax();
@@ -90,9 +93,7 @@ class ProduitController extends Controller
                 ->setParameter('item',$fk)
                 ->getResult();
 
-            $categories=$produit->getFkCategorie();
-            $ent=$categories->getFkEntrepot();
-            $produit->setFkEntrepot($ent);
+
             foreach ($qteE as $qteE){
                 $qteEE= $qteE['somme'] ;
 
@@ -121,11 +122,9 @@ class ProduitController extends Controller
      */
     public function showAction(Produit $produit)
     {
-        $deleteForm = $this->createDeleteForm($produit);
 
         return $this->render('@Stock/produit/show.html.twig', array(
             'produit' => $produit,
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -137,7 +136,6 @@ class ProduitController extends Controller
      */
     public function editAction(Request $request, Produit $produit)
     {
-        $deleteForm = $this->createDeleteForm($produit);
         $editForm = $this->createForm('StockBundle\Form\ProduitType', $produit);
         $editForm->handleRequest($request);
 
@@ -152,25 +150,7 @@ class ProduitController extends Controller
         return $this->render('@Stock/produit/edit.html.twig', array(
             'produit' => $produit,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
-    }
-
-
-    /**
-     * Creates a form to delete a produit entity.
-     *
-     * @param Produit $produit The produit entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Produit $produit)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('produit_delete', array('idProduit' => $produit->getIdproduit())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
     }
 
 
@@ -193,7 +173,8 @@ class ProduitController extends Controller
         return $this->redirectToRoute('produit_index');
     }
 
-    public function qteAction(){
+    public function qteAction()
+    {
         $em = $this->getDoctrine()->getManager();
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
         $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->findBy(array ('idUser'=>$user));
@@ -212,7 +193,8 @@ class ProduitController extends Controller
                 ));
 
         }
-    public function prixAction(){
+    public function prixAction()
+    {
         $em = $this->getDoctrine()->getManager();
 
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
@@ -233,8 +215,50 @@ class ProduitController extends Controller
 
 
     }
+    public function searchAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $requestString = $request->get('q');
+        $livres =  $em->getRepository('EspritLoisirBundle:Livre')->findEntitiesByString($requestString);
+        if(!$livres) {
+            $result['posts']['error'] = "0 books given ";
+        } else {
+            $result['posts'] = $this->getRealEntities($livres);
+        }
+        return new Response(json_encode($result));
+    }
+    public function returnAction()
+    {
+        return $this->render('@Stock/default/index.html.twig');
 
+    }
+    public function affecterNoteAction($id,$note){
+        $em = $this->getDoctrine()->getManager();
+        $produit = $em->getRepository('StockBundle:Produit')->find($id);
+        $produit->setNote($note);
+        $em->persist($produit);
+        $em->flush();
+            return new Response("ok");
+    }
 
+public function recherchePAction(){
+    $em = $this->getDoctrine()->getManager();
 
+    if (isset($_GET['produit'])){
+        $produit=(String) trim($_GET['produit']);
+var_dump($produit);
+$prod=$em->Query('SELECT (p) FROM StockBundle:Produit p WHERE p.libelle LIKE =:item ')
+            ->setParameter('item',"%$produit%")
+            ->getResult();
+        $prod=$prod->fetchALL();
+        foreach($prod as $p){
+
+            ?>
+    {{p.libelle}}
+<?php
+        }
+    }
+
+}
 
 }

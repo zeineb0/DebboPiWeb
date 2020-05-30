@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Utilisateur
@@ -38,7 +39,9 @@ class User extends BaseUser
 
     /**
      * @var integer
-     *
+     *@Assert\NotBlank()
+     * @Assert\Length(min=8)
+     * @Assert\Length(max=8)
      * @ORM\Column(name="cin", type="bigint", nullable=false)
      */
     private $cin;
@@ -59,7 +62,9 @@ class User extends BaseUser
 
     /**
      * @var integer
-     *
+     *@Assert\NotBlank()
+     * @Assert\Length(min=8)
+     * @Assert\Length(max=8)
      * @ORM\Column(name="tel", type="bigint", nullable=false)
      */
     private $tel;

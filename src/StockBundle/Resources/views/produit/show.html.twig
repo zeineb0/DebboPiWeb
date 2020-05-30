@@ -53,9 +53,7 @@
             <a href="{{ path('produit_edit', { 'idProduit': produit.idProduit }) }}"><input type="submit" value="Modifier"></a>
 
 
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
-            {{ form_end(delete_form) }}
+        <a href="{{ path('produit_delete', { 'idProduit': produit.idProduit }) }}"><input type="submit" value="Supprimer" /></a>
 
 
     </ul>

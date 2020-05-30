@@ -22,6 +22,12 @@ stock_homepag:
 category_show:
     path:     /produit_show
     defaults: { _controller: StockBundle:Produit:show }
+ocategory_show:
+    path:     /note/{id}/{note}
+    defaults: { _controller: StockBundle:Produit:affecterNote }
+jcategory_show:
+    path:     /test
+    defaults: { _controller: StockBundle:Produit:return }
 category_show1:
     path:     /produit_new
     defaults: { _controller: StockBundle:Produit:new }
@@ -31,6 +37,9 @@ category_show2:
 ategory_show21:
     path:     /produit_delete
     defaults: { _controller: StockBundle:Produit:delete}
+oategory_show21:
+    path:     /recherche
+    defaults: { _controller: StockBundle:Produit:rechercheP}
 qategory_show21:
     path:     /qte
     defaults: { _controller: StockBundle:Produit:qte}
@@ -67,6 +76,18 @@ admin1:
 aadmin1:
     path:     /accueil
     defaults: { _controller: StockBundle:Admin:acc }
+aaadmin1:
+    path:     /statU
+    defaults: { _controller: StockBundle:Admin:statU }
+apaadmin1:
+    path:     /statC
+    defaults: { _controller: StockBundle:Admin:statC }
+oapaadmin1:
+    path:     /statP
+    defaults: { _controller: StockBundle:Admin:statP }
+loapaadmin1:
+    path:     /statM
+    defaults: { _controller: StockBundle:Admin:statM }
 admin12:
     path:     /prod
     defaults: { _controller: StockBundle:Admin:produit }

@@ -5,6 +5,7 @@ namespace StockBundle\Entity;
 use Cassandra\Date;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints\DateTime;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -33,7 +34,8 @@ class MouvementDuStock
 
     /**
      * @var DateTime
-     *
+     *@Assert\NotBlank()
+     *@Assert\GreaterThanOrEqual("today")
      * @ORM\Column(name="date_mouv", type="date", length=30, nullable=false)
      */
     private $dateMouv;
@@ -57,7 +59,7 @@ class MouvementDuStock
      *
      * @ORM\ManyToOne(targetEntity="EntrepotBundle\Entity\Entrepot")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="FK_id_entrepot", referencedColumnName="id_entrepot")
+     *   @ORM\JoinColumn(name="FK_id_entrepot", referencedColumnName="id_entrepot",nullable=false)
      * })
      */
     private $fkEntrepot;
@@ -67,7 +69,7 @@ class MouvementDuStock
      *
      * @ORM\ManyToOne(targetEntity="Produit")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="FK_id_produit", referencedColumnName="id_produit")
+     *   @ORM\JoinColumn(name="FK_id_produit", referencedColumnName="id_produit",nullable=false)
      * })
      */
     private $fkProduit;

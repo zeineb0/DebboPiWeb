@@ -1,82 +1,47 @@
 {% extends  'baseBack.html.twig' %}
 
 {% block content %}
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="{{ asset('back/plugins/fontawesome-free/css/all.min.css') }}">
-    <!-- IonIcons -->
-    <link rel="stylesheet" href="{{ asset('back/http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css') }}">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('back/dist/css/adminlte.min.css') }}">
-    <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <!-- Main content -->
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-header border-0">
-                            <div class="d-flex justify-content-between">
-                                <h3 class="card-title">Online Store Visitors</h3>
-                                <a href="{{ asset('javascript:void(0);') }}">View Report</a>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex">
-                                <p class="d-flex flex-column">
-                                    <span class="text-bold text-lg">820</span>
-                                    <span>Visitors Over Time</span>
-                                </p>
-                                <p class="ml-auto d-flex flex-column text-right">
-                                     <span class="text-success">
-                                        <i class="fas fa-arrow-up"></i> 12.5%
-                                     </span>
-                                    <span class="text-muted">Since last week</span>
-                                </p>
-                            </div>
-                            <!-- /.d-flex -->
-
-                            <div class="position-relative mb-4">
-                                <img src="{{ asset('back/dist/img/aaa.png') }}" />
-
-                            <div class="d-flex flex-row justify-content-end">
-                                <span class="mr-2">
-                                    <i class="fas fa-square text-primary"></i> This Week
-                                </span>
 
 
-                                <span>
-                            <i class="fas fa-square text-gray"></i> Last Week
-                                         </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.card -->
+    <section class="content">
+    <div class="container-fluid">
 
-
-
-                </div>
+    <div class="row">
+     <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-danger">
+            <div class="inner">
+                {% for nbCA in nbCA %}
+                    <h3>{{  nbCA.nombre}}</h3>
+                {% endfor %}
+                <p>Nombre des catégories</p>
             </div>
+            <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
-    <!-- /.col-md-6 -->
-            <!-- /.row -->
+        {% for tab in tab %}
+
+        <div class="col-lg-3 col-6">
+        <!-- small box -->
+
+        <div class="small-box bg-danger">
+            <div class="inner">
+                    <h3>{{  tab.categorie}}</h3>
+                    <h3>{{  tab.qtt[0].somme}}</h3>
+                <p>Nombre des produits par catégorie</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
-        <!-- /.container-fluid -->
     </div>
-    <!-- /.content -->
+{% endfor %}
     </div>
-    <!-- /.content-wrapper -->
+    </div>
+    </section>
 
-    <!-- jQuery -->
-    <script src="{{ asset('back/plugins/jquery/jquery.min.js') }}"></script>
-    <!-- Bootstrap -->
-    <script src="{{ asset('back/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <!-- AdminLTE -->
-    <script src="{{ asset('back/dist/js/adminlte.js') }}"></script>
-
-    <!-- OPTIONAL SCRIPTS -->
-    <script src="{{ asset('back/plugins/chart.js/Chart.min.js') }}"></script>
-    <script src="{{ asset('back/dist/js/demo.js') }}"></script>
-    <script src="{{ asset('back/dist/js/pages/dashboard3.js') }}"></script>
 {% endblock %}

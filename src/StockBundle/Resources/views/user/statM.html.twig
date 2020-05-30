@@ -1,0 +1,56 @@
+{% extends  'baseBack.html.twig' %}
+
+{% block content %}
+    <section class="content">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-danger">
+                        <div class="inner">
+                            {% for nbM in nbM %}
+                                <h3>{{  nbM.nombre}}</h3>
+                            {% endfor %}
+                            <p>Nombre des mouvements total</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-pie-graph"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+
+                        <div class="small-box bg-danger">
+                            <div class="inner">
+                                {% for nbME in nbME %}
+                                    <h3>{{  nbME.nombre}}</h3>
+                                {% endfor %}                                <p>Nombre des mouvements d'entrée</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-pie-graph"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div> <div class="col-lg-3 col-6">
+                        <!-- small box -->
+
+                        <div class="small-box bg-danger">
+                            <div class="inner">
+                                {% for nbMS in nbMS %}
+                                    <h3>{{  nbMS.nombre}}</h3>
+                                {% endfor %}                                <p>Nombre des mouvements de sortie</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-pie-graph"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

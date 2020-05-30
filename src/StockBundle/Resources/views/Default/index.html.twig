@@ -1,11 +1,41 @@
-bonjour
-{% for tab in tab %}
-    {{ tab.entrepot }}
-    {{ tab.entrepot.quantiteMax }}
-    {{ tab.qtt[0].somme}}
-    {{tab.entrepot.quantiteMax - tab.qtt[0].somme   }}
-{%  endfor %}
+{% extends 'base.html.twig' %}
+{% block content %}
 
-{% for produit in produits %}
-{{ produit.marque }}
-{% endfor %}
+
+
+
+
+    <script src="{{ asset('js/rating.js') }}"></script>
+    <script src="{{ asset('js/ratings.js') }}"></script>
+    <main class="container mt-4">
+
+
+<div class="col-12">
+    <div class="row">
+        {% for i in 0..7 %}
+        <div class="col-12 col-md-offset-6" style="font-size: 1em;" >
+            <h5>Normal example</h5>
+
+            <div id="review"></div>
+
+        </div>
+        {% endfor %}
+        <div class="col-12 col-md-6">
+            <label for="starsInput">Stars</label>
+            <input type="text" readonly id="starsInput" class="form-control form-control-sm">
+        </div>
+
+    </div>
+</div>
+
+    </main>
+<script>
+    $("#review").rating({
+        "value": 2,
+        "click": function (e) {
+            console.log(e);
+            $("#starsInput").val(e.stars);
+        }
+    });
+</script>
+{% endblock %}

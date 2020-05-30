@@ -75,7 +75,7 @@ class Categories
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id_user")
+     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id_user", nullable=false)
      * })
      */
     private $idUser;
@@ -84,7 +84,7 @@ class Categories
      *
      * @ORM\ManyToOne(targetEntity="EntrepotBundle\Entity\Entrepot")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="fk_id_entrepot", referencedColumnName="id_entrepot")
+     *   @ORM\JoinColumn(name="fk_id_entrepot", referencedColumnName="id_entrepot",nullable=false)
      * })
      */
     private $fkEntrepot;

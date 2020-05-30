@@ -17,9 +17,24 @@
     <div class="login">
         <div class="main-agileits">
             <div class="form-w3agile form1">
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-                <label>Quantité ajoutée</label>
+        {{ form_start(form)}}
+        <label >Nature du mouvement :</label>
+        {{ form_widget(form.natureMouvement) }}
+        {{ form_errors(form.natureMouvement) }}<br>
+
+                <label >Date du mouvement :</label>
+        {{ form_widget(form.dateMouv) }}
+        {{ form_errors(form.dateMouv) }}<br>
+
+                <label >Entrepot :</label>
+        {{ form_widget(form.fkEntrepot) }}
+        {{ form_errors(form.fkEntrepot) }}<br>
+
+                <label >Produit :</label>
+        {{ form_widget(form.fkProduit) }}
+        {{ form_errors(form.fkProduit) }}<br>
+
+                <label>Quantité ajoutée/sortie</label>
                 <input type="text" value="" name="QA"  >
 
         <input type="submit" value="Créer" />

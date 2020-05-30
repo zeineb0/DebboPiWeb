@@ -13,6 +13,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- //for-mobile-apps -->
     <link href= "{{ asset ('css/bootstrap.css') }}" rel='stylesheet' type='text/css' />
     <!-- Custom Theme files -->
+
     <link href= " {{ asset ('css/style.css') }}" rel='stylesheet' type='text/css' />
     <!-- js -->
     <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
@@ -104,8 +105,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                         <ul class="nav navbar-nav ">
-                            <li class=" active"><a href="" class="hyper "><span>Accueil</span></a></li>
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
+                            <li class=" active"><a href="{{ path('frontF') }}" class="hyper "><span>Accueil</span></a></li>
+                                {% else %}
+                                    <li class=" active"><a href="{{ path('front') }}" class="hyper "><span>Accueil</span></a></li>
+
+                            {% endif %}
                             <li class="dropdown ">
                                 <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Entrepot<b class="caret"></b></span></a>
                                 <ul class="dropdown-menu multi">
@@ -200,14 +206,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 {% endblock %}
 
 {% block content %}
-{% block css %}
-{% endblock %}
     <div data-vide-bg="{{ asset('video/video') }}">
         <div class="container">
             <div class="banner-info">
                 <div class="search-form">
                     <form action="#" method="post">
-                        <input type="text" placeholder="Recherche..." name="Search...">
+                        <input type="text" placeholder="Recherche..." name="Search..." id="rech">
                         <input type="submit" value=" " >
                     </form>
                 </div>
@@ -216,6 +220,166 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     <script>window.jQuery || document.write('<script src="{{ asset('js/vendor/jquery-1.11.1.min.js') }}"><\/script>')</script>
     <script src="{{ asset('js/jquery.vide.min.js') }}"></script>
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+<div class="login">
+    <div class="main-agileits">
+        <div class="form-w3agile form1">
+
+
+            <center> <h3>Bienvenue M/MME {{ username }} sur votre site DeBBo !</h3></center> <br>
+
+            {% for nbE in nbE %}
+            Vous avez {{ nbE.nombre }} entrepots.
+            {% endfor %}<br>
+            {% for nbC in nbC %}
+            Vous avez {{ nbC.nombre }} catégories.
+            {% endfor %}<br>
+            {% for nbP in nbP %}
+            Vous avez {{ nbP.nombre }} produits.
+            {% endfor %}<br>
+            {% for nbME in nbME %}
+            Vous avez {{ nbME.nombre }} entrées du stock.
+            {% endfor %}<br>
+            {% for nbMS in nbMS %}
+            Vous avez {{ nbMS.nombre }} sorties du stock.
+            {% endfor %}<br>
+
+        </div>
+    </div>
+</div>
+    {% else %}
+    <div class="content-mid">
+        <div class="container">
+
+            <div class="col-md-4 m-w3ls">
+                <div class="col-md1 ">
+                    <a href="kitchen.html">
+                        <img src="{{asset('images/co1.jpg')}}" class="img-responsive img" alt="">
+                        <div class="big-sa">
+                            <h6>New Collections</h6>
+                            <h3>Season<span>ing </span></h3>
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 m-w3ls1">
+                <div class="col-md ">
+                    <a href="hold.html">
+                        <img src="{{ asset('images/co.jpg') }}" class="img-responsive img" alt="">
+                        <div class="big-sale">
+                            <div class="big-sale1">
+                                <h3>Big <span>Sale</span></h3>
+                                <p>It is a long established fact that a reader </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 m-w3ls">
+                <div class="col-md2 ">
+                    <a href="kitchen.html">
+                        <img src="{{ asset('images/co2.jpg') }}" class="img-responsive img1" alt="">
+                        <div class="big-sale2">
+                            <h3>Cooking <span>Oil</span></h3>
+                            <p>It is a long established fact that a reader </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md3 ">
+                    <a href="hold.html">
+                        <img src="{{ asset('images/co3.jpg') }}" class="img-responsive img1" alt="">
+                        <div class="big-sale3">
+                            <h3>Vegeta<span>bles</span></h3>
+                            <p>It is a long established fact that a reader </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+{#
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <a href="#"> <img class="first-slide" src="{{ asset('images/ba.jpg') }}" alt="First slide"></a>
+
+            </div>
+            <div class="item">
+                <a href="#"> <img class="second-slide " src="{{ asset('images/ba1.jpg') }}" alt="Second slide"></a>
+
+            </div>
+            <div class="item">
+                <a href="#"><img class="third-slide " src="{{ asset('images/ba2.jpg') }}" alt="Third slide"></a>
+
+            </div>
+        </div>
+    </div>
+#}
+    <div class="content-top ">
+        <div class="container ">
+            <div class="table-head ">
+
+                <div class="tab-pane active text-style" id="tab" >
+                    <div id="resultat"></div>
+
+                    {% for produit in produits %}
+                        <div class=" con-w3l" >
+                            <div class="col-md-3 m-wthree">
+                                <div class="col-m">
+                                    <a href="#" data-toggle="modal" data-target="#myModal4" class="offer-img">
+                                        <img src="{{ asset('public/images/produits/'~produit.imageName) }}" class="img-responsive img" alt="">
+                                        {% if produit.quantite <= 10 %}
+                                            <div class="offer"><p><span>Promotion</span></p></div>
+                                        {% endif %}
+                                    </a>
+                                    <div class="mid-1">
+                                        <div class="women">
+
+                                            <h6><a href="">{{  produit.libelle }}</a>({{ produit.marque }})</h6>
+
+                                        </div>
+                                        <div class="mid-2">
+
+                                            {% if produit.quantite <= 10 %}
+                                                <p ><label>{{ produit.prix /0.9 }}</label><em class="item_price">{{produit.prix }}DT</em></p>
+                                            {% else %}
+                                                <p ><em class="item_price">{{produit.prix }}DT</em></p>
+                                            {% endif %}
+
+                                            <div class="col-12 col-md-offset-6" style="font-size: 1em;" >
+                                                <div id="dataReview" data-rating-stars="5" data-rating-input="#dataInput"></div>
+                                            </div>
+
+                                            <div class="clearfix"></div>
+
+
+                                        </div>
+                                        <div class="add">
+                                            <li class="btn btn-danger my-cart-btn my-cart-b" > <a  href="#">Ajouter au panier</a></li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    {% endif %}
+
+
 {% endblock %}
 
 {% block footer %}

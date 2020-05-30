@@ -16,31 +16,6 @@
     </div>
 </div>
 
-<div class="content-top ">
-    <div class="container ">
-        <div class="table-head ">
-            <nav class="nav justify-content-center">
-                {% set i=1 %}
-                <ul class="nav tabs dropdown " id="myTab" >
-                    {% for entrepot in entrepots %}
-                        {% if i==1 %}
-                            <li class="active"><a href="#{{ entrepot.idEntrepot }}" data-toggle="tab" >{{ entrepot.entreprise }}</a></li>
-                        {% else %}
-                            <li class=""><a href="#{{ entrepot.idEntrepot }}" data-toggle="tab" >{{ entrepot.entreprise }}</a></li>
-                        {% endif %}
-                        {% set i=i+1 %}
-                    {% endfor %}
-                </ul>
-            </nav>
-
-            <div class=" tab-content tab-content-t " >
-                {% set x=1 %}
-                    {% for entrepot in entrepots %}
-                        {% if x==1 %}
-                            <div class="tab-pane active text-style" id="{{ entrepot.idEntrepot }}">
-                        {% else %}
-                                    <div class="tab-pane text-style" id="{{ entrepot.idEntrepot}}">
-                        {% endif %}
     <div class="bs-docs-example">
         <table class="table">
              <thead>
@@ -57,8 +32,6 @@
             <tbody>
 
             {% for mouvementDuStock in mouvementDuStocks %}
-               {% if mouvementDuStock.fkEntrepot == entrepot %}
-                 {% set x=x+1 %}
 
             <tr>
                 <td > {{ mouvementDuStock.natureMouvement }}   </td>
@@ -74,22 +47,13 @@
                 </td>
             </tr>
 
-
-
-               {% endif %}
             {% endfor %}
             </tbody>
         </table>
 
 
     </div>
-                                    </div>
-                             {% endfor %}
-                            </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 
     <div class="navigation text-center">
         {{ knp_pagination_render(mouvementDuStocks) }}

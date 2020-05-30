@@ -49,13 +49,12 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
         // otherwise, if is a commercial user we redirect to the crm area
 
 
-        elseif (in_array('ROLE_USER', $rolesTab, true))
+        elseif (in_array('ROLE_CLIENT', $rolesTab, true))
             $redirection = new RedirectResponse($this->router->generate('front'));
-
 
         // otherwise we redirect user to the member area
         else
-            $redirection = new RedirectResponse($this->router->generate('index'));
+            $redirection = new RedirectResponse($this->router->generate('frontF'));
 
         return $redirection;
     }

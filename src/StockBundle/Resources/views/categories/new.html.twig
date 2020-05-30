@@ -17,7 +17,7 @@
 
     <div class="login">
         <div class="main-agileits">
-            < class="form-w3agile form1">
+            <div class="form-w3agile form1">
 
 
                 {{ form_start(form) }}
@@ -29,16 +29,17 @@
                 {{ form_widget(form.fkEntrepot) }}
                 {{ form_errors(form.fkEntrepot) }}
                 <br>
-                <label >Ajouter l'image du produit :</label>
+                <label >Ajouter l'image de la catégorie :</label>
                 {{ form_widget(form.imageFile) }}
                 {{ form_errors(form.imageFile) }}
                 <br>
 
 
-        <input type="submit" value="Créer" /><br><br>
-
-                <a href="{{ path('categories_index') }}">         <input type="submit" value="Retour à la liste" />
-                </a>
+                <input type="submit" value="Créer" />
+                <br><br>
+                <ul>
+                    <a href="{{ path('categories_index') }}"><input type="submit" value="Retour à la liste" /></a>
+                </ul>
 
                 {{ form_end(form) }}
             </div>

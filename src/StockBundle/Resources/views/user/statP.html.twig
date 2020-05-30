@@ -1,0 +1,46 @@
+{% extends  'baseBack.html.twig' %}
+
+{% block content %}
+
+
+    <section class="content">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-danger">
+                        <div class="inner">
+                            {% for nbP in nbP %}
+                                <h3>{{  nbP.nombre}}</h3>
+                            {% endfor %}
+                            <p>Nombre des produits total</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-pie-graph"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                {% for tab in tab %}
+
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+
+                        <div class="small-box bg-danger">
+                            <div class="inner">
+                                <h3>{{  tab.entrepot}}</h3>
+                                <h3>{{  tab.qtt[0].somme}}</h3>
+                                <p>Nombre des produits dans chaque entrepot</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-pie-graph"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

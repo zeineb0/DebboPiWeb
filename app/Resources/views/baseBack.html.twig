@@ -41,7 +41,23 @@
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="{{ path('back') }}" class="nav-link">Accueil</a>
+
+            <li>{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <a href="{{ path('fos_user_security_logout') }}">
+                    <i class="nav-item" ></i>
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+
+                </a>
+                {% else %}
+
+                <a href="{{ path('fos_user_security_login') }}">  <i class="fa fa-sign-in" aria-hidden="true"></i>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+
+            <li><a href="{{ asset ('/debboWeb/web/app_dev.php/register') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>S'enregistrer</a></li>
+
+            {% endif %}
             </li>
+
+
 
         </ul>
 
@@ -183,6 +199,30 @@
                         <a href="#" class="nav-link active">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
+                                Utlisateurs
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ asset('/debboWeb/web/app_dev.php/Stock/user') }}" class="nav-link active">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Liste des utilisateurs</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ asset('/debboWeb/web/app_dev.php/Stock/statU') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Statistiques</p>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
                                 Categorie
                                 <i class="right fas fa-angle-left"></i>
                             </p>
@@ -195,26 +235,9 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{  asset('/debboWeb/web/app_dev.php/Stock/statC') }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Statistiques</p>
-                                </a>
-                            </li>
-                        </ul>
-
-                    </li>  <li class="nav-item has-treeview menu-open">
-                        <a href="#" class="nav-link active">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Utlisateurs
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ asset('/debboWeb/web/app_dev.php/Stock/user') }}" class="nav-link active">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Liste des utilisateurs</p>
                                 </a>
                             </li>
                         </ul>
@@ -233,6 +256,32 @@
                                 <a href="{{ asset('/debboWeb/web/app_dev.php/Stock/prod') }}" class="nav-link active">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Liste des produits</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{  asset('/debboWeb/web/app_dev.php/Stock/statP') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Statistiques</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Mouvement du stock                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ asset('/debboWeb/web/app_dev.php/Stock/prod') }}" class="nav-link active">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Liste des mouvements du stock</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{  asset('/debboWeb/web/app_dev.php/Stock/statM') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Statistiques</p>
                                 </a>
                             </li>
                         </ul>
@@ -263,32 +312,73 @@
     <section class="content">
         <div class="container-fluid">
 
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-warning">
-                    <div class="inner">
-                        <h3>     </h3>
-
-                        <p>Nombre d'utilisateurs</p>
+            <div class="row">
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            {% for nbP in nbP %}
+                            <h3>{{  nbP.nombre}}</h3>
+                            {% endfor %}
+                            <p>Nombre total des produits</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-bag"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
-                    <div class="icon">
-                        <i class="ion ion-person-add"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
-            </div>  <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-warning">
-                    <div class="inner">
-                        <h3>44</h3>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                            {% for nbM in nbM %}
+                                <h3>{{  nbM.nombre}}</h3>
+                            {% endfor %}
+                            {#<h3>53<sup style="font-size: 20px">%</sup></h3> #}
 
-                        <p>User Registrations</p>
+                            <p>Nombre des mouvements du stock</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-stats-bars"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
-                    <div class="icon">
-                        <i class="ion ion-person-add"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-warning">
+                        <div class="inner">
+                            {% for nbU in nbU %}
+                                <h3>{{  nbU.nombre}}</h3>
+                            {% endfor %}
+                            <p>Nombre total d'utilisateurs</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-danger">
+                        <div class="inner">
+                            {% for nbCA in nbCA %}
+                                <h3>{{  nbCA.nombre}}</h3>
+                            {% endfor %}
+                            <p>Nombre des catégories</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-pie-graph"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
             </div>
             <!-- row -->
             <div class="row">
