@@ -145,9 +145,6 @@ class DepartementController extends Controller
             $query = $em->createQuery('SELECT COUNT(c) cnt FROM RHBundle:Employe c JOIN c.fkDep d where d.idDep=:item')
                 ->setParameter('item',$idDep);
             return $query->getResult();
-
     }
-
-
 
 }
