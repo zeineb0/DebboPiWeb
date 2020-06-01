@@ -1,6 +1,69 @@
 {% extends 'base.html.twig' %}
+{% block header %}
+    <div class="header">
+
+        <div class="container">
+
+            <div class="logo">
+                <h1> <a href=""><img src="{{ asset('images/debo.jpg') }}" alt="" title="" />DeBBo.<span>Le meilleur entrepôt</span></a></h1>
+            </div>
+            <div class="head-t">
+                <ul class="card">
+                    <li><a href="{{ asset('wishlist.html') }}" ><i class="fa fa-heart" aria-hidden="true"></i>Favoris</a></li>
+                    <li>{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <a href="{{ path('fos_user_security_logout') }}">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                    <li><a href="{{ asset ('/debboWeb/web/app_dev.php/profile') }}" ><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
+
+                    </a>
+                    {% else %}
+
+                        <a href="{{ path('fos_user_security_login') }}">  <i class="fa fa-sign-in" aria-hidden="true"></i>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+
+                        <li><a href="{{ asset ('/debboWeb/web/app_dev.php/register') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>S'enregistrer</a></li>
+
+                    {% endif %}
+
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav-top">
+                <nav class="navbar navbar-default">
+
+                    <div class="navbar-header nav_2">
+                        <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                        <ul class="nav navbar-nav ">
+
+                                <li class=" active"><a href="{{ path('front') }}" class="hyper "><span>Accueil</span></a></li>
+                                <li class=" active"><a href="{{ path('front') }}" class="hyper "><span>Mes Commandes</span></a></li>
+
+
+                        </ul>
+                    </div>
+                </nav>
+                <div class="cart" >
+
+                    <span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}
 {% block content %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <div data-vide-bg="{{ asset('video/video') }}">
         <div class="container">

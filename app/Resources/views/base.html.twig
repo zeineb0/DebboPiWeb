@@ -108,14 +108,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
                             <li class=" active"><a href="{{ path('frontF') }}" class="hyper "><span>Accueil</span></a></li>
-                                {% else %}
-                                    <li class=" active"><a href="{{ path('front') }}" class="hyper "><span>Accueil</span></a></li>
 
-                            {% endif %}
-                            <li class="dropdown ">
-                                <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Entrepot<b class="caret"></b></span></a>
-                                <ul class="dropdown-menu multi">
-                                    <div class="row">
+
+                                <li class="dropdown ">
+                                    <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Entrepot<b class="caret"></b></span></a>
+                                    <ul class="dropdown-menu multi">
+                                        <div class="row">
                                             <ul class="multi-column-dropdown">
 
                                                 <li><a href="{{ asset('kitchen.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Gestion Entrepot</a></li>
@@ -125,14 +123,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                         </div>
                                         <div class="clearfix"></div>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
 
-                                <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span> Stock <b class="caret"></b></span></a>
+                                    <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span> Stock <b class="caret"></b></span></a>
 
-                                <ul class="dropdown-menu multi ">
-                                    <div class="row">
+                                    <ul class="dropdown-menu multi ">
+                                        <div class="row">
                                             <ul class="multi-column-dropdown">
                                                 <li><a href="{{ path ('categories_index') }}"><i class="fa fa-angle-right" aria-hidden="true"></i> Categorie </a></li>
                                                 <li><a href="{{ path ('produit_index') }}"><i class="fa fa-angle-right" aria-hidden="true"></i> Produit </a></li>
@@ -143,52 +141,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </div>
 
                                         <div class="clearfix"></div>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span>Transport<b class="caret"></b></span></a>
-                                <ul class="dropdown-menu multi multi2">
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <ul class="multi-column-dropdown">
-                                                <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Cleaning Accessories</a></li>
-                                                <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>CookWear</a></li>
-                                                <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Detergents</a></li>
-                                                <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Gardening Needs</a></li>
-                                            </ul>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span>Transport<b class="caret"></b></span></a>
 
-                                        </div>
-                                        <div class="col-sm-3">
+                                </li>
 
-                                            <ul class="multi-column-dropdown">
-                                                <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Kitchen & Dining</a></li>
-                                                <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>KitchenWear</a></li>
-                                                <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Pet Care</a></li>
-                                                <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Plastic Wear</a></li>
+                                <li><a href="{{ asset ('codes.html') }}" class="hyper"> <span>Livraison</span></a></li>
+                                <li><a href="{{ path ('categories_new') }}" class="hyper"> <span>Commande</span></a></li>
 
-                                            </ul>
+                                {% else %}
+                                    <li class=" active"><a href="{{ asset('/debboWeb/web/app_dev.php/') }}" class="hyper "><span>Accueil</span></a></li>
 
-                                        </div>
-                                        <div class="col-sm-3">
+                            {% endif %}
 
-                                            <ul class="multi-column-dropdown">
-                                                <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Pooja Needs</a></li>
-                                                <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Serveware</a></li>
-                                                <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Safety Accessories</a></li>
-                                                <li><a href="hold.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Festive Decoratives </a></li>
 
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-3 w3l">
-                                            <a href="hold.html"><img src="images/me2.png" class="img-responsive" alt=""></a>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </ul>
-                            </li>
-
-                            <li><a href="{{ asset ('codes.html') }}" class="hyper"> <span>Livraison</span></a></li>
-                            <li><a href="{{ path ('categories_new') }}" class="hyper"> <span>Commande</span></a></li>
                         </ul>
                     </div>
                 </nav>
@@ -363,7 +331,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                         </div>
                                         <div class="add">
-                                            <li class="btn btn-danger my-cart-btn my-cart-b" > <a  href="#">Ajouter au panier</a></li>
+                                            <li class="btn btn-danger my-cart-btn my-cart-b" > <a  href="{{ path('front') }}">Ajouter au panier</a></li>
                                         </div>
                                     </div>
                                 </div>
