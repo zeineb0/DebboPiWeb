@@ -40,12 +40,12 @@ class JsonController extends Controller
         $categories = new Categories();
         //  $user = $this->container->get('security.token_storage')->getToken()->getUser();
         $categories->setNom($request->get('nom'));
+        $categories->setImageName($request->get('imageName'));
         $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
         $categories->setFkEntrepot($entrepots);
         $categories->setIdUser($request->get('idUser'));
         // $categories->setIdUser($user);
-        $categories->setImageName('covered_with_a_veil-wallpaper-1920x1080.jpg'
-        );
+       // $categories->setImageName('covered_with_a_veil-wallpaper-1920x1080.jpg');
         $em->persist($categories);
         $em->flush();
         $serializer = new Serializer([new ObjectNormalizer()]);
