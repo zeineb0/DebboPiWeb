@@ -3,7 +3,9 @@
 namespace GererEntrepotBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use EntrepotBundle\Entity\Utilisateur;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 
 /**
@@ -11,6 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="entrepot", indexes={@ORM\Index(name="FK_id_user", columns={"id_user"})})
  * @ORM\Entity(repositoryClass="GererEntrepotBundle\Repository\EntrepotRepository")
+ * @UniqueEntity("numFiscale")
  */
 class Entrepot
 {
@@ -28,6 +31,10 @@ class Entrepot
      *
      * @ORM\Column(name="adresse", type="string", length=10, nullable=false)
      * @Assert\Length(min="3",max="20")
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     )
      * @Assert\NotBlank()
      */
     private $adresse;
@@ -37,13 +44,20 @@ class Entrepot
      *
      * @Assert\Length(min="3",max="10")
      * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min=3,
+     *     max=8,
+     *     )
      * @ORM\Column(name="num_fiscale", type="integer", nullable=false)
      */
     private $numFiscale;
 
     /**
      * @var integer
-     *
+     * @Assert\Length(
+     *      min=1,
+     *     max=8,
+     *     )
      * @ORM\Column(name="quantite_max", type="bigint", nullable=false)
      */
     private $quantiteMax;
@@ -57,7 +71,7 @@ class Entrepot
 
     /**
      * @var float
-     *  @Assert\Length(min="3",max="20")
+     * @Assert\Length(min="3",max="20")
      * @Assert\NotBlank()
      * @ORM\Column(name="prix_location", type="float", length=20, nullable=false)
      */
@@ -65,7 +79,10 @@ class Entrepot
 
     /**
      * @var string
-     *
+     *@Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     )
      * @ORM\Column(name="entreprise", type="string", length=20, nullable=false)
      */
     private $entreprise;
@@ -193,7 +210,7 @@ class Entrepot
     }
 
     /**
-     * @return Utilisateur
+     * @return EntrepotBundle\Entity\Utilisateur
      */
     public function getId()
     {
@@ -201,15 +218,19 @@ class Entrepot
     }
 
     /**
-     * @param Utilisateur $id
+     * @param EntrepotBundle\Entity\Utilisateur $id
      */
     public function setId($id)
     {
         $this->id = $id;
     }
 
+
+
     public function __toString()
     {
-return  $this->entreprise;  }
+return  $this->entreprise;
+    $this-> id;
+    }
 
 }

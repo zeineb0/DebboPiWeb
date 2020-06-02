@@ -18,9 +18,9 @@
         <div><a href="mailto:company@example.com">debbo@esprit.tn</a></div>
     </div>
     <div id="project">
-        <div><h4>Proprietaire entrepot</h4>      {{ location.fkUser.getNom()}} {{ location.fkUser.getPrenom() }} </div>
-        <div><h4>Numero Proprietaire</h4>        {{ location.fkUser.getTel() }} </div>
-        <div><h4>Email</h4> <a href="mailto:{{ location.fkUser.getEmail()}}">{{ location.fkUser.getEmail()}}</a></div>
+        <div><h4>Proprietaire entrepot</h4>      {{ nom}} {{ prenom }} </div>
+        <div><h4>Numero Proprietaire</h4>        {{ location.fkEntrepot.id.getTel }} </div>
+        <div><h4>Email</h4> <a href="mailto:{{ location.fkEntrepot.id.getEmail()}}">{{location.fkEntrepot.id.getEmail()}}</a></div>
     </div>
 </header>
 <main>
@@ -49,7 +49,7 @@
         </tr>
         <tr>
             <th>Numero fiscale</th>
-            <td>{{ location.fkEntrepot.adresse }}</td>
+            <td>{{ location.fkEntrepot.numFiscale }}</td>
         </tr>
         <tr>
             <th>Prix/mois</th>

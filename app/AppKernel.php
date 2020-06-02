@@ -21,7 +21,8 @@ class AppKernel extends Kernel
             new EntrepotBundle\EntrepotBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
-
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -40,7 +40,6 @@
 
                                                     <thead>
                                                     <tr>
-                                                        <th>ID Entrepot</th>
                                                         <th>Adresse</th>
                                                         <th>Entreprise</th>
                                                         <th>Client</th>
@@ -57,7 +56,6 @@
                                                     {% for entrepot in entrepots  %}
 
                                                         <tr>
-                                                            <td>{{ entrepot.id_Entrepot}}</td>
                                                             <td>{{ entrepot.adresse}}</td>
                                                             <td>{{ entrepot.entreprise}}</td>
                                                             <td>{{ entrepot.prenom }} {{ entrepot.nom }} </td>
@@ -72,6 +70,7 @@
                                                                         <i class="fa fa-check-circle"></i>Confirmer</a>
                                                                     <a class="btn btn-app" href="{{ path('entrepot_delete_demande', { 'idLocation': entrepot.id_Location }) }}">
                                                                             <i class="fa fa-close"></i>Refuser</a>
+
                                                                 </ul>
                                                     {% endfor %}
                                                     </tbody>

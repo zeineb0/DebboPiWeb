@@ -61,6 +61,7 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
+            'PUGX\\AutocompleterBundle\\' => 25,
         ),
         'M' => 
         array (
@@ -70,6 +71,7 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         array (
             'Knp\\Snappy\\' => 11,
             'Knp\\Bundle\\SnappyBundle\\' => 24,
+            'Knp\\Bundle\\PaginatorBundle\\' => 27,
         ),
         'I' => 
         array (
@@ -111,10 +113,7 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         array (
             'Composer\\CaBundle\\' => 18,
             'Clue\\StreamFilter\\' => 18,
-        ),
-        'A' => 
-        array (
-            'App\\' => 4,
+            'CMEN\\GoogleChartsBundle\\' => 24,
         ),
     );
 
@@ -227,6 +226,10 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
+        'PUGX\\AutocompleterBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pugx/autocompleter-bundle',
+        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
@@ -238,6 +241,10 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         'Knp\\Bundle\\SnappyBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-snappy-bundle',
+        ),
+        'Knp\\Bundle\\PaginatorBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-paginator-bundle',
         ),
         'Incenteev\\ParameterHandler\\' => 
         array (
@@ -333,9 +340,9 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         array (
             0 => __DIR__ . '/..' . '/clue/stream-filter/src',
         ),
-        'App\\' => 
+        'CMEN\\GoogleChartsBundle\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/..' . '/cmen/google-charts-bundle',
         ),
     );
 
@@ -349,6 +356,13 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
             'Twig_' => 
             array (
                 0 => __DIR__ . '/..' . '/twig/twig/lib',
+            ),
+        ),
+        'K' => 
+        array (
+            'Knp\\Component' => 
+            array (
+                0 => __DIR__ . '/..' . '/knplabs/knp-components/src',
             ),
         ),
         'D' => 

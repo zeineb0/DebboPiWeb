@@ -54,13 +54,8 @@
     </table>
 
     <ul>
-        <li>
             <a class=" add-1" href="{{ path('location_index') }}">Retour à la liste </a>
-        </li>
-        <li>
             <a class=" add-1" href="{{ path('location_delete', { 'idLocation': location.idLocation }) }}">Supprimer</a>
-        </li>
-
     </ul>
     </div>
     <a href='{{ path('location_pdf',{id:location.getIdLocation()})  }}'class="btn btn-danger"> Generate PDF File</a>

@@ -23,7 +23,7 @@ class LocationController extends Controller
      * @Route("location/", name="location_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {   $securityContext = $this->container->get('security.authorization_checker');
         if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') )
         {
@@ -33,8 +33,18 @@ class LocationController extends Controller
 
         $locations = $em->getRepository('GererEntrepotBundle:Location')->findBy(array('fkUser'=>$user));
 
+            /**
+             * @var $paginator \Knp\Component\Pager\Paginator
+             */
+            $paginator = $this->get('knp_paginator');
+
+            $result =$paginator->paginate(
+                $locations, /* query NOT result */
+                $request->query->getInt('page', 1), /*page number*/
+                $request->query->getInt('limit',10) /*limit per page*/
+            );
         return $this->render('@GererEntrepot/location/index.html.twig', array(
-            'locations' => $locations,
+            'locations' => $result,
 
         ));
         }
@@ -58,15 +68,19 @@ class LocationController extends Controller
         $location = $em->getRepository(Location::class)->find($id);
         $s=$location->getFkEntrepot();
         $entrepot = $em->getRepository(Entrepot::class)->findBy(['idEntrepot' => $s]);
+        $nom =$entrepot[0]->getId()->getNom();
+        $prenom =$entrepot[0]->getId()->getPrenom();
 
 
         $html = $this->renderView('@GererEntrepot/location/Pdf.html.twig',
             array(
                 'entrepot' => $entrepot,
                 'location' => $location,
+                'nom'=>$nom,
+                'prenom'=>$prenom,
             ));
 
-        $filename = 'myFirstSnappyPDF';
+        $filename = 'contratLocation';
         return new Response(
             $snappy->getOutputFromHtml($html),
             200,

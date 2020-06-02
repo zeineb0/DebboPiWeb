@@ -2,6 +2,9 @@
 
 namespace GererEntrepotBundle\Repository;
 
+use Doctrine\ORM\QueryBuilder;
+use GererEntrepotBundle\Entity\Entrepot;
+
 /**
  * EntrepotRepository
  *
@@ -17,4 +20,42 @@ class EntrepotRepository extends \Doctrine\ORM\EntityRepository
     return $query=$qb->getResult();
 
     }
+    public function findSearch(SearchData $search)
+    {
+
+        $query = $this->createQuery("select c from GererEntrepotBundle:Entrepot c where c.etat= 'A Louer'");
+
+        if (!empty($search->adresse)) {
+            $query = $query
+                ->andWhere('p.adresse LIKE :q')
+                ->setParameter('q', "%{$search->adresse}%");
+        }
+
+        if (!empty($search->min)) {
+            $query = $query
+                ->andWhere('p.prixLocation >= :min')
+                ->setParameter('min', $search->min);
+        }
+
+        if (!empty($search->max)) {
+            $query = $query
+                ->andWhere('p.prixLocation <= :max')
+                ->setParameter('max', $search->max);
+        }
+
+
+
+        if (!empty($search->entreprise)) {
+            $query = $query
+                ->andWhere('p.entreprise =:entreprise')
+                ->setParameter('entreprise', $search->entreprise);
+        }
+
+        return $query ->getQuery()->getResult();
+    }
+    private function getSearchQuery(SearchData $search, $ignorePrice = false)
+    {
+    }
+
+
 }

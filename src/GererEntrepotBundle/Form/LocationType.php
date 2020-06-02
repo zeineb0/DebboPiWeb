@@ -24,7 +24,8 @@ class LocationType extends AbstractType
                  'placeholder' => '',
             ]);
             //->add('fkUser',EntityType::class,array('class'=>'EntrepotBundle:Utilisateur','choice_label'=>'nom'));
-    }/**
+    }
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

@@ -1,0 +1,5 @@
+[{% for location in locations -%}
+    {{ {value: location.fkUser, label: location.fkUser}|json_encode|raw }}
+    {%- if not loop.last %}
+    {% endif -%}
+    {%- endfor %}] 

@@ -3,6 +3,7 @@
 namespace GererEntrepotBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use EntrepotBundle\Entity\Utilisateur;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 /**
@@ -26,6 +27,7 @@ class Location
      * @var \DateTime
      *
      *
+     * @Assert\GreaterThanOrEqual("today")
      * @ORM\Column(name="date_deb_location", type="date", nullable=false)
      */
     private $dateDebLocation;
@@ -33,7 +35,8 @@ class Location
     /**
      * @var \DateTime
      *
-     * )
+     *
+     * @Assert\GreaterThan(propertyPath="dateDebLocation")
      * @ORM\Column(name="date_fin_location", type="date", nullable=false)
      */
     private $dateFinLocation;
@@ -169,7 +172,9 @@ class Location
     {$now = new\DateTime();
     $this->setDateDebLocation($now);
     $this->setDateFinLocation($now);
+
     }
+
 
 
 }

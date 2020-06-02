@@ -2,10 +2,12 @@
 
 namespace GererEntrepotBundle\Controller;
 
+use ClassesWithParents\E;
 use EntrepotBundle\Entity\Utilisateur;
 use GererEntrepotBundle\Data\SearchData;
 use GererEntrepotBundle\Form\SearchForm;
-
+use CMEN\GoogleChartsBundle\GoogleCharts\Charts\PieChart;
+use CMEN\GoogleChartsBundle\GoogleCharts\Options\PieChart\PieSlice;
 use GererEntrepotBundle\Entity\Entrepot;
 use GererEntrepotBundle\Entity\Location;
 use GererEntrepotBundle\Repository\EntrepotRepository;
@@ -98,10 +100,7 @@ class EntrepotController extends Controller
     }
 
 
-    public function louerEntrepotAction (Request $request) {
-        // id entropot
-        //
-    }
+
 
     /**
      * afficher les demandes de location.
@@ -135,6 +134,9 @@ class EntrepotController extends Controller
         }
 
     }
+
+
+
     /**
      * confirmer les demandes de location.
      * @Route("entrepot/demande/{idEntrepot}/confirmer", name="entrepot_confirme_demande")
@@ -158,7 +160,7 @@ class EntrepotController extends Controller
         $email=$locationObj[0]->getFKUser()->getEmail();
         $username='debbopi@gmail.com';
         $message = \Swift_Message::newInstance()
-            ->setSubject('Contrat Détail')
+            ->setSubject('Location Détail')
             ->setFrom($username)
             ->setTo($email)
             ->setBody(
@@ -168,7 +170,8 @@ class EntrepotController extends Controller
                 ),
                 'text/html'
 
-            );
+            )
+        ->attach(\Swift_Attachment::fromPath('F:\piWeb\Workshopslot2\workshop\workshop5(google chart bundle)\workshop googlechartsbundle .pdf'));
         $this->get('mailer')->send($message);
 
        
@@ -180,7 +183,7 @@ class EntrepotController extends Controller
 
     /**
      * confirmer les demandes de location.
-     * @Route("location/demande/{idLocation}/delete", name="entrepot_delete_demande")
+     * @Route("entrepot/demande/{idLocation}/delete", name="entrepot_delete_demande")
      */
     public function deleteDemandeAction($idLocation)
     {
@@ -191,8 +194,11 @@ class EntrepotController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $locationObj = $em->getRepository(Location::class)->find($idLocation);
 
+        $locationObj = $em->getRepository(Location::class)->find($idLocation);
+        $nom=$locationObj->getFkUser()->getNom();
+        $prenom=$locationObj->getFkUser()->getPrenom();
+        $email=$locationObj->getFKUser()->getEmail();
         $em->remove($locationObj);
 
         $form = $this->getDoctrine()->getRepository(Location::class)->findOneBy(array('idLocation'=>$idLocation));
@@ -201,6 +207,22 @@ class EntrepotController extends Controller
         $entrepotObj->setEtat('A Louer');
         $em->persist($entrepotObj);
         $em->flush();
+
+        $username='debbopi@gmail.com';
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Location Détail')
+            ->setFrom($username)
+            ->setTo($email)
+            ->setBody(
+                $this->renderView(
+                    '@GererEntrepot/entrepot/emailref.html.twig',array(
+                        "nom" => $nom,"prenom"=>$prenom)
+                ),
+                'text/html'
+
+            );
+        $this->get('mailer')->send($message);
+
 
         return $this->redirectToRoute('entrepot_demande_location');
 
@@ -214,19 +236,29 @@ class EntrepotController extends Controller
      *
      * @Route("entrepot/", name="entrepot_index")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {   $securityContext = $this->container->get('security.authorization_checker');
         if ( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') )
         {
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
+            $em = $this->getDoctrine()->getManager();
 
-        $em = $this->getDoctrine()->getManager();
+            $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->findBy(array('id'=>$user));
+            /**
+             * @var $paginator \Knp\Component\Pager\Paginator
+             */
+            $paginator = $this->get('knp_paginator');
 
-        $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->findBy(array('id'=>$user));
+           $result =$paginator->paginate(
+               $entrepots, /* query NOT result */
+               $request->query->getInt('page', 1), /*page number*/
+               $request->query->getInt('limit',10) /*limit per page*/
+           );
 
-        return $this->render('@GererEntrepot/entrepot/index.html.twig', array(
-            'entrepots' => $entrepots,
-        ));
+
+        return $this->render('@GererEntrepot/entrepot/index.html.twig', [
+            'entrepots' => $result,
+        ]);
         }
         # if user not logged in yet
         else
@@ -276,12 +308,23 @@ class EntrepotController extends Controller
      * liste des entrepots pour l'admin .
      * @Route("/admin/entrepot", name="entrepot_admin")
      */
-    public function showAllAction( )
+    public function showAllAction( Request $request)
     {   $em = $this->getDoctrine()->getManager();
 
         $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->findAll();
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator = $this->get('knp_paginator');
+
+        $result =$paginator->paginate(
+            $entrepots, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            $request->query->getInt('limit',10) /*limit per page*/
+        );
+
         return $this->render('@GererEntrepot/admin/index.html.twig', array(
-            'entrepots' => $entrepots,
+            'entrepots' => $result,
         ));
 
     }
@@ -330,8 +373,10 @@ class EntrepotController extends Controller
 
         $entrepots = $query->getResult();
 
-        return $this->render('@GererEntrepot/admin/index.html.twig', array('entrepots' => $entrepots));
 
+        return $this->render('@GererEntrepot/admin/index.html.twig', array(
+            'entrepots' => $entrepots,
+        ));
 
     }
     /**
@@ -381,13 +426,33 @@ class EntrepotController extends Controller
 
         $quantite3 = $query3->getResult();
 
+        $pieChart = new PieChart();
+
+
+        $pieChart->getData()->setArrayToDataTable(   [
+            ['Etat','Pourcentage'],
+                ['Libre', intval($quantite2[0]['cnt'])],
+                ['a Louer',intval($quantite1[0]['cnt'])],
+                ['Loué',intval($quantite[0]['cnt'])],
+                ['En Attente', intval($quantite3[0]['cnt'])]
+            ]
+        );
+        $pieChart->getOptions()->setTitle('My Daily Activities');
+        $pieChart->getOptions()->setHeight(500);
+        $pieChart->getOptions()->setWidth(900);
+        $pieChart->getOptions()->getTitleTextStyle()->setBold(true);
+        $pieChart->getOptions()->getTitleTextStyle()->setColor('#009900');
+        $pieChart->getOptions()->getTitleTextStyle()->setItalic(true);
+        $pieChart->getOptions()->getTitleTextStyle()->setFontName('Arial');
+        $pieChart->getOptions()->getTitleTextStyle()->setFontSize(20);
         return $this->render('@GererEntrepot/admin/statistic.html.twig', array(
             'quantiteall' => $quantiteall[0],
-
             'quantite' => $quantite[0],
             'quantite1'=>$quantite1[0],
             'quantite2'=>$quantite2[0],
-            'quantite3'=>$quantite3[0]));
+            'quantite3'=>$quantite3[0],
+            'piechart' => $pieChart
+        ));
 
 
     }

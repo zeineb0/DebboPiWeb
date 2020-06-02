@@ -4,65 +4,68 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                <h3>Liste des entrepots</h3>
-                        <div class="input-group input-group-sm" style="width: 150px;">
+                    <h3>Liste des entrepots</h3>
+                    <div class="input-group input-group-sm" style="width: 150px;">
                         <form action=" {{path('entrepot_search') }}"  class="form-inline ml-3">
                             <div class="input-group-append">
 
-                            <input  type="text" name="keyword" class="form-control float-right" placeholder="Search">
-                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                        </div>
+                                <input  type="text" name="keyword" class="form-control float-right" placeholder="Search">
+                                <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                            </div>
                         </form>
-                        </div>
+                    </div>
 
-    <table id="table" class="table table-head-fixed text-nowrap"  data-toggle="table"
-           data-pagination="true" data-search="true" data-show-columns="true"
-           data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
-           data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+                    <table id="table" class="table table-head-fixed text-nowrap"  data-toggle="table"
+                           data-pagination="true" data-search="true" data-show-columns="true"
+                           data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
+                           data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
 
-    <tbody>
-    <tr>
-        <th>Id Entrepot</th>
-        <th>Adresse</th>
-        <th>Numero fiscale</th>
-        <th>Quantite max</th>
-        <th>Etat</th>
-        <th>Prix location</th>
-        <th>Entreprise</th>
-        <th>Nom Client</th>
-        <th>Action</th>
+                        <tbody>
+                        <tr>
+                            <th>Id Entrepot</th>
+                            <th>Adresse</th>
+                            <th>Numero fiscale</th>
+                            <th>Quantite max</th>
+                            <th>Etat</th>
+                            <th>Prix location</th>
+                            <th>Entreprise</th>
+                            <th>Nom Client</th>
+                            <th>Action</th>
 
 
-    </tr>
-    {% for entrepot in entrepots %}
-    <tr>
-        <td>{{ entrepot.idEntrepot }}</td>
-        <td>{{ entrepot.adresse }}</td>
-        <td>{{ entrepot.numFiscale }}</td>
-        <td>{{ entrepot.quantiteMax }}</td>
-        <td>
-        {% if entrepot.etat() == 'A Louer' %}
-            <span class="badge bg-danger">{{ entrepot.etat}}</span>
-        {% elseif entrepot.etat() == 'Loué'%}
-            <span class="badge bg-success">{{ entrepot.etat}}</span>
-        {% else %}
-                <span class="badge badge-secondary">{{ entrepot.etat}}</span>
-        {% endif %}
-        </td>
-        <td>{{ entrepot.prixLocation }}</td>
-        <td>{{ entrepot.entreprise }}</td>
-        <td>{{ entrepot.id }}</td>
+                        </tr>
+                        {% for entrepot in entrepots %}
+                            <tr>
+                                <td>{{ entrepot.idEntrepot }}</td>
+                                <td>{{ entrepot.adresse }}</td>
+                                <td>{{ entrepot.numFiscale }}</td>
+                                <td>{{ entrepot.quantiteMax }}</td>
+                                <td>
+                                    {% if entrepot.etat() == 'A Louer' %}
+                                        <span class="badge bg-danger">{{ entrepot.etat}}</span>
+                                    {% elseif entrepot.etat() == 'Loué'%}
+                                        <span class="badge bg-success">{{ entrepot.etat}}</span>
+                                    {% else %}
+                                        <span class="badge badge-secondary">{{ entrepot.etat}}</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ entrepot.prixLocation }}</td>
+                                <td>{{ entrepot.entreprise }}</td>
+                                <td>{{ entrepot.id }}</td>
 
-        <td><a href='{{ path('entrepot_admin_delete', {id: entrepot.getIdEntrepot()}) }}' >Supprimer </a> <br>
-            <a href='{{ path('entrepot_admin_details', {id: entrepot.getIdEntrepot()}) }}' >Detail</a> <td><br>
-    </tr>
-    {% endfor %}
+                                <td><a href='{{ path('entrepot_admin_delete', {id: entrepot.getIdEntrepot()}) }}' >Supprimer </a> <br>
+                                    <a href='{{ path('entrepot_admin_details', {id: entrepot.getIdEntrepot()}) }}' >Detail</a> <td><br>
+                            </tr>
+                        {% endfor %}
 
-    </tbody>
-        </table>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="navigation text-center">
+        {{ knp_pagination_render(entrepots) }}
     </div>
 
 
