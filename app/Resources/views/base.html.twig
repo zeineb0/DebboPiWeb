@@ -8,6 +8,12 @@
     <meta property="og:title" content="Vide" />
     <meta name="keywords" content="Big store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <style>
+        .mel {
+            width:100px;
+            margin-left: 50px;
+        }
+    </style>
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
         function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- //for-mobile-apps -->
@@ -71,8 +77,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="head-t">
                 <ul class="card">
                     <li><a href="{{ asset('wishlist.html') }}" ><i class="fa fa-heart" aria-hidden="true"></i>Favoris</a></li>
-                    <li><a href="{{ asset('login.html') }}" ><i class="fa fa-user" aria-hidden="true"></i>Se connecter</a></li>
-                    <li><a href="{{ asset('register.html') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>S'enregistrer</a></li>
+                    <li><a href="{{ asset('app_dev.php/login') }}" ><i class="fa fa-user" aria-hidden="true"></i>Se connecter</a></li>
+                    <li><a href="{{ asset('app_dev.php/register/') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>S'enregistrer</a></li>
                 </ul>
             </div>
 
@@ -178,31 +184,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                             <li><a href="{{ asset ('codes.html') }}" class="hyper"> <span>Livraison</span></a></li>
                             <li><a href="{{ asset ('codes.html') }}" class="hyper"> <span>Commande</span></a></li>
-                            <li><a href="{{ asset ('codes.html') }}" class="hyper"> <span>Forum</span></a></li>
-
+                            <li><a href="{{ asset ('app_dev.php/forum/') }}" class="hyper"> <span>Forum</span></a></li>
+                            <li><a href="{{ path ('fos_message_inbox') }}" class="hyper"> <span>Messagerie</span></a></li>
                             <li><a href="{{ asset ('contact.html') }}" class="hyper"><span>Contact Us</span></a></li>
                         </ul>
                     </div>
                 </nav>
                 <div class="cart" >
 
-                    <span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
+                    <span class="fa fa-shopping-cart my-car
+                    t-icon"><span class="badge badge-notify my-cart-badge"></span></span>
                 </div>
                 <div class="clearfix"></div>
             </div>
 
-        </div>
-    </div>
-    <div data-vide-bg="video/video">
-        <div class="container">
-            <div class="banner-info">
-                <div class="search-form">
-                    <form action="#" method="post">
-                        <input type="text" placeholder="Recherche..." name="Search...">
-                        <input type="submit" value=" " >
-                    </form>
-                </div>
-            </div>
         </div>
     </div>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
