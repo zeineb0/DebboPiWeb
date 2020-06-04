@@ -1,0 +1,137 @@
+
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<div class="product">
+    <div class="container">
+        <div class="spec ">
+            <h3> Espace des livraisons</h3>
+            <div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>
+        </div>
+        <br/>
+
+
+
+            <label style="margin-bottom: 20px"> <h3> Choisissez l'adresse et la date de la livraison : </h3></label>
+            <br/>
+            <div class="form-group row">
+                <div class="col-md-4">
+                    <input class="form-control" type="date" value="2020-05-05" id="dateLiv">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4">
+                    <input class="form-control" type="text" value="" id="adress">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-4">
+                    <button id="affecter" class="btn btn-info">
+                        <i class="fa fa-search"></i>     Chercher un Transporteur</button>
+                </div>
+            </div>
+
+
+
+       {# <h2>
+            {{ livraison.idLivraison }}
+        </h2>#}
+
+        <h3 id="result" style="margin-top: 20px"></h3>
+
+        <div id="transp" class="col-lg-6" style="margin-top: 2px" >
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+    </div>
+</div>
+
+
+    <script>
+        $("#affecter").click(function () {
+            $("#transp").empty();
+
+            var dateLiv = $("#dateLiv").val();
+            var adresse = $("#adress").val();
+            var result ="il n'y a aucun transporteur";
+            $.ajax({
+                url: "http://localhost/DebboPiWeb/web/app_dev.php/Transporteur/recherche?dateLiv="+dateLiv+"&adresse="+adresse,
+                type:"GET",
+               // data:{dateLiv:"2020-04-16",adresse:"beja"},
+                success:function (retour) {
+                    if (!Array.isArray(retour) || !retour.length)
+                    {
+                        $("#result").append(result);
+                        return;
+                    }
+                    onSuccess(retour);
+
+
+                }
+            });
+
+            function onSuccess(retour) {
+                $("#result").empty();
+                let html = "";
+                $.each(retour, function(){
+                    html += ` <ul id="#ul" data-id="${ this.id }" class="list-group list-group-flush">
+                    <li id="nom" class="list-group-item " >Nom : ${ this.nom }</li>
+                    <li id="prenom" class="list-group-item " > Prenom : ${ this.prenom }</li>
+                    <li id="tel" class="list-group-item " > Téléphone : ${ this.tel }</li>
+
+                            <li class="list-group-item ">  <button class="btn btn-warning edit" style="width: 100px ">
+                                   <i class="fa fa-check"></i>  Affecter</button>
+                                 </li>
+                        <br/>
+                        </ul>
+                        `
+                });
+
+                $("#transp").append(html);
+                    $(".edit").click(function () {
+                        console.log("test");
+                        var idUser = $(this).closest("ul").data("id");
+
+                        //console.log("l'id est :"+idUser);
+
+                     /*   $(".idLiv").attr("value", function(i) {
+                            console.log(i+" position Test value " );
+                            return;
+
+                        });*/
+
+                       $.ajax({
+                            url: "http://localhost/DebboPiWeb/web/app_dev.php/Transporteur/modifierLiv?dateLiv="+dateLiv+"&idUser="+idUser+"&id="+{{ livraison.idLivraison }},
+                            type:"GET",
+                            success:function (retour) {
+                                window.location.href = 'http://localhost/DebboPiWeb/web/app_dev.php/Transporteur/livraisonAffecter';
+                                return false;
+                            }
+                        });
+
+                    });
+
+
+            }
+
+
+        });
+
+    </script>
+{% endblock %}
+
+

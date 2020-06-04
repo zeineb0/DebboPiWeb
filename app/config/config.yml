@@ -5,6 +5,7 @@ imports:
     - { resource: "@EntrepotBundle/Resources/config/services.yml" }
     - { resource: "@StockBundle/Resources/config/services.yml" }
     - { resource: "@GererEntrepotBundle/Resources/config/services.yml" }
+    - { resource: "@TransporteurBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -70,6 +71,11 @@ swiftmailer:
     password: '%mailer_password%'
     encryption: ssl
     port:    465
+    stream_options:
+        ssl:
+            allow_self_signed: true
+            verify_peer: false
+            verify_peer_name: false
     spool: { type: memory }
 fos_user:
     db_driver: orm
@@ -120,6 +126,20 @@ knp_snappy:
          binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\""
          options:    []
 
+
+# fos_user bundle:
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: AppBundle\Entity\User
+    service:
+        mailer: fos_user.mailer.twig_swift
+    from_email:
+        address: "mohamedfarouk.benakacha@esprit.tn"
+        sender_name: "Farouk"
+
+#KNP paginator:
 knp_paginator:
     page_range: 5                       # number of links showed in the pagination menu (e.g: you have 10 pages, a page_range of 3, on the 5th page you'll see links to page 4, 5, 6)
     default_options:
@@ -133,4 +153,5 @@ knp_paginator:
         pagination: '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig'     # sliding pagination controls template
         sortable: '@KnpPaginator/Pagination/sortable_link.html.twig' # sort link template
         filtration: '@KnpPaginator/Pagination/filtration.html.twig'  # filters template
+
 

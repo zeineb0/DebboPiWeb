@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+
+
+    <div class="product">
+        <div class="container">
+            <div class="spec ">
+                <h3> Espace des livraisons</h3>
+                <div class="ser-t">
+                    <b></b>
+                    <span><i></i></span>
+                    <b class="line"></b>
+                </div>
+            </div>
+            <br/>
+            <table class="table table-hover">
+                <caption style=" margin-bottom: 30px" > <h2 style="text-align: left" >La liste des livraisons livrées :</h2> </caption>
+                <thead>
+                <tr class="text-center " style="font-size: 1.27em" >
+                    <th scope="col"> {{ knp_pagination_sortable(liste_livraison,'Date de la livraison',"l.dateLivraison") }}</th>
+                    <th scope="col">{{ knp_pagination_sortable(liste_livraison,'Adresse de la livraison',"l.adresseLivraison") }}</th>
+                    <th scope="col"> {{ knp_pagination_sortable(liste_livraison,'Etat de la livraison',"l.etatLivraison") }} </th>
+                    <th scope="col">{{ knp_pagination_sortable(liste_livraison,'Numero commande',"l.fkCommande") }}</th>
+                    <th scope="col">{{ knp_pagination_sortable(liste_livraison,'Numero du client',"l.tel") }}</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for l in liste_livraison %}
+                    <tr class="table-light text-center " style="font-size: 1.2em">
+                        <td>{{ l.dateLivraison | date("d/m/Y") }}</td>
+                        <td>{{ l.adresseLivraison }}</td>
+                        <td>{{ l.etatLivraison }}</td>
+                        <td>{{ l.idCommande }}</td>
+                        <td>{{ l.tel }}</td>
+                        <td class="text-right">
+
+                            <a class="btn btn-danger" href="{{  path("supprimer_livraison",{"id":l.idLivraison}) }}" style="width: 110px">
+                                <i class="fa fa-trash-o fa-lg"></i> Supprimer</a>
+
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td> <h4>Vous n'avez aucune livraison n'est pas encore livrée</h4> </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+
+            <div class="navigation text-center">
+                {{ knp_pagination_render(liste_livraison) }}
+            </div>
+
+        </div>
+    </div>
+
+
+
+{% endblock %}

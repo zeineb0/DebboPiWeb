@@ -13,6 +13,9 @@ stock_categories:
 stock:
     resource: "@StockBundle/Resources/config/routing.yml"
     prefix:   /Stock
+transporteur:
+    resource: "@TransporteurBundle/Resources/config/routing.yml"
+    prefix:   /Transporteur
 
 entrepot:
     resource: "@EntrepotBundle/Resources/config/routing.yml"
@@ -37,3 +40,5 @@ app:
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
+adesigns_calendar:
+    resource: "@ADesignsCalendarBundle/Resources/config/routing.xml"

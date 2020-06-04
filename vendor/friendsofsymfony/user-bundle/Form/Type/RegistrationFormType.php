@@ -68,6 +68,9 @@ class RegistrationFormType extends AbstractType
                 'second_options' => array('label' => 'form.password_confirmation'),
                 'invalid_message' => 'fos_user.password.mismatch',
             ))
+            ->add('roles',choiceType::class,array('label'=>'type',
+                'choices'=>array('Transporteur'=>'ROLE_TRANSPORTEUR','Entrepot'=>'ROLE_ENTREPOT','Client'=>'ROLE_CLIENT'),
+                'required'=>true , 'multiple'=>true , ))
         ;
     }
 

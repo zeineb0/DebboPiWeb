@@ -477,7 +477,7 @@ span.fa.fa-shopping-cart.my-cart-icon {
 /*-- //header --*/
 /*--banner--*/
 .banner-info {
-    margin:8em 0;
+    margin:1.6em 0;
 	text-align:center;
 }
 .banner-info h3 {
@@ -989,7 +989,7 @@ ul.product-qty {
 }
 /*--content-mid--*/
 .product {
-	padding:8em 0 6em;
+	padding:6em 0 6em;
 }
 .pro-1 {
     margin-bottom: 2em;
@@ -2341,10 +2341,10 @@ p.fo-para {
     margin-top: 2em;
 }
 .footer {
-    padding: 3em 0;
+    padding: 2em 0;
 }
 .product {
-    padding: 6em 0 3em;
+    padding: 4em 0 3em;
 }
 .ser-t {
     width: 30%;
@@ -2695,7 +2695,7 @@ ul.nav.tabs {
     width: 75%;
 }
 .product {
-    padding: 4em 0 2em;
+    padding: 3em 0 2em;
 }
 .footer-grid {
     width: 100%;

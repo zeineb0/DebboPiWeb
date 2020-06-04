@@ -51,7 +51,7 @@ class Commande
     private $dateExp;
 
     /**
-     * @var \Utilisateur
+     * @var \User
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumns({
@@ -59,6 +59,125 @@ class Commande
      * })
      */
     private $idClient;
+
+    /**
+     * Commande constructor.
+     * @param int $idCommande
+     * @param float $total
+     * @param string $typePaiement
+     * @param \DateTime $dateCommande
+     * @param \DateTime $dateExp
+     * @param \User $idClient
+     */
+    public function __construct($idCommande, $total, $typePaiement, \DateTime $dateCommande, \DateTime $dateExp, \User $idClient)
+    {
+        $this->idCommande = $idCommande;
+        $this->total = $total;
+        $this->typePaiement = $typePaiement;
+        $this->dateCommande = $dateCommande;
+        $this->dateExp = $dateExp;
+        $this->idClient = $idClient;
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getIdCommande()
+    {
+        return $this->idCommande;
+    }
+
+    /**
+     * @param int $idCommande
+     */
+    public function setIdCommande($idCommande)
+    {
+        $this->idCommande = $idCommande;
+    }
+
+    /**
+     * @return float
+     */
+    public function getTotal()
+    {
+        return $this->total;
+    }
+
+    /**
+     * @param float $total
+     */
+    public function setTotal($total)
+    {
+        $this->total = $total;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTypePaiement()
+    {
+        return $this->typePaiement;
+    }
+
+    /**
+     * @param string $typePaiement
+     */
+    public function setTypePaiement($typePaiement)
+    {
+        $this->typePaiement = $typePaiement;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateCommande()
+    {
+        return $this->dateCommande;
+    }
+
+    /**
+     * @param \DateTime $dateCommande
+     */
+    public function setDateCommande($dateCommande)
+    {
+        $this->dateCommande = $dateCommande;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateExp()
+    {
+        return $this->dateExp;
+    }
+
+    /**
+     * @param \DateTime $dateExp
+     */
+    public function setDateExp($dateExp)
+    {
+        $this->dateExp = $dateExp;
+    }
+
+    /**
+     * @return \User
+     */
+    public function getIdClient()
+    {
+        return $this->idClient;
+    }
+
+    /**
+     * @param \User $idClient
+     */
+    public function setIdClient($idClient)
+    {
+        $this->idClient = $idClient;
+    }
+
+
+
 
 
 

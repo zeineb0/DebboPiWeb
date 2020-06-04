@@ -6,11 +6,12 @@ use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 use Symfony\Component\Validator\Constraints as Assert;
 
+
 /**
- * Utilisateur
+ * User
  *
  * @ORM\Table(name="utilisateur", indexes={@ORM\Index(name="fk_pd", columns={"FK_id_produit"})})
- * @ORM\Entity(repositoryClass="AppBundle\Repository\UtilisateurRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
 class User extends BaseUser
 {
@@ -42,6 +43,7 @@ class User extends BaseUser
      *@Assert\NotBlank()
      * @Assert\Length(min=8)
      * @Assert\Length(max=8)
+     *
      * @ORM\Column(name="cin", type="bigint", nullable=false)
      */
     private $cin;
@@ -83,10 +85,11 @@ class User extends BaseUser
      */
     private $altitudeUser;
 
+
     /**
      * @var string
      *
-     * @ORM\Column(name="disponniblite", type="string", length=20, nullable=true)
+     * @ORM\Column(name="disponniblite", type="string", length=20, nullable=false)
      */
     private $disponniblite;
 
@@ -123,7 +126,6 @@ class User extends BaseUser
         $this->id = $id;
     }
 
-
     /**
      * @return string
      */
@@ -138,6 +140,22 @@ class User extends BaseUser
     public function setNom($nom)
     {
         $this->nom = $nom;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * @param string $prenom
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
     }
 
     /**
@@ -170,6 +188,22 @@ class User extends BaseUser
     public function setDate($date)
     {
         $this->date = $date;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * @param string $role
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
     }
 
     /**
@@ -237,6 +271,22 @@ class User extends BaseUser
     }
 
     /**
+     * @return int
+     */
+    public function getNbrMaxcomm()
+    {
+        return $this->nbrMaxcomm;
+    }
+
+    /**
+     * @param int $nbrMaxcomm
+     */
+    public function setNbrMaxcomm($nbrMaxcomm)
+    {
+        $this->nbrMaxcomm = $nbrMaxcomm;
+    }
+
+    /**
      * @return \Produit
      */
     public function getFkProduit()
@@ -252,53 +302,6 @@ class User extends BaseUser
         $this->fkProduit = $fkProduit;
     }
 
-    /**
-     * @return string
-     */
-    public function getPrenom()
-    {
-        return $this->prenom;
-    }
-
-    /**
-     * @param string $prenom
-     */
-    public function setPrenom($prenom)
-    {
-        $this->prenom = $prenom;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRole()
-    {
-        return $this->role;
-    }
-
-    /**
-     * @param string $role
-     */
-    public function setRole($role)
-    {
-        $this->role = $role;
-    }
-
-    /**
-     * @return int
-     */
-    public function getNbrMaxcomm()
-    {
-        return $this->nbrMaxcomm;
-    }
-
-    /**
-     * @param int $nbrMaxcomm
-     */
-    public function setNbrMaxcomm($nbrMaxcomm)
-    {
-        $this->nbrMaxcomm = $nbrMaxcomm;
-    }
 
 
 

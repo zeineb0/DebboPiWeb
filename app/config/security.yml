@@ -10,6 +10,8 @@ security:
         ROLE_CLIENT: ROLE_USER
         ROLE_PROP: ROLE_USER
         ROLE_PROPRIETAIRE: ROLE_USER
+        ROLE_TRANSPORTEUR: ROLE_USER
+        ROLE_ENTREPOT: ROLE_USER
 
     providers:
         fos_userbundle:
@@ -34,6 +36,14 @@ security:
 
             # https://symfony.com/doc/current/security/form_login_setup.html
             #form_login: ~
+                use_forward: false
+                always_use_default_target_path: false
+                default_target_path : /home
+
+            logout:       true
+            anonymous:    true
+
+
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }

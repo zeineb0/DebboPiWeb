@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <div class="product">
+        <div class="container">
+            <div class="spec ">
+                <h3> Espace des contrats</h3>
+                <div class="ser-t">
+                    <b></b>
+                    <span><i></i></span>
+                    <b class="line"></b>
+                </div>
+            </div>
+            <br/>
+            <table class="table table-hover">
+                <caption style=" margin-bottom: 30px" > <h2 style="text-align: left" >La liste des contrats signés bientôt expirés :</h2> </caption>
+                <thead>
+                <tr class="text-center w-auto" style="font-size: 1.27em" >
+                    <th scope="col"> {{ knp_pagination_sortable(liste_contrat,'Date Début','c.datedeb') }}</th>
+                    <th scope="col">{{ knp_pagination_sortable(liste_contrat,'Date Fin','c.datefin') }}</th>
+                    <th scope="col"> {{ knp_pagination_sortable(liste_contrat,'Salaire (DT)','c.salaire') }} </th>
+                    <th scope="col">{{ knp_pagination_sortable(liste_contrat,'Nom du transporteur','u.nom') }}</th>
+                    <th scope="col">{{ knp_pagination_sortable(liste_contrat,'Prenom du transporteur','u.prenom') }}</th>
+                    <th scope="col">{{ knp_pagination_sortable(liste_contrat,"L'entrepot",'e.entreprise') }}</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for c in liste_contrat %}
+                    <tr class="table-light text-center " style="font-size: 1.2em">
+                        <td>{{ c.datedeb | date("d/m/Y") }}</td>
+                        <td>{{ c.datefin | date("d/m/Y")}}</td>
+                        <td>{{ c.salaire }}</td>
+                        <td>{{ c.nom }}</td>
+                        <td>{{ c.prenom }}</td>
+                        <td>{{ c.entreprise }}</td>
+                        <td class="text-right">
+
+                            <a class="btn btn-warning"  style="width: 100px"   href="{{  path("modifier_contrat",{"FKidentrepot":c.idEntrepot , "FKiduser":c.id })  }}"  {#data-toggle="modal" data-target="#edit"#}>
+                                <i class="fa fa-pencil-square fa-lg" ></i> Modifier</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td> <h4>Vous n'avez aucun contrat signé</h4> </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+
+            <div class="navigation text-center">
+                {{ knp_pagination_render(liste_contrat) }}
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}

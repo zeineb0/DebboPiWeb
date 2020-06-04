@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+<ul>
+    {% for f in liste_livraison %}
+
+        <li>
+
+            {{ f.idLivraison }} - {{ f.dateLivraison | date }} - {{ f.adresseLivraison }} - {{ f.etatLivraison }} - {{ f.fkCommande.idCommande }} - {{ f.fkUser.nom }}
+                <a href="{{  path("supprimer_livraison",{"id":f.idLivraison})  }}"> Supprimer </a><br/>
+                <a href="{{  path("modifier_livraison",{"id":f.idLivraison})  }}"> Modifier </a>
+
+        </li>
+
+    {% endfor %}
+</ul>
+
+{% endblock %}

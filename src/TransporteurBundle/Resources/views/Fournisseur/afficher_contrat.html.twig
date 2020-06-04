@@ -1,0 +1,188 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="add" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="staticBackdropLabel" style="text-align: center">Ajouter un contrat</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+
+                    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                    {{ form_errors(form) }}
+
+
+                        <legend style="margin: 10px;"> Contrat :</legend>
+                    <div class="form-group row" style="margin: 10px;">
+                        <label class="col-md-2 col-form-label"> {{ form_label(form.datedeb) }} </label>
+
+                        <div class="col-md-10">
+                            {{ form_widget(form.datedeb,{ 'attr': { 'class': 'form-control' } }) }}
+                            {{ form_errors(form.datedeb) }}
+                         </div>
+                    </div>
+
+                    <div class="form-group row" style="margin: 10px;">
+                        <label class="col-md-2 col-form-label"> {{ form_label(form.datefin) }} </label>
+
+                        <div class="col-md-10">
+                            {{ form_widget(form.datefin,{ 'attr': { 'class': 'form-control' } }) }}
+                            {{ form_errors(form.datefin) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group row" style="margin: 10px;">
+                        <label class="col-md-2 col-form-label"> {{ form_label(form.salaire) }} </label>
+
+                        <div class="col-md-10">
+                            {{ form_widget(form.salaire,{ 'attr': { 'class': 'form-control' } }) }}
+                            {{ form_errors(form.salaire) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group row" style="margin: 10px;">
+                        <label class="col-md-2 col-form-label"> {{ form_label(form.FKidentrepot) }} </label>
+
+                        <div class="col-md-10">
+                            {{ form_widget(form.FKidentrepot,{ 'attr': { 'class': 'form-control' } }) }}
+                            {{ form_errors(form.FKidentrepot) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group row" style="margin: 10px;">
+                        <label class="col-md-2 col-form-label"> {{ form_label(form.FKiduser) }} </label>
+
+                        <div class="col-md-10">
+                            {{ form_widget(form.FKiduser,{ 'attr': { 'class': 'form-control' } }) }}
+                            {{ form_errors(form.FKiduser) }}
+                        </div>
+                    </div>
+                    
+                    </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Annuler</button>
+                    <input class="btn btn-success" type="submit" value="Ajouter" />
+                </div>
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+    </div>
+
+
+<div class="product">
+    <div class="container">
+        <div class="spec ">
+            <h3> Espace des contrats</h3>
+            <div class="ser-t">
+                <b></b>
+                <span><i></i></span>
+                <b class="line"></b>
+            </div>
+        </div>
+        <br/>
+
+        <div class="alert alert-warning alert-dismissible  show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4><strong>Vous avez {{ nbr_conrat[0].NBR }} contrat(s) qui vont être expirés bientôt !</strong></h4>
+            <br/>
+            <h5>Voulez-vous les modifier ? <a href="{{ path('afficher_contrat_exp') }}" class="alert-link">Cliquez ici !</a></h5>
+
+        </div>
+
+
+        <div class="row" style="margin-bottom: 40px">
+        <div class="col">
+            <h2 class="forg-left" style="padding-left: 10px"> Voulez-vous ajouter un contrat ? </h2>
+        </div>
+        <div class="col-md-auto">
+        <a class="btn btn-success forg-right" href="" style="width: 180px  " data-toggle="modal" data-target="#add">
+            <i class="fa fa-plus fa-lg"></i> Ajouter un contrat</a>
+        </div>
+        </div>
+
+
+        <table class="table table-hover">
+            <caption style=" margin-bottom: 30px" > <h2 style="text-align: left" >La liste des contrats signés :</h2> </caption>
+            <thead>
+            <tr class="text-center w-auto" style="font-size: 1.27em" >
+                <th scope="col"> {{ knp_pagination_sortable(liste_contrat,'Date Début','c.datedeb') }}</th>
+                <th scope="col">{{ knp_pagination_sortable(liste_contrat,'Date Fin','c.datefin') }}</th>
+                <th scope="col"> {{ knp_pagination_sortable(liste_contrat,'Salaire (DT)','c.salaire') }} </th>
+                <th scope="col">{{ knp_pagination_sortable(liste_contrat,'Nom du transporteur','u.nom') }}</th>
+                <th scope="col">{{ knp_pagination_sortable(liste_contrat,'Prenom du transporteur','u.prenom') }}</th>
+                <th scope="col">{{ knp_pagination_sortable(liste_contrat,"L'entrepot",'e.entreprise') }}</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for c in liste_contrat %}
+                <tr class="table-light text-center "  style="font-size: 1.2em ">
+                    <td>{{ c.datedeb | date("d/m/Y") }}</td>
+                    <td>{{ c.datefin | date("d/m/Y")}}</td>
+                    <td>{{ c.salaire }}</td>
+                    <td>{{ c.nom }}</td>
+                    <td>{{ c.prenom }}</td>
+                    <td>{{ c.entreprise }}</td>
+                    <td class="text-right">
+
+                        <a class="btn btn-warning"  style="width: 100px"   href="{{  path("modifier_contrat",{"FKidentrepot":c.idEntrepot , "FKiduser":c.id })  }}"  {#data-toggle="modal" data-target="#edit"#}>
+                            <i class="fa fa-pencil-square fa-lg" ></i> Modifier</a>
+
+                        <a class="btn btn-danger" href="{{  path("supprimer_contrat",{"FKidentrepot":c.idEntrepot , "FKiduser":c.id })  }}" style="width: 110px">
+                            <i class="fa fa-trash-o fa-lg"></i> Supprimer</a>
+
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td> <h4>Vous n'avez aucun contrat signé</h4> </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(liste_contrat) }}
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

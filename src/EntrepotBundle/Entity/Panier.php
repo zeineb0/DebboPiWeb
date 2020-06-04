@@ -44,7 +44,7 @@ class Panier
     private $etatPanier;
 
     /**
-     * @var \Utilisateur
+     * @var \User
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumns({

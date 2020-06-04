@@ -1,0 +1,129 @@
+
+
+#admin routing :
+
+admin_page:
+    path:     /admin
+    defaults: { _controller: TransporteurBundle:Admin:index }
+
+
+
+# Livraison routing :
+
+ajouter_livraison:
+    path: /ajouterLivraison
+    defaults: {_controller: TransporteurBundle:Livraison:ajouterLivraison}
+
+afficher_livraison_all:
+    path: /afficherLivraison
+    defaults: {_controller: TransporteurBundle:Livraison:getAllLivraison}
+
+supprimer_livraison:
+    path: /supprimerLivraison/{id}
+    defaults: {_controller: TransporteurBundle:Livraison:supprimerLivraison}
+
+
+aff_liv_Trans_NL:
+    path: /AffLivTransNL
+    defaults: {_controller: TransporteurBundle:Livraison:afficherLivraisonParTransporteurNonLivre}
+
+aff_liv_Trans_L:
+    path: /AffLivTransL
+    defaults: {_controller: TransporteurBundle:Livraison:afficherLivraisonParTransporteurLivre}
+
+modifier_livraison:
+    path: /modifierLivraison/{id}
+    defaults: {_controller: TransporteurBundle:Livraison:modifierEtatLivraison}
+
+
+afficher_calendrier:
+    path: /affCal
+    defaults: {_controller: TransporteurBundle:Livraison:afficherCalendrier}
+
+
+livraison_calendar:
+    path: /livraison
+    defaults: {_controller: TransporteurBundle:Livraison:livraisonCalendar}
+
+livraison_affecter:
+    path: /livraisonAffecter
+    defaults: {_controller: TransporteurBundle:Livraison:pageLivraisonAffecter}
+
+affecter_livraison:
+    path: /AffecterLivraison/{id}
+    defaults: {_controller: TransporteurBundle:Livraison:affecterLivraison}
+
+recherche_transporteur:
+    path: /recherche
+    defaults: {_controller: TransporteurBundle:Livraison:getTransporteur}
+
+modifier_livraison_aff:
+    path: /modifierLiv
+    defaults: {_controller: TransporteurBundle:Livraison:modifierLivraison}
+
+
+
+
+
+
+# Contrat routing :
+
+
+afficher_contrat:
+    path : /afficherContrat
+    defaults : {_controller: TransporteurBundle:Contrat:ajouterContrat}
+
+
+supprimer_contrat:
+    path: /supprimerContrat/{FKidentrepot}.{FKiduser}
+    defaults: {_controller: TransporteurBundle:Contrat:supprimerContrat}
+
+modifier_contrat:
+    path: /modifierContrat/{FKidentrepot}.{FKiduser}
+    defaults : {_controller: TransporteurBundle:Contrat:modifierContrat}
+
+
+afficher_contrat_exp:
+    path : /afficherContratExp
+    defaults: {_controller: TransporteurBundle:Contrat:afficherContratExp}
+
+
+
+
+# Mobile api livraison routing :
+
+afficherLivraisonLivre:
+    path: /affLivL/{id}
+    defaults: {_controller: TransporteurBundle:Api:getLivParTransporteurD}
+
+afficherLivraisonNLivre:
+    path: /affLivNL/{id}
+    defaults: {_controller: TransporteurBundle:Api:getLivParTransporteurND}
+
+
+
+supprimerLivraison:
+    path: /suppLiv/{idliv}
+    defaults: {_controller: TransporteurBundle:Api:supprimerLivraison}
+
+modifierLivraison:
+    path: /modLiv
+    defaults: {_controller: TransporteurBundle:Api:modifierLivraison}
+
+
+# Mobile api contrat routing :
+
+afficherContrat:
+    path: /affContrat/{id}
+    defaults: {_controller: TransporteurBundle:Api:getContrat}
+
+
+afficherContratEXP:
+    path: /affContratEXP/{id}
+    defaults: {_controller: TransporteurBundle:Api:getContratEXP}
+
+
+supprimerContrat:
+    path: /suppContrat/
+    defaults: {_controller: TransporteurBundle:Api:supprimerContrat}
+
