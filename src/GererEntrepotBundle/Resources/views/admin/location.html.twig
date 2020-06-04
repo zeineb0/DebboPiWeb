@@ -4,7 +4,6 @@
     <table class="table table-striped">
 
         <tr>
-            <th>Id Location</th>
             <th>Client</th>
             <th>Date debut de location</th>
             <th>Date fin de location</th>
@@ -18,13 +17,12 @@
         <tbody>
         {% for location in locations %}
         <tr>
-            <td>{{ location.idLocation }}</td>
             <td>{{ location.fkUser.getPrenom }} {{ location.fkUser.getNom }}</td>
             <td>{% if location.dateDebLocation %}{{ location.dateDebLocation|date('Y-m-d') }}{% endif %}</td>
             <td>{% if location.dateFinLocation %}{{ location.dateFinLocation|date('Y-m-d') }}{% endif %}</td>
             <td>{{ location.prixLocation }}</td>
             <td>{{ location.fkEntrepot.getEntreprise }}</td>
-            <td>  {{ location.fkUser.getNom()}} {{ location.fkUser.getPrenom() }} </td>
+            <td>  {{ location.fkEntrepot.id.getNom()}} {{ location.fkEntrepot.id.getPrenom() }} </td>
             <td><a href='{{ path('location_admin_delete', {id: location.getIdLocation()}) }}' >Supprimer </a> <br>
                 <a href='{{ path('location_admin_details', {id: location.getIdLocation()}) }}' >Detail</a> <td><br>
         </tr>
@@ -32,6 +30,8 @@
             {% endfor %}
         </tbody>
     </table>
-
+    <div class="navigation text-center">
+        {{ knp_pagination_render(locations) }}
+    </div>
 
 {% endblock %}

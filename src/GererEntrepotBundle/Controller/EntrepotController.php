@@ -171,7 +171,7 @@ class EntrepotController extends Controller
                 'text/html'
 
             )
-        ->attach(\Swift_Attachment::fromPath('F:\piWeb\Workshopslot2\workshop\workshop5(google chart bundle)\workshop googlechartsbundle .pdf'));
+        ->attach(\Swift_Attachment::fromPath('C:\Users\asus\Desktop\Location.pdf'));
         $this->get('mailer')->send($message);
 
        
@@ -437,7 +437,7 @@ class EntrepotController extends Controller
                 ['En Attente', intval($quantite3[0]['cnt'])]
             ]
         );
-        $pieChart->getOptions()->setTitle('My Daily Activities');
+        $pieChart->getOptions()->setTitle('Nombre d\'entrepot selon leurs etats ');
         $pieChart->getOptions()->setHeight(500);
         $pieChart->getOptions()->setWidth(900);
         $pieChart->getOptions()->getTitleTextStyle()->setBold(true);

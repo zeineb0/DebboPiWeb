@@ -33,6 +33,7 @@ class LocationController extends Controller
 
         $locations = $em->getRepository('GererEntrepotBundle:Location')->findBy(array('fkUser'=>$user));
 
+
             /**
              * @var $paginator \Knp\Component\Pager\Paginator
              */
@@ -249,12 +250,22 @@ class LocationController extends Controller
      * liste des locations pour l'admin .
      * @Route("/admin/location", name="location_admin")
      */
-    public function showAllAction( )
+    public function showAllAction(Request $request )
     {   $em = $this->getDoctrine()->getManager();
 
         $locations = $em->getRepository('GererEntrepotBundle:Location')->findAll();
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator = $this->get('knp_paginator');
+
+        $result =$paginator->paginate(
+            $locations, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            $request->query->getInt('limit',5) /*limit per page*/
+        );
         return $this->render('@GererEntrepot/admin/location.html.twig', array(
-            'locations' => $locations,
+            'locations' => $result,
         ));
 
     }

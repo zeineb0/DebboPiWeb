@@ -6,7 +6,7 @@ gerer_entrepot_location:
     resource: "@GererEntrepotBundle/Controller/LocationController.php"
     type:     annotation
 
-gerer_entrepot_mobile:
+gerer_entrepot_mobileEntrepot:
     resource: "@GererEntrepotBundle/Controller/MobileEntrepotController.php"
     type:     annotation
 

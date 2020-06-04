@@ -71,7 +71,7 @@ class Entrepot
 
     /**
      * @var float
-     * @Assert\Length(min="3",max="20")
+     * @Assert\Length(min="0    ",max="20")
      * @Assert\NotBlank()
      * @ORM\Column(name="prix_location", type="float", length=20, nullable=false)
      */

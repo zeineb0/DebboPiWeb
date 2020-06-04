@@ -22,7 +22,6 @@
 
                         <tbody>
                         <tr>
-                            <th>Id Entrepot</th>
                             <th>Adresse</th>
                             <th>Numero fiscale</th>
                             <th>Quantite max</th>
@@ -36,7 +35,6 @@
                         </tr>
                         {% for entrepot in entrepots %}
                             <tr>
-                                <td>{{ entrepot.idEntrepot }}</td>
                                 <td>{{ entrepot.adresse }}</td>
                                 <td>{{ entrepot.numFiscale }}</td>
                                 <td>{{ entrepot.quantiteMax }}</td>
@@ -60,13 +58,14 @@
 
                         </tbody>
                     </table>
+                    <div class="navigation text-center">
+                        {{ knp_pagination_render(entrepots) }}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="navigation text-center">
-        {{ knp_pagination_render(entrepots) }}
-    </div>
+
 
 
 {% endblock %}
