@@ -1,0 +1,12 @@
+gerer_entrepot_homepage:
+    path:     /
+    defaults: { _controller: GererEntrepotBundle:Default:index }
+#
+#entrepot_showe:
+#    path:     /showe
+#    defaults: { _controller: GererEntrepotBundle:Entrepot:showe }
+#    methods:  [GET, POST]
+
+debbo_admin_homepage:
+    path:     /admin
+    defaults: { _controller: GererEntrepotBundle:Entrepot:list }

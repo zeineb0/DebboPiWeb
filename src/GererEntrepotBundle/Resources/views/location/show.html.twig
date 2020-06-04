@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="banner-top">
+        <div class="container">
+            <h3 >Location</h3>
+            <h4><a href="/DebboPiWeb/web/app_dev.php/"><Accueil></Accueil></a><label>/</label><a href="/DebboPiWeb/web/app_dev.php/location/">Location</a><label>/</label>Affichage</h4>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+<div class="bs-docs-example", style="margin:100px">
+    <div class="spec ">
+        <h3>Location selectionnée</h3>
+        <div class="ser-t">
+            <b></b>
+            <span><i></i></span>
+            <b class="line"></b>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <tbody>
+
+        <tr>
+            <th>Propriétaire Entrepot</th>
+            <td>{{ location.fkEntrepot.getId.Prenom }} {{ location.fkEntrepot.getId.Nom }}</td>
+        </tr>
+        <tr>
+            <th>Entreprise</th>
+            <td>{{ location.fkEntrepot.Entreprise }}</td>
+        </tr>
+        <tr>
+            <th>Adresse</th>
+            <td>{{ location.fkEntrepot.adresse }}</td>
+        </tr>
+        <tr>
+            <th>Prix/mois</th>
+            <td>{{ location.fkEntrepot.prixLocation }}</td>
+        </tr>
+        <tr>
+            <th>Date de debut location</th>
+            <td>{% if location.dateDebLocation %}{{ location.dateDebLocation|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Date de fin location</th>
+            <td>{% if location.dateFinLocation %}{{ location.dateFinLocation|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Prix location</th>
+            <td>{{ location.prixLocation }}</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <ul>
+            <a class=" add-1" href="{{ path('location_index') }}">Retour à la liste </a>
+            <a class=" add-1" href="{{ path('location_delete', { 'idLocation': location.idLocation }) }}">Supprimer</a>
+    </ul>
+    </div>
+    <a href='{{ path('location_pdf',{id:location.getIdLocation()})  }}'class="btn btn-danger"> Generate PDF File</a>
+    <a title="Print Screen" alt="Print Screen" class="btn btn-primary" onclick="window.print();" target="_blank" style="cursor:pointer;"  class="genric-btn primary circle"> Print Me !  </a>
+
+    <!-- /.card -->
+    </div>
+{% endblock %}

@@ -100,7 +100,7 @@ class Produit
     /**
      * @var \Entrepot
      *
-     * @ORM\ManyToOne(targetEntity="EntrepotBundle\Entity\Entrepot")
+     * @ORM\ManyToOne(targetEntity="GererEntrepotBundle\Entity\Entrepot")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="FK_id_entrepot", referencedColumnName="id_entrepot",nullable=false)
      * })

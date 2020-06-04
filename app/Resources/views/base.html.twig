@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html>
 <head>
     <title>DeBBo a Ecommerce Online Shopping</title>
     <!-- for-mobile-apps -->
@@ -59,7 +58,65 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
     </script>
     <!---//End-rate---->
+    <!-- smooth scrolling -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            /*
+                var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+                };
+            */
+            $().UItoTop({ easingType: 'easeOutQuart' });
+        });
+    </script>
+    <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+    <!-- //smooth scrolling -->
+    <!-- for bootstrap working -->
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+    <!-- //for bootstrap working -->
+    <script type='text/javascript' src="{{ asset('js/jquery.mycart.js') }}"></script>
+    <script type="text/javascript">
+        $(function () {
 
+            var goToCartIcon = function($addTocartBtn){
+                var $cartIcon = $(".my-cart-icon");
+                var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({"position": "fixed", "z-index": "999"});
+                $addTocartBtn.prepend($image);
+                var position = $cartIcon.position();
+                $image.animate({
+                    top: position.top,
+                    left: position.left
+                }, 500 , "linear", function() {
+                    $image.remove();
+                });
+            }
+
+            $('.my-cart-btn').myCart({
+                classCartIcon: 'my-cart-icon',
+                classCartBadge: 'my-cart-badge',
+                affixCartIcon: true,
+                checkoutCart: function(products) {
+                    $.each(products, function(){
+                        console.log(this);
+                    });
+                },
+                clickOnAddToCart: function($addTocart){
+                    goToCartIcon($addTocart);
+                },
+                getDiscountPrice: function(products) {
+                    var total = 0;
+                    $.each(products, function(){
+                        total += this.quantity * this.price;
+                    });
+                    return total * 1;
+                }
+            });
+
+        });
+    </script>
 </head>
 {% block header %}
     <div class="header">
@@ -69,6 +126,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="logo">
                 <h1> <a href=""><img src="{{ asset('images/debo.jpg') }}" alt="" title="" />DeBBo.<span>Le meilleur entrepôt</span></a></h1>
             </div>
+
             <div class="head-t">
                 <ul class="card">
                     <li><a href="{{ asset('wishlist.html') }}" ><i class="fa fa-heart" aria-hidden="true"></i>Favoris</a></li>
@@ -108,17 +166,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
                             <li class=" active"><a href="{{ path('frontF') }}" class="hyper "><span>Accueil</span></a></li>
-
-
-                                <li class="dropdown ">
-                                    <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Entrepot<b class="caret"></b></span></a>
-                                    <ul class="dropdown-menu multi">
-                                        <div class="row">
+                            <li class="dropdown  ">
+                                <a href="entrepot" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Entrepot<b class="caret"></b></span></a>
+                                <ul class="dropdown-menu multi">
+                                    <div class="row">
+                                        <div class="col-sm-3">
                                             <ul class="multi-column-dropdown">
+                                                <li><a href="{{ asset('app_dev.php/entrepot') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Consulter mes entrepots</a></li>
+                                                <li><a href="{{ asset('app_dev.php/entrepot/alouer') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Consulter les entrepots a louer</a></li>
+                                                <li><a href="{{ asset('app_dev.php/entrepot/loue') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Consulter mes entrepots loués</a></li>
+                                            </ul>
 
-                                                <li><a href="{{ asset('kitchen.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Gestion Entrepot</a></li>
-                                                <li><a href="{{ asset('kitchen.html') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Gestion Location</a></li>
+                                        </div>
 
+                                        <div class="col-sm-3">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="{{ asset('app_dev.php/location') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Consulter mes locations</a></li>
+                                                <li><a href="{{ asset('app_dev.php/entrepot/demande') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Consulter les demandes de location</a></li>
                                             </ul>
 
                                         </div>
@@ -129,8 +193,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                     <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span> Stock <b class="caret"></b></span></a>
 
-                                    <ul class="dropdown-menu multi ">
-                                        <div class="row">
+
                                             <ul class="multi-column-dropdown">
                                                 <li><a href="{{ path ('categories_index') }}"><i class="fa fa-angle-right" aria-hidden="true"></i> Categorie </a></li>
                                                 <li><a href="{{ path ('produit_index') }}"><i class="fa fa-angle-right" aria-hidden="true"></i> Produit </a></li>
@@ -347,8 +410,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     {% endif %}
 
-
+<body>
+    {% block body %}{% endblock %}
+    </body>
 {% endblock %}
+
 
 {% block footer %}
     <div class="footer">

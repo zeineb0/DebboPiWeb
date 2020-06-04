@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<body>
+<div class="banner-top">
+    <div class="container">
+        <h3 >Se connecter</h3>
+        <h4><a href="/DebboPiWeb/web/app_dev.php/">Accueil</a><label>/</label>Se connecter</h4>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!--login-->
+
+<div class="login">
+
+    <div class="main-agileits">
+        <div class="form-w3agile">
+            <h3>Login</h3>
+            {% block fos_user_content %}{% endblock %}
+
+        </div>
+        <div class="forg">
+            <a href={{ path('fos_user_resetting_request') }} class="forg-left">Mot de passe oublié</a>
+            <a  href={{path('fos_user_registration_register') }} class="forg-right">S'enregistrer</a>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+{% endblock %}

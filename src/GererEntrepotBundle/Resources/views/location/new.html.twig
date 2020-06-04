@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="banner-top">
+        <div class="container">
+            <h3 >Location</h3>
+            <h4><a href="/DebboPiWeb/web/app_dev.php/">Accueil</a><label>/</label><a href="/DebboPiWeb/web/app_dev.php/location/">Location</a><label>/</label>Ajouter</h4>
+
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+
+    <div class="spec ">
+        <h3>Creation d'une location</h3>
+        <div class="ser-t">
+            <b></b>
+            <span><i></i></span>
+            <b class="line"></b>
+        </div>
+    </div>
+    <div class="spec "         text-align=" center">
+        {% form_theme form 'bootstrap_4_layout.html.twig' %}
+        {{ form_start(form) }}
+
+        {{ form_widget(form) }}
+        <input style="width: 150px; margin-bottom: 10px;height: 30px; border:none" class=" add-1"  type="submit" value="Crée" />
+        {{ form_end(form) }}
+
+        <ul>
+            <a class=" add-1" href="{{ path('location_index') }}">Retour à la liste </a>
+        </ul>
+    </div>
+
+
+
+
+{% endblock %}

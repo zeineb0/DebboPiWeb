@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+</head>
+<body>
+<header class="clearfix">
+    <div id="logo">
+        <img src="../../../../../web/images/logo.png" >
+    </div>
+    <h1>DeBBo.</h1>
+    <div id="company" class="clearfix">
+        <div>DeBBo.</div>
+        <div>Le meilleur entrepôt </div>
+        <div>+216 22222222</div>
+        <div><a href="mailto:company@example.com">debbo@esprit.tn</a></div>
+    </div>
+    <div id="project">
+        <div><h4>Proprietaire entrepot</h4>      {{ nom}} {{ prenom }} </div>
+        <div><h4>Numero Proprietaire</h4>        {{ location.fkEntrepot.id.getTel }} </div>
+        <div><h4>Email</h4> <a href="mailto:{{ location.fkEntrepot.id.getEmail()}}">{{location.fkEntrepot.id.getEmail()}}</a></div>
+    </div>
+</header>
+<main>
+    <table class="table">
+        <tbody>
+
+        <tr>
+            <th>Client</th>
+            <td>{{ location.fkUser.getPrenom }} {{ location.fkUser.getNom }}</td>
+        </tr>
+        <tr>
+            <th>Cin du Client</th>
+            <td>{{ location.fkUser.getCin  }}</td>
+        </tr>
+        <tr>
+            <th>Numero de telephone de client</th>
+            <td>{{ location.fkUser.gettel }} </td>
+        </tr>
+        <tr>
+            <th>Entreprise</th>
+            <td>{{ location.fkEntrepot.Entreprise }}</td>
+        </tr>
+        <tr>
+            <th>Adresse</th>
+            <td>{{ location.fkEntrepot.adresse }}</td>
+        </tr>
+        <tr>
+            <th>Numero fiscale</th>
+            <td>{{ location.fkEntrepot.numFiscale }}</td>
+        </tr>
+        <tr>
+            <th>Prix/mois</th>
+            <td>{{ location.fkEntrepot.prixLocation }}</td>
+        </tr>
+        <tr>
+            <th>Date de debut location</th>
+            <td>{% if location.dateDebLocation %}{{ location.dateDebLocation|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Date de fin location</th>
+            <td>{% if location.dateFinLocation %}{{ location.dateFinLocation|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Prix location</th>
+            <td>{{ location.prixLocation }}</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</main>
+
+<footer>
+Vous etes les bienvenues, contrat le {{ "now"|date("d/m/Y") }}
+
+</footer>
+</body>
+</html>
+<style>
+    .clearfix:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    a {
+        color: #5D6975;
+        text-decoration: underline;
+    }
+
+    body {
+        position: relative;
+        width: 21cm;
+        height: 29.7cm;
+        margin: 0 auto;
+        color: #001028;
+        background: #FFFFFF;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        font-family: Arial;
+    }
+
+    header {
+        padding: 10px 0;
+        margin-bottom: 30px;
+    }
+
+    #logo {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    #logo img {
+        width: 90px;
+        height: auto;
+    }
+
+    h1 {
+        border-top: 1px solid  #5D6975;
+        border-bottom: 1px solid  #5D6975;
+        color: #5D6975;
+        font-size: 2.4em;
+        line-height: 1.4em;
+        font-weight: normal;
+        text-align: center;
+        margin: 0 0 20px 0;
+        background: url(../../../../../web/images/dimension.png);
+    }
+
+    #project {
+        float: left;
+    }
+
+    #project span {
+        color: #5D6975;
+        text-align: right;
+        width: 52px;
+        margin-right: 10px;
+        display: inline-block;
+        font-size: 0.8em;
+    }
+
+    #company {
+        float: right;
+        text-align: right;
+    }
+
+    #project div,
+    #company div {
+        white-space: nowrap;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin-bottom: 20px;
+    }
+
+    table tr:nth-child(2n-1) td {
+        background: #F5F5F5;
+    }
+
+    table th,
+    table td {
+        text-align: left;
+    }
+
+    table th {
+        padding: 5px 20px;
+        color: #5D6975;
+        border-bottom: 1px solid #C1CED9;
+        white-space: nowrap;
+        font-weight: normal;
+    }
+
+    table .service,
+    table .desc {
+        text-align: left;
+    }
+
+    table td {
+        padding: 20px;
+        text-align: right;
+    }
+
+    table td.service,
+    table td.desc {
+        vertical-align: top;
+    }
+
+    table td.unit,
+    table td.qty,
+    table td.total {
+        font-size: 1.2em;
+    }
+
+    table td.grand {
+        border-top: 1px solid #5D6975;;
+    }
+
+
+
+    footer {
+        color: #5D6975;
+        width: 100%;
+        height: 30px;
+        position: absolute;
+        bottom: 0;
+        border-top: 1px solid #C1CED9;
+        padding: 8px 0;
+        text-align: center;
+    }
+    .center{
+        text-align: center;
+    }
+</style>
+

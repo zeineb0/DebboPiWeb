@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="banner-top">
+    <div class="container">
+        <h3 >Location</h3>
+        <h4><a href="/DebboPiWeb/web/app_dev.php/">Accueil</a><label>/</label>Location</h4>
+
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+<div class="bs-docs-example" style="margin:100px">
+    <div class="spec ">
+        <h3>Liste des Locations</h3>
+        <div class="ser-t">
+            <b></b>
+            <span><i></i></span>
+            <b class="line"></b>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nom proprietaire entrepot</th>
+                <th>Adresse entrepot </th>
+                <th>l'entreprise de l'entrepot </th>
+                <th>Date debut de location</th>
+                <th>Date fin de location</th>
+                <th>Prix de location</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for location in locations %}
+            <tr>
+                <td>{{ location.fkEntrepot.getId.Prenom }} {{ location.fkEntrepot.getId.Nom }}</td>
+                <td>{{ location.fkEntrepot.adresse }}</td>
+                <td>{{ location.fkEntrepot.entreprise }}</td>
+                <td>{% if location.dateDebLocation %}{{ location.dateDebLocation|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if location.dateFinLocation %}{{ location.dateFinLocation|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ location.prixLocation }}</td>
+                <td>
+                    <ul>
+                            <li class="label label-info" > <a style="color:white"  href="{{ path('location_show', { 'idLocation': location.idLocation }) }}">Details</a></li>
+                            <li class="label label-default" > <a style="color:white"  href="{{ path('location_edit', { 'idLocation': location.idLocation }) }}">Modifier</a></li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="navigation text-center">
+        {{ knp_pagination_render(locations) }}
+    </div>
+
+</div>
+
+
+{% endblock %}

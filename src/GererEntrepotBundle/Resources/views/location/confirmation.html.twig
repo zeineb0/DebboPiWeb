@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="banner-top">
+    <div class="container">
+        <h3 >Location</h3>
+        <h4><a href="/DebboPiWeb/web/app_dev.php/">Accueil</a><label>/</label><a href="/DebboPiWeb/web/app_dev.php/location/">Location</a><label>/</label>Ajouter</h4>
+
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+
+<div class="spec ">
+    <h3>Demande  d'une location</h3>
+    <div class="ser-t">
+        <b></b>
+        <span><i></i></span>
+        <b class="line"></b>
+    </div>
+</div>
+    <table class="table table-striped" >
+        <tbody>
+        <tr>
+            <th>Propriétaire Entrepot</th>
+            <td>{{ location.fkEntrepot.id.getPrenom }} {{ location.fkEntrepot.id.getNom }}</td>
+        </tr>
+        <tr>
+            <th>Date de debut location</th>
+            <td>{% if location.dateDebLocation %}{{ location.dateDebLocation|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Date de fin location</th>
+            <td>{% if location.dateFinLocation %}{{ location.dateFinLocation|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Prix location</th>
+            <td>{{ location.prixLocation }}</td>
+        </tr>
+        <tr>
+            <th>Entreprise</th>
+            <td>{{ location.fkEntrepot.Entreprise }}</td>
+        </tr>
+        <tr>
+            <th>Adresse</th>
+            <td>{{ location.fkEntrepot.adresse }}</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+
+    <a class=" add-1"  href="{{  (render(controller("GererEntrepotBundle:Location:confirmation",{ 'location': location }) )) }}">Confirmation </a>
+
+{% endblock %}

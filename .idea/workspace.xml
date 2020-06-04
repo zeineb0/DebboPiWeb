@@ -13,66 +13,8 @@
       <phar pharPath="$PROJECT_DIR$/composer.phar" interpreterId="e4d81d27-125c-4bdf-b56e-af48d1f19c5a" />
     </execution>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
-    <include_path>
-      <path value="$PROJECT_DIR$/vendor/jdorn/sql-formatter" />
-      <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/sensiolabs/security-checker" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
-      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/symfony" />
-      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php56" />
-      <path value="$PROJECT_DIR$/vendor/incenteev/composer-parameter-handler" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-apcu" />
-      <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
-      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-util" />
-      <path value="$PROJECT_DIR$/vendor/sensio/generator-bundle" />
-      <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
-      <path value="$PROJECT_DIR$/vendor/sensio/distribution-bundle" />
-      <path value="$PROJECT_DIR$/vendor/fig/link-util" />
-      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
-      <path value="$PROJECT_DIR$/vendor/twig/twig" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
-      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
-      <path value="$PROJECT_DIR$/vendor/psr/log" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
-      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
-      <path value="$PROJECT_DIR$/vendor/psr/link" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
-      <path value="$PROJECT_DIR$/vendor/psr/container" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
-      <path value="$PROJECT_DIR$/vendor/psr/cache" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
-      <path value="$PROJECT_DIR$/vendor/php-http/discovery" />
-      <path value="$PROJECT_DIR$/vendor/php-http/message-factory" />
-      <path value="$PROJECT_DIR$/vendor/clue/stream-filter" />
-      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
-      <path value="$PROJECT_DIR$/vendor/php-http/promise" />
-      <path value="$PROJECT_DIR$/vendor/php-http/httplug" />
-      <path value="$PROJECT_DIR$/vendor/php-http/client-common" />
-      <path value="$PROJECT_DIR$/vendor/php-http/message" />
-      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
-      <path value="$PROJECT_DIR$/vendor/php-http/httplug-bundle" />
-      <path value="$PROJECT_DIR$/vendor/php-http/guzzle6-adapter" />
-      <path value="$PROJECT_DIR$/vendor/php-http/stopwatch-plugin" />
-      <path value="$PROJECT_DIR$/vendor/php-http/logger-plugin" />
-      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
-      <path value="$PROJECT_DIR$/vendor/hwi/oauth-bundle" />
-    </include_path>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ZZuBcFn2Muvf0iEgjNy0vKZYjU" />
   <component name="ProjectViewState">
@@ -120,41 +62,49 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="493" y="292" key="ComposerCompositePathDialog" timestamp="1585059130422">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="438" y="258" key="ComposerCompositePathDialog" timestamp="1585266833015">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="438" y="258" key="ComposerCompositePathDialog/0.0.1366.728@0.0.1366.728" timestamp="1585266833015" />
     <state x="493" y="292" key="ComposerCompositePathDialog/0.0.1536.824@0.0.1536.824" timestamp="1585059130422" />
-    <state x="548" y="155" key="FileChooserDialogImpl" timestamp="1585162584284">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="487" y="137" key="FileChooserDialogImpl" timestamp="1585266850337">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="487" y="137" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585266850337" />
     <state x="548" y="155" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1585162584284" />
     <state x="622" y="302" key="FrameworkEditDialogDimensionKey" timestamp="1585162585652">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="622" y="302" key="FrameworkEditDialogDimensionKey/0.0.1536.824@0.0.1536.824" timestamp="1585162585652" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1585061338048">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1585267068971">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1585267068971" />
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585061338048" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1585061338048">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1585267068970">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1585267068970" />
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585061338048" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1585061338048">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1585267068970">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1585267068970" />
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585061338048" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1585061338048">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1585267068970">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1585267068970" />
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585061338048" />
-    <state x="277" y="56" key="SettingsEditor" timestamp="1585162591961">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="246" y="15" key="SettingsEditor" timestamp="1585266861914">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="246" y="15" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1585266861914" />
     <state x="277" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1585162591961" />
-    <state x="537" y="316" key="SymfonyPathDialog" timestamp="1585059146417">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="478" y="279" key="SymfonyPathDialog" timestamp="1585266855501">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="478" y="279" key="SymfonyPathDialog/0.0.1366.728@0.0.1366.728" timestamp="1585266855501" />
     <state x="537" y="316" key="SymfonyPathDialog/0.0.1536.824@0.0.1536.824" timestamp="1585059146417" />
     <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1585154767732">
       <screen x="0" y="0" width="1536" height="824" />

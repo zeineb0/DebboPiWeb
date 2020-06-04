@@ -17,6 +17,18 @@ stock:
 entrepot:
     resource: "@EntrepotBundle/Resources/config/routing.yml"
     prefix:   /Entrepot
+gerer_entrepot_entrepot:
+    resource: "@GererEntrepotBundle/Controller/EntrepotController.php"
+    type:     annotation
+
+gerer_entrepot_location:
+    resource: "@GererEntrepotBundle/Controller/LocationController.php"
+    type:     annotation
+
+gerer_entrepot_mobile:
+    resource: "@GererEntrepotBundle/Controller/MobileEntrepotController.php"
+    type:     annotation
+
 
 app:
     resource: '@AppBundle/Controller/'
