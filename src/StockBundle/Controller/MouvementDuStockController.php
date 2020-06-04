@@ -30,7 +30,7 @@ class MouvementDuStockController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
-        $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->findBy(array ('idUser'=>$user));
+        $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->findBy(array ('id'=>$user));
 
         $dql="SELECT bp FROM StockBundle:MouvementDuStock bp WHERE bp.idUser =:fk";
         $query=$em->createQuery($dql)->setParameter('fk',$user );

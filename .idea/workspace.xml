@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5efa15f4-3407-46f0-b8d6-8a222e470e65" name="Default Changelist" comment="" />
+    <list default="true" id="5efa15f4-3407-46f0-b8d6-8a222e470e65" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/security.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Entity/Entrepot.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Entity/Entrepot.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockBundle/Controller/MouvementDuStockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockBundle/Controller/MouvementDuStockController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockBundle/Entity/Categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockBundle/Entity/Categories.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockBundle/Entity/MouvementDuStock.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockBundle/Entity/MouvementDuStock.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

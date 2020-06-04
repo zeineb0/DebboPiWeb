@@ -101,26 +101,8 @@ vich_uploader:
             inject_on_load: false
             delete_on_update: true
             delete_on_remove: true
-    auth_mode: login
-    stream_options:
-        ssl:
-            allow_self_signed: true
-            verify_peer: false
-sensio_framework_extra:
-   router:
-        annotations: false
 
-# app/config/config.yml
-fos_user:
-    db_driver: orm
-# other valid values are 'mongodb' and 'couchdb'
-    firewall_name: main
-    user_class: EntrepotBundle\Entity\Utilisateur
-    service:
-        mailer: fos_user.mailer.twig_swift
-    from_email:
-        address: "hammamifatma25@gmail.com"
-        sender_name: "WeDev"
+
 knp_snappy:
      pdf:
          enabled:    true
@@ -146,7 +128,6 @@ knp_paginator:
         sort_direction_name: direction  # sort direction query parameter name
         distinct: true                  # ensure distinct results, useful when ORM queries are using GROUP BY statements
         filter_field_name: filterField  # filter field query parameter name
-        filter_value_name: filterValue  # filter value query paameter name
         filter_value_name: filterValue  # filter value query parameter name
     template:
         pagination: '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig'     # sliding pagination controls template

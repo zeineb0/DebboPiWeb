@@ -30,8 +30,6 @@ security:
             anonymous: true
             # activate different ways to authenticate
 
-            logout: true
-            anonymous: true
 
 
             # https://symfony.com/doc/current/security/form_login_setup.html

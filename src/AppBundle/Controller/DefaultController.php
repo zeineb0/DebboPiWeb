@@ -33,7 +33,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->findAll();
+        $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->findAll();
         $categories = $em->getRepository('StockBundle:Categories')->findAll();
 
         foreach($entrepots as $entrepot)
@@ -120,7 +120,7 @@ class DefaultController extends Controller
         $nbC=$em->createQuery('SELECT COUNT(c) nombre FROM StockBundle:Categories c WHERE c.idUser= ?0 ')
             ->setParameter(0,$user)
             ->getResult();
-        $nbE=$em->createQuery('SELECT COUNT(e) nombre FROM EntrepotBundle:Entrepot e WHERE e.idUser= ?0 ')
+        $nbE=$em->createQuery('SELECT COUNT(e) nombre FROM GererEntrepotBundle:Entrepot e WHERE e.id= ?0 ')
             ->setParameter(0,$user)
             ->getResult();
 
