@@ -29,16 +29,16 @@ class AppKernel extends Kernel
             //new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             //new ADesigns\CalendarBundle\ADesignsCalendarBundle(),
             new CommandeBundle\CommandeBundle(),
-            new Ob\HighchartsBundle\ObHighchartsBundle(),
-            new Skies\QRcodeBundle\SkiesQRcodeBundle(),
-            new SBC\NotificationsBundle\NotificationsBundle(),
+            //new Ob\HighchartsBundle\ObHighchartsBundle(),
+            //new Skies\QRcodeBundle\SkiesQRcodeBundle(),
+            //new SBC\NotificationsBundle\NotificationsBundle(),
             new NotificationBundle\NotificationBundle(),
             new RHBundle\RHBundle(),
             new UserBundle\UserBundle(),
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
-            new WBW\Bundle\HighchartsBundle\HighchartsBundle(),
+           // new WBW\Bundle\HighchartsBundle\HighchartsBundle(),
             new ForumBundle\ForumBundle(),
-            new FOS\MessageBundle\FOSMessageBundle()
+          //  new FOS\MessageBundle\FOSMessageBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

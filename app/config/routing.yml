@@ -38,6 +38,7 @@ fos_user:
 entrepot:
     resource: "@EntrepotBundle/Resources/config/routing.yml"
     prefix:   /Entrepot
+
 gerer_entrepot_entrepot:
     resource: "@GererEntrepotBundle/Controller/EntrepotController.php"
     type:     annotation

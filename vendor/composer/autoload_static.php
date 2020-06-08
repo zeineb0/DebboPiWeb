@@ -85,8 +85,8 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         array (
             'Knp\\Snappy\\' => 11,
             'Knp\\Bundle\\SnappyBundle\\' => 24,
-            'Knp\\Bundle\\PaginatorBundle\\' => 27,
 
+            'Knp\\Bundle\\PaginatorBundle\\' => 27,
         ),
         'I' => 
         array (
@@ -435,11 +435,14 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
             ),
         ),
 
+
         'K' => 
         array (
             'Knp\\Component' => 
             array (
                 0 => __DIR__ . '/..' . '/knplabs/knp-components/src',
+				  ),
+		),
         'S' => 
         array (
             'Sfk\\EmailTemplateBundle' => 
@@ -452,7 +455,6 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
             'Metadata\\' => 
             array (
                 0 => __DIR__ . '/..' . '/jms/metadata/src',
-
             ),
         ),
         'D' => 

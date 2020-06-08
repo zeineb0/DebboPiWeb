@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 
+use Composer\DependencyResolver\Request;
 use NotificationBundle\Controller\BlogController;
 use NotificationBundle\Entity\Blog;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -13,28 +14,32 @@ use EntrepotBundle\Entity\Produit;
 
 class DefaultController extends Controller
 {
-
+    /**
+     * @Route("/", name="index")
+     */
     public function indexAction(Request $request)
-    {$em = $this->getDoctrine()->getManager();
+
+    {
+        $em = $this->getDoctrine()->getManager();
 
         $produits = $em->getRepository('StockBundle:Produit')->findAll();
         $cat = $em->getRepository('StockBundle:Categories')->findAll();
 
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
             'produits'=>$produits,
             'cat'=>$cat,
 
 
         ]);
+    }
 
 
     /**
      *
      * @Route("produit", name="produit_index")
      */
-    public function indexGAction()
+    public function indexGAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $produits=$em->getRepository(Produit::class)->findAll();
