@@ -2,15 +2,337 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5efa15f4-3407-46f0-b8d6-8a222e470e65" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/CommandeBundle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Controller/CommandeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Controller/CommandeJsonController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Controller/DefaultController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Entity/Panier.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Entity/ProduitCommande.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Repository/CommandeRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Repository/ProduitCommandeRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/config/routing.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/config/services.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/Default/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/admin/commande.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/admin/showAdminCommande.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/admin/statCommande.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/commande/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/commande/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/commande/list.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/commande/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/commande/pagination.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/commande/pdf.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/commande/produit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/commande/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Tests/Controller/CommandeControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Tests/Controller/PanierControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Tests/Controller/ProduitCommandeControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CommandeBundle/Tests/Controller/UtilisateurControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NotificationBundle/Controller/BlogController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NotificationBundle/Controller/DefaultController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NotificationBundle/Entity/Blog.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NotificationBundle/Entity/Notification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NotificationBundle/Form/BlogType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NotificationBundle/NotificationBundle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NotificationBundle/Repository/BlogRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NotificationBundle/Repository/NotificationRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NotificationBundle/Resources/config/routing.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NotificationBundle/Resources/config/services.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NotificationBundle/Resources/views/Default/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NotificationBundle/Resources/views/blog/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NotificationBundle/Resources/views/blog/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NotificationBundle/Resources/views/blog/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NotificationBundle/Resources/views/blog/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NotificationBundle/Tests/Controller/BlogControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/CommandeBundle/Controller/DefaultControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/NotificationBundle/Controller/DefaultControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/mrad/notifications-bundle/SBC/NotificationsBundle/Builder/NotificationBuilder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/mrad/notifications-bundle/SBC/NotificationsBundle/Command/PusherTestCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/mrad/notifications-bundle/SBC/NotificationsBundle/DependencyInjection/Configuration.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/mrad/notifications-bundle/SBC/NotificationsBundle/DependencyInjection/NotificationsExtension.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/mrad/notifications-bundle/SBC/NotificationsBundle/EventListener/HistoryService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/mrad/notifications-bundle/SBC/NotificationsBundle/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/mrad/notifications-bundle/SBC/NotificationsBundle/Logger/PusherLogger.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/mrad/notifications-bundle/SBC/NotificationsBundle/Model/BaseNotification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/mrad/notifications-bundle/SBC/NotificationsBundle/Model/NotifiableInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/mrad/notifications-bundle/SBC/NotificationsBundle/NotificationsBundle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/mrad/notifications-bundle/SBC/NotificationsBundle/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/mrad/notifications-bundle/SBC/NotificationsBundle/Resources/config/services.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/mrad/notifications-bundle/SBC/NotificationsBundle/Resources/docs/NotificationExample.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/mrad/notifications-bundle/SBC/NotificationsBundle/Resources/docs/images/browser_console.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/mrad/notifications-bundle/SBC/NotificationsBundle/Resources/docs/images/pusher_dashboard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/mrad/notifications-bundle/SBC/NotificationsBundle/Service/PusherService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/mrad/notifications-bundle/SBC/NotificationsBundle/Twig/NotificationsAssetsExtension.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/mrad/notifications-bundle/SBC/NotificationsBundle/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/.scrutinizer.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/CONTRIBUTING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/DependencyInjection/ObHighchartsExtension.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Highcharts/AbstractChart.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Highcharts/ChartInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Highcharts/ChartOption.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Highcharts/Highchart.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Highcharts/Highstock.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/ObHighchartsBundle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Resources/config/services.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Resources/doc/cookbook.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Resources/doc/installation.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Resources/doc/usage.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Tests/BundleInitializationTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Tests/Highcharts/ColorsTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Tests/Highcharts/ExportingTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Tests/Highcharts/GlobalTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Tests/Highcharts/HighchartTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Tests/Highcharts/LangTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Tests/Highcharts/LegendTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Tests/Highcharts/PaneTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Tests/Highcharts/ScrollbarTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Tests/Highcharts/SeriesTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Tests/Highcharts/TooltipTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Tests/Highcharts/TwigTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Tests/Highstock/ChartTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Tests/Highstock/ColorsTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Tests/Highstock/CreditsTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Tests/Highstock/RangeSelectorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Tests/Resources/services.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/Twig/HighchartsExtension.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/ob/highcharts-bundle/phpunit.xml.dist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/appveyor.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/autoload-fast.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/autoload-pedantic.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/autoload-php7.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/autoload-phpunit.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/autoload.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/build-phar.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/composer-php52.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/dist/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/dist/box.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/lib/constants.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/lib/namespaced.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/lib/php72compat.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/lib/php72compat_const.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/lib/sodium_compat.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Compat.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/BLAKE2b.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/ChaCha20.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/ChaCha20/Ctx.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/ChaCha20/IetfCtx.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/Curve25519.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/Curve25519/Fe.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/Curve25519/Ge/Cached.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/Curve25519/Ge/P1p1.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/Curve25519/Ge/P2.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/Curve25519/Ge/P3.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/Curve25519/Ge/Precomp.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/Curve25519/H.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/Ed25519.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/HChaCha20.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/HSalsa20.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/Poly1305.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/Poly1305/State.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/Salsa20.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/SipHash.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/Util.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/X25519.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/XChaCha20.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Core/Xsalsa20.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/Crypto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/namespaced/File.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/phpunit.xml.dist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/psalm-above-3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/psalm-below-3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Compat.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/BLAKE2b.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/Base64/Common.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/Base64/Original.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/Base64/UrlSafe.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/ChaCha20.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/ChaCha20/Ctx.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/ChaCha20/IetfCtx.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/Curve25519.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/Curve25519/Fe.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/Curve25519/Ge/Cached.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/Curve25519/Ge/P1p1.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/Curve25519/Ge/P2.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/Curve25519/Ge/P3.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/Curve25519/Ge/Precomp.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/Curve25519/H.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/Curve25519/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/Ed25519.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/HChaCha20.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/HSalsa20.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/Poly1305.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/Poly1305/State.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/Salsa20.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/SecretStream/State.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/SipHash.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/Util.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/X25519.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/XChaCha20.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core/XSalsa20.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/BLAKE2b.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/ChaCha20.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/ChaCha20/Ctx.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/ChaCha20/IetfCtx.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/Curve25519.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/Curve25519/Fe.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/Curve25519/Ge/Cached.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/Curve25519/Ge/P1p1.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/Curve25519/Ge/P2.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/Curve25519/Ge/P3.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/Curve25519/Ge/Precomp.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/Curve25519/H.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/Curve25519/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/Ed25519.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/HChaCha20.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/HSalsa20.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/Int32.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/Int64.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/Poly1305.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/Poly1305/State.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/Salsa20.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/SecretStream/State.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/SipHash.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/Util.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/X25519.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/XChaCha20.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Core32/XSalsa20.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Crypto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/Crypto32.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/File.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/PHP52/SplFixedArray.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/paragonie/sodium_compat/src/SodiumException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/pusher/pusher-php-server/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/pusher/pusher-php-server/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/pusher/pusher-php-server/encryption.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/pusher/pusher-php-server/src/Pusher.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/pusher/pusher-php-server/src/PusherCrypto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/pusher/pusher-php-server/src/PusherException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/pusher/pusher-php-server/src/PusherInstance.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/pusher/pusher-php-server/src/Webhook.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/.buildpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/DependencyInjection/Configuration.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/DependencyInjection/SkiesQRcodeExtension.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/DineshBarcode/DNS1D.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/DineshBarcode/DNS2D.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/DineshBarcode/Datamatrix.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/DineshBarcode/PDF417.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/DineshBarcode/QRcode.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Generator/Generator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/config/services.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/README.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/c128.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/c128a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/c128b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/c128c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/c39+.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/c39.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/c39e+.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/c39e.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/c93.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/codabar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/code11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/datamatrix.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/ean13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/ean2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/ean5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/ean8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/i25+.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/i25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/imb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/kix.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/msi+.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/msi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/pdf417.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/pharma.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/pharma2t.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/planet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/postnet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/qrcode.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/rms4cc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/s25+.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/s25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/upca.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Resources/doc/barcode/upce.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/SkiesQRcodeBundle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Tests/Generator/GeneratorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Tests/Type/TypeTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Tests/bootstrap.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Twig/Extensions/Barcode.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/Type/Type.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle/phpunit.xml.dist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zendframework/zend-json/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zendframework/zend-json/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zendframework/zend-json/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zendframework/zend-json/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zendframework/zend-json/src/Decoder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zendframework/zend-json/src/Encoder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zendframework/zend-json/src/Exception/BadMethodCallException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zendframework/zend-json/src/Exception/ExceptionInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zendframework/zend-json/src/Exception/InvalidArgumentException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zendframework/zend-json/src/Exception/RecursionException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zendframework/zend-json/src/Exception/RuntimeException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zendframework/zend-json/src/Expr.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/zendframework/zend-json/src/Json.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/css/menu.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/images/back.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/images/dimension.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/images/logo-debbo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/js/menu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/DebboWeb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DebboWeb.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/password.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/password.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/profile.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/profile.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/security.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Repository/UtilisateurRepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StockBundle/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockBundle/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StockBundle/Controller/JsonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockBundle/Controller/JsonController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StockBundle/Controller/ProduitController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockBundle/Controller/ProduitController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EntrepotBundle/Entity/Commande.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandeBundle/Entity/Commande.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EntrepotBundle/Entity/Panier.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EntrepotBundle/Entity/ProduitCommande.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EntrepotBundle/Repository/CommandeRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EntrepotBundle/Repository/PanierRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandeBundle/Repository/PanierRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EntrepotBundle/Repository/ProduitCommandeRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Form/Type/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Form/Type/RegistrationFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Model/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Model/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Profile/show_content.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Profile/show_content.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register_content.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Registration/register_content.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Security/login_content.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Security/login_content.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle/Resources/views/Pagination/twitter_bootstrap_v3_sortable_link.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle/Resources/views/Pagination/twitter_bootstrap_v3_sortable_link.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/jquery.mycart.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/jquery.mycart.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +347,81 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/symfony/symfony" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php56" />
+      <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-util" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-apcu" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/sensio/generator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/vendor/jdorn/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sensio/distribution-bundle" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/mrad/notifications-bundle" />
+      <path value="$PROJECT_DIR$/vendor/psr/link" />
+      <path value="$PROJECT_DIR$/vendor/clue/stream-filter" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/fig/link-util" />
+      <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
+      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/vendor/blackknight467/star-rating-bundle" />
+      <path value="$PROJECT_DIR$/vendor/yellowskies/qr-code-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy-bundle" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy" />
+      <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-json" />
+      <path value="$PROJECT_DIR$/vendor/ob/highcharts-bundle" />
+      <path value="$PROJECT_DIR$/vendor/cmen/google-charts-bundle" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/sensiolabs/security-checker" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/incenteev/composer-parameter-handler" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/php-http/message-factory" />
+      <path value="$PROJECT_DIR$/vendor/php-http/message" />
+      <path value="$PROJECT_DIR$/vendor/php-http/stopwatch-plugin" />
+      <path value="$PROJECT_DIR$/vendor/php-http/promise" />
+      <path value="$PROJECT_DIR$/vendor/php-http/httplug" />
+      <path value="$PROJECT_DIR$/vendor/php-http/guzzle6-adapter" />
+      <path value="$PROJECT_DIR$/vendor/php-http/logger-plugin" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
+      <path value="$PROJECT_DIR$/vendor/php-http/httplug-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/php-http/discovery" />
+      <path value="$PROJECT_DIR$/vendor/php-http/client-common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/pugx/autocompleter-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+    </include_path>
   </component>
   <component name="ProjectId" id="1ZZuBcFn2Muvf0iEgjNy0vKZYjU" />
   <component name="ProjectViewState">
