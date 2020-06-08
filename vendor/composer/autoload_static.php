@@ -85,7 +85,6 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         array (
             'Knp\\Snappy\\' => 11,
             'Knp\\Bundle\\SnappyBundle\\' => 24,
-
             'Knp\\Bundle\\PaginatorBundle\\' => 27,
 
         ),
@@ -119,6 +118,7 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         array (
             'Fig\\Link\\' => 9,
             'FOS\\UserBundle\\' => 15,
+            'FOS\\MessageBundle\\' => 18,
         ),
         'D' => 
         array (
@@ -295,6 +295,7 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         array (
             0 => __DIR__ . '/..' . '/egeloen/google-map-bundle',
         ),
+
         'Incenteev\\ParameterHandler\\' => 
         array (
             0 => __DIR__ . '/..' . '/incenteev/composer-parameter-handler',
@@ -360,6 +361,10 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         'FOS\\UserBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/friendsofsymfony/user-bundle',
+        ),
+        'FOS\\MessageBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/friendsofsymfony/message-bundle',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
@@ -447,6 +452,7 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
             'Metadata\\' => 
             array (
                 0 => __DIR__ . '/..' . '/jms/metadata/src',
+
             ),
         ),
         'D' => 

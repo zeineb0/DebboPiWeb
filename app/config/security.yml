@@ -19,6 +19,8 @@ security:
         in_memory:
             memory: ~
 
+
+
     firewalls:
         main:
             pattern: ^/
@@ -53,3 +55,4 @@ security:
         - { path: ^/entrepot/^, role: ROLE_PROPRIETAIRE }
         - { path: ^/location/^, role: ROLE_CLIENT }
         - { path: ^/commande/, role: ROLE_CLIENT }
+

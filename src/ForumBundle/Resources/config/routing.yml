@@ -1,0 +1,78 @@
+forum_homepage:
+    path:     /forumtest
+    defaults: { _controller: ForumBundle:Default:index }
+
+publication_addPublication:
+    path:     /
+    defaults: { _controller: ForumBundle:Forum:addPublication }
+    methods:  [GET, POST]
+
+publication_delete:
+    path:     /delete/{id}
+    defaults: { _controller: ForumBundle:Forum:delete }
+
+commentaire_delete:
+    path:     /delete1/{id}
+    defaults: { _controller: ForumBundle:Forum:deleteComment }
+
+publication_supp:
+    path:     /supp/{id}
+    defaults: { _controller: ForumBundle:Forum:supp }
+
+commentaire_supp:
+    path:     /supp1/{id}
+    defaults: { _controller: ForumBundle:Forum:suppComment }
+
+publication_affiche:
+    path:     /affiche
+    defaults: { _controller: ForumBundle:Forum:affiche }
+
+publication_liste:
+    path:     /liste
+    defaults: { _controller: ForumBundle:Forum:liste }
+
+publication_details:
+    path:     /details/{id}
+    defaults: { _controller: ForumBundle:Forum:details }
+    methods:  [GET, POST]
+
+publication_chart:
+    path:   /chart
+    defaults: {_controller: ForumBundle:Forum:chart }
+
+_graphePie:
+    path:     /pie
+    defaults: { _controller: GrapheBundle:Default:index}
+
+ajaxsearch:
+    path:     /rechercherF
+    defaults: { _controller: ForumBundle:Forum:search }
+
+all:
+    path:     /users/all
+    defaults: { _controller: ForumBundle:UtilisateurMobile:all }
+
+logg:
+    path:     /logg
+    defaults: { _controller: ForumBundle:Login:logg }
+
+new:
+    path:     /new
+    defaults: { _controller: ForumBundle:UtilisateurMobile:new }
+
+chUsername:
+    path:     /chusername
+    defaults: { _controller: ForumBundle:UtilisateurMobile:changeUsername }
+
+chEmail:
+    path:     /chemail
+    defaults: { _controller: ForumBundle:UtilisateurMobile:changeEmail }
+
+chPassword:
+    path:     /chpassword
+    defaults: { _controller: ForumBundle:UtilisateurMobile:changePassword }
+
+chTel:
+    path:     /chtel
+    defaults: { _controller: ForumBundle:UtilisateurMobile:changeTel }
+

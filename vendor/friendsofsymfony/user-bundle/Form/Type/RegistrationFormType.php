@@ -52,6 +52,7 @@ class RegistrationFormType extends AbstractType
                     'Client' => 'ROLE_CLIENT',
             ), 'required' => true, 'multiple' => true))
 
+
             ->add('email', EmailType::class, array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
             ->add('roles', ChoiceType::class, array('label' => 'Type ', 'choices' => array(' Client' => 'ROLE_CLIENT',
                 'Proprietaire' => 'ROLE_PROPRIETAIRE'),

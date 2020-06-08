@@ -12,6 +12,7 @@ return array(
     'Knp\\Component' => array($vendorDir . '/knplabs/knp-components/src'),
     'Sfk\\EmailTemplateBundle' => array($vendorDir . '/sfk/email-template-bundle'),
     'Metadata\\' => array($vendorDir . '/jms/metadata/src'),
+    'Knp\\Component' => array($vendorDir . '/knplabs/knp-components/src'),
     'Doctrine\\ORM\\' => array($vendorDir . '/doctrine/orm/lib'),
     'Doctrine\\DBAL\\' => array($vendorDir . '/doctrine/dbal/lib'),
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),

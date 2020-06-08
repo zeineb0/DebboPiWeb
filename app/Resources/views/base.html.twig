@@ -11,6 +11,12 @@
     <meta name="keywords" content="Big store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 
+    <style>
+        .mel {
+            width:100px;
+            margin-left: 50px;
+        }
+    </style>
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
         function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- //for-mobile-apps -->
@@ -229,6 +235,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li><a href="{{ path('fos_user_security_login') }}" ><i class="fa fa-user" aria-hidden="true"></i>Se connecter</a></li>
                         <li><a href="{{ path('fos_user_registration_register') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>S'enregistrer</a></li>
                     {% endif %}
+
                 </ul>
             </div>
 
@@ -332,6 +339,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                             <li><a href="{{ asset ('contact.html') }}" class="hyper"><span>Ressources Humaines</span></a></li>
+
+                            <li><a href="{{ asset ('app_dev.php/forum/') }}" class="hyper"> <span>Forum</span></a></li>
+                            <li><a href="{{ path ('fos_message_inbox') }}" class="hyper"> <span>Messagerie</span></a></li>
+
                         </ul>
                     </div>
                 </nav>
@@ -358,6 +369,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="cart">
                     <span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
+
                 </div>
                 {% endif %}
                 <div class="clearfix"></div>
@@ -484,6 +496,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="login">
     <div class="main-agileits">
         <div class="form-w3agile form1">
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+    <script src="js/jquery.vide.min.js"></script>
+{% endblock %}
 
 
             <center> <h3>Bienvenue M/MME  sur votre site DeBBo !</h3></center> <br>

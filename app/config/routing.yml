@@ -24,6 +24,17 @@ rh:
     resource: "@RHBundle/Resources/config/routing.yml"
     prefix:   /rh
 
+forum:
+    resource: "@ForumBundle/Resources/config/routing.yml"
+    prefix:   /forum
+
+fos_message:
+    resource: "@FOSMessageBundle/Resources/config/routing.xml"
+    prefix: /message
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
 entrepot:
     resource: "@EntrepotBundle/Resources/config/routing.yml"
     prefix:   /Entrepot
@@ -61,7 +72,6 @@ app:
     resource: '@AppBundle/Controller/DefaultController.php'
     type: annotation
 
-fos_user:
-    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
 
 
