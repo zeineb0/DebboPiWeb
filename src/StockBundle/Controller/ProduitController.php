@@ -36,7 +36,7 @@ class ProduitController extends Controller
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
         $produits = $em->getRepository('StockBundle:Produit')->findBy(array('idUser'=>$user));
         $categorys = $em->getRepository('StockBundle:Categories')->findBy(array('idUser'=>$user));
-        $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->findBy(array ('idUser'=>$user));
+        $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->findBy(array ('id'=>$user));
 
         foreach ($produits as $produit)
         {
@@ -178,7 +178,7 @@ class ProduitController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
-        $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->findBy(array ('idUser'=>$user));
+        $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->findBy(array ('id'=>$user));
         $i=-1; $tab= array();
 
         foreach ($entrepots as $entrepot){
@@ -216,18 +216,7 @@ class ProduitController extends Controller
 
 
     }
-    public function searchAction(Request $request)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $requestString = $request->get('q');
-        $livres =  $em->getRepository('EspritLoisirBundle:Livre')->findEntitiesByString($requestString);
-        if(!$livres) {
-            $result['posts']['error'] = "0 books given ";
-        } else {
-            $result['posts'] = $this->getRealEntities($livres);
-        }
-        return new Response(json_encode($result));
-    }
+
     public function returnAction()
     {
         return $this->render('@Stock/default/index.html.twig');

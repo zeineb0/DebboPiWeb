@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5efa15f4-3407-46f0-b8d6-8a222e470e65" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/DebboWeb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DebboWeb.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/security.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Entity/Entrepot.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Entity/Entrepot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StockBundle/Controller/MouvementDuStockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockBundle/Controller/MouvementDuStockController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StockBundle/Entity/Categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockBundle/Entity/Categories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StockBundle/Entity/MouvementDuStock.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockBundle/Entity/MouvementDuStock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Repository/UtilisateurRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockBundle/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockBundle/Controller/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockBundle/Controller/JsonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockBundle/Controller/JsonController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockBundle/Controller/ProduitController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockBundle/Controller/ProduitController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +72,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="562" y="129" key="#com.intellij.ide.util.MemberChooser" timestamp="1591279138639">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="562" y="129" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1591279138639" />
     <state x="438" y="258" key="ComposerCompositePathDialog" timestamp="1585266833015">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -116,9 +120,9 @@
     </state>
     <state x="478" y="279" key="SymfonyPathDialog/0.0.1366.728@0.0.1366.728" timestamp="1585266855501" />
     <state x="537" y="316" key="SymfonyPathDialog/0.0.1536.824@0.0.1536.824" timestamp="1585059146417" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1585154767732">
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1591295572091">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1585154767732" />
+    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1591295572091" />
   </component>
 </project>

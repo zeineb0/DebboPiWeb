@@ -41,7 +41,7 @@ class JsonController extends Controller
         //  $user = $this->container->get('security.token_storage')->getToken()->getUser();
         $categories->setNom($request->get('nom'));
         $categories->setImageName($request->get('imageName'));
-        $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
+        $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
         $categories->setFkEntrepot($entrepots);
         $categories->setIdUser($request->get('idUser'));
         // $categories->setIdUser($user);
@@ -61,7 +61,7 @@ class JsonController extends Controller
             $categorie->setNom($request->get('nom'));}
 
         if ($request->get('fkEntrepot')!=null){
-            $ent = $em->getRepository('EntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
+            $ent = $em->getRepository('GererEntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
             $categorie->setFkEntrepot($ent);
 
         }
@@ -91,7 +91,7 @@ class JsonController extends Controller
     public function allEAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository('EntrepotBundle:Entrepot')->findAll();
+        $categories = $em->getRepository('GererEntrepotBundle:Entrepot')->findAll();
         $encoders = [new XmlEncoder(), new JsonEncoder()];
         $normalizers = [new ObjectNormalizer()];
         $serializer = new Serializer($normalizers, $encoders);
@@ -161,7 +161,7 @@ class JsonController extends Controller
 
                 }
                 if ($request->get('fkEntrepot')!=null){
-                    $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
+                    $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
                     $produit->setFkEntrepot($entrepots);
 
                 }
@@ -221,7 +221,7 @@ class JsonController extends Controller
         //var_dump($produit);
         //var_dump($fk);
 
-        $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
+        $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
 
         $mvt->setNatureMouvement($request->get('natureMouvement'));
         $mvt->setDateMouv($dateM);
@@ -299,7 +299,7 @@ class JsonController extends Controller
         }
 
         if ($request->get('fkEntrepot')!=null){
-            $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
+            $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
             $mvt->setFkEntrepot($entrepots);
 
         }

@@ -26,8 +26,8 @@ class AppKernel extends Kernel
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
             new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
             new TransporteurBundle\TransporteurBundle(),
-            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-            new ADesigns\CalendarBundle\ADesignsCalendarBundle(),
+            //new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            //new ADesigns\CalendarBundle\ADesignsCalendarBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

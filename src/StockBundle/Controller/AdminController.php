@@ -16,7 +16,7 @@ class AdminController extends Controller
     public function accAction(){
         $em = $this->getDoctrine()->getManager();
 
-        $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->findAll();
+        $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->findAll();
         $categories = $em->getRepository('StockBundle:Categories')->findAll();
 
        foreach($entrepots as $entrepot){
