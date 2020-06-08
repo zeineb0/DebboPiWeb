@@ -1,0 +1,3 @@
+accueil_admin:
+    path: /admin
+    defaults: { _controller: "RHBundle:Employe:accueil" }

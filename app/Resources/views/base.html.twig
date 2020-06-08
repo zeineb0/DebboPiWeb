@@ -25,6 +25,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <!-- js -->
     <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- js -->
+
     <!-- //js -->
     <!-- start-smoth-scrolling -->
     <script type="text/javascript" src="{{ asset('js/move-top.js') }}"></script>
@@ -37,6 +40,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
             });
         });
+
     </script>
     <!-- start-smoth-scrolling -->
     <link href="{{ asset('css/font-awesome.css')}}" rel="stylesheet">
@@ -228,6 +232,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </ul>
             </div>
 
+
             <div class="nav-top">
                 <nav class="navbar navbar-default">
 
@@ -266,6 +271,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             </ul>
 
                                         </div>
+
                                         <div class="clearfix"></div>
                                     </div>
                                 </ul>
@@ -324,6 +330,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <li><a href="{{ path('commande_index')  }}" class="hyper"> <span>Commande</span></a></li>
 
 
+
+                            <li><a href="{{ asset ('contact.html') }}" class="hyper"><span>Ressources Humaines</span></a></li>
                         </ul>
                     </div>
                 </nav>
@@ -611,13 +619,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
     {% block body %}{% endblock %}
 
+
     </body>
 {% endblock %}
 
 
 {% block footer %}
     <div class="footer">
-
         <div class="clearfix"></div>
         <div class="footer-bottom">
             <h2 ><a href="index.html">DeBBo.<span>Le meilleur entrepôt</span></a></h2>
@@ -708,3 +716,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </body>
 </html>
+{% block javascripts %}
+{% endblock %}

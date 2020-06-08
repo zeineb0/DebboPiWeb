@@ -17,6 +17,13 @@ transporteur:
     resource: "@TransporteurBundle/Resources/config/routing.yml"
     prefix:   /Transporteur
 
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /user
+rh:
+    resource: "@RHBundle/Resources/config/routing.yml"
+    prefix:   /rh
+
 entrepot:
     resource: "@EntrepotBundle/Resources/config/routing.yml"
     prefix:   /Entrepot
@@ -48,6 +55,7 @@ commande_commande:
 commande_json:
     resource: "@CommandeBundle/Controller/CommandeJsonController.php"
     type:     annotation
+
 
 app:
     resource: '@AppBundle/Controller/DefaultController.php'

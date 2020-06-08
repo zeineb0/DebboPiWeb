@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="banner-top">
+            <div class="container">
+                <h3 >Departement</h3>
+                <h4><a href="/DebboPiWeb/web/app_dev.php/">Accueil</a><label>/</label><a href="/DebboPiWeb/web/app_dev.php/dep/">Departement</a><label>/</label>Ajouter</h4>
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    {% for msg in app.flashes('info') %}
+        <div style="font-size: 18px" class="alert alert-success">
+            {{ msg }}
+        </div>
+    {% endfor %}
+        <div style="margin: 100px 200px 100px 200px">
+            <div class="spec ">
+                <h3>Creation d'un departement</h3>
+                <div class="ser-t">
+                    <b></b>
+                    <span><i></i></span>
+                    <b class="line"></b>
+                </div>
+            </div>
+        <div class="spec ">
+            {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <input style="width: 150px; margin-bottom: 10px;height: 30px; border:none" class="btn btn-success btn-lg"  type="submit" value="Ajouter" />
+            {{ form_end(form) }}
+            <ul>
+                <a class="btn btn-success btn-lg" href="{{ path('dep_index') }}">Retour à la liste </a>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+

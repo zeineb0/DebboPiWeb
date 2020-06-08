@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="banner-top">
+        <div class="container">
+            <h3 >Departement</h3>
+            <h4><a href="/DebboPiWeb/web/app_dev.php/">Accueil</a><label>/</label><a href="/DebboPiWeb/web/app_dev.php/dep/">Departement</a><label>/</label>Ajouter</h4>
+
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="banner-info">
+            <div class="search-form">
+                <form action="{{ path('departement_recherche') }}" >
+                    <input type="search" placeholder="RechercheByCIN" name="motcledep">
+                    <input type="submit" value=" " >
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    {% for msg in app.flashes('info') %}
+        <div style="font-size: 18px" class="alert alert-success">
+            {{ msg }}
+        </div>
+    {% endfor %}
+        <div class="bs-docs-example" style="margin:100px">
+            <div class="spec ">
+                <h3>Liste des departements</h3>
+                <div class="ser-t">
+                    <b></b>
+                    <span><i></i></span>
+                    <b class="line"></b>
+                </div>
+            </div>
+    <table class="table" style="font-size: 20px">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Etage</th>
+                <th>Nombre des salles</th>
+                <th>Budget annuel</th>
+                <th>Nombre des employees</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for i in 0..departements|length-1 %}
+            <tr>
+                <td>{{ departements[i].nom }}</td>
+                <td>{{ departements[i].etage }}</td>
+                <td>{{ departements[i].nbsalles }}</td>
+                <td>{{ departements[i].budgetannuel }}</td>
+                <td> {{  count[i].cnt  }} </td>
+                <td>
+                    <ul>
+                        <li class="label label-info" > <a style="color:white"  class="btn btn-info btn-lg" href="{{ path('dep_show', { 'idDep': departements[i].idDep }) }}">show</a>
+                        </li>
+                        <li class="label label-info" > <a style="color:white" class="btn btn-info btn-lg" href="{{ path('dep_edit', { 'idDep': departements[i].idDep }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+            <a href="{{ path('dep_new') }}">Ajouter un departement</a>
+    </ul>
+        </div>
+{% endblock %}
+
+

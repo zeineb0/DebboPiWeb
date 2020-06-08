@@ -8,6 +8,8 @@ imports:
     - { resource: "@TransporteurBundle/Resources/config/services.yml" }
     - { resource: "@CommandeBundle/Resources/config/services.yml" }
     - { resource: "@NotificationBundle/Resources/config/services.yml" }
+    - { resource: "@RHBundle/Resources/config/services.yml" }
+    - { resource: "@UserBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -17,6 +19,7 @@ parameters:
 framework:
     #esi: ~
     #
+
     translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
     router:
@@ -88,8 +91,9 @@ fos_user:
     from_email:
         address: "debbo.web@gmail.com"
         sender_name: "123"
+
 sensio_framework_extra:
-   router:
+    router:
         annotations: false
 vich_uploader:
     db_driver: orm
@@ -109,6 +113,14 @@ vich_uploader:
             inject_on_load: false
             delete_on_update: true
             delete_on_remove: true
+        employees:
+            uri_prefix: /images/employees
+            upload_destination: '%kernel.project_dir%/web/images'
+
+            inject_on_load: false
+            delete_on_update: false
+            delete_on_remove: true
+gregwar_captcha: ~
 
 
 knp_snappy:

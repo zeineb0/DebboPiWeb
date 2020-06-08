@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="banner-top">
+    <div class="container">
+        <h3 >Departement</h3>
+        <h4><a href="/DebboPiWeb/web/app_dev.php/">Accueil</a><label>/</label><a href="/DebboPiWeb/web/app_dev.php/dep/">Employees</a><label>/</label>Ajouter</h4>
+
+        <div class="clearfix"> </div>
+    </div>
+</div>
+{% for msg in app.flashes('info') %}
+    <div style="font-size: 18px" class="alert alert-success">
+        {{ msg }}
+    </div>
+{% endfor %}
+<div style="margin: 100px 200px 100px 200px">
+    <div class="spec ">
+        <h3>Modification d'un Employee</h3>
+        <div class="ser-t">
+            <b></b>
+            <span><i></i></span>
+            <b class="line"></b>
+        </div>
+    </div>
+    {% form_theme edit_form 'bootstrap_4_horizontal_layout.html.twig' %}
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input class="btn btn-primary btn-lg" type="submit" value="Edit" />
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a class ="btn btn-success btn-lg"href="{{ path('employe_index') }}">Back to the list</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input class="btn btn-danger btn-lg" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

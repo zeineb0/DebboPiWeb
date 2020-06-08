@@ -1,0 +1,24 @@
+conge_index:
+    path:     /
+    defaults: { _controller: "RHBundle:conge:index" }
+    methods:  GET
+
+conge_show:
+    path:     /{id}/show
+    defaults: { _controller: "RHBundle:conge:show" }
+    methods:  GET
+
+conge_new:
+    path:     /new
+    defaults: { _controller: "RHBundle:conge:new" }
+    methods:  [GET, POST]
+
+conge_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "RHBundle:conge:edit" }
+    methods:  [GET, POST]
+
+conge_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "RHBundle:conge:delete" }
+    methods:  DELETE

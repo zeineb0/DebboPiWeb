@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Conges list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Datesortie</th>
+                <th>Datearrive</th>
+                <th>Type</th>
+                <th>Etat</th>
+                <th>Fkidemp</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for conge in conges %}
+            <tr>
+                <td><a href="{{ path('conge_show', { 'id': conge.id }) }}">{{ conge.id }}</a></td>
+                <td>{% if conge.datesortie %}{{ conge.datesortie|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if conge.datearrive %}{{ conge.datearrive|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ conge.type }}</td>
+                <td>{{ conge.etat }}</td>
+                <td>{{ conge.fKIdEmp }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('conge_show', { 'id': conge.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('conge_edit', { 'id': conge.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('conge_new') }}">Create a new conge</a>
+        </li>
+    </ul>
+{% endblock %}

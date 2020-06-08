@@ -1,0 +1,33 @@
+rh_dep:
+    resource: "@RHBundle/Resources/config/routing/departement.yml"
+    prefix:   /dep
+
+rh_emp:
+    resource: "@RHBundle/Resources/config/routing/employe.yml"
+    prefix:   /emp
+
+rh_mail:
+    resource: "@RHBundle/Resources/config/routing/mail.yml"
+    prefix:   /mail
+
+rh_conge:
+    resource: "@RHBundle/Resources/config/routing/conge.yml"
+    prefix:   /conge
+
+all:
+    path: /all
+    defaults: { _controller: RHBundle:api:all }
+
+new:
+    path: /new
+    defaults: { _controller: RHBundle:api:new }
+    methods:  [GET, POST]
+
+admin_dashboard:
+    path:     /admin
+    defaults: { _controller: RHBundle:Default:admin }
+
+
+rh_homepage:
+    path:     /
+    defaults: { _controller: RHBundle:Default:index }

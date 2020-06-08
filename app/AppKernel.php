@@ -33,6 +33,10 @@ class AppKernel extends Kernel
             new Skies\QRcodeBundle\SkiesQRcodeBundle(),
             new SBC\NotificationsBundle\NotificationsBundle(),
             new NotificationBundle\NotificationBundle(),
+            new RHBundle\RHBundle(),
+            new UserBundle\UserBundle(),
+            new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
+            new WBW\Bundle\HighchartsBundle\HighchartsBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

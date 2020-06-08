@@ -207,6 +207,15 @@ img.img-head {
     color: #fff;
     line-height: 8px;
 }
+.msg {
+    color:#000000;
+    background-color: #32CD32;
+    padding: 1em;
+    font: italic bold 12px/30px Georgia, Serif;
+    border: 1px solid #4CAF50;
+}
+
+
 .head-t {
     margin: 1em 0;
 }
@@ -488,7 +497,7 @@ span.fa.fa-shopping-cart.my-cart-icon {
     margin: 0 auto 1em;
 }
 .search-form {
-    width: 55%;
+    width: 100%;
     margin: 0 auto;
 }
 .search-form input[type='text']{
@@ -3172,4 +3181,47 @@ h1.t-button {
 .grid_3 p, .page-header p {
     font-size: 13px;
 }
+}
+.searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: #353b48;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 450px;
+    caret-color:red;
+    transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_icon{
+    background: white;
+    color: #e74c3c;
+}
+
+.search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    text-decoration:none;
 }

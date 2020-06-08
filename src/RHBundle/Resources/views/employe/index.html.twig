@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<div class="banner-top">
+    <div class="container">
+        <h3 >Employees</h3>
+        <h4><a href="/DebboPiWeb/web/app_dev.php/">Accueil</a><label>/</label><a href="/DebboPiWeb/web/app_dev.php/dep/">Employees</a><label>/</label>Ajouter</h4>
+
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<div class="container">
+    <div class="banner-info">
+        <div class="search-form">
+            <form action="{{ path('employe_recherche') }}" >
+                <input type="search" placeholder="RechercheByCIN" name="motcle">
+                <input type="submit" value=" " >
+            </form>
+        </div>
+    </div>
+</div>
+{% for msg in app.flashes('info') %}
+    <div  style="font-size: 18px" class="alert alert-success">
+        {{ msg }}
+    </div>
+{% endfor %}
+<div class="bs-docs-example" style="margin:100px">
+    <div class="spec ">
+        <h3>Liste des Employees</h3>
+        <div class="ser-t">
+            <b></b>
+            <span><i></i></span>
+            <b class="line"></b>
+        </div>
+    </div>
+    <table class="table table-bordered " style="font-size: 20px;width: 100%" >
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Cin</th>
+                <th>Dateembauche</th>
+                <th>Salaire</th>
+                <th>Email</th>
+                <th>Departement </th>
+                <th> Entreprise </th>
+                <th>Points</th>
+                <th>SignalEMP</th>
+                <th>Recommandations</th>
+                <th> Photo </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for employe in employes %}
+             {%  if employe.signalemp==3 %}
+            <tr style="background-color:#ce8483">
+             {% endif %}
+            {%  if employe.signalemp>3 %}
+                <tr style="background-color:#B0413E">
+            {% endif %}
+                <td>{{ employe.nom }}</td>
+                <td>{{ employe.prenom }}</td>
+                <td>{{ employe.cin }}</td>
+                <td>{% if employe.dateEmbauche %}{{ employe.dateEmbauche|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ employe.salaire }}</td>
+                <td> {{ employe.email }} <div class="btn btn-primary btn-lg">  <a style="color:white" href="{{ path('employe_mail', { 'email': employe.email }) }}" target="_blank">Envoyer un email</a> </div> </td>
+                <td> {{   employe.fkDep.nom}} </td>
+                <td> {{ employe.fkDep.fkEnt.entreprise }}</td>
+            {%  if employe.signalemp==100 %}
+                <td>{{ employe.points }} <span class="fa fa-star checked" style="color: orange"></span> </td>
+            {% endif %}
+            {%  if employe.signalemp<100 %}
+                <td>{{ employe.points }} <span class="fa fa-star checked" ></span> </td>
+            {% endif %}
+                <td> {{ employe.signalemp }}</td>
+                <td>{{ employe.recommandations }}</td>
+
+                <td> <img src="{{ asset('images/' ~ employe.imageName) }}" style="height: 150px;width: 150px"></td>
+                <td>
+                    <ul>
+                        <li
+                            a class="btn btn-primary btn-lg"  > <a style="color:white" href="{{ path('employe_show', { 'idEmp': employe.idEmp }) }}">show</a>
+                        </li>
+                        <li
+                            a class="btn btn-primary btn-lg" > <a style="color:white" href="{{ path('employe_edit', { 'idEmp': employe.idEmp }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('employe_new') }}">Ajouter un nouveau employe</a>
+        </li>
+    </ul>
+
+    
+{% endblock %}
