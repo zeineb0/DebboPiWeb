@@ -32,9 +32,25 @@ gerer_entrepot_mobile:
     resource: "@GererEntrepotBundle/Controller/MobileEntrepotController.php"
     type:     annotation
 
+notification_blog:
+    resource: "@NotificationBundle/Controller/BlogController.php"
+    type:     annotation
+
+notification:
+    resource: "@NotificationBundle/Resources/config/routing.yml"
+    prefix:   /Notification
+
+
+commande_commande:
+    resource: "@CommandeBundle/Controller/CommandeController.php"
+    type:     annotation
+
+commande_json:
+    resource: "@CommandeBundle/Controller/CommandeJsonController.php"
+    type:     annotation
 
 app:
-    resource: '@AppBundle/Controller/'
+    resource: '@AppBundle/Controller/DefaultController.php'
     type: annotation
 
 fos_user:

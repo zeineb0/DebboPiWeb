@@ -1,0 +1,172 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+
+    <div style="margin: 100px 100px 0 100px">
+
+        <table style="width: 500px;height: 100px; margin-top: 20px">
+            <tbody class="text-center" style="text-align: center">
+            <tr  >
+                <th class="text-center">Reference</th>
+                <th class="text-center">Typepaiement</th>
+                <th class="text-center">Datecommande</th>
+                <th class="text-center">Dateexp</th>
+            </tr>
+            <tr>
+                <td>
+                    {{ commande.idCommande }}
+                </td>
+                <td>{{ commande.typePaiement }}</td>
+                <td>{% if commande.dateCommande %}{{ commande.dateCommande|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if commande.dateExp %}{{ commande.dateExp|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table>
+            <thead>
+            <tr>
+                <th >REFERENCE</th>
+                <th>MARQUE</th>
+                <th>PRIX</th>
+                <th>QUANTITE</th>
+                <th>TOTAL</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in 0..listproduit|length-1 %}
+                <tr >
+
+                    <td class="center">{{ produits[i].reference }}</td>
+                    <td class="center">{{ produits[i].marque }}</td>
+                    <td class="center">{{ listproduit[i].prixProduit }}</td>
+                    <td class="center">{{ listproduit[i].quantiteProduit }}</td>
+                    <td class="center">{{ listproduit[i].prixProduit * listproduit[i].quantiteProduit }}</td>
+                </tr>
+            {% endfor %}
+
+            <tr>
+                <td colspan="4">TOTAL</td>
+                <td class="center">{{commande.total }}</td>
+            </tr>
+            <tr>
+                <td colspan="4">Remise</td>
+                <td class="center">0%</td>
+            </tr>
+            <tr>
+                <td colspan="4" class="grand total">TOTAL FINAL</td>
+                <td class="grand total center">{{commande.total }} Dt</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <style>
+        .boutton{clear: left;
+            margin-left:  100px;
+            width: 150px;
+            margin-bottom: 10px;
+            height: 40px;
+            border:none;
+            color: white}
+
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        a {
+            color: #5D6975;
+            text-decoration: underline;
+        }
+
+
+        #logo {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        #logo img {
+            width: 90px;
+            height: auto;
+        }
+
+
+        #project {
+            float: left;
+        }
+
+        #company {
+            float: right;
+            text-align: right;
+        }
+
+        #project div,
+        #company div {
+            white-space: nowrap;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin-bottom: 20px;
+        }
+
+        table tr:nth-child(2n-1) td {
+            background: #F5F5F5;
+        }
+
+        table th,
+        table td {
+            text-align: center;
+        }
+
+        table th {
+            padding: 5px 20px;
+            color: #5D6975;
+            border-bottom: 1px solid #C1CED9;
+            white-space: nowrap;
+            font-weight: normal;
+        }
+
+        table .service,
+        table .desc {
+            text-align: left;
+        }
+
+        table td {
+            padding: 20px;
+            text-align: right;
+        }
+
+        table td.service,
+        table td.desc {
+            vertical-align: top;
+        }
+
+        table td.unit,
+        table td.qty,
+        table td.total {
+            font-size: 1.2em;
+        }
+
+        table td.grand {
+            border-top: 1px solid #5D6975;;
+        }
+
+        #notices .notice {
+            color: #5D6975;
+            font-size: 1.2em;
+        }
+
+
+        .center{
+            text-align: center;
+        }
+    </style>
+
+
+{% endblock %}

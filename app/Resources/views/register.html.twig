@@ -1,12 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
+{% block body %}
 
     <!--banner-->
     <div class="banner-top">
         <div class="container">
             <h3 >Register</h3>
             <h4><a href=" {{ asset('/DebboPiWeb/web/app_dev.php/') }} ">Home</a><label>/</label>Register</h4>
+
             <div class="clearfix"> </div>
         </div>
     </div>
@@ -19,6 +21,7 @@
                 <h3>Inscrivez-vous</h3>
                 {% block fos_user_content %}
                   {#  {{ include('@FOSUser/Security/login_content.html.twig') }}  #}
+
                 {% endblock fos_user_content %}
             </div>
 

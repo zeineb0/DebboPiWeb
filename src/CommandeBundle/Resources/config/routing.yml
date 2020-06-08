@@ -1,0 +1,11 @@
+commande_homepage:
+    path:     /
+    defaults: { _controller: CommandeBundle:Default:index }
+showCommandes:
+    path:     /commande_show
+    defaults: { _controller: CommandeBundle:Commande:show }
+
+listCommande:
+    path: /list
+    defaults: {_controller: CommandeBundle:Commande:ShowAll}
+

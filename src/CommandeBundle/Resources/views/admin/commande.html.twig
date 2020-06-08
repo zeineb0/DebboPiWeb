@@ -1,0 +1,33 @@
+{% extends 'admin.html.twig' %}
+{% block body %}
+
+    <table class="table table-striped">
+
+        <tbody>
+        <tr>
+            <th>Id commande</th>
+            <th>Nom Client</th>
+            <th>Total</th>
+            <th>Type paiement</th>
+            <th>Date commande</th>
+            <th>Date expiration</th>
+        </tr>
+
+        {% for commande in commandes %}
+            <tr>
+                <td><a href="{{ path('commande_admin_show', { 'idCommande': commande.idCommande }) }}">{{ commande.idCommande }}</a></td>
+                <td>{{ commande.idClient }}</td>
+                <td>{{ commande.total }}</td>
+                <td>{{ commande.typePaiement }}</td>
+                <td>{% if commande.dateCommande %}{{ commande.dateCommande|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if commande.dateExp %}{{ commande.dateExp|date('Y-m-d') }}{% endif %}</td>
+
+            </tr>
+        {% endfor %}
+
+
+
+        </tbody>
+    </table>
+
+{% endblock %}

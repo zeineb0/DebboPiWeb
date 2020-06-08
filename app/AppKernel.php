@@ -28,6 +28,11 @@ class AppKernel extends Kernel
             new TransporteurBundle\TransporteurBundle(),
             //new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             //new ADesigns\CalendarBundle\ADesignsCalendarBundle(),
+            new CommandeBundle\CommandeBundle(),
+            new Ob\HighchartsBundle\ObHighchartsBundle(),
+            new Skies\QRcodeBundle\SkiesQRcodeBundle(),
+            new SBC\NotificationsBundle\NotificationsBundle(),
+            new NotificationBundle\NotificationBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

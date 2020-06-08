@@ -235,6 +235,7 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
+
 input[type="search"] {
   -webkit-box-sizing: content-box;
      -moz-box-sizing: content-box;
@@ -2075,6 +2076,7 @@ select[multiple].input-lg {
   right: 15px;
 }
 .btn {
+  text-decoration: none;
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
@@ -2121,6 +2123,16 @@ fieldset[disabled] .btn {
   -webkit-box-shadow: none;
           box-shadow: none;
   opacity: .65;
+}
+.btn-app{
+  width:150px;
+  height:80px;
+  padding:20px;
+  font-size:20px;
+  display:grid;
+  color: #333;
+  background-color: #eee;
+  border-color: #ccc;
 }
 .btn-default {
   color: #333;
@@ -5202,7 +5214,7 @@ button.close {
 }
 .modal-content {
   position: relative;
-  background-color: #fff;
+  background-color:#fff;
   background-clip: padding-box;
   border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, .2);

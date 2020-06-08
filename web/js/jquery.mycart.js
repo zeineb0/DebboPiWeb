@@ -17,6 +17,7 @@
       classProductQuantity: 'my-product-quantity',
       classProductRemove: 'my-product-remove',
       classCheckoutCart: 'my-cart-checkout',
+      classPasserCommande: true,
       affixCartIcon: true,
       showCheckoutModal: true,
       clickOnAddToCart: function($addTocart) { },
@@ -60,15 +61,16 @@
     var setAllProducts = function(products){
       localStorage.products = JSON.stringify(products);
     }
-    var addProduct = function(id, name, summary, price, quantity, image) {
+    var addProduct = function(id, name, marque, price, quantity, image, max ) {
       var products = getAllProducts();
       products.push({
         id: id,
         name: name,
-        summary: summary,
+        marque: marque,
         price: price,
         quantity: quantity,
-        image: image
+        image: image,
+        max: max
       });
       setAllProducts(products);
     }
@@ -94,7 +96,7 @@
       setAllProducts(products);
       return true;
     }
-    var setProduct = function(id, name, summary, price, quantity, image) {
+    var setProduct = function(id, name, summary, price, quantity, image,max) {
       if(typeof id === "undefined"){
         console.error("id required")
         return false;
@@ -118,7 +120,7 @@
       summary = typeof summary === "undefined" ? "" : summary;
 
       if(!updatePoduct(id)){
-        addProduct(id, name, summary, price, quantity, image);
+        addProduct(id, name, summary, price, quantity, image, max);
       }
     }
     var clearProduct = function(){
@@ -166,6 +168,7 @@
     var $cartBadge = $("." + options.classCartBadge);
     var classProductQuantity = options.classProductQuantity;
     var classProductRemove = options.classProductRemove;
+    var classPasserCommande=options.classPasserCommande;
     var classCheckoutCart = options.classCheckoutCart;
 
     var idCartModal = 'my-cart-modal';
@@ -188,11 +191,11 @@
         '<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-shopping-cart"></span> My Cart</h4>' +
         '</div>' +
         '<div class="modal-body">' +
-        '<table class="table table-hover table-responsive" id="' + idCartTable + '"></table>' +
+        '<table class="table table-responsive" id="' + idCartTable + '"></table>' +
         '</div>' +
         '<div class="modal-footer">' +
-        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>' +
 
+        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>' +
         '</div>' +
         '</div>' +
         '</div>' +
@@ -200,7 +203,7 @@
       );
     }
 
-    var drawTable = function(){
+    var drawTable = function($var){
       var $cartTable = $("#" + idCartTable);
       $cartTable.empty();
 
@@ -208,40 +211,77 @@
       $.each(products, function(){
         var total = this.quantity * this.price;
         $cartTable.append(
-          '<tr title="' + this.summary + '" data-id="' + this.id + '" data-price="' + this.price + '">' +
-          '<td class="text-center" style="width: 30px;"><img width="30px" height="30px" src="' + this.image + '"/></td>' +
-          '<td>' + this.name + '</td>' +
+          '<tr title="Produit" data-id="' + this.id+ '" data-marque="' + this.marque + '" data-price="' + this.price + '">' +
+          '<td class="text-center " style="width: 30px;">' +
+            '<img width="30px" height="30px" src="' + this.image + '"/></td>' +
+          '<td class="text-center ">' + this.name + '</td>' + '<td>' + this.marque + '</td>' +
           '<td title="Unit Price">$' + this.price + '</td>' +
-          '<td title="Quantity"><input type="number" min="1" style="width: 70px;" class="' + classProductQuantity + '" value="' + this.quantity + '"/></td>' +
-          '<td title="Total" class="' + classProductTotal + '">$' + total + '</td>' +
+            '<td title="Quantity"><input type="number" min="1" max="'+this.max+'"  style="width: 70px; " class="form-control ' + classProductQuantity + '" value="' + this.quantity + '"/></td>' +
+             '<td title="Total" class="' + classProductTotal + '">$' + total + '</td>' +
           '<td title="Remove from Cart" class="text-center" style="width: 30px;"><a href="javascript:void(0);" class="btn btn-xs btn-danger ' + classProductRemove + '">X</a></td>' +
           '</tr>'
         );
       });
 
-      $cartTable.append(products.length ?
-        '<tr>' +
-        '<td></td>' +
-        '<td><strong>Total</strong></td>' +
-        '<td></td>' +
-        '<td></td>' +
-        '<td><strong id="' + idGrandTotal + '">$</strong></td>' +
-        '<td></td>' +
-        '</tr>'
-        : '<div class="alert alert-danger" role="alert" id="' + idEmptyCartMessage + '">Your cart is empty</div>'
-      );
+      if ($var) {
+        $cartTable.append(products.length ?
+            '<tr>' +
+            '<td></td>' +
+            '<td></td>' +
+            '<td></td>' +
+            '<td></td>' +
+            '<td><strong>Total</strong></td>' +
 
+            '<td ><strong id="' + idGrandTotal + '">$</strong></td>' +
+            '<td></td>' +
+            '</tr>'
+            : '<div class="alert alert-success" role="alert" id="' + idEmptyCartMessage + '">Votre commande a été passé avec succées</div>'
+        );
+        $var=false;
+      }
+      else {
+        $cartTable.append(products.length ?
+            '<tr>' +
+            '<td></td>' +
+            '<td></td>' +
+            '<td></td>' +
+            '<td></td>' +
+            '<td><strong>Total</strong></td>' +
+
+            '<td ><strong id="' + idGrandTotal + '">$</strong></td>' +
+            '<td></td>' +
+            '</tr>'
+            : '<div class="alert alert-danger" role="alert" id="' + idEmptyCartMessage + '">Vorte carte est vide</div>'
+        );
+      }
       var discountPrice = options.getDiscountPrice(products, ProductManager.getTotalPrice(), ProductManager.getTotalQuantity());
       if(products.length && discountPrice !== null) {
         $cartTable.append(
           '<tr style="color: red">' +
           '<td></td>' +
-          '<td><strong>Total (including discount)</strong></td>' +
-          '<td></td>' +
-          '<td></td>' +
+            '<td></td>' +
+            '<td></td>' +
+            '<td></td>' +
+          '<td style="width:200px" ><strong>Total (including discount)</strong></td>' +
+
           '<td><strong id="' + idDiscountPrice + '">$</strong></td>' +
           '<td></td>' +
-          '</tr>'
+          '</tr>'+
+            '<tr>' +
+            '<td></td>' +
+            '<td></td>' +
+            '<td></td>' +
+            '<td></td>' +
+            '<td></td>' +
+            '<td></td>' +
+            '<td></td>'+
+            '</tr>'+
+        '<tr style="">' +
+
+        '<td colspan="7"style="width:150px;" ><a  href="javascript:void(0);"  style="float:right; margin: 20px" class="btn btn-success ' +
+            classPasserCommande + '">Passer Commande</a></td>' +
+
+        '</tr>'
         );
       }
 
@@ -288,7 +328,6 @@
       var price = $(this).closest("tr").data("price");
       var id = $(this).closest("tr").data("id");
       var quantity = $(this).val();
-
       $(this).parent("td").next("." + classProductTotal).text("$" + price * quantity);
       ProductManager.updatePoduct(id, quantity);
 
@@ -309,9 +348,30 @@
       var id = $tr.data("id");
       $tr.hide(500, function(){
         ProductManager.removeProduct(id);
+
         drawTable();
         $cartBadge.text(ProductManager.getTotalQuantity());
       });
+    });
+
+    $(document).on('click', "." + classPasserCommande, function(){
+      var $product = ProductManager.getAllProducts()
+      var $total = ProductManager.getTotalPrice();
+
+      var $conf = confirm("Volez vous passer cette commande?");
+      if ($conf){
+      $.ajax({
+        type:"POST",
+        url:"http://localhost/DebboPiWeb/web/app_dev.php/commande/new",
+        data: {commande: $product,total: $total},
+        success: function(reponse){
+          ProductManager.clearProduct();
+          drawTable(true);
+          $cartBadge.text(ProductManager.getTotalQuantity());
+        }
+      });
+
+      }
     });
 
     $("." + classCheckoutCart).click(function(){
@@ -347,12 +407,12 @@
 
       var id = $target.data('id');
       var name = $target.data('name');
-      var summary = $target.data('summary');
+      var marque = $target.data('marque');
       var price = $target.data('price');
       var quantity = $target.data('quantity');
       var image = $target.data('image');
-
-      ProductManager.setProduct(id, name, summary, price, quantity, image);
+      var max = $target.data('max');
+      ProductManager.setProduct(id, name, marque, price, quantity, image,max);
       $cartBadge.text(ProductManager.getTotalQuantity());
     });
 

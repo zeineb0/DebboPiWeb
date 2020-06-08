@@ -78,6 +78,7 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
             'Knp\\Bundle\\SnappyBundle\\' => 24,
 
             'Knp\\Bundle\\PaginatorBundle\\' => 27,
+
         ),
         'I' => 
         array (
@@ -258,6 +259,7 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-paginator-bundle',
         ),
+
         'Incenteev\\ParameterHandler\\' => 
         array (
             0 => __DIR__ . '/..' . '/incenteev/composer-parameter-handler',
