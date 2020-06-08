@@ -20,7 +20,6 @@ class EmployeController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $employes = $em->getRepository('RHBundle:Employe')->findAll();
         return $this->render('@RH/Employe/index.html.twig', array(
             'employes' => $employes,

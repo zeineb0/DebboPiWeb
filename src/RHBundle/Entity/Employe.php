@@ -6,11 +6,13 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Employe
  * @ORM\Table(name="employe", indexes={@ORM\Index(name="fk_emp", columns={"FK_id_dep"})})
  * @ORM\Entity(repositoryClass="RHBundle\Repository\EmployeRepository")
+ * @UniqueEntity("cin")
  * @Vich\Uploadable
  */
 class Employe
@@ -115,7 +117,7 @@ class Employe
 
     /**
      * @var string
-     *
+     * @Assert\Email
      * @ORM\Column(name="email", type="string", nullable=false)
      */
     private $email;

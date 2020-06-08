@@ -3,12 +3,14 @@
 namespace RHBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Departement
  *
  * @ORM\Table(name="departement", indexes={@ORM\Index(name="fk_ent", columns={"FK_id_ent"})})
  * @ORM\Entity(repositoryClass="RHBundle\Repository\DepartementRepository")
+ * @UniqueEntity("nom")
  */
 class Departement
 {
@@ -23,8 +25,7 @@ class Departement
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="nom", type="string", length=30, nullable=false)
+     * @ORM\Column(name="nom", type="string", length=30, nullable=false,unique=true)
      */
     private $nom;
 

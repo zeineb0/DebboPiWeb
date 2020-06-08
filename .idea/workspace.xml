@@ -2,17 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5efa15f4-3407-46f0-b8d6-8a222e470e65" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/DebboWeb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DebboWeb.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/images/49a48982-fceb-4f96-b6b0-8145eba62958.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/images/95582000_2484281535216359_1989303584491044864_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/images/c2c973b8-ffb0-4808-9ecc-1cf95a33d351.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RHBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RHBundle/Controller/DepartementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Controller/DepartementController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/config/routing/departement.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/config/routing/departement.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/views/admin/admin1.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/admin/admin1.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/views/employe/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/employe/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config_dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config_dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/parameters.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/parameters.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RHBundle/Controller/EmployeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Controller/EmployeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RHBundle/Controller/MailController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Controller/MailController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RHBundle/Entity/Departement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Entity/Departement.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RHBundle/Entity/Employe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Entity/Employe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/views/mail/sendmail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/mail/sendmail.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/images/tick.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,14 +143,14 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Resources\views" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Resources\views\admin" />
       <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Resources\config\routing" />
       <recent name="C:\wamp64\www\DebboPiWeb\app\Resources\views" />
       <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Resources\views\mail" />
-      <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Resources\views" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Resources\views" />
     </key>
   </component>
@@ -192,13 +194,13 @@
       <command value="s doctrine:generate:crud" />
       <command value="doctrine:schema:update --dump-sql" />
       <command value="s server:run" />
-      <command value="s doctrine:schema:update --force " />
       <command value="debug:twig" />
       <command value="s debug:twig" />
       <command value="c require cmen/google-charts-bundle" />
       <command value=" require cmen/google-charts-bundle" />
       <command value="s cache:clear" />
       <command value="require cmen/google-charts-bundle" />
+      <command value="s doctrine:schema:update --force " />
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -249,7 +251,11 @@
       <workItem from="1590708292740" duration="1614000" />
       <workItem from="1590710027911" duration="8424000" />
       <workItem from="1591018788412" duration="1611000" />
-      <workItem from="1591022966948" duration="180000" />
+      <workItem from="1591022966948" duration="209000" />
+      <workItem from="1591055763703" duration="3606000" />
+      <workItem from="1591097795303" duration="99000" />
+      <workItem from="1591099884033" duration="547000" />
+      <workItem from="1591101676230" duration="1538000" />
     </task>
     <task id="LOCAL-00001" summary="Creation du bundle RH et FOSUserBundle">
       <created>1585850511463</created>
@@ -356,7 +362,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590445401090</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="stat">
+      <created>1591023174187</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1591023174187</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -380,7 +393,8 @@
     <MESSAGE value="symfony api" />
     <MESSAGE value="zz" />
     <MESSAGE value="bundle stat" />
-    <option name="LAST_COMMIT_MESSAGE" value="bundle stat" />
+    <MESSAGE value="stat" />
+    <option name="LAST_COMMIT_MESSAGE" value="stat" />
   </component>
   <component name="WindowStateProjectService">
     <state x="137" y="20" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586441435980">
@@ -403,10 +417,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="559" y="294" key="#com.jetbrains.php.framework.ui.FailedToParseDialog/0.0.1366.728@0.0.1366.728" timestamp="1585844044776" />
-    <state x="226" y="0" key="CommitChangelistDialog2" timestamp="1590717406691">
+    <state x="226" y="0" key="CommitChangelistDialog2" timestamp="1591023165513">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="226" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1590717406691" />
+    <state x="226" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1591023165513" />
     <state x="438" y="258" key="ComposerCompositePathDialog" timestamp="1585348732941">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -421,25 +435,25 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="622" y="302" key="FrameworkEditDialogDimensionKey/0.0.1536.824@0.0.1536.824" timestamp="1585162585652" />
-    <state width="1323" height="145" key="GridCell.Tab.0.bottom" timestamp="1590718463395">
+    <state width="1323" height="145" key="GridCell.Tab.0.bottom" timestamp="1591059382356">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="145" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590718463395" />
+    <state width="1323" height="145" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1591059382356" />
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585061338048" />
-    <state width="1323" height="145" key="GridCell.Tab.0.center" timestamp="1590718463395">
+    <state width="1323" height="145" key="GridCell.Tab.0.center" timestamp="1591059382356">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="145" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1590718463395" />
+    <state width="1323" height="145" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1591059382356" />
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585061338048" />
-    <state width="1323" height="145" key="GridCell.Tab.0.left" timestamp="1590718463395">
+    <state width="1323" height="145" key="GridCell.Tab.0.left" timestamp="1591059382356">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="145" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1590718463395" />
+    <state width="1323" height="145" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1591059382356" />
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585061338048" />
-    <state width="1323" height="145" key="GridCell.Tab.0.right" timestamp="1590718463395">
+    <state width="1323" height="145" key="GridCell.Tab.0.right" timestamp="1591059382356">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="145" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1590718463395" />
+    <state width="1323" height="145" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1591059382356" />
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585061338048" />
     <state x="483" y="179" key="NewPhpClassDialog" timestamp="1589581518685">
       <screen x="0" y="0" width="1366" height="728" />
@@ -459,10 +473,10 @@
     </state>
     <state x="478" y="279" key="SymfonyPathDialog/0.0.1366.728@0.0.1366.728" timestamp="1585348765112" />
     <state x="537" y="316" key="SymfonyPathDialog/0.0.1536.824@0.0.1536.824" timestamp="1585059146417" />
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1591023017300">
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1591624052517">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1591023017300" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1591624052517" />
     <state x="481" y="54" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1589519037555">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -471,10 +485,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="417" y="59" key="com.jetbrains.php.test.PhpNewTestDialog/0.0.1366.728@0.0.1366.728" timestamp="1586441309846" />
-    <state x="378" y="165" width="672" height="599" key="run.anything.popup" timestamp="1590713426794">
+    <state x="378" y="165" width="672" height="599" key="run.anything.popup" timestamp="1591058088721">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="378" y="165" width="672" height="599" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1590713426794" />
+    <state x="378" y="165" width="672" height="599" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1591058088721" />
     <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1585154767732" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1589638839200">
       <screen x="0" y="0" width="1366" height="728" />
