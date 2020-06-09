@@ -42,7 +42,7 @@ class CommandeJsonController extends Controller
     public function newCommandeAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $user = $em->getRepository('EntrepotBundle:Utilisateur')->find($request->get('idU'));
+        $user = $em->getRepository('AppBundle:User')->find($request->get('id'));
         $date = new \DateTime('now');
         $commande = new Commande();
         $commande->setTypePaiement('carte');
@@ -72,7 +72,7 @@ class CommandeJsonController extends Controller
             elseif ($produits[0] == "_"){
                 $prix = $ch;
                 $d = 0;
-                $produit = $em->getRepository('EntrepotBundle:Produit')->findOneBy(array('idProduit'=>floatval($prd)));
+                $produit = $em->getRepository('StockBundle:Produit')->findOneBy(array('idProduit'=>floatval($prd)));
                 $produitCommande = new ProduitCommande();
                 $produitCommande->setIdCommande($commande);
                 $produitCommande->setIdProduit($produit);
@@ -80,7 +80,7 @@ class CommandeJsonController extends Controller
                 $produitCommande->setPrixProduit(floatval($prix));
                 $em->persist($produitCommande);
                 $em->flush();
-                $em=$this->getDoctrine()->getManager()->createQuery('update EntrepotBundle:Produit p 
+                $em=$this->getDoctrine()->getManager()->createQuery('update StockBundle:Produit p 
                 set p.quantite = p.quantite-?0 where p.idProduit=?1
                 ')->setParameter(0,floatval($qtt))->setParameter(1,floatval($prd))->execute();
                 $em = $this->getDoctrine()->getManager();
@@ -117,7 +117,7 @@ class CommandeJsonController extends Controller
         select c.total,c.dateCommande,c.dateExp,  p.prixProduit,p.quantiteProduit,i.marque,i.reference    
             from CommandeBundle:Commande c
               left join  CommandeBundle:ProduitCommande p with (c.idCommande =?0  and c.idCommande=p.idCommande)
-              inner join   EntrepotBundle:Produit i  with i.idProduit=p.idProduit 
+              inner join   StockBundle:Produit i  with i.idProduit=p.idProduit 
          ' )
             ->setParameter(0,$idCommande)
             ->getResult();
@@ -171,7 +171,7 @@ class CommandeJsonController extends Controller
      */
     public function allPAction(){
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository('EntrepotBundle:Produit')->findAll();
+        $categories = $em->getRepository('StockBundle:Produit')->findAll();
         $encoders = [new XmlEncoder(), new JsonEncoder()];
         $normalizers = [new ObjectNormalizer()];
         $serializer = new Serializer($normalizers, $encoders);

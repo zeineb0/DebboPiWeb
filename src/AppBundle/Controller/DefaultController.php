@@ -3,7 +3,7 @@
 namespace AppBundle\Controller;
 
 
-use Composer\DependencyResolver\Request;
+use Symfony\Component\HttpFoundation\Request;
 use NotificationBundle\Controller\BlogController;
 use NotificationBundle\Entity\Blog;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

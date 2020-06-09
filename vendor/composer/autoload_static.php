@@ -12,25 +12,27 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '9c67151ae59aff4788964ce8eb2a0f43' => __DIR__ . '/..' . '/clue/stream-filter/src/functions_include.php',
-        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '8cff32064859f4559445b89279f3199c' => __DIR__ . '/..' . '/php-http/message/src/filters.php',
-        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
-        '8cff32064859f4559445b89279f3199c' => __DIR__ . '/..' . '/php-http/message/src/filters.php',
-        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
+        '3109cb1a231dcd04bee1f9f620d46975' => __DIR__ . '/..' . '/paragonie/sodium_compat/autoload.php',
         '32dcc8afd4335739640db7d200c1971d' => __DIR__ . '/..' . '/symfony/polyfill-apcu/bootstrap.php',
         '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
         '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
         '719971e375036615a0685b6fb054583d' => __DIR__ . '/..' . '/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        'Z' => 
+        array (
+            'Zend\\Json\\' => 10,
+        ),
         'W' => 
         array (
             'WBW\\Library\\Core\\' => 17,
@@ -48,9 +50,11 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         'S' => 
         array (
             'Symfony\\Polyfill\\Util\\' => 22,
+            'Symfony\\Polyfill\\Php72\\' => 23,
             'Symfony\\Polyfill\\Php70\\' => 23,
             'Symfony\\Polyfill\\Php56\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Polyfill\\Intl\\Idn\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Polyfill\\Apcu\\' => 22,
             'Symfony\\Component\\' => 18,
@@ -62,6 +66,7 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
             'Symfony\\Bridge\\PhpUnit\\' => 23,
             'Symfony\\Bridge\\Monolog\\' => 23,
             'Symfony\\Bridge\\Doctrine\\' => 24,
+            'Skies\\QRcodeBundle\\' => 19,
             'Sensio\\Bundle\\GeneratorBundle\\' => 30,
             'Sensio\\Bundle\\FrameworkExtraBundle\\' => 35,
             'Sensio\\Bundle\\DistributionBundle\\' => 33,
@@ -69,13 +74,17 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         ),
         'P' => 
         array (
+            'Pusher\\' => 7,
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
             'Psr\\Link\\' => 9,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
-            'PUGX\\AutocompleterBundle\\' => 25,
+        ),
+        'O' => 
+        array (
+            'Ob\\HighchartsBundle\\' => 20,
         ),
         'M' => 
         array (
@@ -85,7 +94,6 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         array (
             'Knp\\Snappy\\' => 11,
             'Knp\\Bundle\\SnappyBundle\\' => 24,
-
             'Knp\\Bundle\\PaginatorBundle\\' => 27,
         ),
         'I' => 
@@ -105,6 +113,7 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
             'Http\\Client\\Common\\' => 19,
             'Http\\Client\\' => 12,
             'Http\\Adapter\\Guzzle6\\' => 21,
+            'HWI\\Bundle\\OAuthBundle\\' => 23,
         ),
         'G' => 
         array (
@@ -119,6 +128,7 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
             'Fig\\Link\\' => 9,
             'FOS\\UserBundle\\' => 15,
             'FOS\\MessageBundle\\' => 18,
+            'FOS\\JsRoutingBundle\\' => 20,
         ),
         'D' => 
         array (
@@ -139,7 +149,10 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
     );
 
     public static $prefixDirsPsr4 = array (
-
+        'Zend\\Json\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-json/src',
+        ),
         'WBW\\Library\\Core\\' => 
         array (
             0 => __DIR__ . '/..' . '/webeweb/core-library',
@@ -164,6 +177,10 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-util',
         ),
+        'Symfony\\Polyfill\\Php72\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
+        ),
         'Symfony\\Polyfill\\Php70\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php70',
@@ -175,6 +192,10 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Polyfill\\Intl\\Idn\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-intl-idn',
         ),
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
@@ -220,6 +241,10 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         array (
             0 => __DIR__ . '/..' . '/symfony/symfony/src/Symfony/Bridge/Doctrine',
         ),
+        'Skies\\QRcodeBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yellowskies/qr-code-bundle',
+        ),
         'Sensio\\Bundle\\GeneratorBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/sensio/generator-bundle',
@@ -235,6 +260,10 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         'SensioLabs\\Security\\' => 
         array (
             0 => __DIR__ . '/..' . '/sensiolabs/security-checker/SensioLabs/Security',
+        ),
+        'Pusher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pusher/pusher-php-server/src',
         ),
         'Psr\\SimpleCache\\' => 
         array (
@@ -260,15 +289,14 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
-        'PUGX\\AutocompleterBundle\\' => 
+        'Ob\\HighchartsBundle\\' => 
         array (
-            0 => __DIR__ . '/..' . '/pugx/autocompleter-bundle',
+            0 => __DIR__ . '/..' . '/ob/highcharts-bundle',
         ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
-
         'Knp\\Snappy\\' => 
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-snappy/src/Knp/Snappy',
@@ -277,12 +305,10 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-snappy-bundle',
         ),
-
         'Knp\\Bundle\\PaginatorBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-paginator-bundle',
         ),
-
         'Ivory\\JsonBuilder\\' => 
         array (
             0 => __DIR__ . '/..' . '/egeloen/json-builder/src',
@@ -295,7 +321,6 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         array (
             0 => __DIR__ . '/..' . '/egeloen/google-map-bundle',
         ),
-
         'Incenteev\\ParameterHandler\\' => 
         array (
             0 => __DIR__ . '/..' . '/incenteev/composer-parameter-handler',
@@ -334,6 +359,10 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         array (
             0 => __DIR__ . '/..' . '/php-http/guzzle6-adapter/src',
         ),
+        'HWI\\Bundle\\OAuthBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hwi/oauth-bundle',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -365,6 +394,10 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
         'FOS\\MessageBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/friendsofsymfony/message-bundle',
+        ),
+        'FOS\\JsRoutingBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/friendsofsymfony/jsrouting-bundle',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
@@ -427,34 +460,36 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
                 0 => __DIR__ . '/..' . '/twig/twig/lib',
             ),
         ),
-        'M' => 
-        array (
-            'Metadata\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/jms/metadata/src',
-            ),
-        ),
-
-
-        'K' => 
-        array (
-            'Knp\\Component' => 
-            array (
-                0 => __DIR__ . '/..' . '/knplabs/knp-components/src',
-				  ),
-		),
         'S' => 
         array (
             'Sfk\\EmailTemplateBundle' => 
             array (
                 0 => __DIR__ . '/..' . '/sfk/email-template-bundle',
             ),
+            'SBC\\NotificationsBundle' => 
+            array (
+                0 => __DIR__ . '/..' . '/mrad/notifications-bundle',
+            ),
         ),
         'M' => 
         array (
             'Metadata\\' => 
             array (
                 0 => __DIR__ . '/..' . '/jms/metadata/src',
+            ),
+        ),
+        'K' => 
+        array (
+            'Knp\\Component' => 
+            array (
+                0 => __DIR__ . '/..' . '/knplabs/knp-components/src',
+            ),
+        ),
+        'J' => 
+        array (
+            'JsonpCallbackValidator' => 
+            array (
+                0 => __DIR__ . '/..' . '/willdurand/jsonp-callback-validator/src',
             ),
         ),
         'D' => 
@@ -474,6 +509,13 @@ class ComposerStaticInit907ce895da821a0b2a2950cdcf9bbf24
             'Doctrine\\Common\\Collections\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/collections/lib',
+            ),
+        ),
+        'A' => 
+        array (
+            'ADesigns\\CalendarBundle' => 
+            array (
+                0 => __DIR__ . '/..' . '/adesigns/calendar-bundle',
             ),
         ),
     );

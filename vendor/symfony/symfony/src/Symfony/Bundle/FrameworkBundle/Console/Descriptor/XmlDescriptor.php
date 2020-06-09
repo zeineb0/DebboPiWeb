@@ -29,21 +29,33 @@ use Symfony\Component\Routing\RouteCollection;
  */
 class XmlDescriptor extends Descriptor
 {
+    /**
+     * {@inheritdoc}
+     */
     protected function describeRouteCollection(RouteCollection $routes, array $options = [])
     {
         $this->writeDocument($this->getRouteCollectionDocument($routes));
     }
 
+    /**
+     * {@inheritdoc}
+     */
     protected function describeRoute(Route $route, array $options = [])
     {
         $this->writeDocument($this->getRouteDocument($route, isset($options['name']) ? $options['name'] : null));
     }
 
+    /**
+     * {@inheritdoc}
+     */
     protected function describeContainerParameters(ParameterBag $parameters, array $options = [])
     {
         $this->writeDocument($this->getContainerParametersDocument($parameters));
     }
 
+    /**
+     * {@inheritdoc}
+     */
     protected function describeContainerTags(ContainerBuilder $builder, array $options = [])
     {
         $this->writeDocument($this->getContainerTagsDocument($builder, isset($options['show_private']) && $options['show_private']));
@@ -69,11 +81,17 @@ class XmlDescriptor extends Descriptor
         $this->writeDocument($this->getContainerServicesDocument($builder, isset($options['tag']) ? $options['tag'] : null, isset($options['show_private']) && $options['show_private'], isset($options['show_arguments']) && $options['show_arguments'], isset($options['filter']) ? $options['filter'] : null));
     }
 
+    /**
+     * {@inheritdoc}
+     */
     protected function describeContainerDefinition(Definition $definition, array $options = [])
     {
         $this->writeDocument($this->getContainerDefinitionDocument($definition, isset($options['id']) ? $options['id'] : null, isset($options['omit_tags']) && $options['omit_tags'], isset($options['show_arguments']) && $options['show_arguments']));
     }
 
+    /**
+     * {@inheritdoc}
+     */
     protected function describeContainerAlias(Alias $alias, array $options = [], ContainerBuilder $builder = null)
     {
         $dom = new \DOMDocument('1.0', 'UTF-8');
@@ -106,6 +124,9 @@ class XmlDescriptor extends Descriptor
         $this->writeDocument($this->getCallableDocument($callable));
     }
 
+    /**
+     * {@inheritdoc}
+     */
     protected function describeContainerParameter($parameter, array $options = [])
     {
         $this->writeDocument($this->getContainerParameterDocument($parameter, $options));
@@ -414,8 +435,8 @@ class XmlDescriptor extends Descriptor
             } elseif (\is_array($argument)) {
                 $argumentXML->setAttribute('type', 'collection');
 
-                foreach ($this->getArgumentNodes($argument, $dom) as $childArgumentXML) {
-                    $argumentXML->appendChild($childArgumentXML);
+                foreach ($this->getArgumentNodes($argument, $dom) as $childArgumenXML) {
+                    $argumentXML->appendChild($childArgumenXML);
                 }
             } else {
                 $argumentXML->appendChild(new \DOMText($argument));

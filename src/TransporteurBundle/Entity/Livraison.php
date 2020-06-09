@@ -67,7 +67,7 @@ class Livraison
     /**
      * @var \Commande
      *
-     * @ORM\ManyToOne(targetEntity="EntrepotBundle\Entity\Commande")
+     * @ORM\ManyToOne(targetEntity="GererEntrepotBundle\Entity\Commande")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="FK_id_commande", referencedColumnName="id_commande")
      * })

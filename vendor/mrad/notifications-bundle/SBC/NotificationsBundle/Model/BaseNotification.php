@@ -42,12 +42,9 @@ abstract class BaseNotification
     protected $route;
 
     /**
-     * @var \Blog
+     * @var array
      *
-     * @ORM\ManyToOne(targetEntity="NotificationBundle\Entity\Blog")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="route_parameters", referencedColumnName="id")
-     * })
+     * @ORM\Column(name="route_parameters", type="array", nullable=true)
      */
     protected $parameters;
 
@@ -168,7 +165,7 @@ abstract class BaseNotification
     }
 
     /**
-     * @return \Blog
+     * @return array
      */
     public function getParameters()
     {
@@ -176,14 +173,15 @@ abstract class BaseNotification
     }
 
     /**
-     * @param \Blog $parameters
+     * @param array $parameters
+     * @return BaseNotification
      */
     public function setParameters($parameters)
     {
         $this->parameters = $parameters;
+
+        return $this;
     }
-
-
 
     /**
      * @return \DateTime

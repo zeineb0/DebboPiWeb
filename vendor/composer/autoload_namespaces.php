@@ -8,13 +8,14 @@ $baseDir = dirname($vendorDir);
 return array(
     'blackknight467\\StarRatingBundle' => array($vendorDir . '/blackknight467/star-rating-bundle'),
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
-    'Metadata\\' => array($vendorDir . '/jms/metadata/src'),
-    'Knp\\Component' => array($vendorDir . '/knplabs/knp-components/src'),
     'Sfk\\EmailTemplateBundle' => array($vendorDir . '/sfk/email-template-bundle'),
+    'SBC\\NotificationsBundle' => array($vendorDir . '/mrad/notifications-bundle'),
     'Metadata\\' => array($vendorDir . '/jms/metadata/src'),
     'Knp\\Component' => array($vendorDir . '/knplabs/knp-components/src'),
+    'JsonpCallbackValidator' => array($vendorDir . '/willdurand/jsonp-callback-validator/src'),
     'Doctrine\\ORM\\' => array($vendorDir . '/doctrine/orm/lib'),
     'Doctrine\\DBAL\\' => array($vendorDir . '/doctrine/dbal/lib'),
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),
     'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib'),
+    'ADesigns\\CalendarBundle' => array($vendorDir . '/adesigns/calendar-bundle'),
 );

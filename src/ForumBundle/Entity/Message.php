@@ -29,7 +29,7 @@ class Message extends BaseMessage
     protected $thread;
 
     /**
-     * @ORM\ManyToOne(targetEntity="EntrepotBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @var \FOS\MessageBundle\Model\ParticipantInterface
      */
     protected $sender;

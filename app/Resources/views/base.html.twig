@@ -183,6 +183,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
     </script>
     <!---//End-rate---->
+    <script>
 
             $('.my-cart-btn').myCart({
                 classCartIcon: 'my-cart-icon',
@@ -204,8 +205,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     return total * 1;
                 }
             });
-
-        });
     </script>
 </head>
 <body>
@@ -268,13 +267,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <li><a href="{{ asset('app_dev.php/entrepot') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Consulter mes entrepots</a></li>
                                                 <li><a href="{{ asset('app_dev.php/entrepot/alouer') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Consulter les entrepots a louer</a></li>
                                                 <li><a href="{{ asset('app_dev.php/entrepot/loue') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Consulter mes entrepots loués</a></li>
-                                                <li><a href="{{ asset('/DebboPiWeb/web/app_dev.php/Transporteur/afficherContrat') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Gestion Des Contrat</a></li>
+                                                <li><a href="{{ asset('/DebboWeb/web/app_dev.php/Transporteur/afficherContrat') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Gestion Des Contrat</a></li>
                                             </ul>
                                         </div>
 
                                         <div class="col-sm-4">
                                             <ul class="multi-column-dropdown">
-                                                <li><a href="{{ asset('/DebboPiWeb/web/app_dev.php/Transporteur/livraisonAffecter') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Gestion Des Livraisons</a></li>
+                                                <li><a href="{{ asset('/DebboWeb/web/app_dev.php/Transporteur/livraisonAffecter') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Gestion Des Livraisons</a></li>
                                             </ul>
 
                                         </div>
@@ -317,9 +316,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <div class="row">
                                         <div class="col-sm-5">
                                             <ul class="multi-column-dropdown">
-                                                <li><a href="{{ asset('/DebboPiWeb/web/app_dev.php/Transporteur/affCal') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Accueil</a></li>
-                                                <li><a href="{{ asset('/DebboPiWeb/web/app_dev.php/Transporteur/AffLivTransL') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Liste des Livraisons livrées </a></li>
-                                                <li><a href="{{ asset('/DebboPiWeb/web/app_dev.php/Transporteur/AffLivTransNL') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Liste des Livraisons non livrées</a></li>
+                                                <li><a href="{{ asset('/DebboWeb/web/app_dev.php/Transporteur/affCal') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Accueil</a></li>
+                                                <li><a href="{{ asset('/DebboWeb/web/app_dev.php/Transporteur/AffLivTransL') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Liste des Livraisons livrées </a></li>
+                                                <li><a href="{{ asset('/DebboWeb/web/app_dev.php/Transporteur/AffLivTransNL') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Liste des Livraisons non livrées</a></li>
 
                                             </ul>
                                         </div>
@@ -464,7 +463,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     </script>
     <!---->
-    {#
+
     <div class="banner-top" data-vide-bg="{{ asset('video/video')}}">
         <div class="container">
 

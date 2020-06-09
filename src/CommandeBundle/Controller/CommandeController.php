@@ -200,7 +200,7 @@ class CommandeController extends Controller
             'item',$date
         );
         $duree = $query2->getResult();
-        $produits= $em->getRepository('EntrepotBundle:Produit')->findAll();
+        $produits= $em->getRepository('StockBundle:Produit')->findAll();
         $i=-1;
         foreach ($produits as $produit){
             $i++;
@@ -310,14 +310,14 @@ class CommandeController extends Controller
       foreach ($produits as $produit){
           $produitCommande= new ProduitCommande();
           $produitCommande->setIdCommande($commande);
-          $p= $this->getDoctrine()->getManager()->getRepository('EntrepotBundle:Produit')
+          $p= $this->getDoctrine()->getManager()->getRepository('StockBundle:Produit')
               ->findOneBy(array('idProduit' => $produit['id']));
           $produitCommande->setIdProduit($p);
           $produitCommande->setQuantiteProduit(floatval($produit['quantity']));
           $produitCommande->setPrixProduit($produit['price']);
           $em->persist($produitCommande);
           $em->flush();
-          $this->getDoctrine()->getManager()->createQuery('update EntrepotBundle:Produit p 
+          $this->getDoctrine()->getManager()->createQuery('update StockBundle:Produit p 
                 set p.quantite = p.quantite-?0 where p.idProduit=?1
                 ')->setParameter(0,floatval($produit['quantity']))->setParameter(1,$produit['id'])->execute();
       }
@@ -430,12 +430,12 @@ class CommandeController extends Controller
 
     private function createProduitForm(ProduitCommande $produit)
     {
-        return $this->getDoctrine()->getManager()->getRepository('EntrepotBundle:Produit')
+        return $this->getDoctrine()->getManager()->getRepository('StockBundle:Produit')
             ->findOneBy(array('idProduit' => $produit->getIdProduit()));
     }
     private function createEntrepotForm(Produit $produit)
     {
-        return $this->getDoctrine()->getManager()->getRepository('EntrepotBundle:Entrepot')
+        return $this->getDoctrine()->getManager()->getRepository('GererEntrepotBundle:Entrepot')
             ->findOneBy(array('fkEntrepot' => $produit->getFkEntrepot()));
     }
 

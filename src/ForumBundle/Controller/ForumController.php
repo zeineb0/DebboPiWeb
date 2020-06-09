@@ -209,7 +209,7 @@ class ForumController extends Controller
     {
         $user = $this->getUser();
         if ($user->getUsername() != "admin") {
-            return $this->redirect("http://localhost/DebboPiWeb-master/web/app_dev.php/login");
+            return $this->redirect("http://localhost/DebboWeb/web/app_dev.php/login");
         }
             $em = $this->getDoctrine()->getRepository(Publication::class)->findAll();
 
@@ -263,7 +263,7 @@ class ForumController extends Controller
         $user=$this->getUser();
        /*if(!is_object($user) || !$user instanceof UserInterface)
         {
-            return $this->redirect("http://localhost/DebboPiWeb-master/web/app_dev.php/login");
+            return $this->redirect("http://localhost/DebboWeb/web/app_dev.php/login");
         }*/
         $u=$this->getDoctrine()->getRepository(User::class)->find($user);
         $com=new Commentaire();

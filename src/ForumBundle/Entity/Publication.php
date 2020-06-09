@@ -77,7 +77,7 @@ class Publication
     /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="EntrepotBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idUser", referencedColumnName="id")
      * })
