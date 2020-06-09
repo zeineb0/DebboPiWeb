@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+    <!--banner-->
+    <div class="banner-top">
+        <div class="container">
+            <h3 >Forum</h3>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+    <br>
+
+
+
+        <div class="card-header ">
+            <a href="{{ path('publication_liste') }}"><i class="fa fa-arrow-circle-left"></i> Retour à la liste</a>
+        </div>
+
+    <div id="div_chart"></div>
+
+
+    <br><br>
+    <div class="login">
+        <div class="main-agileits">
+            <div class="form-w3agile form1">
+                <h3>Create your Publication</h3>
+                {{ form_start(form) }}
+                T i t r e :
+                {{ form_widget(form.titre,{'attr': {'class': "ckeditor",'required':"true" , 'pattern':"[0-9a-zA-Z-\.]{3,20}",'placeholder':"De 3 à 12 caractères",'cols':'50','rows':'10'}}) }}
+                <br>
+                Description:
+                {{ form_widget(form.contenu,{'attr': {'class': "ckeditor",'required':"true",'pattern':"[0-9a-zA-Z-\.]{5,500}" ,'cols':'40','rows':'10'}}) }}
+                <br>
+                Image:<input type="file" name="image" />
+                <br>
+                {{ form_widget(form,{'attr': {'class': "ckeditor",'placeholder': "veuillez saisir votre Publication",'required':"true" ,'cols':'50','rows':'10'}}) }}
+                <br>
+                <div class="form-group">
+                    <input type="submit" value="publier" class="btn btn-primary py-3 px-5">
+                </div>
+                {{ form_end(form) }}
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        {{ gc_draw(piechart, 'div_chart') }}
+    </script>
+    <script>
+        jQuery(document).ready(function() {
+            var searchRequest = null;
+            $("#search").keyup(function() {
+                var minlength = 1;
+                var that = this;
+                var value = $(this).val();
+                var entitySelector = $("#entitiesNav").html('');
+                if (value.length >= minlength ) {
+                    if (searchRequest != null)
+                        searchRequest.abort();
+                    searchRequest = $.ajax({
+                        type: "GET",
+                        url: "{{ path('ajaxsearch') }}",
+                        data: {
+                            'q' : value
+                        },
+                        dataType: "text",
+                        success: function(msg){
+                            //we need to check if the value is the same
+                            if (value===$(that).val()) {
+                                var result = JSON.parse(msg);
+                                $.each(result, function(key, arr) {
+                                    $.each(arr, function(id, value) {
+                                        if (key === 'blog') {
+                                            if (id !== 'error') {
+                                                console.log(value[1]);
+                                                entitySelector.append('<li>' +
+                                                    'Titre:<h5><b>  '+value[0]+  '</b></h5> </li>  <img src="http://localhost/DebboPiWeb-master/web/images/'+value[2]+'" height="150" width="300"> </a> </li>' ) ;
+                                            } else {
+                                                entitySelector.append('<li class="errorLi">'+value+'</li>');
+                                            }
+                                        }
+                                    });
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock content %}

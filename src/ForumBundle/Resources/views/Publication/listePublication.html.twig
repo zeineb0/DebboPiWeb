@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+<!--banner-->
+<div class="banner-top">
+    <div class="container">
+        <h3 >Forum</h3>
+        <!--<h4><a href="index.html">Home</a><label>/</label>Register</h4>-->
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+    <div class="login">
+        <div class="card-header ">
+            <a href="{{ path('publication_addPublication') }}"><i class="fa fa-arrow-circle-left"></i> Creer une publication</a>
+        </div>
+    <div class="main-agileits">
+    <div class="form-w3agile form1">
+        <div class="card-header ">
+            <a href="{{ path('publication_addPublication') }}"><i class="fa fa-arrow-circle-left"></i> Creer une publication</a>
+        </div>
+    {% for p in list  %}
+
+                    <fieldset  style="margin-bottom: 10px">
+                        <legend>{{ p.idUser.nom  }} </legend>
+                        <h3>{{ p.titre }}</h3>
+                        <p>{{ p.datep|date }}</p>
+                        <p>
+                            <img src="{{ asset('images/')~p.image }}" width="150">
+                        </p>
+                        <p>{{ p.contenu }}</p>
+                        <a href="{{ path('publication_details', { 'id': p.id }) }}"><i class="fa fa-plus-circle"></i> show Publication</a>
+                        {% if p.idUser == u %}
+                            <a href="{{ path('publication_delete', { 'id': p.id }) }}"><i class="fa fa-plus-circle"></i> delete Publication</a>
+
+                        {% endif %}
+
+                        <br>
+                        <br>
+
+                        <form method="POST" name="formulaire">
+                            <textarea name="contenu"></textarea>
+                            <br>
+                            <br>
+                            <input type="text" value="{{ p.id }}" name="id1" hidden>
+                            <input type="submit" value="comment" class="btn btn-primary py-3 px-5">
+                        </form>
+                        <br>
+                        <br>
+
+                    </fieldset>
+
+    {% endfor %}
+
+    </div>
+    </div>
+    </div>
+    {{ knp_pagination_render(list) }}
+<br>
+<br>
+<br>
+<br>
+{% endblock content %}

@@ -2,12 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5efa15f4-3407-46f0-b8d6-8a222e470e65" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Resources/FOSMessageBundle/views/Message/deleted.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/FOSMessageBundle/views/Message/inbox.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/FOSMessageBundle/views/Message/newThread.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/FOSMessageBundle/views/Message/search.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/FOSMessageBundle/views/Message/sent.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/FOSMessageBundle/views/Message/thread.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/FOSMessageBundle/views/Message/threads_list.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/FOSMessageBundle/views/layout.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/default/back.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Controller/ForumController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Controller/LoginController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Controller/UtilisateurMobileController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Entity/Commentaire.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Entity/Message.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Entity/MessageMetadata.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Entity/Publication.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Entity/Thread.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Entity/ThreadMetadata.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Form/CommentaireType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Form/PublicationType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Repository/CommentaireRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Repository/MessageMetadataRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Repository/MessageRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Repository/PublicationRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Repository/ThreadMetaDataRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Repository/ThreadRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Resources/views/Publication/addPublication.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Resources/views/Publication/detailsPublication.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Resources/views/Publication/listePublication.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Resources/views/Publication/showPublication.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Resources/views/Publication/suppPublication.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,19 +169,21 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/RHBundle/Resources/views/admin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Resources" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Resources\views" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\DebboWeb\app\Resources" />
+      <recent name="C:\wamp64\www\DebboWeb\src\ForumBundle" />
+      <recent name="C:\wamp64\www\DebboWeb\src\ForumBundle\Resources\views" />
       <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Resources\views\admin" />
       <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Resources\config\routing" />
-      <recent name="C:\wamp64\www\DebboPiWeb\app\Resources\views" />
-      <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Resources\views\mail" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\DebboWeb\app\Resources\views\default" />
+      <recent name="C:\wamp64\www\DebboWeb\src\ForumBundle\Controller" />
       <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Resources\views" />
     </key>
   </component>
@@ -262,6 +290,7 @@
       <workItem from="1591099884033" duration="547000" />
       <workItem from="1591101676230" duration="1538000" />
       <workItem from="1591629899686" duration="2603000" />
+      <workItem from="1591651603573" duration="1676000" />
     </task>
     <task id="LOCAL-00001" summary="Creation du bundle RH et FOSUserBundle">
       <created>1585850511463</created>
@@ -403,19 +432,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="stat" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="562" y="129" key="#com.intellij.ide.util.MemberChooser" timestamp="1591279138639">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="562" y="129" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1591279138639" />
-    <state x="438" y="258" key="ComposerCompositePathDialog" timestamp="1585266833015">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="438" y="258" key="ComposerCompositePathDialog/0.0.1366.728@0.0.1366.728" timestamp="1585266833015" />
-    <state x="493" y="292" key="ComposerCompositePathDialog/0.0.1536.824@0.0.1536.824" timestamp="1585059130422" />
-    <state x="487" y="137" key="FileChooserDialogImpl" timestamp="1585266850337">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="487" y="137" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585266850337" />
     <state x="137" y="20" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586441435980">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -424,6 +440,7 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="476" y="81" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1590439143472" />
+    <state x="562" y="129" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1591279138639" />
     <state x="413" y="112" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587048597302">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -445,49 +462,15 @@
     </state>
     <state x="438" y="258" key="ComposerCompositePathDialog/0.0.1366.728@0.0.1366.728" timestamp="1585348732941" />
     <state x="493" y="292" key="ComposerCompositePathDialog/0.0.1536.824@0.0.1536.824" timestamp="1585059130422" />
-    <state x="487" y="137" key="FileChooserDialogImpl" timestamp="1586723896278">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="548" y="155" key="FileChooserDialogImpl" timestamp="1591714017352">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="487" y="137" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586723896278" />
-    <state x="548" y="155" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1585162584284" />
+    <state x="548" y="155" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1591714017352" />
     <state x="622" y="302" key="FrameworkEditDialogDimensionKey" timestamp="1585162585652">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="622" y="302" key="FrameworkEditDialogDimensionKey/0.0.1536.824@0.0.1536.824" timestamp="1585162585652" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1585267068971">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1585267068971" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585061338048" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1585267068970">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1585267068970" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585061338048" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1585267068970">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1585267068970" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585061338048" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1585267068970">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1585267068970" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585061338048" />
-    <state x="246" y="15" key="SettingsEditor" timestamp="1585266861914">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="246" y="15" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1585266861914" />
-    <state x="277" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1585162591961" />
-    <state x="478" y="279" key="SymfonyPathDialog" timestamp="1585266855501">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="478" y="279" key="SymfonyPathDialog/0.0.1366.728@0.0.1366.728" timestamp="1585266855501" />
-    <state x="537" y="316" key="SymfonyPathDialog/0.0.1536.824@0.0.1536.824" timestamp="1585059146417" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1591295572091">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1591295572091" />
     <state width="1323" height="145" key="GridCell.Tab.0.bottom" timestamp="1591059382356">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

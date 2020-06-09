@@ -1,0 +1,59 @@
+{% extends 'back.html.twig' %}
+
+{% block content %}
+
+
+
+
+
+    <div class="content">
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card strpied-tabled-with-hover">
+                <div class="card-header ">
+                    <h4 class="card-title">Les Publications & Les Commentaires</h4>
+                    <p class="card-category"></p>
+                </div>
+                <div class="card-body table-full-width table-responsive">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                        <th>Nom</th>
+                        <th>Date publication</th>
+
+                        <th>Details </th>
+                        <th>supprimer</th>
+                        </thead>
+                        {% for p in list  %}
+                            <tr>
+                                <td><legend>{{ p.idUser.nom  }} </legend></td>
+                                <td>{{ p.datep|date('Y-m-d') }}</td>
+
+                                <td><a href="{{ path('publication_details', { 'id': p.id }) }}"><i class="fa fa-info-circle"></i>Details</a></td>
+                                <td><a href="{{ path('publication_supp', { 'id': p.id }) }}"><i class="fa fa-minus-circle"></i>Supprimer</a></td>
+                                <td></td>
+
+
+                            </tr>
+                        {% endfor %}
+
+                    </table>
+
+                    <div id="div_chart"></div>
+
+                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                    <script type="text/javascript">
+                        {{ gc_draw(piechart, 'div_chart') }}
+                    </script>
+
+
+
+                </div>
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,10 @@
+{% extends '@FOSMessage/layout.html.twig' %}
+
+{% block fos_message_content %}
+<br>
+<h2>{% trans from 'FOSMessageBundle' %}<h3>Boite de reception</h3>{% endtrans %}</h2>
+<br><br>
+
+{% include '@FOSMessage/Message/threads_list.html.twig' with {'threads': threads} %}
+
+{% endblock %}

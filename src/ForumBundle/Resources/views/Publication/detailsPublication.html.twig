@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="banner-top">
+        <div class="container">
+            <h3 >Forum</h3>
+            <!--<h4><a href="index.html">Home</a><label>/</label>Register</h4>-->
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="login">
+        <div class="main-agileits">
+            <div class="form-w3agile form1">
+                <fieldset  style="margin-bottom: 10px">
+            <div class="card-header ">
+                <a href="{{ path('publication_addPublication') }}"><i class="fa fa-arrow-circle-left"></i> Retour à la liste</a>
+                <h4 class="card-title">{{ pub.categorie }}</h4>
+            </div>
+                    <h3>{{ pub.titre }}</h3>
+                    <p>{{ pub.datep|date }}</p>
+                        <p>
+
+                            <img src="{{ asset('images/')~pub.image }}" width="200">
+                        </p>
+                    <p>{{ pub.contenu }}</p>
+                    {% if pub.idUser == u %}
+                        <a href="{{ path('publication_delete', { 'id': pub.id }) }}"><i class="fa fa-plus-circle"></i> supprimer Publication</a>
+
+                    {% endif %}
+                    <h3>Liste des Commentaires :</h3>
+                    {% for c in list1 %}
+                        {% if c.idPublication == pub.id %}
+                            <fieldset style="margin-bottom: 0px">
+                                <legend>{{ c.iduser.nom }}</legend>
+                                <p>{{ c.datec|date }}</p>
+                                <p>{{ c.contenu }}</p>
+                                {% if c.iduser == u %}
+                                    <a href="{{ path('commentaire_delete', { 'id': c.id }) }}"><i class="fa fa-plus-circle"></i> delete your comment</a>
+                                {% endif %}
+                            </fieldset>
+
+                        {% endif %}
+                    {% endfor %}
+                    <br><br><br>
+                    <p>Ajouter un commentaire </p>
+                    <form method="POST" name="formulaire">
+                        <textarea name="contenu"></textarea>
+                        <br>
+                        <input type="text" value="{{ pub.id }}" name="id1" hidden>
+                        <input type="submit" value="comment" class="btn btn-primary py-3 px-5">
+                    </form>
+
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}

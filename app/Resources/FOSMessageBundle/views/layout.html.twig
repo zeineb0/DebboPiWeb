@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+   {% block content %}
+
+{% block body %}
+<!--banner-->
+<div class="banner-top">
+    <div class="container">
+        <h3 >Messagerie</h3>
+        <!--<h4><a href="index.html">Home</a><label>/</label>Register</h4>-->
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<br><br>
+<div class="login">
+
+        <div class="form-w3agile form1">
+            <h3>Messagerie</h3>
+            <div class="mel">
+                <h3>
+                <a href="{{ url('fos_message_thread_new') }}"><p data-placement="top" data-toggle="tooltip" title="Envoyer un message"><button class="btn btn-warning btn-s" data-title="New" data-toggle="modal" data-target="#new" ><span class="glyphicon glyphicon-plus"></span></button></p></a>
+                <a href="{{ url('fos_message_inbox') }}"><p data-placement="top" data-toggle="tooltip" title="Boite de reception"><button class="btn btn-warning btn-s" data-title="New" data-toggle="modal" data-target="#new" ><span class="glyphicon glyphicon-inbox"></span></button></p></a>
+                <a href="{{ url('fos_message_sent') }}"><p data-placement="top" data-toggle="tooltip" title="Envoyés"><button class="btn btn-warning btn-s" data-title="New" data-toggle="modal" data-target="#new" ><span class="glyphicon glyphicon-send"></span></button></p></a>
+                <a href="{{ url('fos_message_deleted') }}"><p data-placement="top" data-toggle="tooltip" title="Supprimés"><button class="btn btn-warning btn-s" data-title="New" data-toggle="modal" data-target="#new" ><span class="glyphicon glyphicon-trash"></span></button></p></a>
+                </h3>
+            </div>
+
+        {% block fos_message_content %}{% endblock %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+
+   {% endblock %}
