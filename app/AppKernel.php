@@ -25,7 +25,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
             new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
             new TransporteurBundle\TransporteurBundle(),
-            //new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             //new ADesigns\CalendarBundle\ADesignsCalendarBundle(),
             new CommandeBundle\CommandeBundle(),
             new Ob\HighchartsBundle\ObHighchartsBundle(),

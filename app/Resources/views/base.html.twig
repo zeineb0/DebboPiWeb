@@ -1,44 +1,31 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE html>
-
+<html>
 <head>
     <title>Big store a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template| Home :: w3layouts</title>
     <!-- for-mobile-apps -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta property="og:title" content="Vide" />
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="keywords" content="Big store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-
-    <style>
-        .mel {
-            width:100px;
-            margin-left: 50px;
-        }
-    </style>
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
         function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- //for-mobile-apps -->
-    <link href="{{ asset('css/bootstrap.css')}}" rel='stylesheet' type='text/css' />
+    <link href="{{ asset('css/bootstrap.css') }}" rel='stylesheet' type='text/css' />
     <!-- Custom Theme files -->
-
-    <link href= " {{ asset ('css/style.css') }}" rel='stylesheet' type='text/css' />
-
-    <!-- for-Calendar-->
-    <link href="{{ asset('css/fullcalendar.css') }}" rel='stylesheet' />
-    <link href="{{  asset('css/fullcalendar.print.css')}}" rel='stylesheet' media='print' />
-
+    <link href="{{ asset('css/style.css') }}" rel='stylesheet' type='text/css' />
     <!-- js -->
     <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- js -->
-
     <!-- //js -->
     <!-- start-smoth-scrolling -->
-    <script type="text/javascript" src="{{ asset('js/move-top.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/easing.js') }}"></script>
-
+    <script type="{{ asset('text/javascript') }}" src="js/move-top.js"></script>
+    <script type="{{ asset('text/javascript') }}" src="js/easing.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event){
@@ -46,17 +33,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
             });
         });
-
     </script>
     <!-- start-smoth-scrolling -->
-    <link href="{{ asset('css/font-awesome.css')}}" rel="stylesheet">
-    <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
+    <link href='{{ asset('//fonts.googleapis.com/css?family=Montserrat:400,700') }} rel='stylesheet' type='text/css'>
+    <link href={{ asset('//fonts.googleapis.com/css?family=Noto+Sans:400,700') }} rel='stylesheet' type='text/css'>
     <!--- start-rate---->
     <script src="{{ asset('js/jstarbox.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset ('css/jstarbox.css') }}" type="text/css" media="screen" charset="utf-8" />
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-
+    <link rel="stylesheet" href="{{ asset('css/jstarbox.css') }}" type="text/css" media="screen" charset="utf-8" />
     <script type="text/javascript">
         jQuery(function() {
             jQuery('.starbox').each(function() {
@@ -78,166 +62,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             });
         });
     </script>
-    <!-- //smooth scrolling -->
-    <!-- for bootstrap working -->
-    <script src="{{ asset('js/bootstrap.js')}}"></script>
-    <!-- //for bootstrap working -->
-    <script type='text/javascript' src="{{ asset('js/jquery.mycart.js')}}"></script>
-    <script type="text/javascript">
-        $(function () {
-
-            var goToCartIcon = function($addTocartBtn){
-                var $cartIcon = $(".my-cart-icon");
-                var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({"position": "fixed", "z-index": "999"});
-                $addTocartBtn.prepend($image);
-                var position = $cartIcon.position();
-                $image.animate({
-                    top: position.top,
-                    left: position.left
-                }, 500 , "linear", function() {
-                    $image.remove();
-                });
-            }
-
-            $('.my-cart-btn').myCart({
-                classCartIcon: 'my-cart-icon',
-                classCartBadge: 'my-cart-badge',
-                affixCartIcon: true,
-                checkoutCart: function(products) {
-                    $.each(products, function(){
-                        console.log(this);
-                    });
-                },
-                clickOnAddToCart: function($addTocart){
-                    goToCartIcon($addTocart);
-                },
-                getDiscountPrice: function(products) {
-                    var total = 0;
-                    $.each(products, function(){
-                        total += this.quantity * this.price;
-                    });
-                    return total * 1;
-                }
-            });
-
-        });
-    </script>
     <!---//End-rate---->
-    <!-- smooth scrolling -->
-    <script type="text/javascript">
-        $(document).ready(function() {
-            /*
-                var defaults = {
-                containerID: 'toTop', // fading element id
-                containerHoverID: 'toTopHover', // fading element hover id
-                scrollSpeed: 1200,
-                easingType: 'linear'
-                };
-            */
-            $().UItoTop({ easingType: 'easeOutQuart' });
-        });
-    </script>
-    <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-    <!-- //smooth scrolling -->
-    <!-- for bootstrap working -->
-    <script src="{{ asset('js/bootstrap.js') }}"></script>
-    <!-- //for bootstrap working -->
-    <script type='text/javascript' src="{{ asset('js/jquery.mycart.js') }}"></script>
-    <script type="text/javascript">
-        $(function () {
 
-            var goToCartIcon = function($addTocartBtn){
-                var $cartIcon = $(".my-cart-icon");
-                var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({"position": "fixed", "z-index": "999"});
-                $addTocartBtn.prepend($image);
-                var position = $cartIcon.position();
-                $image.animate({
-                    top: position.top,
-                    left: position.left
-                }, 500 , "linear", function() {
-                    $image.remove();
-                });
-            }
-
-            $('.my-cart-btn').myCart({
-                classCartIcon: 'my-cart-icon',
-                classCartBadge: 'my-cart-badge',
-                affixCartIcon: true,
-                checkoutCart: function(products) {
-                    $.each(products, function(){
-                        console.log(this);
-                    });
-                },
-                clickOnAddToCart: function($addTocart){
-                    goToCartIcon($addTocart);
-                },
-                getDiscountPrice: function(products) {
-                    var total = 0;
-                    $.each(products, function(){
-                        total += this.quantity * this.price;
-                    });
-                    return total * 1;
-                }
-            });
-
-        });
-    </script>
-    <!---//End-rate---->
-    <script>
-
-            $('.my-cart-btn').myCart({
-                classCartIcon: 'my-cart-icon',
-                classCartBadge: 'my-cart-badge',
-                affixCartIcon: true,
-                checkoutCart: function(products) {
-                    $.each(products, function(){
-                        console.log(this);
-                    });
-                },
-                clickOnAddToCart: function($addTocart){
-                    goToCartIcon($addTocart);
-                },
-                getDiscountPrice: function(products) {
-                    var total = 0;
-                    $.each(products, function(){
-                        total += this.quantity * this.price;
-                    });
-                    return total * 1;
-                }
-            });
-    </script>
 </head>
 <body>
-
-
-
-
 {% block header %}
     <div class="header">
-
         <div class="container">
-
             <div class="logo">
                 <h1> <a href=""><img src="{{ asset('images/debo.jpg') }}" alt="" title="" />DeBBo.<span>Le meilleur entrepôt</span></a></h1>
-
             </div>
-
             <div class="head-t">
                 <ul class="card">
                     <li><a href="{{ asset('wishlist.html') }}" ><i class="fa fa-heart" aria-hidden="true"></i>Favoris</a></li>
-
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         <li><a href="{{ path('fos_user_profile_show') }}" ><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
                         <li><a href="{{ path('fos_user_security_logout') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>Se deconnecter</a></li>
-
                     {% else %}
                         <li><a href="{{ path('fos_user_security_login') }}" ><i class="fa fa-user" aria-hidden="true"></i>Se connecter</a></li>
                         <li><a href="{{ path('fos_user_registration_register') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>S'enregistrer</a></li>
                     {% endif %}
-
                 </ul>
             </div>
-
 
             <div class="nav-top">
                 <nav class="navbar navbar-default">
@@ -277,13 +123,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             </ul>
 
                                         </div>
-
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-
                                         <div class="col-sm-3">
                                             <ul class="multi-column-dropdown">
                                                 <li><a href="{{ asset('app_dev.php/location') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Consulter mes locations</a></li>
@@ -293,12 +132,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </div>
 
                                         <div class="clearfix"></div>
-                                </li>
+                                    </div>
+                                </ul>
+                            </li>
+
                                 <li class="dropdown">
 
                                     <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span> Stock <b class="caret"></b></span></a>
 
-
+                                    <ul class="dropdown-menu multi">
+                                        <div class="row">
+                                            <div class="col-sm-3">
                                             <ul class="multi-column-dropdown">
                                                 <li><a href="{{ path ('categories_index') }}"><i class="fa fa-angle-right" aria-hidden="true"></i> Categorie </a></li>
                                                 <li><a href="{{ path ('produit_index') }}"><i class="fa fa-angle-right" aria-hidden="true"></i> Produit </a></li>
@@ -306,9 +150,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                             </ul>
 
+                                            </div>
+                                            </div>
 
                                         <div class="clearfix"></div>
-                                   
+                                    </ul>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span>Transport<b class="caret"></b></span></a>
@@ -326,26 +172,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <div class="clearfix"></div>
                                     </ul>
                                 </li>
-                               
+
+
+                                <li><a href="{{ path('commande_index')  }}" class="hyper"> <span>Commande</span></a></li>
+
+
+
+                                <li><a href="{{ asset ('contact.html') }}" class="hyper"><span>Ressources Humaines</span></a></li>
+
+                                <li><a href="{{ asset ('app_dev.php/forum/') }}" class="hyper"> <span>Forum</span></a></li>
+                                <li><a href="{{ path ('fos_message_inbox') }}" class="hyper"> <span>Messagerie</span></a></li>
                                 {% else %}
                                     <li class=" active"><a href="{{ asset('/debboWeb/web/app_dev.php/') }}" class="hyper "><span>Accueil</span></a></li>
 
                             {% endif %}
 
 
-                            <li><a href="{{ path('commande_index')  }}" class="hyper"> <span>Commande</span></a></li>
 
-
-
-                            <li><a href="{{ asset ('contact.html') }}" class="hyper"><span>Ressources Humaines</span></a></li>
-
-                            <li><a href="{{ asset ('app_dev.php/forum/') }}" class="hyper"> <span>Forum</span></a></li>
-                            <li><a href="{{ path ('fos_message_inbox') }}" class="hyper"> <span>Messagerie</span></a></li>
 
                         </ul>
                     </div>
                 </nav>
-
+            </div>
 
                 <div class="cart"  style="margin-right: 50px; " >
                     <style>
@@ -374,6 +222,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="clearfix"></div>
             </div>
 
+        </div>
+        </div>
         </div>
 
 
@@ -464,7 +314,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     <!---->
 
-    <div class="banner-top" data-vide-bg="{{ asset('video/video')}}">
         <div class="container">
 
             <div class="clearfix"> </div>
@@ -475,6 +324,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 {% endblock %}
 
 {% block content %}
+{% block body %}
     <div data-vide-bg="{{ asset('video/video') }}">
         <div class="container">
             <div class="banner-info">
@@ -497,10 +347,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="form-w3agile form1">
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
     <script src="js/jquery.vide.min.js"></script>
-{% endblock %}
 
-
-            <center> <h3>Bienvenue M/MME  sur votre site DeBBo !</h3></center> <br>
+            <center> <h3>Bienvenue M/MME {{ username }} sur votre site DeBBo !</h3></center> <br>
 
             {% for nbE in nbE %}
             Vous avez {{ nbE.nombre }} entrepots.
@@ -630,11 +478,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     {% endif %}
 
-<body>
-    {% block body %}{% endblock %}
+   {% endblock %}
 
-
-    </body>
 {% endblock %}
 
 
