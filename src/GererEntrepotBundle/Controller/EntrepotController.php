@@ -117,7 +117,7 @@ class EntrepotController extends Controller
        e.idEntrepot id_Entrepot, e.adresse adresse , e.numFiscale numFiscale, e.entreprise entreprise , l.idLocation id_Location, l.dateDebLocation dateDebLocation,l.dateFinLocation dateFinLocation, l.prixLocation prixLocation, u.prenom prenom , u.nom nom, u.tel tel, u.email email
        FROM GererEntrepotBundle:Entrepot e  
            JOIN GererEntrepotBundle:Location l WITH e.idEntrepot = l.fkEntrepot and e.id = $user and e.etat = 'En Attente'
-           JOIN EntrepotBundle:Utilisateur u WITH l.fkUser= u.id
+           JOIN AppBundle:User u WITH l.fkUser= u.id
            
            ");
 
@@ -473,7 +473,7 @@ class EntrepotController extends Controller
        e.idEntrepot id_Entrepot, e.adresse adresse , e.numFiscale numFiscale, e.entreprise entreprise , l.idLocation id_Location, l.dateDebLocation dateDebLocation,l.dateFinLocation dateFinLocation, l.prixLocation prixLocation, u.prenom prenom , u.nom nom, u.tel tel, u.email email
        FROM GererEntrepotBundle:Entrepot e  
            JOIN GererEntrepotBundle:Location l WITH e.idEntrepot = l.fkEntrepot and e.etat = 'En Attente'
-           JOIN EntrepotBundle:Utilisateur u WITH l.fkUser= u.id
+           JOIN AppBundle:User u WITH l.fkUser= u.id
            
            ");
 

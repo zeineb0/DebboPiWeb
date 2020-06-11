@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * User
  *
- * @ORM\Table(name="utilisateur", indexes={@ORM\Index(name="fk_pd", columns={"FK_id_produit"})})
+ * @ORM\Table(name="utilisateur")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
 class User extends BaseUser
@@ -26,6 +26,7 @@ class User extends BaseUser
 
     /**
      * @var string
+     *
      *
      * @ORM\Column(name="nom", type="string", length=10, nullable=false)
      */
@@ -89,7 +90,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="disponniblite", type="string", length=20, nullable=false)
+     * @ORM\Column(name="disponniblite", type="string", length=20, nullable=true)
      */
     private $disponniblite;
 
@@ -100,15 +101,6 @@ class User extends BaseUser
      */
     private $nbrMaxcomm;
 
-    /**
-     * @var \Produit
-     *
-     * @ORM\ManyToOne(targetEntity="StockBundle\Entity\Produit")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="FK_id_produit", referencedColumnName="id_produit")
-     * })
-     */
-    private $fkProduit;
 
     /**
      * @return int
@@ -284,22 +276,6 @@ class User extends BaseUser
     public function setNbrMaxcomm($nbrMaxcomm)
     {
         $this->nbrMaxcomm = $nbrMaxcomm;
-    }
-
-    /**
-     * @return \Produit
-     */
-    public function getFkProduit()
-    {
-        return $this->fkProduit;
-    }
-
-    /**
-     * @param \Produit $fkProduit
-     */
-    public function setFkProduit($fkProduit)
-    {
-        $this->fkProduit = $fkProduit;
     }
 
 

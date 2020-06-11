@@ -44,7 +44,7 @@ class Blog
     /**
      * @var \Utilisateur
      *
-     * @ORM\ManyToOne(targetEntity="EntrepotBundle\Entity\Utilisateur")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idUser", referencedColumnName="id_user")
      * })

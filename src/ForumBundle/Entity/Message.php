@@ -8,7 +8,10 @@ use Doctrine\Common\Collections\Collection;
 use FOS\MessageBundle\Entity\Message as BaseMessage;
 
 /**
- * @ORM\Entity
+ * Message
+ *
+ * @ORM\Table(name="commentaire" , indexes={@ORM\Index(name="IDX_67F068BCFE6E88D7", columns={"idUser"})} )
+ * @ORM\Entity(repositoryClass="ForumBundle\Repository\CommentaireRepository")
  */
 class Message extends BaseMessage
 {

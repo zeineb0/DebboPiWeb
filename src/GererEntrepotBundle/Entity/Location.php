@@ -62,7 +62,7 @@ class Location
     /**
      * @var Utilisateur
      *
-     * @ORM\ManyToOne(targetEntity="EntrepotBundle\Entity\Utilisateur")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="FK_id_user", referencedColumnName="id_user")
      * })

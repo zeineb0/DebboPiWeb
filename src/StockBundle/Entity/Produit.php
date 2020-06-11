@@ -76,7 +76,7 @@ class Produit
     /**
      * @var integer
      *
-     * @ORM\Column(name="note", type="integer", nullable=false)
+     * @ORM\Column(name="note", type="integer", nullable=true)
      */
     private $note;
 
