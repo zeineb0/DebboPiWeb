@@ -17,9 +17,6 @@ transporteur:
     resource: "@TransporteurBundle/Resources/config/routing.yml"
     prefix:   /Transporteur
 
-user:
-    resource: "@UserBundle/Resources/config/routing.yml"
-    prefix:   /user
 rh:
     resource: "@RHBundle/Resources/config/routing.yml"
     prefix:   /rh

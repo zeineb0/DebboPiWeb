@@ -4,7 +4,7 @@ namespace ForumBundle\Controller;
 
 use ForumBundle\Entity\Publication;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use EntrepotBundle\Entity\User;
+use AppBundle\Entity\User;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

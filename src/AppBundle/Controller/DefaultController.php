@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use EntrepotBundle\Entity\Produit;
+use StockBundle\Entity\Produit;
 
 class DefaultController extends Controller
 {
@@ -37,7 +37,7 @@ class DefaultController extends Controller
 
     /**
      *
-     * @Route("produit", name="produit_index")
+     * @Route("Gproduit", name="Gproduit_index")
      */
     public function indexGAction(Request $request)
     {

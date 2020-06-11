@@ -4,7 +4,7 @@ namespace CommandeBundle\Controller;
 
 use CommandeBundle\Entity\Commande;
 use CommandeBundle\Entity\ProduitCommande;
-use EntrepotBundle\Entity\Produit;
+use StockBundle\Entity\Produit;
 use NotificationBundle\Controller\BlogController;
 use NotificationBundle\NotificationBundle;
 use Symfony\Component\HttpFoundation\Response;

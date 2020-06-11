@@ -3,7 +3,7 @@
 namespace GererEntrepotBundle\Controller;
 
 use ClassesWithParents\E;
-use EntrepotBundle\Entity\Utilisateur;
+use AppBundle\Entity\User;
 use GererEntrepotBundle\Data\SearchData;
 use GererEntrepotBundle\Form\SearchForm;
 use CMEN\GoogleChartsBundle\GoogleCharts\Charts\PieChart;

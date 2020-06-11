@@ -3,7 +3,7 @@
 namespace GererEntrepotBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use EntrepotBundle\Entity\Utilisateur;
+use AppBundle\Entity\User;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 

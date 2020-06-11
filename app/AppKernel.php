@@ -33,7 +33,6 @@ class AppKernel extends Kernel
             new SBC\NotificationsBundle\NotificationsBundle(),
             new NotificationBundle\NotificationBundle(),
             new RHBundle\RHBundle(),
-            new UserBundle\UserBundle(),
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
             new WBW\Bundle\HighchartsBundle\HighchartsBundle(),
             new ForumBundle\ForumBundle(),

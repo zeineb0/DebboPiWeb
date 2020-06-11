@@ -9,7 +9,7 @@ use ForumBundle\Form\CommentaireType;
 use FOS\UserBundle\Model\UserInterface;
 use ForumBundle\Entity\Commentaire;
 use ForumBundle\Entity\Publication;
-use EntrepotBundle\Entity\User;
+use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;

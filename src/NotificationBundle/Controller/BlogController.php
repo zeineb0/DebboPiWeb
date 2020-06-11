@@ -2,7 +2,7 @@
 
 namespace NotificationBundle\Controller;
 
-use EntrepotBundle\Entity\Utilisateur;
+use AppBundle\Entity\User;
 use NotificationBundle\Entity\Blog;
 use NotificationBundle\Entity\Notification;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

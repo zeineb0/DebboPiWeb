@@ -46,7 +46,7 @@ class Panier
     /**
      * @var \Utilisateur
      *
-     * @ORM\ManyToOne(targetEntity="EntrepotBundle\Entity\Utilisateur")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_client", referencedColumnName="id_user")
      * })
