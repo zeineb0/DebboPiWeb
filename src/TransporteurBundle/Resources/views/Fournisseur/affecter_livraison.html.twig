@@ -69,7 +69,7 @@
             var adresse = $("#adress").val();
             var result ="il n'y a aucun transporteur";
             $.ajax({
-                url: "http://localhost/DebboPiWeb/web/app_dev.php/Transporteur/recherche?dateLiv="+dateLiv+"&adresse="+adresse,
+                url: "http://localhost/DebboWeb/web/app_dev.php/Transporteur/recherche?dateLiv="+dateLiv+"&adresse="+adresse,
                 type:"GET",
                // data:{dateLiv:"2020-04-16",adresse:"beja"},
                 success:function (retour) {
@@ -115,10 +115,10 @@
                         });*/
 
                        $.ajax({
-                            url: "http://localhost/DebboPiWeb/web/app_dev.php/Transporteur/modifierLiv?dateLiv="+dateLiv+"&idUser="+idUser+"&id="+{{ livraison.idLivraison }},
+                            url: "http://localhost/DebboWeb/web/app_dev.php/Transporteur/modifierLiv?dateLiv="+dateLiv+"&idUser="+idUser+"&id="+{{ livraison.idLivraison }},
                             type:"GET",
                             success:function (retour) {
-                                window.location.href = 'http://localhost/DebboPiWeb/web/app_dev.php/Transporteur/livraisonAffecter';
+                                window.location.href = 'http://localhost/DebboWeb/web/app_dev.php/Transporteur/livraisonAffecter';
                                 return false;
                             }
                         });

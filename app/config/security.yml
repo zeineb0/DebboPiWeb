@@ -37,6 +37,8 @@ security:
     # csrf_provider: form.csrf_provider
             logout: true
             anonymous: true
+            json_login:
+                check_path: /forum/logg
             # activate different ways to authenticate
 
 

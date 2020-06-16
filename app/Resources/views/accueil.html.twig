@@ -45,8 +45,35 @@
                         <ul class="nav navbar-nav ">
 
                             <li><a href="{{ path('produit_index')  }}" class="hyper"> <span>Accueil</span></a></li>
-                                <li class=" active"><a href="{{ path('front') }}" class="hyper "><span>Mes Commandes</span></a></li>
+                            <li><a href="{{ path('commande_index')  }}" class="hyper"> <span>Commande</span></a></li>
+                    </div>
 
+                    <div class="cart"  style="margin-right: 50px; " >
+                        <style>
+                            #notif{
+                                height: 30px; width: 30px;
+                                border-radius: 50%;
+                            }
+                            #notif:hover{ background-color: #ddd;
+                            }
+
+                        </style>
+                        {% if is_granted('ROLE_CLIENT') %}
+                        <div id="notif" >
+                            <span  style=" color: mediumseagreen;  " class="fa fa-bell"></span>
+                            <span id="count" style="position: absolute; margin-top: 10px" class="badge "></span>
+                        </div>
+
+                        <div id="listNotif" style="display: none;  position:absolute; margin-top: 0px"  >
+                        </div>
+                    </div>
+                    <div class="cart">
+                        <span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
+
+                    </div>
+                    {% endif %}
+                   =
+            </div>
 
                         </ul>
                     </div>

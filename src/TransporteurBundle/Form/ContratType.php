@@ -22,7 +22,7 @@ class ContratType extends AbstractType
             ->add('datefin',DateType::class,['label'=>'Date Fin','widget'=>'single_text'])
             ->add('salaire',IntegerType::class,['label'=>'Salaire'])
             ->add('FKidentrepot',EntityType::class,array(
-                'class'=>'EntrepotBundle:Entrepot',
+                'class'=>'GererEntrepotBundle:Entrepot',
                 'choice_label'=>'entreprise',
                 'multiple'=>false,
                 'label'=>"Entreprise"))

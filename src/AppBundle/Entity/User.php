@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use FOS\MessageBundle\Model\ParticipantInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
@@ -13,7 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="utilisateur")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User extends BaseUser
+class User extends BaseUser implements ParticipantInterface
 {
     /**
      * @var integer
@@ -38,7 +39,12 @@ class User extends BaseUser
      * @ORM\Column(name="prenom", type="string", length=10, nullable=false)
      */
     protected $prenom;
-
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbp", type="integer", nullable=false)
+     */
+    private $nbp;
     /**
      * @var integer
      *@Assert\NotBlank()
@@ -276,6 +282,22 @@ class User extends BaseUser
     public function setNbrMaxcomm($nbrMaxcomm)
     {
         $this->nbrMaxcomm = $nbrMaxcomm;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbp()
+    {
+        return $this->nbp;
+    }
+
+    /**
+     * @param int $nbp
+     */
+    public function setNbp($nbp)
+    {
+        $this->nbp = $nbp;
     }
 
 

@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Publication
  *
- * @ORM\Table(name="publication")
+ * @ORM\Table(name="publication" , indexes={@ORM\Index(name="IDX_AF3C6779FE6E88D7", columns={"idUser"})})
  * @ORM\Entity(repositoryClass="ForumBundle\Repository\PublicationRepository")
  */
 class Publication
@@ -79,7 +79,7 @@ class Publication
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idUser", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="idUser", referencedColumnName="id_user")
      * })
      */
     private $idUser;

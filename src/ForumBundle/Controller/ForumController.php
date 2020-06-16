@@ -19,42 +19,43 @@ class ForumController extends Controller
 {
     public function addPublicationAction(Request $request)
     {
-        $user=$this->getUser();/*
+        $user=$this->getUser();
+        /*
         if(!is_object($user) || !$user instanceof UserInterface)
         {
             return $this->redirect("http://localhost/pi-dev/web/app_dev.php/login");
         }
 */
-        $u=$this->getDoctrine()->getRepository(User::class)->find($user);
-        if($u->getNbp()==NULL)
+        $u=$this->getDoctrine()->getRepository('AppBundle:User')->findBy(array('id'=>$user));
+        if($u[0]->getNbp()==NULL)
         {
-            $u->setNbp(1);
+            $u[0]->setNbp(1);
 
         }
         else
         {
-            $u->setNbp($u->getNbp()+1);
+            $u[0]->setNbp($u[0]->getNbp()+1);
         }
         $pub=new Publication();
         $date=new \DateTime();
         $pub->setDatep($date);
-        $pub->setIdUser($u);
+        $pub->setIdUser($u[0]->getId());
         $form=$this->createForm(PublicationType::class,$pub);
         $form=$form->handleRequest($request);
         if($form->isValid() )
         {
-            //$pub->setDescriptionp($form['descriptionp']->getData());
-            //$pub->setTypep($form['typep']->getData());
+           // $pub->setDescriptionp($form['descriptionp']->getData());
+           // $pub->setTypep($form['typep']->getData());
             $pub->setImage($request->get('image'));
+            $pub->setIdUser($user);
             $em=$this->getDoctrine()->getManager();
             $em->persist($pub);
             $em->flush();
             return $this->redirectToRoute('publication_addPublication');
         }
 
-
-        $list=$this->getDoctrine()->getRepository(Publication::class)->findAll();
-        $list1=$this->getDoctrine()->getRepository(Commentaire::class)->findAll();
+        $list=$this->getDoctrine()->getRepository('ForumBundle:Publication')->findAll();
+        $list1=$this->getDoctrine()->getRepository('ForumBundle:Commentaire')->findAll();
         $postotal=0;
         foreach ($list as $row)
         {
@@ -105,7 +106,7 @@ class ForumController extends Controller
             'list'=>$list,
             'pagination' => $pagination,
             'piechart' => $pieChart,
-            'u'=>$u
+            'u'=>$u[0]
         ));
     }
 

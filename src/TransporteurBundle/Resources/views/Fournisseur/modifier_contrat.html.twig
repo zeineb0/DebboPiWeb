@@ -18,7 +18,7 @@
         {{ form_widget(form) }}
     </div>
         <div class="row" style="text-align: center">
-            <input class="btn btn-danger"  type="submit" href="{{ path("afficher_contrat") }}" value="Annuler"/>
+            <a class="btn btn-danger" href="{{ path("afficher_contrat") }}" >Annuler</a>
             <input class="btn btn-warning" type="submit" value="Modifier"/>
         </div>
     {{ form_end(form) }}
