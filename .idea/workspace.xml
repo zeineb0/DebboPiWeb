@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5efa15f4-3407-46f0-b8d6-8a222e470e65" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Controller/MobileEntrepotController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Controller/MobileEntrepotController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/config/routing.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/StockBundle/Controller/JsonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockBundle/Controller/JsonController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TransporteurBundle/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TransporteurBundle/Controller/ApiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TransporteurBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/TransporteurBundle/Resources/config/routing.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,6 +271,7 @@
       <workItem from="1591793902745" duration="8760000" />
       <workItem from="1592304770351" duration="35161000" />
       <workItem from="1592406166943" duration="8756000" />
+      <workItem from="1592436424366" duration="730000" />
     </task>
     <task id="LOCAL-00001" summary="Creation du bundle RH et FOSUserBundle">
       <created>1585850511463</created>

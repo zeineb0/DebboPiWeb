@@ -211,10 +211,10 @@ class JsonController extends Controller
         $mvt= new MouvementDuStock();
 
         $datee=$request->get('dateMouv');
-       $dateM = new \DateTime($datee);
+        $dateM = new \DateTime($datee);
 
-       $qte=($request->get('qte'));
-       echo($qte);
+        $qte=($request->get('qte'));
+        echo($qte);
 
         $produit = $em->getRepository('StockBundle:Produit')->find($request->get('fkProduit'));
         //$fk=$produit->getIdProduit();
