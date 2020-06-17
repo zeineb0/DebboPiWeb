@@ -1,112 +1,70 @@
 {% extends 'base.html.twig' %}
 {% block header %}
-    <div class="header">
 
-        <div class="container">
+    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+        <ul class="nav navbar-nav ">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
-            <div class="logo">
-                <h1> <a href=""><img src="{{ asset('images/debo.jpg') }}" alt="" title="" />DeBBo.<span>Le meilleur entrepôt</span></a></h1>
-            </div>
-            <div class="head-t">
-                <ul class="card">
-                    <li><a href="{{ asset('wishlist.html') }}" ><i class="fa fa-heart" aria-hidden="true"></i>Favoris</a></li>
-                    <li>{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        <a href="{{ path('fos_user_security_logout') }}">
-                            <i class="fa fa-sign-out" aria-hidden="true"></i>
-                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                    <li><a href="{{ asset ('/debboWeb/web/app_dev.php/profile') }}" ><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
 
-                    </a>
-                    {% else %}
+                <li><a href="{{ asset('/debboWeb/web/app_dev.php/front')  }}" class="hyper"> <span>Accueil</span></a></li>
+                <li><a href="{{ path('commande_index')  }}" class="hyper"> <span>Commande</span></a></li>
 
-                        <a href="{{ path('fos_user_security_login') }}">  <i class="fa fa-sign-in" aria-hidden="true"></i>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                <li class="dropdown  ">
+                    <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Location<b class="caret"></b></span></a>
 
-                        <li><a href="{{ asset ('/debboWeb/web/app_dev.php/register') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>S'enregistrer</a></li>
-
-                    {% endif %}
-
-                    </li>
-                </ul>
-            </div>
-
-            <div class="nav-top">
-                <nav class="navbar navbar-default">
-
-                    <div class="navbar-header nav_2">
-                        <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
-
-                    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-                        <ul class="nav navbar-nav ">
-
-                            <li><a href="{{ path('produit_index')  }}" class="hyper"> <span>Accueil</span></a></li>
-                            <li><a href="{{ path('commande_index')  }}" class="hyper"> <span>Commande</span></a></li>
-                            <li class="dropdown  ">
-                                <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Location<b class="caret"></b></span></a>
-
-                                <ul class="dropdown-menu multi">
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <ul class="multi-column-dropdown">
-                                                <li><a href="{{ asset('app_dev.php/entrepot/alouer') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Consulter les entrepots a louer</a></li>
-                                                <li><a href="{{ asset('app_dev.php/location') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Consulter mes locations</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="clearfix"></div>
-                                    </div>
+                    <ul class="dropdown-menu multi">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <ul class="multi-column-dropdown">
+                                    <li><a href="{{ asset('app_dev.php/entrepot/alouer') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Consulter les entrepots a louer</a></li>
+                                    <li><a href="{{ asset('app_dev.php/location') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Consulter mes locations</a></li>
                                 </ul>
-                            </li>
-                        </ul>
-                    </div>
+                            </div>
 
-                    <div class="cart"  style="margin-right: 50px; " >
-                        <style>
-                            #notif{
-                                height: 30px; width: 30px;
-                                border-radius: 50%;
-                            }
-                            #notif:hover{ background-color: #ddd;
-                            }
-
-                        </style>
-                        {% if is_granted('ROLE_CLIENT') %}
-                        <div id="notif" >
-                            <span  style=" color: mediumseagreen;  " class="fa fa-bell"></span>
-                            <span id="count" style="position: absolute; margin-top: 10px" class="badge "></span>
+                            <div class="clearfix"></div>
                         </div>
+                    </ul>
+                </li>
 
-                        <div id="listNotif" style="display: none;  position:absolute; margin-top: 0px"  >
-                        </div>
-                    </div>
-                    <div class="cart">
-                        <span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
 
-                    </div>
-                    {% endif %}
-                </nav>
-            </div>
 
-                        </ul>
-                    </div>
-                </nav>
-                <div class="cart" >
 
-                    <span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
-                </div>
-                <div class="clearfix"></div>
-            </div>
+            {% else %}
+                <li class=" active"><a href="{{ asset('/debboWeb/web/app_dev.php/') }}" class="hyper "><span>Accueil</span></a></li>
+
+            {% endif %}
+        </ul>
+    </div>
+    </nav>
+
+    <div class="cart"  style="margin-right: 50px; " >
+    <style>
+        #notif{
+            height: 30px; width: 30px;
+            border-radius: 50%;
+        }
+        #notif:hover{ background-color: #ddd;
+        }
+
+    </style>
+    {% if is_granted('ROLE_CLIENT') %}
+        <div id="notif" >
+            <span  style=" color: mediumseagreen;  " class="fa fa-bell"></span>
+            <span id="count" style="position: absolute; margin-top: 10px" class="badge "></span>
+        </div>
+
+        <div id="listNotif" style="display: none;  position:absolute; margin-top: 0px"  >
+        </div>
+        </div>
+        <div class="cart">
+            <span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
 
         </div>
-    </div>
 
-
+    {% endif %}
+    <div class="clearfix"></div>
 {% endblock %}
+
 {% block content %}
 
     <div data-vide-bg="{{ asset('video/video') }}">
@@ -183,7 +141,7 @@
 
         <div class="tab-pane active text-style" id="tab" >
 
-        {# {% for produit in produits %}
+        {% for produit in produits %}
                 <div class=" con-w3l" >
                     <div class="col-md-3 m-wthree">
                         <div class="col-m">
@@ -216,14 +174,14 @@
 
                                 </div>
                                 <div class="add">
-                                    <li class="btn btn-danger my-cart-btn my-cart-b" > <a  href="#">Ajouter au panier</a></li>
+                                    <button class="btn btn-danger my-cart-btn my-cart-b" data-max="{{ produit.quantite }}" data-id="{{ produit.idProduit }}" data-name="{{ produit.libelle }} " data-summary="{{ produit.marque }}"  data-price="{{ produit.prix }}" data-quantity="1" data-image="{{ asset('images/of3.png') }} ">Ajouter au carte </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     </div>
 
-            {% endfor %}#}
+            {% endfor %}
         </div>
         </div>
             </div>

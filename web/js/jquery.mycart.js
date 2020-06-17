@@ -183,23 +183,23 @@
 
     if(!$("#" + idCartModal).length) {
       $('body').append(
-        '<div class="modal fade" id="' + idCartModal + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
-        '<div class="modal-dialog" role="document">' +
-        '<div class="modal-content">' +
-        '<div class="modal-header">' +
-        '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
-        '<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-shopping-cart"></span> My Cart</h4>' +
-        '</div>' +
-        '<div class="modal-body">' +
-        '<table class="table table-responsive" id="' + idCartTable + '"></table>' +
-        '</div>' +
-        '<div class="modal-footer">' +
+          '<div class="modal fade" id="' + idCartModal + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
+          '<div class="modal-dialog" role="document">' +
+          '<div class="modal-content">' +
+          '<div class="modal-header">' +
+          '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+          '<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-shopping-cart"></span> My Cart</h4>' +
+          '</div>' +
+          '<div class="modal-body">' +
+          '<table class="table table-responsive" id="' + idCartTable + '"></table>' +
+          '</div>' +
+          '<div class="modal-footer">' +
 
-        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>' +
-        '</div>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+          '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+          '</div>'
       );
     }
 
@@ -211,15 +211,15 @@
       $.each(products, function(){
         var total = this.quantity * this.price;
         $cartTable.append(
-          '<tr title="Produit" data-id="' + this.id+ '" data-marque="' + this.marque + '" data-price="' + this.price + '">' +
-          '<td class="text-center " style="width: 30px;">' +
+            '<tr title="Produit" data-id="' + this.id+ '" data-marque="' + this.marque + '" data-price="' + this.price + '">' +
+            '<td class="text-center " style="width: 30px;">' +
             '<img width="30px" height="30px" src="' + this.image + '"/></td>' +
-          '<td class="text-center ">' + this.name + '</td>' + '<td>' + this.marque + '</td>' +
-          '<td title="Unit Price">$' + this.price + '</td>' +
+            '<td class="text-center ">' + this.name + '</td>' + '<td>' + this.marque + '</td>' +
+            '<td title="Unit Price">$' + this.price + '</td>' +
             '<td title="Quantity"><input type="number" min="1" max="'+this.max+'"  style="width: 70px; " class="form-control ' + classProductQuantity + '" value="' + this.quantity + '"/></td>' +
-             '<td title="Total" class="' + classProductTotal + '">$' + total + '</td>' +
-          '<td title="Remove from Cart" class="text-center" style="width: 30px;"><a href="javascript:void(0);" class="btn btn-xs btn-danger ' + classProductRemove + '">X</a></td>' +
-          '</tr>'
+            '<td title="Total" class="' + classProductTotal + '">$' + total + '</td>' +
+            '<td title="Remove from Cart" class="text-center" style="width: 30px;"><a href="javascript:void(0);" class="btn btn-xs btn-danger ' + classProductRemove + '">X</a></td>' +
+            '</tr>'
         );
       });
 
@@ -251,22 +251,22 @@
             '<td ><strong id="' + idGrandTotal + '">$</strong></td>' +
             '<td></td>' +
             '</tr>'
-            : '<div class="alert alert-danger" role="alert" id="' + idEmptyCartMessage + '">Vorte carte est vide</div>'
+            : '<div class="alert alert-danger" role="alert" id="' + idEmptyCartMessage + '">Votre carte est vide</div>'
         );
       }
       var discountPrice = options.getDiscountPrice(products, ProductManager.getTotalPrice(), ProductManager.getTotalQuantity());
       if(products.length && discountPrice !== null) {
         $cartTable.append(
-          '<tr style="color: red">' +
-          '<td></td>' +
+            '<tr style="color: red">' +
             '<td></td>' +
             '<td></td>' +
             '<td></td>' +
-          '<td style="width:200px" ><strong>Total (including discount)</strong></td>' +
+            '<td></td>' +
+            '<td style="width:200px" ><strong>Total (including discount)</strong></td>' +
 
-          '<td><strong id="' + idDiscountPrice + '">$</strong></td>' +
-          '<td></td>' +
-          '</tr>'+
+            '<td><strong id="' + idDiscountPrice + '">$</strong></td>' +
+            '<td></td>' +
+            '</tr>'+
             '<tr>' +
             '<td></td>' +
             '<td></td>' +
@@ -276,12 +276,12 @@
             '<td></td>' +
             '<td></td>'+
             '</tr>'+
-        '<tr style="">' +
+            '<tr style="">' +
 
-        '<td colspan="7"style="width:150px;" ><a  href="javascript:void(0);"  style="float:right; margin: 20px" class="btn btn-success ' +
+            '<td colspan="7"style="width:150px;" ><a  href="javascript:void(0);"  style="float:right; margin: 20px" class="btn btn-success ' +
             classPasserCommande + '">Passer Commande</a></td>' +
 
-        '</tr>'
+            '</tr>'
         );
       }
 
@@ -360,17 +360,18 @@
 
       var $conf = confirm("Volez vous passer cette commande?");
       if ($conf){
-      $.ajax({
-        type:"POST",
-        url:"http://localhost/DebboPiWeb/web/app_dev.php/commande/new",
-        data: {commande: $product,total: $total},
-        success: function(reponse){
-          ProductManager.clearProduct();
-          drawTable(true);
-          $cartBadge.text(ProductManager.getTotalQuantity());
-        }
-      });
+        $.ajax({
+          type:"POST",
+          url:"http://localhost/DebboWeb/web/app_dev.php/commande/new",
+          data: {commande: $product,total: $total},
+          success: function(reponse){
+            ProductManager.clearProduct();
+            drawTable(true);
+            $cartBadge.text(ProductManager.getTotalQuantity());
 
+          }
+        });
+        $(document).load(true);
       }
     });
 

@@ -69,10 +69,70 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         });
     </script>
     <!---//End-rate---->
+{#  <!-- smooth scrolling -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            /*
+                var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+                };
+            */
+            $().UItoTop({ easingType: 'easeOutQuart' });
+        });
+    </script>
+    <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+    <!-- //smooth scrolling -->
+#}
 
+    <!-- for bootstrap working -->
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+    <!-- //for bootstrap working -->
+    <script type='text/javascript' src="{{ asset('js/jquery.mycart.js') }}"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            var goToCartIcon = function($addTocartBtn){
+                var $cartIcon = $(".my-cart-icon");
+                var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({"position": "fixed", "z-index": "999"});
+                $addTocartBtn.prepend($image);
+                var position = $cartIcon.position();
+                $image.animate({
+                    top: position.top,
+                    left: position.left
+                }, 500 , "linear", function() {
+                    $image.remove();
+                });
+            }
+
+            $('.my-cart-btn').myCart({
+                classCartIcon: 'my-cart-icon',
+                classCartBadge: 'my-cart-badge',
+                affixCartIcon: true,
+                checkoutCart: function(products) {
+                    $.each(products, function(){
+                        console.log(this);
+                    });
+                },
+                clickOnAddToCart: function($addTocart){
+                    goToCartIcon($addTocart);
+                },
+                getDiscountPrice: function(products) {
+                    var total = 0;
+                    $.each(products, function(){
+                        total += this.quantity * this.price;
+                    });
+                    return total * 1;
+                }
+            });
+
+        });
+    </script>
 </head>
 <body>
-{% block header %}
+
     <div class="header">
         <div class="container">
             <div class="logo">
@@ -102,7 +162,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <span class="icon-bar"></span>
                         </button>
                     </div>
-
+                    {% block header %}
                     <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                         <ul class="nav navbar-nav ">
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -175,7 +235,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                             </ul>
                                         </div>
-
+                                    </div>
                                         <div class="clearfix"></div>
                                     </ul>
                                 </li>
@@ -193,14 +253,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <li class=" active"><a href="{{ asset('/debboWeb/web/app_dev.php/') }}" class="hyper "><span>Accueil</span></a></li>
 
                             {% endif %}
-
-
-
-
                         </ul>
                     </div>
                 </nav>
-            </div>
 
                 <div class="cart"  style="margin-right: 50px; " >
                     <style>
@@ -225,13 +280,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="fa fa-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
 
                 </div>
+
                 {% endif %}
                 <div class="clearfix"></div>
-            </div>
 
-        </div>
-        </div>
-        </div>
+                    {% endblock %}
+
+            </div>
+            </div>
 
 
     </div>
@@ -328,7 +384,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 
 
-{% endblock %}
+
 
 {% block content %}
 {% block body %}
@@ -517,65 +573,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- //footer-->
 
 {% endblock %}
-<!-- smooth scrolling -->
-<script type="text/javascript">
-    $(document).ready(function() {
-        /*
-            var defaults = {
-            containerID: 'toTop', // fading element id
-            containerHoverID: 'toTopHover', // fading element hover id
-            scrollSpeed: 1200,
-            easingType: 'linear'
-            };
-        */
-        $().UItoTop({ easingType: 'easeOutQuart' });
-    });
-</script>
-<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-<!-- //smooth scrolling -->
-<!-- for bootstrap working -->
-<script src="{{ asset('js/bootstrap.js') }}"></script>
-<!-- //for bootstrap working -->
-<script type='text/javascript' src="{{ asset('js/jquery.mycart.js') }}"></script>
-<script type="text/javascript">
-    $(function () {
-
-        var goToCartIcon = function($addTocartBtn){
-            var $cartIcon = $(".my-cart-icon");
-            var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({"position": "fixed", "z-index": "999"});
-            $addTocartBtn.prepend($image);
-            var position = $cartIcon.position();
-            $image.animate({
-                top: position.top,
-                left: position.left
-            }, 500 , "linear", function() {
-                $image.remove();
-            });
-        }
-
-        $('.my-cart-btn').myCart({
-            classCartIcon: 'my-cart-icon',
-            classCartBadge: 'my-cart-badge',
-            affixCartIcon: true,
-            checkoutCart: function(products) {
-                $.each(products, function(){
-                    console.log(this);
-                });
-            },
-            clickOnAddToCart: function($addTocart){
-                goToCartIcon($addTocart);
-            },
-            getDiscountPrice: function(products) {
-                var total = 0;
-                $.each(products, function(){
-                    total += this.quantity * this.price;
-                });
-                return total * 1;
-            }
-        });
-
-    });
-</script>
 
 
 
