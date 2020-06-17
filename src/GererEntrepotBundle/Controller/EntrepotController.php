@@ -60,12 +60,19 @@ class EntrepotController extends Controller
                 }
 
             }
-
-        return $this->render('@GererEntrepot/entrepot/alouer.html.twig', array(
+if($securityContext->isGranted('ROLE_CLIENT'))
+{      return $this->render('@GererEntrepot/entrepot/alouer.html.twig', array(
             'entrepots' => $ent,
 
 
-        ));
+        ));}
+            else{
+                return $this->render('@GererEntrepot/entrepot/alouerF.html.twig', array(
+                    'entrepots' => $ent,
+
+
+                ));}
+
         }
         # if user not logged in yet
         else

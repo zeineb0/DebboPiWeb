@@ -43,10 +43,17 @@ class LocationController extends Controller
                 $request->query->getInt('page', 1), /*page number*/
                 $request->query->getInt('limit',10) /*limit per page*/
             );
+            if($securityContext->isGranted('ROLE_CLIENT')){
         return $this->render('@GererEntrepot/location/index.html.twig', array(
             'locations' => $result,
 
-        ));
+        ));}
+            else { return $this->render('@GererEntrepot/location/indexF.html.twig', array(
+                'locations' => $result,
+
+            ));}
+
+
         }
         # if user not logged in yet
         else

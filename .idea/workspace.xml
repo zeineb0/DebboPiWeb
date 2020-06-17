@@ -2,19 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5efa15f4-3407-46f0-b8d6-8a222e470e65" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/entrepot/alouerF.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/location/indexF.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/best_aerial_drone_photography-wallpaper-1920x1080.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/accueil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/accueil.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/security.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ForumBundle/Controller/ForumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ForumBundle/Controller/ForumController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ForumBundle/Entity/Publication.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ForumBundle/Entity/Publication.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TransporteurBundle/Form/ContratType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TransporteurBundle/Form/ContratType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TransporteurBundle/Resources/views/Fournisseur/affecter_livraison.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/TransporteurBundle/Resources/views/Fournisseur/affecter_livraison.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TransporteurBundle/Resources/views/Fournisseur/modifier_contrat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/TransporteurBundle/Resources/views/Fournisseur/modifier_contrat.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TransporteurBundle/Resources/views/Transporteur/accueil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/TransporteurBundle/Resources/views/Transporteur/accueil.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Form/Type/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Form/Type/RegistrationFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ForumBundle/Controller/UtilisateurMobileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ForumBundle/Controller/UtilisateurMobileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Controller/EntrepotController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Controller/EntrepotController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Controller/LocationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Controller/LocationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/entrepot/alouer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/entrepot/alouer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/entrepot/demande.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/entrepot/demande.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/location/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/location/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/images/categories/covered_with_a_veil-wallpaper-1920x1080.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/images/produits/birds_cage_photo_hd-wallpaper-1920x1080.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,7 +280,7 @@
       <workItem from="1591629899686" duration="2603000" />
       <workItem from="1591651603573" duration="13614000" />
       <workItem from="1591793902745" duration="8760000" />
-      <workItem from="1592304770351" duration="14481000" />
+      <workItem from="1592304770351" duration="22077000" />
     </task>
     <task id="LOCAL-00001" summary="Creation du bundle RH et FOSUserBundle">
       <created>1585850511463</created>

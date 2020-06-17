@@ -46,6 +46,23 @@
 
                             <li><a href="{{ path('produit_index')  }}" class="hyper"> <span>Accueil</span></a></li>
                             <li><a href="{{ path('commande_index')  }}" class="hyper"> <span>Commande</span></a></li>
+                            <li class="dropdown  ">
+                                <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Location<b class="caret"></b></span></a>
+
+                                <ul class="dropdown-menu multi">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="{{ asset('app_dev.php/entrepot/alouer') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Consulter les entrepots a louer</a></li>
+                                                <li><a href="{{ asset('app_dev.php/location') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Consulter mes locations</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
 
                     <div class="cart"  style="margin-right: 50px; " >
@@ -72,7 +89,7 @@
 
                     </div>
                     {% endif %}
-                   =
+                </nav>
             </div>
 
                         </ul>
@@ -166,7 +183,7 @@
 
         <div class="tab-pane active text-style" id="tab" >
 
-            {% for produit in produits %}
+        {# {% for produit in produits %}
                 <div class=" con-w3l" >
                     <div class="col-md-3 m-wthree">
                         <div class="col-m">
@@ -206,8 +223,8 @@
                     </div>
                     </div>
 
-            {% endfor %}
-                </div>
+            {% endfor %}#}
+        </div>
         </div>
             </div>
         </div>

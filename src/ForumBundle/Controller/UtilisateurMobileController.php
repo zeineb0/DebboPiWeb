@@ -42,6 +42,7 @@ class UtilisateurMobileController extends Controller
         $user->setRoles(array('ROLE_USER'));
         $user->setCin($request->get('cin'));
         $user->setTel($request->get('tel'));
+        $user->setRole($request->get('role'));
 
     //    $this->userManager->updateUser($user);
 
