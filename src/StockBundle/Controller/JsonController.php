@@ -7,7 +7,7 @@ namespace StockBundle\Controller;
 use StockBundle\Entity\Categories;
 use StockBundle\Entity\MouvementDuStock;
 use StockBundle\Entity\Produit;
-use EntrepotBundle\Entity\Entrepot;
+use GererEntrepotBundle\Entity\Entrepot;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -38,14 +38,13 @@ class JsonController extends Controller
     public function ajouterCAction(Request $request){
         $em = $this->getDoctrine()->getManager();
         $categories = new Categories();
-        //  $user = $this->container->get('security.token_storage')->getToken()->getUser();
-        $categories->setNom($request->get('nom'));
-        $categories->setImageName($request->get('imageName'));
+ $categories->setNom($request->get('nom'));
+       // $categories->setImageName($request->get('imageName'));
         $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
         $categories->setFkEntrepot($entrepots);
-        $categories->setIdUser($request->get('idUser'));
-        // $categories->setIdUser($user);
-       // $categories->setImageName('covered_with_a_veil-wallpaper-1920x1080.jpg');
+        $user = $em->getRepository('AppBundle:User')->find($request->get('idUser'));
+        $categories->setIdUser($user);
+       $categories->setImageName('covered_with_a_veil-wallpaper-1920x1080.jpg');
         $em->persist($categories);
         $em->flush();
         $serializer = new Serializer([new ObjectNormalizer()]);
@@ -118,14 +117,15 @@ class JsonController extends Controller
         $produit->setLibelle($request->get('libelle'));
         $produit->setMarque($request->get('marque'));
         $produit->setPrix($request->get('prix'));
-        $produit->setFkEntrepot($request->get('fkEntrepot'));
         $produit->setReference($request->get('reference'));
         $produit->setImageName('covered_with_a_veil-wallpaper-1920x1080.jpg');
         $produit->setQuantite($request->get('quantite'));
         $produit->setPromotion(0);
-        $produit->setIdUser($request->get('idUser'));
+
         $categories = $em->getRepository('StockBundle:Categories')->find($request->get('fkCategorie'));
-        $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
+        $user = $em->getRepository('AppBundle:User')->find($request->get('idUser'));
+        $produit->setIdUser($user);
+
         $ent=$categories->getFkEntrepot();
         $produit->setFkCategorie($categories);
         $produit->setFkEntrepot($ent);
@@ -222,7 +222,8 @@ class JsonController extends Controller
         //var_dump($fk);
 
         $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
-
+        $user = $em->getRepository('AppBundle:User')->find($request->get('idUser'));
+        $mvt->setIdUser($user);
         $mvt->setNatureMouvement($request->get('natureMouvement'));
         $mvt->setDateMouv($dateM);
         $mvt->setFkEntrepot($entrepots);

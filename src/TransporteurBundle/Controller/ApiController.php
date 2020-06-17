@@ -101,8 +101,15 @@ class ApiController extends Controller
 
         return $this->getContratAction(2);
 
-    }
 
+    }
+    public function getEntrepotAction()
+    {
+        $entrepot = $this->getDoctrine()->getRepository('EntrepotBundle:Entrepot')->findAll();
+        $serializer=new Serializer([new ObjectNormalizer()]);
+        $formatted= $serializer->normalize($entrepot);
+        return new JsonResponse($formatted);
+    }
 
 
 

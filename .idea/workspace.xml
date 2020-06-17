@@ -3,16 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="5efa15f4-3407-46f0-b8d6-8a222e470e65" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/accueil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/accueil.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/commande/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/commande/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/commande/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/commande/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/commande/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/commande/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/commande/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/commande/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/commande/produit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/commande/produit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/commande/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/commande/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/mrad/notifications-bundle/SBC/NotificationsBundle/Model/BaseNotification.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mrad/notifications-bundle/SBC/NotificationsBundle/Model/BaseNotification.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/jquery.mycart.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/jquery.mycart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Controller/MobileEntrepotController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Controller/MobileEntrepotController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockBundle/Controller/JsonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockBundle/Controller/JsonController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TransporteurBundle/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TransporteurBundle/Controller/ApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TransporteurBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/TransporteurBundle/Resources/config/routing.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,6 +274,7 @@
       <workItem from="1591651603573" duration="13614000" />
       <workItem from="1591793902745" duration="8760000" />
       <workItem from="1592304770351" duration="35161000" />
+      <workItem from="1592406166943" duration="8756000" />
     </task>
     <task id="LOCAL-00001" summary="Creation du bundle RH et FOSUserBundle">
       <created>1585850511463</created>

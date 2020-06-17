@@ -122,8 +122,10 @@ afficherContratEXP:
     path: /affContratEXP/{id}
     defaults: {_controller: TransporteurBundle:Api:getContratEXP}
 
-
 supprimerContrat:
     path: /suppContrat/
     defaults: {_controller: TransporteurBundle:Api:supprimerContrat}
 
+get_entrepot:
+    path: /getE
+    defaults: {_controller: TransporteurBundle:Api:getEntrepot}
