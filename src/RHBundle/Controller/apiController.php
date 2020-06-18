@@ -19,18 +19,34 @@ class apiController extends Controller
 
     public function allAction(){
         $conge=$this->getDoctrine()->getManager()->getRepository('RHBundle:conge')->findAll();
-       /* $serializer= new Serializer([new ObjectNormalizer()]);
-        $formatted =$serializer->normalize($conge);*/
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonContent = $serializer->serialize($conge, 'json');
+        echo $jsonContent;
+        return new Response($jsonContent);
 
-        foreach($conge as $item) {
+
+
+
+
+
+        /* foreach($conge as $item) {
 
             $arrayCollection[] = array(
-                'dateArrive' => date_format($item->getDatearrive(), 'd/m/y'),
-                'id'=>$item->getId()
+               $dateM = new \DateTime($item->getDatesortie()),
+                $dateA = new \DateTime($item->getDatearrive()),
+                'id'=>$item->getId(),
+                'datearrive' => $item->getDatearrive(),
+                'datesortie' => $item->getDatesortie(),
+                'raison' =>$item->getRaison(),
+                'type' => $item->getType(),
+                'etat' => $item->getEtat(),
+                'fkidemp' => $item->getFKIdEmp(),
 
             );
         }
-        return new JsonResponse($arrayCollection);
+        return new JsonResponse($arrayCollection);*/
 }
     public function newAction(Request $request)
     {
@@ -54,15 +70,15 @@ class apiController extends Controller
         $conge->setFKIdEmp($request->get('FKIdEmp'));
         $conge->setRaison($request->get('raison'));
 
-        if ($emp->getNbcong() < 2) {
+        if ($emp->getNbcong() < 14) {
         // $idc=$request->get('FKIdEmp');
         //  $nbc=$this->getDoctrine()->getManager()->getRepository('RHBundle:employe')->findBy(['$idEmp' => $idc]);
         $em = $this->getDoctrine()->getManager();
         $em->persist($conge);
         $em->flush();
             $em->createQuery('update RHBundle:Employe e
-                set e.nbcong = e.nbcong+1 where e.idEmp=?0
-                ')->setParameter(0,$request->get('FKIdEmp'))->execute();
+                set e.nbcong = e.nbcong+?1 where e.idEmp=?0
+                ')->setParameter(0,$request->get('FKIdEmp'))->setParameter(1,$request->get('d'))->execute();
 
         }
         $conge->setFKIdEmp($employe);
@@ -72,6 +88,26 @@ class apiController extends Controller
         $jsonContent = $serializer->serialize($conge, 'json');
         return new Response($jsonContent);
     }
+    public function modifiercongeAction(Request $request){
+        $em= $this->getDoctrine()->getManager();
+        $conge=$em->getRepository('RHBundle:conge')->find($request->get('id'));
+        $dates=$request->get('datesortie');
+        $datess= new \DateTime($dates);
+        $datea=$request->get('datearrive');
+        $dateaa= new \DateTime($datea);
+        $conge->setDatearrive($dateaa);
+        $conge->setDatesortie($datess);
+        $conge->setType($request->get('type'));
+        $conge->setRaison($request->get('raison'));
+        $em1=$this->getDoctrine()->getManager();
+        $em1->persist($conge);
+        $em1->flush();
 
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonContent = $serializer->serialize($conge, 'json');
+        return new Response($jsonContent);
+    }
 
 }

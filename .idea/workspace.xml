@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5efa15f4-3407-46f0-b8d6-8a222e470e65" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/images/49a48982-fceb-4f96-b6b0-8145eba62958.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/images/95582000_2484281535216359_1989303584491044864_n.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/images/c2c973b8-ffb0-4808-9ecc-1cf95a33d351.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config_dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config_dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/parameters.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/parameters.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RHBundle/Controller/EmployeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Controller/EmployeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RHBundle/Controller/MailController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Controller/MailController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RHBundle/Entity/Departement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Entity/Departement.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RHBundle/Entity/Employe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Entity/Employe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/views/mail/sendmail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/mail/sendmail.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/tick.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RHBundle/Controller/apiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Controller/apiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/config/routing.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,6 +246,13 @@
       <workItem from="1591097795303" duration="99000" />
       <workItem from="1591099884033" duration="547000" />
       <workItem from="1591101676230" duration="1538000" />
+      <workItem from="1591623993355" duration="410000" />
+      <workItem from="1591624863368" duration="1675000" />
+      <workItem from="1591923302520" duration="552000" />
+      <workItem from="1592390917998" duration="1999000" />
+      <workItem from="1592434997356" duration="535000" />
+      <workItem from="1592483401916" duration="6426000" />
+      <workItem from="1592493499014" duration="3367000" />
     </task>
     <task id="LOCAL-00001" summary="Creation du bundle RH et FOSUserBundle">
       <created>1585850511463</created>
@@ -369,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591023174187</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="finale">
+      <created>1591624094226</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1591624094226</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,7 +398,8 @@
     <MESSAGE value="zz" />
     <MESSAGE value="bundle stat" />
     <MESSAGE value="stat" />
-    <option name="LAST_COMMIT_MESSAGE" value="stat" />
+    <MESSAGE value="finale" />
+    <option name="LAST_COMMIT_MESSAGE" value="finale" />
   </component>
   <component name="WindowStateProjectService">
     <state x="137" y="20" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586441435980">
@@ -417,10 +422,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="559" y="294" key="#com.jetbrains.php.framework.ui.FailedToParseDialog/0.0.1366.728@0.0.1366.728" timestamp="1585844044776" />
-    <state x="226" y="0" key="CommitChangelistDialog2" timestamp="1591023165513">
+    <state x="226" y="0" key="CommitChangelistDialog2" timestamp="1591624084695">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="226" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1591023165513" />
+    <state x="226" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1591624084695" />
     <state x="438" y="258" key="ComposerCompositePathDialog" timestamp="1585348732941">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -473,10 +478,10 @@
     </state>
     <state x="478" y="279" key="SymfonyPathDialog/0.0.1366.728@0.0.1366.728" timestamp="1585348765112" />
     <state x="537" y="316" key="SymfonyPathDialog/0.0.1536.824@0.0.1536.824" timestamp="1585059146417" />
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1591624052517">
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1592493501953">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1591624052517" />
+    <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1592493501953" />
     <state x="481" y="54" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1589519037555">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
