@@ -39,23 +39,12 @@
             <li class="nav-item">
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
             </li>
+
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ path('back') }}" class="nav-link">Accueil</a>
+                <a href="{{ path('back') }}" class="btn btn-danger">Accueil</a>
 
-            <li>{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                <a href="{{ path('fos_user_security_logout') }}">
-                    <i class="nav-item" ></i>
-                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-
-                </a>
-                {% else %}
-
-                <a href="{{ path('fos_user_security_login') }}">  <i class="fa fa-sign-in" aria-hidden="true"></i>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-
-            <li><a href="{{ asset ('/debboWeb/web/app_dev.php/register') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>S'enregistrer</a></li>
-
-            {% endif %}
             </li>
+
 
 
 
@@ -77,94 +66,13 @@
         <ul class="navbar-nav ml-auto">
             <!-- Messages Dropdown Menu -->
             <li class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown" href="#">
-                    <i class="far fa-comments"></i>
-                    <span class="badge badge-danger navbar-badge">3</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <a href="#" class="dropdown-item">
-                        <!-- Message Start -->
-                        <div class="media">
-                            <img src="{{ asset('back/dist/img/user1-128x128.jpg') }}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                            <div class="media-body">
-                                <h3 class="dropdown-item-title">
-                                    Brad Diesel
-                                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                                </h3>
-                                <p class="text-sm">Call me whenever you can...</p>
-                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                            </div>
-                        </div>
-                        <!-- Message End -->
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <!-- Message Start -->
-                        <div class="media">
-                            <img src="{{ asset('back/dist/img/user8-128x128.jpg') }}" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                            <div class="media-body">
-                                <h3 class="dropdown-item-title">
-                                    John Pierce
-                                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                                </h3>
-                                <p class="text-sm">I got your message bro</p>
-                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                            </div>
-                        </div>
-                        <!-- Message End -->
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <!-- Message Start -->
-                        <div class="media">
-                            <img src="{{ asset('back/dist/img/user3-128x128.jpg') }} " alt="User Avatar" class="img-size-50 img-circle mr-3">
-                            <div class="media-body">
-                                <h3 class="dropdown-item-title">
-                                    Nora Silvester
-                                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                                </h3>
-                                <p class="text-sm">The subject goes here</p>
-                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                            </div>
-                        </div>
-                        <!-- Message End -->
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-                </div>
+
+                <a href="{{ path('fos_user_security_logout') }}" class="btn btn-danger">
+                    <i class="fa fa-sign-out" ></i> Deconnexion</a>
+
             </li>
             <!-- Notifications Dropdown Menu -->
-            <li class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown" href="#">
-                    <i class="far fa-bell"></i>
-                    <span class="badge badge-warning navbar-badge">15</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <span class="dropdown-item dropdown-header">15 Notifications</span>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-envelope mr-2"></i> 4 new messages
-                        <span class="float-right text-muted text-sm">3 mins</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-users mr-2"></i> 8 friend requests
-                        <span class="float-right text-muted text-sm">12 hours</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-file mr-2"></i> 3 new reports
-                        <span class="float-right text-muted text-sm">2 days</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-                    <i class="fas fa-th-large"></i>
-                </a>
-            </li>
+
         </ul>
     </nav>
     <!-- /.navbar -->
@@ -173,7 +81,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="{{ asset('index3.html') }}" class="brand-link">
-            <img src="{{ asset('back/dist/img/debo.jpg') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            <img src="{{ asset('Admin/dist/img/user2-160x160.jpg') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
             <span class="brand-text font-weight-light">Admin dashboard </span>
         </a>
@@ -183,10 +91,10 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="{{ asset('back/dist/img/IMG.jpg') }} " class="img-circle elevation-2" alt="User Image">
+                    <img src="{{ asset('web/images/debo.png') }} " class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">Zeineb Yahiaoui</a>
+                    <a href="#" class="d-block">Debbo Admin</a>
                 </div>
             </div>
 
@@ -217,8 +125,69 @@
                                 </a>
                             </li>
                         </ul>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas  fa-rocket"></i>
+                            <p>
+                                Livraison
+                                <i class="right fas fa-angle-left"></i>
+
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a href="{{ asset('/DebboWeb/web/app_dev.php/Transporteur/admin') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Statistique des livraisons</p>
+                                </a>
+                            </li>
+
+                        </ul>
 
                     </li>
+                    </li>
+
+                    {#*********************************fatma*********************************************#}
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Entrepot
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ path('entrepot_admin') }}" class="nav-link active">
+                                    <i class="far fa-circle text-blue"></i>
+                                    <p>Liste des entrepots</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('entrepot_statistic') }}" class="nav-link">
+                                    <i class="far fa-circle text-green"></i>
+                                    <p>Statistic pour les entrepots</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('location_admin') }}" class="nav-link">
+                                    <i class="far fa-circle text-yellow"></i>
+                                    <p>Liste des Locations</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('location_statistic') }}" class="nav-link">
+                                    <i class="far fa-circle text-red"></i>
+                                    <p>Statistic pour les Locations</p>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </li>
+
+{#*********************************fatma*********************************************#}
                     <li class="nav-item has-treeview menu-open">
                         <a href="#" class="nav-link active">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -287,6 +256,45 @@
                         </ul>
 
                     </li>
+                    <li class="nav-item has-treeview menu-open">
+
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas fa-cart-arrow-down"></i>
+
+                            <p>
+                                Commande
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                    <li class="nav-item">
+                        <a href="{{  asset('/DebboWeb/web/app_dev.php/admin/commande') }}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>La liste des commande</p>
+                        </a>
+                    </li> <li class="nav-item">
+                        <a href="{{  asset('/DebboWeb/web/app_dev.php/admin/commande/statistic') }}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Statistiques</p>
+                        </a>
+                    </li>
+
+                    </li><li class="nav-item has-treeview menu-open">
+
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas fa-cart-arrow-down"></i>
+
+                            <p>
+Ressource humaine                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                    <li class="nav-item">
+                        <a href="{{  asset('/DebboWeb/web/app_dev.php/rh/admin') }}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>La liste des commande</p>
+                        </a>
+                    </li>
+
+                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
@@ -309,6 +317,7 @@
         {% endblock %}
 
 {% block content %}
+{% block body %}
     <section class="content">
         <div class="container-fluid">
 
@@ -379,78 +388,69 @@
                     </div>
                 </div>
                 <!-- ./col -->
-            </div>
-            <!-- row -->
-            <div class="row">
-                <div class="col-12">
-                    <!-- jQuery Knob -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">
-                                <i class="far fa-chart-bar"></i>
-Taux d'avancement de l'application                            </h3>
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3>{{ quantiteall.cnt }}</h3>
 
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                            class="fas fa-minus"></i>
-                                </button>
-                                <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
-                                </button>
-                            </div>
+                            <p>Nombre d'entrepot</p>
                         </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-6 col-md-3 text-center">
-                                    <input type="text" class="knob" value="30" data-width="90" data-height="90" data-fgColor="#3c8dbc">
-
-                                    <div class="knob-label">Nouveau Visiteurs</div>
-                                </div>
-                                <!-- ./col -->
-                                <div class="col-6 col-md-3 text-center">
-                                    <input type="text" class="knob" value="20" data-width="90" data-height="90" data-fgColor="#f56954">
-
-                                    <div class="knob-label">Nouveau enregistrement</div>
-                                </div>
-                                <!-- ./col -->
-                                <div class="col-6 col-md-3 text-center">
-                                    <input type="text" class="knob" value="80" data-min="-150" data-max="150" data-width="90"
-                                           data-height="90" data-fgColor="#00a65a">
-
-                                    <div class="knob-label">Nouvelle commande</div>
-                                </div>
-                                <!-- ./col -->
-                                <div class="col-6 col-md-3 text-center">
-                                    <input type="text" class="knob" value="50" data-width="90" data-height="90" data-fgColor="#00c0ef">
-
-                                    <div class="knob-label">Taux de vente</div>
-                                </div>
-                                <!-- ./col -->
-                            </div>
-                            <!-- /.row -->
-
-                            <div class="row">
-                                <div class="col-6 text-center">
-                                    <input type="text" class="knob" value="90" data-width="90" data-height="90" data-fgColor="#932ab6">
-
-                                    <div class="knob-label">Livraison express</div>
-                                </div>
-                                <!-- ./col -->
-                                <div class="col-6 text-center">
-                                    <input type="text" class="knob" value="50" data-width="90" data-height="90" data-fgColor="#39CCCC">
-
-                                    <div class="knob-label">Nouveaux employés</div>
-                                </div>
-                                <!-- ./col -->
-                            </div>
-                            <!-- /.row -->
+                        <div class="icon">
+                            <i class="ion ion-bag"></i>
                         </div>
-                        <!-- /.card-body -->
+                        <a class="small-box-footer" href="{{ path('entrepot_admin')}}">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
-                    <!-- /.card -->
                 </div>
-                <!-- /.col -->
-            </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                            <h3>{{ quantite.cnt }}<sup style="font-size: 20px"></sup></h3>
+
+                            <p>Nombre d'entrepot loué</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-stats-bars"></i>
+                        </div>
+                        <a class="small-box-footer" href="{{ path('entrepot_admin')}}">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-warning">
+                        <div class="inner">
+                            <h3>{{ quantite1.cnt }}</h3>
+
+                            <p>Nombre d'entrepot a louer </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+                        <a class="small-box-footer" href="{{ path('entrepot_admin')}}">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-danger">
+                        <div class="inner">
+                            <h3>{{quantite2.cnt  }}</h3>
+
+                            <p>Nombre des entrepots libre</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-pie-graph"></i>
+                        </div>
+                        <a class="small-box-footer" href="{{ path('entrepot_admin')}}">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+        </div><!-- /.container-fluid -->
+            <!-- row -->
+
             <!-- /.row -->
 
 
@@ -459,6 +459,7 @@ Taux d'avancement de l'application                            </h3>
     </section>
 
 
+        {% endblock %}
         {% endblock %}
     <!-- /.content-wrapper -->
         {% block footer %}
@@ -513,7 +514,40 @@ Taux d'avancement de l'application                            </h3>
     <script src="{{ asset('back/dist/js/pages/dashboard.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('back/dist/js/demo.js') }}"></script>
+    <!-- ./wrapper -->
+
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="{{ asset('Admin/plugins/jquery/jquery.min.js') }}"></script>
+    <!-- Bootstrap -->
+    <script src="{{ asset('Admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- overlayScrollbars -->
+    <script src="{{ asset('Admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{ asset('Admin/dist/js/Adminlte.js') }}"></script>
+
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="{{ asset('Admin/dist/js/demo.js') }}"></script>
+
+    <!-- PAGE PLUGINS -->
+    <!-- jQuery Mapael -->
+    <script src={{asset('Admin/plugins/jquery-mousewheel/jquery.mousewheel.js')  }}></script>
+    <script src="{{ asset('Admin/plugins/raphael/raphael.min.js') }}"></script>
+    <script src="{{ asset('Admin/plugins/jquery-mapael/jquery.mapael.min.js') }}"></script>
+    <script src="{{ asset('Admin/plugins/jquery-mapael/maps/usa_states.min.js') }}"></script>
+    <!-- ChartJS -->
+    <script src="{{ asset('Admin/plugins/chart.js/Chart.min.js') }}"></script>
+
+    <!-- PAGE SCRIPTS -->
+    <script src="{{ asset('Admin/dist/js/pages/dashboard2.js') }}"></script>
 </div>
+
+{% block scripts %}{% endblock %}
+
+{% block map %}
+{% endblock %}
+{% block JS %}
+{% endblock %}
 </body>
 
 </html>

@@ -3,11 +3,24 @@
   <component name="ChangeListManager">
     <list default="true" id="5efa15f4-3407-46f0-b8d6-8a222e470e65" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/accueil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/accueil.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/baseBack.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/baseBack.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/admin/commande.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/admin/commande.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/admin/showAdminCommande.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/admin/showAdminCommande.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/admin/statCommande.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/admin/statCommande.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Controller/EntrepotController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Controller/EntrepotController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/demande.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/demande.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/detailEntrepot.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/detailEntrepot.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/detailLocation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/detailLocation.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/location.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/location.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/staticticLocation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/staticticLocation.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/statistic.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/statistic.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RHBundle/Controller/apiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Controller/apiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/views/admin/admin1.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/admin/admin1.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TransporteurBundle/Resources/views/Admin/admin_page.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/TransporteurBundle/Resources/views/Admin/admin_page.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Profile/show_content.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Profile/show_content.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,17 +166,17 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\DebboWeb\app\Resources\views\default" />
+      <recent name="C:\wamp64\www\DebboWeb\src\ForumBundle\Controller" />
+      <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Resources\views" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\DebboWeb\app\Resources" />
       <recent name="C:\wamp64\www\DebboWeb\src\ForumBundle" />
       <recent name="C:\wamp64\www\DebboWeb\src\ForumBundle\Resources\views" />
       <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Resources\views\admin" />
       <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Resources\config\routing" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\DebboWeb\app\Resources\views\default" />
-      <recent name="C:\wamp64\www\DebboWeb\src\ForumBundle\Controller" />
-      <recent name="C:\wamp64\www\DebboPiWeb\src\RHBundle\Resources\views" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -276,6 +289,7 @@
       <workItem from="1592304770351" duration="35161000" />
       <workItem from="1592406166943" duration="8756000" />
       <workItem from="1592436424366" duration="730000" />
+      <workItem from="1592487780709" duration="7557000" />
     </task>
     <task id="LOCAL-00001" summary="Creation du bundle RH et FOSUserBundle">
       <created>1585850511463</created>
@@ -430,10 +444,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="112" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1587048597302" />
-    <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1589581549524">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="464" y="136" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1592493112848">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="413" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1589581549524" />
+    <state x="464" y="136" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1592493112848" />
     <state x="629" y="313" key="#com.jetbrains.php.framework.ui.FailedToParseDialog" timestamp="1591717705136">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -448,11 +463,11 @@
     </state>
     <state x="438" y="258" key="ComposerCompositePathDialog/0.0.1366.728@0.0.1366.728" timestamp="1585348732941" />
     <state x="493" y="292" key="ComposerCompositePathDialog/0.0.1536.824@0.0.1536.824" timestamp="1591716184835" />
-    <state x="662" y="310" key="FileChooserDialogImpl" timestamp="1591882225104">
+    <state x="662" y="310" key="FileChooserDialogImpl" timestamp="1592491145271">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="487" y="137" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586723896278" />
-    <state x="662" y="310" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1591882225104" />
+    <state x="662" y="310" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1592491145271" />
     <state x="622" y="302" key="FrameworkEditDialogDimensionKey" timestamp="1591716263836">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

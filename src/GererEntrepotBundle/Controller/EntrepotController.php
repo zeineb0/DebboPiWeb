@@ -319,19 +319,10 @@ if($securityContext->isGranted('ROLE_CLIENT'))
     {   $em = $this->getDoctrine()->getManager();
 
         $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->findAll();
-        /**
-         * @var $paginator \Knp\Component\Pager\Paginator
-         */
-        $paginator = $this->get('knp_paginator');
 
-        $result =$paginator->paginate(
-            $entrepots, /* query NOT result */
-            $request->query->getInt('page', 1), /*page number*/
-            $request->query->getInt('limit',10) /*limit per page*/
-        );
 
         return $this->render('@GererEntrepot/admin/index.html.twig', array(
-            'entrepots' => $result,
+            'entrepots' => $entrepots,
         ));
 
     }

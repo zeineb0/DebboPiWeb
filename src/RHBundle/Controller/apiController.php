@@ -19,8 +19,7 @@ class apiController extends Controller
 
     public function allAction(){
         $conge=$this->getDoctrine()->getManager()->getRepository('RHBundle:conge')->findAll();
-       /* $serializer= new Serializer([new ObjectNormalizer()]);
-        $formatted =$serializer->normalize($conge);*/
+
 
         foreach($conge as $item) {
 
@@ -30,6 +29,8 @@ class apiController extends Controller
 
             );
         }
+        $serializer= new Serializer([new ObjectNormalizer()]);
+        $formatted =$serializer->normalize($conge);
         return new JsonResponse($arrayCollection);
 }
     public function newAction(Request $request)
