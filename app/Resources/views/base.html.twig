@@ -142,7 +142,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul class="card">
                     <li><a href="{{ asset('wishlist.html') }}" ><i class="fa fa-heart" aria-hidden="true"></i>Favoris</a></li>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <li><a href="{{ path('fos_user_profile_show') }}" ><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
+                        <li><a href="{{ path ('fos_user_profile_show') }}" ><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
                         <li><a href="{{ path('fos_user_security_logout') }}" ><i class="fa fa-arrow-right" aria-hidden="true"></i>Se deconnecter</a></li>
                     {% else %}
                         <li><a href="{{ path('fos_user_security_login') }}" ><i class="fa fa-user" aria-hidden="true"></i>Se connecter</a></li>
@@ -168,7 +168,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
                             <li class=" active"><a href="{{ path('frontF') }}" class="hyper "><span>Accueil</span></a></li>
-                                <li><a href="{{ path('produit_index')  }}" class="hyper"> <span>Produit</span></a></li>
 
                                 <li class="dropdown  ">
                                 <a href="#" class="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Entrepot<b class="caret"></b></span></a>
@@ -184,12 +183,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             </ul>
                                         </div>
 
-                                        <div class="col-sm-4">
-                                            <ul class="multi-column-dropdown">
-                                                <li><a href="{{ asset('/DebboWeb/web/app_dev.php/Transporteur/livraisonAffecter') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Gestion Des Livraisons</a></li>
-                                            </ul>
 
-                                        </div>
                                         <div class="col-sm-3">
                                             <ul class="multi-column-dropdown">
                                                 <li><a href="{{ asset('app_dev.php/location') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Consulter mes locations</a></li>
@@ -197,7 +191,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             </ul>
 
                                         </div>
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+                                                <li><a href="{{ asset('/DebboWeb/web/app_dev.php/Transporteur/livraisonAffecter') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Gestion Des Livraisons</a></li>
+                                            </ul>
 
+                                        </div>
                                         <div class="clearfix"></div>
                                     </div>
                                 </ul>
@@ -243,12 +242,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
+                                <li class="dropdown">
+
+                                    <a href="#" class="dropdown-toggle hyper" data-toggle="dropdown" ><span> Ressources Humaines <b class="caret"></b></span></a>
+
+                                    <ul class="dropdown-menu multi">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <ul class="multi-column-dropdown">
+                                                    <li><a href="{{ asset ('app_dev.php/rh/emp') }}"><i class="fa fa-angle-right" aria-hidden="true"></i> Employe </a></li>
+                                                    <li><a href="{{ asset ('app_dev.php/rh/dep') }}"><i class="fa fa-angle-right" aria-hidden="true"></i>Département</a></li>
+
+                                                </ul>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                    </ul>
+                                </li>
 
 
-                                <li><a href="{{ asset ('contact.html') }}" class="hyper"><span>Ressources Humaines</span></a></li>
-
-                                <li><a href="{{ asset ('app_dev.php/forum/') }}" class="hyper"> <span>Forum</span></a></li>
-                                <li><a href="{{ path ('fos_message_inbox') }}" class="hyper"> <span>Messagerie</span></a></li>
                                 {% else %}
                                     <li class=" active"><a href="{{ asset('/debboWeb/web/app_dev.php/') }}" class="hyper "><span>Accueil</span></a></li>
 

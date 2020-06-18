@@ -21,15 +21,17 @@ class DefaultController extends Controller
 
     {
         $em = $this->getDoctrine()->getManager();
-
         $produits = $em->getRepository('StockBundle:Produit')->findAll();
+        $categorys = $em->getRepository('StockBundle:Categories')->findAll();
+        $entrepots = $em->getRepository('GererEntrepotBundle:Entrepot')->findAll();
         $cat = $em->getRepository('StockBundle:Categories')->findAll();
 
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
             'produits'=>$produits,
             'cat'=>$cat,
-
+            'categorys'=>$categorys,
+            'entrepots'=>$entrepots,
 
         ]);
     }
