@@ -17,21 +17,31 @@ use Symfony\Component\HttpFoundation\Response;
 class apiController extends Controller
 {
 
-    public function allAction(){
-        $conge=$this->getDoctrine()->getManager()->getRepository('RHBundle:conge')->findAll();
+    public function allCongeAction(){
+
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('RHBundle:conge')->findAll();
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonContent = $serializer->serialize($categories, 'json');
 
 
-        foreach($conge as $item) {
+        echo $jsonContent;
+        return new Response($jsonContent);
+
+
+       /* foreach($conge as $item) {
 
             $arrayCollection[] = array(
                 'dateArrive' => date_format($item->getDatearrive(), 'd/m/y'),
                 'id'=>$item->getId()
 
             );
-        }
-        $serializer= new Serializer([new ObjectNormalizer()]);
-        $formatted =$serializer->normalize($conge);
-        return new JsonResponse($arrayCollection);
+        }*/
+       // $serializer= new Serializer([new ObjectNormalizer()]);
+       // $formatted =$serializer->normalize($conge);
+        //return new JsonResponse($arrayCollection);
 }
     public function newAction(Request $request)
     {
@@ -72,6 +82,41 @@ class apiController extends Controller
         $serializer = new Serializer($normalizers, $encoders);
         $jsonContent = $serializer->serialize($conge, 'json');
         return new Response($jsonContent);
+    }
+    public function modifiercongeAction(Request $request){
+        $em= $this->getDoctrine()->getManager();
+        $conge=$em->getRepository('RHBundle:conge')->find($request->get('id'));
+        $dates=$request->get('datesortie');
+        $datess= new \DateTime($dates);
+        $datea=$request->get('datearrive');
+        $dateaa= new \DateTime($datea);
+        $conge->setDatearrive($dateaa);
+        $conge->setDatesortie($datess);
+        $conge->setType($request->get('type'));
+        $conge->setRaison($request->get('raison'));
+        $em1=$this->getDoctrine()->getManager();
+        $em1->persist($conge);
+        $em1->flush();
+
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonContent = $serializer->serialize($conge, 'json');
+        return new Response($jsonContent);
+    }
+
+    public function deleteAction(Request $request){
+        $em= $this->getDoctrine()->getManager();
+        $conge=$em->getRepository('RHBundle:conge')->find($request->get('id'));
+        $em->remove($conge);
+        $em->flush();
+
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonContent = $serializer->serialize($conge, 'json');
+        return new Response($jsonContent);
+
     }
 
 

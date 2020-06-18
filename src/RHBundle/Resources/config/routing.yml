@@ -15,8 +15,8 @@ rh_conge:
     prefix:   /conge
 
 all:
-    path: /all
-    defaults: { _controller: RHBundle:api:all }
+    path: /allConge
+    defaults: { _controller: RHBundle:api:allConge }
 
 new:
     path: /new
@@ -27,7 +27,14 @@ admin_dashboard:
     path:     /admin
     defaults: { _controller: RHBundle:Default:admin }
 
-
 rh_homepage:
     path:     /
     defaults: { _controller: RHBundle:Default:index }
+modif:
+    path: /modifierconge
+    defaults: { _controller: RHBundle:api:modifierconge}
+    methods:  [GET, POST]
+delete:
+    path: /delete
+    defaults: { _controller: RHBundle:api:delete}
+    methods:  [GET, POST]

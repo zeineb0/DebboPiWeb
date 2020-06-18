@@ -3,24 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5efa15f4-3407-46f0-b8d6-8a222e470e65" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/admin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/baseBack.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/baseBack.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/admin/commande.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/admin/commande.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/admin/showAdminCommande.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/admin/showAdminCommande.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/admin/statCommande.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandeBundle/Resources/views/admin/statCommande.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Controller/EntrepotController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Controller/EntrepotController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/demande.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/demande.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/detailEntrepot.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/detailEntrepot.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/detailLocation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/detailLocation.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/location.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/location.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/staticticLocation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/staticticLocation.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/statistic.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GererEntrepotBundle/Resources/views/admin/statistic.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RHBundle/Controller/apiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Controller/apiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/views/admin/admin1.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/views/admin/admin1.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TransporteurBundle/Resources/views/Admin/admin_page.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/TransporteurBundle/Resources/views/Admin/admin_page.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Profile/show_content.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Resources/views/Profile/show_content.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RHBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/RHBundle/Resources/config/routing.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,7 +273,7 @@
       <workItem from="1592304770351" duration="35161000" />
       <workItem from="1592406166943" duration="8756000" />
       <workItem from="1592436424366" duration="730000" />
-      <workItem from="1592487780709" duration="7557000" />
+      <workItem from="1592487780709" duration="9799000" />
     </task>
     <task id="LOCAL-00001" summary="Creation du bundle RH et FOSUserBundle">
       <created>1585850511463</created>
