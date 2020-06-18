@@ -25,7 +25,10 @@ new:
     path: /new
     defaults: { _controller: RHBundle:api:new }
     methods:  [GET, POST]
-
+delete:
+    path: /delete
+    defaults: { _controller: RHBundle:api:delete}
+    methods:  [GET, POST]
 admin_dashboard:
     path:     /admin
     defaults: { _controller: RHBundle:Default:admin }

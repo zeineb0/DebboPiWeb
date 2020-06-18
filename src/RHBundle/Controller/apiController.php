@@ -110,4 +110,18 @@ class apiController extends Controller
         return new Response($jsonContent);
     }
 
+    public function deleteAction(Request $request){
+        $em= $this->getDoctrine()->getManager();
+        $conge=$em->getRepository('RHBundle:conge')->find($request->get('id'));
+        $em->remove($conge);
+        $em->flush();
+
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonContent = $serializer->serialize($conge, 'json');
+        return new Response($jsonContent);
+
+    }
+
 }
