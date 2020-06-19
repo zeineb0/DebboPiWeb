@@ -40,12 +40,14 @@ class JsonController extends Controller
         $categories = new Categories();
         //  $user = $this->container->get('security.token_storage')->getToken()->getUser();
         $categories->setNom($request->get('nom'));
-        $categories->setImageName($request->get('imageName'));
+       // $categories->setImageName($request->get('imageName'));
         $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
+        $user = $em->getRepository('AppBundle:User')->find(1);
+        $categories->setIdUser($user);
+        $categories->setUpdatedAt( new \DateTime('now'));
         $categories->setFkEntrepot($entrepots);
-        $categories->setIdUser($request->get('idUser'));
         // $categories->setIdUser($user);
-       // $categories->setImageName('covered_with_a_veil-wallpaper-1920x1080.jpg');
+        $categories->setImageName('alley_in_the_forest-wallpaper-1920x1080.jpg');
         $em->persist($categories);
         $em->flush();
         $serializer = new Serializer([new ObjectNormalizer()]);
@@ -118,14 +120,20 @@ class JsonController extends Controller
         $produit->setLibelle($request->get('libelle'));
         $produit->setMarque($request->get('marque'));
         $produit->setPrix($request->get('prix'));
-        $produit->setFkEntrepot($request->get('fkEntrepot'));
         $produit->setReference($request->get('reference'));
         $produit->setImageName('covered_with_a_veil-wallpaper-1920x1080.jpg');
         $produit->setQuantite($request->get('quantite'));
+        if ($request->get('quantite')<=20){
+            $produit->setPromotion(1);
+
+        }
         $produit->setPromotion(0);
-        $produit->setIdUser($request->get('idUser'));
+
+        $user = $em->getRepository('AppBundle:User')->find(1);
+        $produit->setIdUser($user);
+        $produit->setUpdatedAt(new \DateTime('now'));
+       // $produit->setIdUser($request->get('idUser'));
         $categories = $em->getRepository('StockBundle:Categories')->find($request->get('fkCategorie'));
-        $entrepots = $em->getRepository('EntrepotBundle:Entrepot')->find($request->get('fkEntrepot'));
         $ent=$categories->getFkEntrepot();
         $produit->setFkCategorie($categories);
         $produit->setFkEntrepot($ent);
@@ -227,6 +235,8 @@ class JsonController extends Controller
         $mvt->setDateMouv($dateM);
         $mvt->setFkEntrepot($entrepots);
         $mvt->setFkProduit($produit);
+        $user = $em->getRepository('AppBundle:User')->find(1);
+        $mvt->setIdUser($user);
         $em->persist($mvt);
         $em->flush();
         $id=$mvt->getFkProduit();

@@ -1,7 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5efa15f4-3407-46f0-b8d6-8a222e470e65" name="Default Changelist" comment="" />
+    <list default="true" id="5efa15f4-3407-46f0-b8d6-8a222e470e65" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/WallP1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/WallP2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/WallP3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/WallP4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/WallP5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/WallP7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/WallP8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/WallP9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/best_aerial_drone_photography-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/blue_drops_2-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/canyon_with_little_river_stones-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/colorful_21-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/extra_clean_water_cs9_premium_photography-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/flowering_grasses-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/huanglong_sichuan_china-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/human_ubuntu-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/ice_canyon___greenland-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/laptop_smartphone_desk-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/motivational-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/oh_my-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/portrait-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/rice_field_landscape-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/stone_ellipse-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/street_art_5-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/the_infinity_of_china-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/time_zone_map-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/top_of_skyscraper_selfie-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/tunisian_desert-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/water_drops_on_grass-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/categories/xubuntu_blue_rock-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/WallP1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/WallP2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/WallP3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/WallP4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/WallP5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/WallP6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/WallP7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/WallP8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/WallP9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/best_aerial_drone_photography-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/colorful_21-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/flowering_grasses-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/huanglong_sichuan_china-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/human_ubuntu-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/ice_canyon___greenland-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/laptop_smartphone_desk-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/motivational-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/portrait-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/rice_field_landscape-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/stone_ellipse-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/street_art_5-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/the_infinity_of_china-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/time_zone_map-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/public/images/produits/water_drops_on_grass-wallpaper-1920x1080.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/DebboWeb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DebboWeb.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockBundle/Controller/JsonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockBundle/Controller/JsonController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockBundle/Entity/Categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockBundle/Entity/Categories.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StockBundle/Entity/Produit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/StockBundle/Entity/Produit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/images/categories/covered_with_a_veil-wallpaper-1920x1080.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/images/produits/covered_with_a_veil-wallpaper-1920x1080.jpg" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +75,9 @@
     <execution>
       <phar pharPath="$PROJECT_DIR$/composer.phar" interpreterId="e4d81d27-125c-4bdf-b56e-af48d1f19c5a" />
     </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -72,6 +138,12 @@
       <path value="$PROJECT_DIR$/vendor/php-http/logger-plugin" />
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
       <path value="$PROJECT_DIR$/vendor/hwi/oauth-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sfk/email-template-bundle" />
+      <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
+      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/blackknight467/star-rating-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1ZZuBcFn2Muvf0iEgjNy0vKZYjU" />
@@ -83,11 +155,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/public/images/produits" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\DebboWeb\web\public\images\produits" />
+      <recent name="C:\wamp64\www\DebboWeb\web\public\images\categories" />
       <recent name="C:\wamp64\www\DebboWeb\web\images" />
       <recent name="C:\wamp64\www\DebboWeb\web" />
     </key>
@@ -113,6 +187,7 @@
       <updated>1585058802724</updated>
       <workItem from="1585059077321" duration="5141000" />
       <workItem from="1585150527833" duration="3494000" />
+      <workItem from="1592557699287" duration="1950000" />
     </task>
     <servers />
   </component>
@@ -120,6 +195,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="562" y="129" key="#com.intellij.ide.util.MemberChooser" timestamp="1592558439159">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="562" y="129" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1592558439159" />
     <state x="493" y="292" key="ComposerCompositePathDialog" timestamp="1585059130422">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
