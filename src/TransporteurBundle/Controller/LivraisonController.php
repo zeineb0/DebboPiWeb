@@ -113,6 +113,7 @@ class LivraisonController extends Controller
 
         $livraison=$this->getDoctrine()->getRepository(Livraison::class)->getLivraisonByUserNotD($id=$this->getUser()->getId());
 
+
         $nbrLivraison=$this->getDoctrine()->getRepository(Livraison::class)->getNbrLivraison($id=$this->getUser()->getId());
 
 

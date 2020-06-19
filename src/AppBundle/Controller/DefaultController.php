@@ -251,6 +251,18 @@ class DefaultController extends Controller
 
         // replace this example code with whatever you need
         return $this->render('accueil.html.twig',array('produits'=>$produits));
+    }  /**
+     * @Route("/frontT", name="frontT")
+     */
+    public function frontTAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $livraison=$this->getDoctrine()->getRepository(Livraison::class)->getLivraisonByUserNotD($id=$this->getUser()->getId());
+
+
+        $nbrLivraison=$this->getDoctrine()->getRepository(Livraison::class)->getNbrLivraison($id=$this->getUser()->getId());
+        // replace this example code with whatever you need
+        return $this->render('admin.html.twig',array("liste_livraison"=>$livraison,"nbr_livraison"=>$nbrLivraison));
     } /**
      * @Route("/frontF", name="frontF")
      */

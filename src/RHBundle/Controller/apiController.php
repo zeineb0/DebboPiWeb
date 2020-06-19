@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 class apiController extends Controller
 {
 
-    public function allCongeAction(){
+    public function allAction(){
 
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository('RHBundle:conge')->findAll();

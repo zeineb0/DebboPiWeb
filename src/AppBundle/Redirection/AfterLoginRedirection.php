@@ -53,6 +53,9 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
             $redirection = new RedirectResponse($this->router->generate('front'));
 
         // otherwise we redirect user to the member area
+        elseif (in_array('ROLE_TRANSPORTEUR', $rolesTab, true))
+            $redirection = new RedirectResponse($this->router->generate('frontT'));
+
         else
             $redirection = new RedirectResponse($this->router->generate('frontF'));
 

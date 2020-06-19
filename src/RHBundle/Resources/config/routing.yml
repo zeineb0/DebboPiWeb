@@ -14,9 +14,9 @@ rh_conge:
     resource: "@RHBundle/Resources/config/routing/conge.yml"
     prefix:   /conge
 
-all:
-    path: /allConge
-    defaults: { _controller: RHBundle:api:allConge }
+allConge:
+    path: /all
+    defaults: { _controller: RHBundle:api:all }
 
 new:
     path: /new
